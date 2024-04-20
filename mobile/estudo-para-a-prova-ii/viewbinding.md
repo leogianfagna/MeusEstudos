@@ -60,7 +60,7 @@ binding = ResultProfileBinding.inflate(layoutInflater)
 val view = binding.root
 ```
 
-4. No método `onCreate()`, Transmita a visualização raiz para [`setContentView()`](https://developer.android.com/reference/kotlin/android/app/Activity?hl=pt-br#setcontentview\_1) para torná-la a visualização ativa na tela.
+4. No método `onCreate()`, transmita a visualização raiz para [`setContentView()`](https://developer.android.com/reference/kotlin/android/app/Activity?hl=pt-br#setcontentview\_1) para torná-la a visualização ativa na tela.
 
 ```kotlin
 setContentView(view)
@@ -105,5 +105,76 @@ class LoginActivity : AppCompatActivity() {
 
 ## A implementação sem o uso do ViewBinding
 
-A instância de uma classe de vinculação contém referências diretas a todas as visualizações que têm um ID no layout correspondente.
+A instância de uma classe de vinculação contém referências diretas a <mark style="color:purple;">todas as visualizações</mark> que têm um ID no layout correspondente. Sem o uso dele, é necessário referenciar todas, uma por uma.
+
+### Sem usar ViewBinding
+
+Instância cada elemento da View e depois, utilizando a classe R (classe do Android Studio que possui referência para todas as views do arquivo de layout), utiliza a instância para cada elemento da View.&#x20;
+
+```kotlin
+class InicioActivity : AppCompatActivity() {
+
+    private lateinit var btnCadastro: Button
+    private lateinit var btnLogar: Button
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        // ...
+
+        btnCadastro = findViewById(R.id.btnCadastro)
+        btnLogar = findViewById(R.id.btnLogar)
+
+        btnCadastro.setOnClickListener {
+        // ...
+        }
+    }
+}
+```
+
+### Utilizando ViewBinding
+
+Uma instância para o binding, inflar o layout receber referência e transmití-la.
+
+```kotlin
+class InicioActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityInicioBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        // ...
+        binding = ResultProfileBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
+
+
+        binding.btnCadastro.setOnClickListener {
+        // ...
+        }
+    }
+}
+```
+
+
+
+## Como não se deve utilizar o ViewBinding
+
+É muito importante não cometer erros na utilização do ViewBinding e da forma que ele funciona. Não se deve fazer:
+
+1. **Ignorar seu ciclo de vida**: ele deve ser declarado dentro do método onCreate()
+2. **Vinculação excessiva**: a utilização do ViewBinding é feita para evitar isso
+3. **Não liberar memória**: deve utilizar unbind() ou liberando a variável no método onDestroy()
+4. **Não verificar se é nulo**: sempre deve verificar se é nulo antes de utilizá-lo
+
+Além disso, apesar de poderoso, não é recomendado utilizá-lo em algumas ocasiões. São elas e seus respetivos motivos:
+
+1. **Projetos simples:** fica mais fácil usar `findViewById()` ou até mesmo vincular diretamente no XML utilizando `android:onClick`
+2. **Aprendizado**: em projetos de aprendizado é melhor utilizar os conceitos básicos para um melhor entendimento
+3. **Incompatibilidade** com bibliotecas: alguns projetos podem depender de bibliotecas de terceiros que não são compatíveis com o ViewBinding
+4. **Desempenho**: projetos onde cada milisegundo é importante, o uso do ViewBinding, que é otimizado, ainda sim pode ser prejudicial
+5. **Frameworks que geram código automaticamente**: muitos deles podem não ser compatíveis com o ViewBinding e usando métodos diretos como o `findViewById()`
+
+## Como desabilitar o ViewBinding
+
+Basicamente, é reverter todas as mudanças feitas para o uso do ViewBinding. A primeira coisa é desabilitar a configuração que permite o uso dele no Gradle, deixando como false. Após isso, remover as classes criadas automaticamente para cada arquivo de layout.
+
+O código utilizando ViewBinding é diferente. Portanto, deve refazer os códigos sem a utilização de suas instanciações. Depois disso, basta recompilar o projeto.
 
