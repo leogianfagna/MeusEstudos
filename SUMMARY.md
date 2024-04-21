@@ -1,9 +1,7 @@
 # Table of contents
 
-* [Estudo de banco de Dados II](README.md)
+## Programação para Dispositivos Móveis
 
-## Mobile
-
-* [Estudo para a prova II](mobile/estudo-para-a-prova-ii/README.md)
-  * [Activitys](mobile/estudo-para-a-prova-ii/activitys.md)
-  * [ViewBinding](mobile/estudo-para-a-prova-ii/viewbinding.md)
+* [Estudo para a prova II](README.md)
+  * [Activitys](programacao-para-dispositivos-moveis/estudo-para-a-prova-ii/activitys.md)
+  * [ViewBinding](programacao-para-dispositivos-moveis/estudo-para-a-prova-ii/viewbinding.md)

@@ -1,17 +1,6 @@
 ---
-description: Ementa aqui
+description: Página focada para o estudo para a prova 2 de Mobile.
 ---
 
-# Estudo de banco de Dados II
+# Estudo para a prova II
 
-
-
-```javascript
-// some code
-function aquiEla () {
-   let oi = 10;
-   
-   return oi;
-}
-aquiela()
-```
