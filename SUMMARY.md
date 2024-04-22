@@ -7,3 +7,5 @@
   * [Activitys](programacao-para-dispositivos-moveis/estudo-para-a-prova-ii/activitys.md)
   * [ViewBinding](programacao-para-dispositivos-moveis/estudo-para-a-prova-ii/viewbinding.md)
   * [Estrutura layout](programacao-para-dispositivos-moveis/estudo-para-a-prova-ii/estrutura-layout.md)
+  * [RecyclerView](programacao-para-dispositivos-moveis/estudo-para-a-prova-ii/recyclerview.md)
+  * [Async Task](programacao-para-dispositivos-moveis/estudo-para-a-prova-ii/async-task.md)
