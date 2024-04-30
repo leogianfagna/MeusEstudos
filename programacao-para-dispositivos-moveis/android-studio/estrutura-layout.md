@@ -40,7 +40,7 @@ As marcações xmlns são "namespaces". Os namespaces são usados para definir e
 
 Esses namespaces, em tese, são necessários pois eles fazem muitas <mark style="color:green;">referências necessárias</mark> para o funcionamento. Por exemplo, essas referências necessárias levam para definir os atributos em uso, tais como:&#x20;
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Então, sem essa referência, esses elementos não funcionariam. A declaração delas não funciona como se fossem como uma biblioteca, mas sim, como são definidos e como eles devem ser interpretados. Essa primeira declaração já é necessária para todo o layout, já que, como é feita na raíz, todo o restante é herdado.
 

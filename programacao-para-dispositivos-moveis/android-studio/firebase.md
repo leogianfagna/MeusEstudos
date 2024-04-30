@@ -6,7 +6,7 @@ No site do Firebase, existe a categoria do banco de dados, que é o Firebase Fir
 
 Para utilizá-lo, é necessário ajustar os provedores do Authentication (serviço que fornece uma maneira simples e fácil de adicionar autenticação em seus aplicativos móveis e da web). No caso de estudos, foi adicionado dois tipos de provedores:
 
-<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption><p>Adicionado provedor por e-mail/senha e outro por modo anônimo</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1).png" alt=""><figcaption><p>Adicionado provedor por e-mail/senha e outro por modo anônimo</p></figcaption></figure>
 
 
 
@@ -16,12 +16,12 @@ A utilização do Firebase Firestorm começa com esses passos:
 
 1. Criar um projeto no Firebase
 2. Registrar um aplicativo no projeto: irá adicionar um aplicativo informando o pacote do projeto
-   1. Ir na engrenagem do projeto ![](<../../.gitbook/assets/image (1) (1).png>)
+   1. Ir na engrenagem do projeto ![](<../../.gitbook/assets/image (1) (1) (1).png>)
    2. Clique em configurações do projeto
-   3. Finalmente, mais abaixo, encontrará a opção para adicionar aplicativo ![](<../../.gitbook/assets/image (2) (1).png>)
+   3. Finalmente, mais abaixo, encontrará a opção para adicionar aplicativo ![](<../../.gitbook/assets/image (2) (1) (1).png>)
 3. Adicionar o arquivo de configuração
-   1. Baixá-lo na mesma página anterior, onde adicionou o app. O download estará logo abaixo ![](<../../.gitbook/assets/image (3) (1).png>)
-   2. Mover esse arquivo para o diretório raíz do projeto no Android Studio ![](<../../.gitbook/assets/image (4) (1).png>)
+   1. Baixá-lo na mesma página anterior, onde adicionou o app. O download estará logo abaixo ![](<../../.gitbook/assets/image (3) (1) (1).png>)
+   2. Mover esse arquivo para o diretório raíz do projeto no Android Studio ![](<../../.gitbook/assets/image (4) (1) (1).png>)
 4. Permitir que os SDKs do Firebase acessem os valores no seu arquivo de configuração
    1. Adicionar a dependência do google na lista de plugins no arquivo build.gradle.kt (nível raíz, esse arquivo está no primeiro diretório do projeto)
    2. Adicionar o plugin de serviços no arquivo Gradle, mas agora, o que está no módulo app (diretório do projeto\app)
@@ -281,4 +281,4 @@ Os provedores do Firebase Authentication são serviços externos que você pode 
 
 A especificação de quais tipos de provedores podem ser utilizados acontece no painel do banco de dados. Ainda também há o provedor **anônimo**, que é usado em casos que a pessoa pode navegar em partes do aplicativo sem se logar.
 
-<figure><img src="../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>

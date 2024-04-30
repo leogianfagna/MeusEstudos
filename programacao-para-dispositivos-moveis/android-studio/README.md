@@ -38,6 +38,6 @@ Falando em códigos, existem muitas variações grotescas de telas, abres divers
 
 Todos os recursos estão em pacotes de classes/código. Ao falar que criou um pacote significa que você pode reusar em um projeto. Ele tem a ideia de componente. Esses pacotes são dirigidos a uma empresa, usando a nomenclatura:
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
 
 Usando um exemplo metafórico seria a separação de ferramentas por propósito, por exemplo, uma caixa apenas com ferramentas para furar, com várias delas ali dentro.

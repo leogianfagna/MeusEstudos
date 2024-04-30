@@ -54,17 +54,17 @@ Elas são as realizações das classes. Então por exemplo, se temos a classe fo
 
 Para criar uma instância de uma classe já recebendo algumas novas propriedades, segue desta forma:
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ```kotlin
 class Produto(val marca: String, val modelo: String)
 
 fun main() {
     val normal = "String normal"
-    val instancia = Produto("String em uma instância", "Galaxy")
+    val instanciaDaClasse = Produto("String em uma instância", "Galaxy")
     
     println("Aqui está a string $normal") // Exemplo normal
-    println("Aqui está uma ${instancia.marca}") // Exemplo com instância
+    println("Aqui está uma ${instanciaDaClasse.marca}") // Exemplo com instância
 }
 ```
 
@@ -79,10 +79,30 @@ data class Locacao(val dataRetirada: String, val dataDevolucao: String) {
 
 val locacaoInstancia = Locacao("01/03/2024", "09/03/2024", empresa, veiculo)
 
-locacao.imprimir()
+locacaoInstancia.imprimir()
 ```
 
 <mark style="color:red;">**Data class**</mark> são classes que funcionam apenas para leitura e não haver operações dentro delas, portanto declaradas como “data class”.
+
+
+
+## Classes de dados
+
+Elas são as utilizadas para fazer armazenamento de dados. A diferença de declarar uma classe de dados de uma classe normal é que a de dados irá <mark style="color:blue;">**receber automaticamente funções**</mark> disponíveis pelo Kotlin, poupando assim a necessidade de perder tempo criando funções. São exemplo dessas funções:
+
+* toString()
+* equals()
+* copy()
+
+Isso quer dizer que não é necessário a invocação dessas funções para atingir o seu propósito. Isso significa que elas são invocadas automaticamente pelo interpretador nas situações em que elas deveriam ser exigidas, por exemplo:
+
+<figure><img src="../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
+
+No caso do COPY, é sugerido copiar ao invés de alterar a instância original para não afetar o resto do código que possa estar usando aquela instância. Também lembrando que na terceira linha declarou o “id” ao invés de somente colocar o valor, isso porque ele está na segunda posição das propriedades da classe.
 
 
 
@@ -120,11 +140,11 @@ O primário é aquele construtor que nós declaramos após a classe com as vari�
 
 Composição significa que uma classe <mark style="color:blue;">**possui instâncias de outras classes**</mark> como parte de sua estrutura interna, ou também um objeto é composto por outros objetos.
 
-<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 Repare que na classe “Locação” existem (é composta por) dois objetos, que são objetos das classes Empresa e Veículo. Como a classe Locação possui instâncias de outras classes em sua estrutura, ela pode receber valores em uma declaração de uma instância durante uma função, por exemplo:
 
-<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 Um conceito extremamente importante usado em classes. Em resumo, composição é uma forma de construir classes onde elas contêm objetos de outras classes como parte de sua estrutura interna, permitindo criar relacionamentos complexos entre objetos.
 
