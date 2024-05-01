@@ -93,7 +93,7 @@ val minhaListaDeFormatos : MutableList<String> = mutableListOf("triângulo", "qu
 
 <mark style="color:purple;">**Casting**</mark> é o processo de converter um valor de um tipo de dados para outro tipo de dados relacionado. Isso geralmente ocorre quando você deseja tratar um objeto de uma classe como se fosse um objeto de outra classe, ou quando você precisa converter um tipo primitivo em outro tipo primitivo compatível. Eles podem ser usados na lista:
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/tipos de listas.png" alt=""><figcaption></figcaption></figure>
 
 Neste caso, a lista travada está recebendo a outra lista, que já possui alguns valores. Apesar da lista “shapes” ser mutável, a lista travada não será e não poderá ser alterada pois foi iniciada com o tipo “List” ao invés do tipo “MutableList”.
 
@@ -225,7 +225,7 @@ Assim como as demais linguagens, os loops mais comuns são o <mark style="color:
 
 No FOR (usado para percorrer uma sequência de elementos), a variável que representa/assume cada elemento (normalmente o “i”) é declarada <mark style="color:blue;">**implicitamente**</mark>, ou seja, não é necessário declarara-la anteriormente. Assim sendo, temos:
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/range em kotlin.png" alt=""><figcaption></figcaption></figure>
 
 Além disso, utilizando-se quase da mesma sintaxe acima, se usarmos <mark style="color:purple;">`in <LISTA>`</mark> criaremos uma condição que executa para cada item daquela lista, então por exemplo:
 
@@ -342,7 +342,7 @@ Quando há esses parâmetros com valores padrões, você pode apenas pulá-los q
 
 Funções que possuem apenas uma linha entre as chaves que declaram alguma expressão ou algo do tipo pode ser declarada usando apenas uma única linha para deixar um código mais limpo. Por exemplo:
 
-<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/funcoes com retornos.png" alt=""><figcaption></figcaption></figure>
 
 Alguns detalhes muito importantes neste caso:
 
@@ -355,7 +355,7 @@ Alguns detalhes muito importantes neste caso:
 
 As funções Lambda podem ser usadas em qualquer lugar onde o código é escrito, entregando uma maior flexibilidade de código. Elas são utilizadas principalmente para criação de funções de ordem superior, que são <mark style="color:blue;">**funções que recebem outras funções como parâmetros**</mark> ou retornam funções como resultado.
 
-<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/chamada de funcoes em uma linha.png" alt=""><figcaption></figcaption></figure>
 
 Neste exemplo, temos uma função `println` que usa uma expressão Lambda, utiliza o “hello” para invocar a função com essa string. Em outras várias ocasiões essas funções podem ser utilizadas.
 
@@ -399,7 +399,7 @@ Assim como variáveis, funções também possuem tipos e que também são inferi
 
 Portanto, embora em muitos casos o Kotlin possa inferir o tipo da função automaticamente, explicitamente especificá-lo pode ser útil para melhorar a legibilidade, evitar ambiguidades e garantir compatibilidade com outras partes do código ou APIs externas.
 
-<figure><img src="../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/expressoes lambda.png" alt=""><figcaption></figcaption></figure>
 
 Neste caso, <mark style="color:purple;">`upperCaseString`</mark> é uma variável que <mark style="color:blue;">**armazena uma função Lambda**</mark> que será invocada posteriormente, na função “main”. Essa função já recebeu o seu tipo na sintaxe `(String) -> String`, ou seja, entra e saí uma String.
 
