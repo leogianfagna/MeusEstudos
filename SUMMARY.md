@@ -11,6 +11,8 @@
   * [Estrutura layout](programacao-para-dispositivos-moveis/android-studio/estrutura-layout.md)
   * [RecyclerView](programacao-para-dispositivos-moveis/android-studio/recyclerview.md)
   * [Async Task](programacao-para-dispositivos-moveis/android-studio/async-task.md)
+  * [NFC](programacao-para-dispositivos-moveis/android-studio/nfc.md)
+  * [Intents](programacao-para-dispositivos-moveis/android-studio/intents.md)
 * [Kotlin](programacao-para-dispositivos-moveis/kotlin/README.md)
   * [Conceitos de Orientação à Objetos](programacao-para-dispositivos-moveis/kotlin/conceitos-de-orientacao-a-objetos.md)
   * [Documentação básica](programacao-para-dispositivos-moveis/kotlin/documentacao-basica.md)
