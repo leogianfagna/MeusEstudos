@@ -16,7 +16,7 @@ Muitas coisas podem ocorrer durante um ciclo de vida da activity que, até algum
 
 As navegações entre os estágios do ciclo de vida ocorrem através dos callbacks. Dependendo da complexidade do aplicativo e do objetivo, não é necessário implementar todos os callbacks e sim implementar aqueles necessários para seu aplicativo comporte-se da forma desejada.
 
-<figure><img src="../../.gitbook/assets/ciclo de vida de activity.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/ciclo de vida de activity.png" alt=""><figcaption></figcaption></figure>
 
 
 
@@ -25,7 +25,7 @@ As navegações entre os estágios do ciclo de vida ocorrem através dos callbac
 * `onCreate()`: Este método é chamado quando a activity está sendo criada. É aqui que você normalmente configura a interface do usuário e realiza inicializações básicas, como a ligação de variáveis a elementos de interface do usuário. Ele executa a lógica básica da activity e é obrigatório sua implementação.
   *   Esse método recebe um parâmetro chamado `savedInstanceState`, que é um objeto do tipo Bundle que contém o estado salvo anteriormente da atividade
 
-      <figure><img src="../../.gitbook/assets/parametro no ciclo de vida onCreate.png" alt=""><figcaption></figcaption></figure>
+      <figure><img src="../../../.gitbook/assets/parametro no ciclo de vida onCreate.png" alt=""><figcaption></figcaption></figure>
   * `setContentView` é a transmissão do XML para a activity
 * `onStart()`: Este método é chamado quando a activity está prestes a se tornar visível para o usuário. Neste ponto, a activity ainda não está interativa para o usuário, mas em breve será. Ela dura pouco e já invoca o método de retornado.
 * `onResume()`: Este método é chamado quando a activity está prestes a começar a interagir com o usuário, isso significa que ela veio para o primeiro plano. Esse estado se mantém até o usuário sair do aplicativo ou navegar para outra activity. Esse método interage de forma frequente com onPause(), já que ao parar a activity é esse método chamado e ao retomar, é do método pausado para o retomado que activity navega.

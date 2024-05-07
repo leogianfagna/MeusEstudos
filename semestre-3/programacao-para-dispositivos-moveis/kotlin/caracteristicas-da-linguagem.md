@@ -73,7 +73,7 @@ Esse operador tem o objetivo de definir um valor caso seja encontrado como nulo.
 
 <mark style="color:orange;">**Ainda é necessário**</mark> colocar todos os operadores (interrogação) nas variáveis para conferir se é nulo para o código funcionar. Veja o exemplo abaixo:
 
-<figure><img src="../../.gitbook/assets/operador Elvis.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/operador Elvis.png" alt=""><figcaption></figcaption></figure>
 
 No projeto, pude substituir uma lógica que ficava repetidamente verificando se o resultado é nulo. Se fosse e eu substituísse por zero, a lógica funcionaria normal. Para isso, pude usar esse operador. Veja como fiz:
 

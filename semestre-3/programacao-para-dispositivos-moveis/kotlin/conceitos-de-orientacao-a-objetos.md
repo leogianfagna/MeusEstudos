@@ -54,7 +54,7 @@ Elas são as realizações das classes. Então por exemplo, se temos a classe fo
 
 Para criar uma instância de uma classe já recebendo algumas novas propriedades, segue desta forma:
 
-<figure><img src="../../.gitbook/assets/construtor de uma classe.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/construtor de uma classe.png" alt=""><figcaption></figcaption></figure>
 
 ```kotlin
 class Produto(val marca: String, val modelo: String)
@@ -96,11 +96,11 @@ Elas são as utilizadas para fazer armazenamento de dados. A diferença de decla
 
 Isso quer dizer que não é necessário a invocação dessas funções para atingir o seu propósito. Isso significa que elas são invocadas automaticamente pelo interpretador nas situações em que elas deveriam ser exigidas, por exemplo:
 
-<figure><img src="../../.gitbook/assets/instanciacao de classe.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/instanciacao de classe.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/metodo equals (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/metodo equals (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/métodos herdados de data class.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/métodos herdados de data class.png" alt=""><figcaption></figcaption></figure>
 
 No caso do COPY, é sugerido copiar ao invés de alterar a instância original para não afetar o resto do código que possa estar usando aquela instância. Também lembrando que na terceira linha declarou o “id” ao invés de somente colocar o valor, isso porque ele está na segunda posição das propriedades da classe.
 
@@ -140,11 +140,11 @@ O primário é aquele construtor que nós declaramos após a classe com as vari�
 
 Composição significa que uma classe <mark style="color:blue;">**possui instâncias de outras classes**</mark> como parte de sua estrutura interna, ou também um objeto é composto por outros objetos.
 
-<figure><img src="../../.gitbook/assets/heranças de classes.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/heranças de classes.png" alt=""><figcaption></figcaption></figure>
 
 Repare que na classe “Locação” existem (é composta por) dois objetos, que são objetos das classes Empresa e Veículo. Como a classe Locação possui instâncias de outras classes em sua estrutura, ela pode receber valores em uma declaração de uma instância durante uma função, por exemplo:
 
-<figure><img src="../../.gitbook/assets/instanciação com herança de classes.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/instanciação com herança de classes.png" alt=""><figcaption></figcaption></figure>
 
 Um conceito extremamente importante usado em classes. Em resumo, composição é uma forma de construir classes onde elas contêm objetos de outras classes como parte de sua estrutura interna, permitindo criar relacionamentos complexos entre objetos.
 
