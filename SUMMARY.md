@@ -9,6 +9,7 @@
   * [Conceitos básicos](semestre-1/fundamentos-de-sistemas-de-informacao/conceitos-basicos.md)
   * [Ciclos de vida](semestre-1/fundamentos-de-sistemas-de-informacao/ciclos-de-vida.md)
   * [Scrum](semestre-1/fundamentos-de-sistemas-de-informacao/scrum.md)
+  * [Qualidade](semestre-1/fundamentos-de-sistemas-de-informacao/qualidade.md)
 
 ## Semestre 3
 

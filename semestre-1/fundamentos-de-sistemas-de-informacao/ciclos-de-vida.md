@@ -8,7 +8,7 @@ Os processos são conjuntos de atividades para especificar, projetar, implementa
 
 O modelo cascata é um passo a passo sequencial até a entrega do software com funcionamento. Esse modelo tem alguns problemas como a dificuldade de estabelecer todos os requisitos logo no início fazendo com que tenha que ficar retrocedendo de etapa toda vez. Além disso, o fato que uma versão usável só fica pronta logo no final do projeto, podendo frustrar o cliente. Esse modelosegue essa linha:
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
 
 Já o modelo ágil já é diferente na entrega, pois vai entregando em tempos menores, com adaptações e manutenções conforme necessidade.
 
