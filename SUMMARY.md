@@ -2,6 +2,14 @@
 
 * [Início](README.md)
 
+## Semestre 1
+
+* [Fundamentos de Sistemas de Informação](semestre-1/fundamentos-de-sistemas-de-informacao/README.md)
+  * [Conceitos da disciplina](semestre-1/fundamentos-de-sistemas-de-informacao/conceitos-da-disciplina.md)
+  * [Conceitos básicos](semestre-1/fundamentos-de-sistemas-de-informacao/conceitos-basicos.md)
+  * [Ciclos de vida](semestre-1/fundamentos-de-sistemas-de-informacao/ciclos-de-vida.md)
+  * [Scrum](semestre-1/fundamentos-de-sistemas-de-informacao/scrum.md)
+
 ## Semestre 3
 
 * [Programação para Dispositivos Móveis](semestre-3/programacao-para-dispositivos-moveis/README.md)
