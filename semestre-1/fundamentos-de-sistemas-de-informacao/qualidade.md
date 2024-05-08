@@ -34,9 +34,15 @@ Quanto maior o nível de acoplamento, pior. Isso pois está muito ligado com a c
 
 
 
-#### Exemplos
+Essa métrica possui uma fórmula que resulta em um número. A fórmula usa a quantia de elementos acima para chegar em seu resultado e pode ser representada por (respectivamente: a complexidade do programa é igual ao número de arestas menos o número de grafos somado com duas vezes o número de regiões):
 
-Vemos abaixo um exemplo prático, onde começa na primeira linha e depois abre condições. No caso do **IF/ELSE** abre um fluxo para cada lado, cada lado simbolizando ou o IF ou o ELSE.
+$$
+V(G)=E−N+2P
+$$
+
+#### Exemplos básicos de fluxos
+
+Vemos abaixo um exemplo prático, onde começa na primeira linha e depois abre condições. No caso do **IF/ELSE** abre um fluxo para cada lado, cada lado simbolizando ou o IF ou o ELSE. É importante saber que o <mark style="color:orange;">**IF é representado para a DIREITA**</mark> e o <mark style="color:purple;">**ELSE para a ESQUERDA**</mark>.
 
 <figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
@@ -44,4 +50,79 @@ Vemos abaixo um exemplo prático, onde começa na primeira linha e depois abre c
 
 <figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
-Dentro dos círculos, em um exemplo foi escrito apenas o "IF" e em outro foi escrito as etapas, como "1" e "2".
+Mesmo sem a existência do ELSE, como regra, o IF ainda sim é representado para a direita. Dentro dos círculos, em um exemplo foi escrito apenas o "IF" e em outro foi escrito as etapas, como "1" e "2".
+
+#### Exemplo de fluxo com return em condições
+
+Vamos supor que o programa possa se encerrar dentro de uma condição, em vez de passar por todas as etapas primeiro. A representação disso é bem fácil, como um **círculo que simboliza o status final do programa**. Então, se em alguma condição o programa finalizar com um return, puxa uma seta desse estado ligando até o estado final, e assim simbolizamos seu fim. Por exemplo:
+
+<figure><img src="../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+
+
+
+#### Lógica composta
+
+A lógica composta simboliza quando temos mais de uma condição, um caso desse tipo:
+
+```python
+# Exemplo usando duas condições em um IF, mas poderia ser em WHILE
+
+if nota != 500 and contadorNotas < 100:
+ # ...
+```
+
+Se temos duas ou mais condições, precisamos fazer a representação de cada uma delas no fluxo.&#x20;
+
+\[ FICOU MUITO CONFUSO ]
+
+
+
+#### Exemplos grandes guiados
+
+Vamos basear em um seguinte código:
+
+<figure><img src="../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+
+Cada etapa foi numerada e veja abaixo como deve ser representada cada etapa:
+
+1. Apenas uma representação única por se tratar de declarações de variáveis
+2. Tanto as condições quando os repetidores ainda seguem a linha única. Nesse caso, a região dois segue em PARALELO a linha principal. Como existe aqui uma condição, essa etapa pode ter uma seta simbolizando a saída caso a região não seja cumprida
+3. Temos uma segunda condição e por isso é necessário representar, já que talvez a primeira satisfaça mas a segunda não. Então, pode haver uma seta saindo da etapa 3 caso essa condição não seja realizada
+4. Essa etapa é a linha principal de lógica e codificação, ela segue alinhada logo com a terceira. Essas linhas de codificações são simbolizadas. Um exemplo é a declaração de variáveis na primeira etapa
+
+Até o momento, podemos ter esse diagrama:
+
+<figure><img src="../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+
+A partir daqui temos nosso primeiro IF, neste caso, se há uma lógica dentro de um IF, uma das setas começa a ser puxada para a difeita. Continuando então temos:
+
+5. Novamente representa uma condição. Então segue a linha em paralelo e vai ter uma saída
+6. É a segunda condição do IF, então segue a mesma lógica
+7. É a linha lógica de código representante caso a condição do IF seja satisfeita. Baseado no conteúdo, esse método é representado fora da linha paralela no lado direito
+8. Representa o que acontece em seguida do IF. Nesse caso, não tem nenhum código, mas logicamente tudo que sai do IF (seja por não satisfazer a condição ou por terminar a lógica acima) irá passar por ele, então deve existir
+9. Representa o fim do WHILE. Como representado nos diagramas acimas, o fim do WHILE é representado para receber uma seta que aponta para o início dele, indicando que é uma repetição de código até a condição ser realiza
+
+E assim, essa lógica passa a ficar dessa maneira:
+
+<figure><img src="../../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
+
+Para finalizar, ainda temos uma lógica IF/ELSE após esse WHILE que finaliza o nosso sistema. Continuando:
+
+10. Representa a condição de um IF, como tem apenas uma condição, é apenas uma simbolização
+11. É a lógica caso a condição do IF seja verdadeira, que é puxada sempre para a direita
+12. É a lógica caso a condição do IF seja falsa, que é puxada sempre para a esquerda
+13. Fim do sistema, é um print apenas
+
+Finalizando o sistema total, então temos:
+
+<figure><img src="../../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+
+#### Cálculo de regiões
+
+Regiões são áreas do código que são executadas em conjunto sem bifurcações internas. São aquelas sequências de comandos executadas de forma linear, sem desvios de fluxo. Essas regiões indicam a complexidade e estrutura do programa. Curiosamente, áreas com mais regiões simbolizam mais facilidade de testar.
+
+Para calcular o número de regiões (ou componentes conexos), precisamos já ter o gráfico construído. Depois disso fazemos:
+
+1. Identificar os nós de decisão: Os nós são as bolinhas. Nós de decisão são aqueles que puxam setas fora da direção linear, ou seja, há uma bifurcação (IF, WHILE, SWITCH)
+2. Identificar os nós de início de fim: Normalmente são sempre dois (um para cada), mas em sistemas distribuídos pode haver mais um de partida ou final
+
