@@ -24,13 +24,13 @@ Acoplamento corresponde ao grau de <mark style="color:blue;">**interdependência
 
 Quanto maior o nível de acoplamento, pior. Isso pois está muito ligado com a coesão, quanto maior o acoplamento simboliza menor coesão.
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
 ### McCabe
 
 É uma métrica usada para medir a complexidade de um programa (classe, método, rotina etc). Ela indica a dificuldade de se construir testes de unidade em um determinado código uma vez que ela mede a <mark style="color:blue;">**quantidade de caminhos linearmente independentes**</mark> neste código.
 
-<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 
 
@@ -44,11 +44,11 @@ $$
 
 Vemos abaixo um exemplo prático, onde começa na primeira linha e depois abre condições. No caso do **IF/ELSE** abre um fluxo para cada lado, cada lado simbolizando ou o IF ou o ELSE. É importante saber que o <mark style="color:orange;">**IF é representado para a DIREITA**</mark> e o <mark style="color:purple;">**ELSE para a ESQUERDA**</mark>.
 
-<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 É importante lembrar que existe a possibilidade da <mark style="color:red;">**inexistência do ELSE**</mark>. Sendo apenas com IF, não há dois lados para ir e apenas uma linha única com uma ramificação, por exemplo:
 
-<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 Mesmo sem a existência do ELSE, como regra, o IF ainda sim é representado para a direita. Dentro dos círculos, em um exemplo foi escrito apenas o "IF" e em outro foi escrito as etapas, como "1" e "2".
 
@@ -67,13 +67,31 @@ A lógica composta simboliza quando temos mais de uma condição, um caso desse 
 ```python
 # Exemplo usando duas condições em um IF, mas poderia ser em WHILE
 
-if nota != 500 and contadorNotas < 100:
+if [condiçãoUm] and [condiçãoDois] and [condiçãoTrês]:
+ # ...
+
+if [condiçãoUm] or [condiçãoDois] or [condiçãoTrês]:
  # ...
 ```
 
-Se temos duas ou mais condições, precisamos fazer a representação de cada uma delas no fluxo.&#x20;
+<mark style="color:orange;">**Apenas logicamente falando**</mark>, em uma linha de programação, passa primeira pela <mark style="color:purple;">**condiçãoUm**</mark> e a partir daí tem dois caminhos:
 
-\[ FICOU MUITO CONFUSO ]
+* Em casos de AND:
+  * Se condiz: segue para a <mark style="color:purple;">**condiçãoDois**</mark> e assim sucessivamente
+  * Se falso: já sai daquele IF ali mesmo
+* Em casos de OR:
+  * Se condiz: já entra direto na lógica do IF e não confere o restante
+  * Se falso: confere a <mark style="color:purple;">**condiçãoDois**</mark> e sucessivamente até encontar um resultado verdadeiro ou não encontrar nenhum
+
+Portanto, se temos duas ou mais condições, precisamos fazer a representação de cada uma delas no fluxo. E é necessário ver essa diferença entre o <mark style="color:red;">**AND**</mark> e o <mark style="color:red;">**OR**</mark>, já que o <mark style="color:red;">AND</mark> vai procurar por todas as condições verdadeiras enquanto o <mark style="color:red;">OR</mark> já sai logo na primeira oportunidade que satisfaça.
+
+A representação disso é usando um nó para cada condição e puxando duas saídas de cada nó: uma em caso de verdadeira e outra em caso de falso. Para cada condição, ir colocando o nó em cadeia. Lembrando que sempre teremos duas opções fora a linha da condição: o código dentro do IF e o código depois do IF (que também pode ser um ELSE).
+
+Também é legal representar com V e F as possíveis saídas para melhorar a visibilidade e ficar mais fácil de fazer, da seguinte forma:
+
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 
 
@@ -119,10 +137,11 @@ Finalizando o sistema total, então temos:
 
 #### Cálculo de regiões
 
-Regiões são áreas do código que são executadas em conjunto sem bifurcações internas. São aquelas sequências de comandos executadas de forma linear, sem desvios de fluxo. Essas regiões indicam a complexidade e estrutura do programa. Curiosamente, áreas com mais regiões simbolizam mais facilidade de testar.
+Regiões são áreas do código que são executadas em conjunto sem bifurcações internas. São aquelas sequências de comandos executadas de forma linear, sem desvios de fluxo, portanto, <mark style="color:green;">**cada desvio de fluxo determina uma nova região**</mark>. Essas regiões indicam a complexidade e estrutura do programa. Curiosamente, áreas com mais regiões simbolizam mais facilidade de testar.
 
-Para calcular o número de regiões (ou componentes conexos), precisamos já ter o gráfico construído. Depois disso fazemos:
+Para calcular o número de regiões (ou componentes conexos), precisamos já ter o gráfico construído. Depois identificamos os nós de decisão: eles são as bolinhas. Nós de decisão são aqueles que puxam setas fora da direção linear, ou seja, há uma bifurcação (IF, WHILE, SWITCH)
 
-1. Identificar os nós de decisão: Os nós são as bolinhas. Nós de decisão são aqueles que puxam setas fora da direção linear, ou seja, há uma bifurcação (IF, WHILE, SWITCH)
-2. Identificar os nós de início de fim: Normalmente são sempre dois (um para cada), mas em sistemas distribuídos pode haver mais um de partida ou final
+A região será demarcada do primeiro desvio de fluxo a partir do nó encontrado até um nó que o fluxo volta ao normal. Aqui está um exemplo:
+
+<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 

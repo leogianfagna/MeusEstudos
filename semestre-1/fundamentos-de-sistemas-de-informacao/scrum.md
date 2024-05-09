@@ -2,7 +2,7 @@
 
 O modelo e fases de vida do Scrum é composto dessa forma:
 
-<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Quem realiza as tarefas do scrum é uma equipe, composta por:&#x20;
 
@@ -16,7 +16,7 @@ Quem realiza as tarefas do scrum é uma equipe, composta por:&#x20;
 
 Esse quadro é montado para cada sprint que temos. Um exemplo é:&#x20;
 
-<figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## A divisão dos estados do scrum
 
@@ -36,7 +36,7 @@ E o <mark style="color:blue;">**quarto estado**</mark> consiste em uma <mark sty
 
 Abaixo uma tabela com o sprint planejado, com as prioridades, esforços e o sprint definido ao qual será realizado. Esse planejamento consiste em **velocidade 20**.
 
-<figure><img src="../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Medindo a velocidade no produto backlog (pergunta de prova)
 
@@ -65,7 +65,7 @@ O Sprint Planning é uma cerimônia do Scrum que marca o início de um novo spri
 
 Este gráfico mostra a quantidade de trabalho restante no Sprint Backlog ao longo do tempo. Idealmente, a linha de burndown diminui progressivamente à medida que a equipe completa tarefas. O Sprint Planning ajuda a definir o escopo do sprint, e o Gráfico de Burndown é uma ferramenta que a equipe usa para acompanhar seu progresso em direção à conclusão das tarefas.
 
-<figure><img src="../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Gráfico de burnup
 
