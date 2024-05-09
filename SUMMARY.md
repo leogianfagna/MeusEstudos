@@ -29,4 +29,5 @@
     * [Async Task](semestre-3/programacao-para-dispositivos-moveis/android-studio/async-task.md)
     * [NFC](semestre-3/programacao-para-dispositivos-moveis/android-studio/nfc.md)
     * [Intents](semestre-3/programacao-para-dispositivos-moveis/android-studio/intents.md)
+    * [CameraX](semestre-3/programacao-para-dispositivos-moveis/android-studio/camerax.md)
   * [Códigos documentados](semestre-3/programacao-para-dispositivos-moveis/codigos-documentados.md)
