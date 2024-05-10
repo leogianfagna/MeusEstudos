@@ -1,5 +1,5 @@
 # Início
 
-Meu caderno de anotações sobre as disciplinas cursadas na faculdade. Material de estudo básico baseado na didática dos professores e na disciplina imposta.
+Meus estudos e anotações sobre a área de Software! Durante anos de estudos, vou escrevendo cadernos (para uso pessoal) sobre os aprendizados e deixando abertamente aqui.
 
-Não contém todas as materias, apenas aquelas que usei cadernos virtuais.
+Não contém nenhuma propriedade de outro autor aqui.
