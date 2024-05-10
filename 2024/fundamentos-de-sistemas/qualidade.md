@@ -89,9 +89,9 @@ A representação disso é usando um nó para cada condição e puxando duas sa�
 
 Também é legal representar com V e F as possíveis saídas para melhorar a visibilidade e ficar mais fácil de fazer, da seguinte forma:
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/lógica composta mccabe and.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/lógica composta mccabe or.png" alt=""><figcaption></figcaption></figure>
 
 
 
@@ -143,5 +143,5 @@ Para calcular o número de regiões (ou componentes conexos), precisamos já ter
 
 A região será demarcada do primeiro desvio de fluxo a partir do nó encontrado até um nó que o fluxo volta ao normal. Aqui está um exemplo:
 
-<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/cálculo de regiões com mccabe.png" alt=""><figcaption></figcaption></figure>
 

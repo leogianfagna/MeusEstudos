@@ -4,6 +4,16 @@
 
 ## 2023
 
+* [📚 Web](2023/web/README.md)
+  * [Conceitos da disciplina](2023/web/conceitos-da-disciplina/README.md)
+    * [Conceitos rápidos](2023/web/conceitos-da-disciplina/conceitos-rapidos.md)
+  * [Princípios básicos de projetos](2023/web/principios-basicos-de-projetos.md)
+  * [HTML](2023/web/html.md)
+  * [CSS](2023/web/css.md)
+  * [Backend](2023/web/backend.md)
+  * [Javascript](2023/web/javascript.md)
+  * [Bootstrap](2023/web/bootstrap.md)
+
 ## 2024
 
 * [📚 Dispositivos Móveis](2024/dispositivos-moveis/README.md)
