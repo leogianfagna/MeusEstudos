@@ -13,6 +13,8 @@
   * [Backend](2023/web/backend.md)
   * [Javascript](2023/web/javascript.md)
   * [Bootstrap](2023/web/bootstrap.md)
+* [📚 Manutenção e evolução](2023/manutencao-e-evolucao/README.md)
+  * [Code Smells](2023/manutencao-e-evolucao/code-smells.md)
 
 ## 2024
 
