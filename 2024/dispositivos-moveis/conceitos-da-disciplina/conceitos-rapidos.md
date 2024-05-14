@@ -6,7 +6,8 @@ description: Lista de conceitos rápidos para fixação de aprendizado.
 
 ## Gerais e importantes
 
-* Thread Safe: não interfere na UI Thread, é da classe Async Task.
+* Thread Safe: não interfere na UI Thread, é da classe Async Task
+* Callback: resposta
 
 ## Relacionado com interface
 
