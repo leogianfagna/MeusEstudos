@@ -11,6 +11,7 @@ description: Lista de conceitos rápidos para fixação de aprendizado.
 
 ## Relacionado com interface
 
+* Inflar layout: rechear o layout com as views
 * ViewGroup: denominação para as views de layout (LinearLayout, ContraintLayout e RelativeLayout)
 
 ## Relacionado com RecyclerView

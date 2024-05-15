@@ -54,7 +54,7 @@ private lateinit var binding: ActivityCadastroBinding
 binding = ResultProfileBinding.inflate(layoutInflater)
 ```
 
-3. No método `onCreate()`, receba uma referência à visualização raiz chamando o método `getRoot()` ou da forma a seguir:
+3. No método `onCreate()`, receba uma referência à visualização raiz (isto é, desde a primeira view adicionada no arquivo, provavelmente LinearLayoutCompat) chamando o método `getRoot()` ou da forma a seguir:
 
 ```kotlin
 val view = binding.root
