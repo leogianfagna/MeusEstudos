@@ -1,5 +1,7 @@
 ---
-description: 'Near Field Communication: Comunicação por campo de proximidade.'
+description: >-
+  Near Field Communication: Comunicação por campo de proximidade.
+  https://developer.android.com/develop/connectivity/nfc/nfc?hl=pt-br
 ---
 
 # NFC
@@ -38,7 +40,7 @@ Para levar como conceito, o formato NDEF não é obrigatório para ser usado. Co
 
 ## Funcionamento
 
-A leitura dos de uma tag NFC (através dos registros NDEF visto acima) é processada com o <mark style="color:blue;">**sistema de expedição de etiquetas**</mark> (explicado a seguir), que analisa tags NFC encontradas, categoriza os dados de forma adequada e inicia uma activity interessada nos dados categorizados. Um aplicativo que queira processar a tag NFC lida pode <mark style="color:blue;">**declarar um filtro de intent**</mark> e solicitar o processamento dos dados.
+A leitura dos dados de uma tag NFC (através dos registros NDEF visto acima) é processada com o <mark style="color:blue;">**sistema de expedição de etiquetas**</mark> (explicado a seguir), que analisa tags NFC encontradas, categoriza os dados de forma adequada e inicia uma activity interessada nos dados categorizados. Um aplicativo que queira processar a tag NFC lida pode <mark style="color:blue;">**declarar um filtro de intent**</mark> e solicitar o processamento dos dados.
 
 O recurso <mark style="color:red;">**Android BeamTM**</mark> permite que um dispositivo envie uma mensagem NDEF para outro, tocando fisicamente os dispositivos juntos. Essa interação oferece uma maneira mais fácil de enviar dados do que outras tecnologias sem fio pois não é necessário parear os dispositivos. A conexão será iniciada automaticamente quando dois dispositivos entrarem ao alcance.
 
@@ -46,9 +48,17 @@ O Android Beam está disponível por meio de um conjunto de APIs NFC, de modo qu
 
 
 
+## Expedição de etiquetas para aplicativos
+
+O Android sempre checa a presença de etiquetas com um sistema de expedição. Ao encontrar, o sistema encapsula informações dentro do intent <mark style="color:purple;">`ACTION_NDEF_DISCOVERED`</mark>e envia para os aplicativos interessados em usar (aqueles que declaram os Intent-Filters). Se mais de um app puder processar a intent, o usuário escolhe qual deles irá iniciar a activity. O sistema de expedição de etiquetas define três intents, listadas em ordem de prioridade mais alta para a mais baixa:
+
+1. ACTION\_NDEF\_DISCOVERED: quando a etiqueta possui um payload do tipo NDEF
+2. ACTION\_TECH\_DISCOVERED: se o caso acima não funcionar, inicia essa intent caso a etiqueta lida possuir tecnologia conhecida
+3. ACTION\_TAG\_DISCOVERED: iniciada apenas se nenhuma activity conseguir processar os intents acima
+
 ## Implementação
 
-Passo a passo de como implementar em um projeto.
+Passo a passo de como implementar em um projeto. Basicamente, consiste na activity filtrar pelos intents dito acima para iniciar a activity/aplicativo.
 
 
 
@@ -154,7 +164,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
 
 ### 6. Registrar os filtros da etapa anterior
 
-Registrar os filtros servem para <mark style="color:green;">**configurar as condições**</mark> nas quais o método <mark style="color:purple;">`onNewIntent()`</mark> será chamado. Esse método é chamado pelo sistema na detecção de uma nova intenção, o que será usado no próximo passo para manipular os dados. Para isso, logo abaixo vamos fazer da seguinte maneira:
+Registrar os filtros servem para <mark style="color:green;">**configurar as condições**</mark> nas quais o método <mark style="color:purple;">`onNewIntent()`</mark> será chamado. Esse método é chamado pelo sistema na detecção de uma nova intenção, o que será usado no próximo passo para manipular os dados. Para isso, vamos fazer da seguinte maneira:
 
 ```kotlin
 val filtros = arrayOf(ndefFilter)
