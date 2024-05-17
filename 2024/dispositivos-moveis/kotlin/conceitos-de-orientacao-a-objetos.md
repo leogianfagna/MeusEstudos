@@ -6,6 +6,59 @@ description: >-
 
 # Conceitos de Orientação à Objetos
 
+## Entendendo o conceito primordial
+
+Em um código, muitos métodos não definidos no arquivo são chamados de forma sequencial através de variáveis, por exemplo:
+
+```kotlin
+bluetoothLeAdvertiser?.startAdvertising(settings, data, advertiseCallback)
+```
+
+Isso é muito comum na programação orientada à objetos e vamos entender. Basicamente, para essa linha de código acima funcionar, <mark style="color:red;">`bluetoothLeAdvertiser`</mark> é uma variável, mas não uma variável qualquer. Ela é declarada no início do código e ela é tipada como se fosse um objeto de uma determinada classe, dessa forma:
+
+```kotlin
+private var bluetoothLeAdvertiser: BluetoothLeAdvertiser? = null
+```
+
+Então vimos que essa variável é um objeto da classe **BluetoothLeAdvertiser**. Dentro dessa classe, existe um extenso código e diversas outras variáveis e tipos e, inclusive, existe a função/método <mark style="color:purple;">`startAdvertising()`</mark> dentro dela, e esse método requer 3 parâmetros para serem chamados.
+
+Por isso, esses códigos são possíveis ser feito mesmo parecendo que não há nada escrito, pois é usado variáveis que viram objetos de outras classes e que chamam esses métodos, que fazem algo para nosso código. Entendendo isso, fica muito mais fácil.
+
+#### Aprofundando um pouco mais nesse exemplo
+
+Esses métodos chamados podem requerer parâmetros, no caso foram 3. Esses parâmetros devem ser de um tipo específico e, muitas vezes, esse tipo é um objeto de uma classe TAMBÉM. Vamos usar o exemplo anterior:
+
+```kotlin
+// Lembrando que isso só pode funcionar caso as classes que usaremos para os
+// objetos seja importada
+import android.bluetooth.le.AdvertiseCallback
+import android.bluetooth.le.AdvertiseData
+import android.bluetooth.le.AdvertiseSettings
+import android.bluetooth.le.BluetoothLeAdvertiser
+
+// Declara variáveis como objetos de classes
+private var bluetoothLeAdvertiser: BluetoothLeAdvertiser? = null
+private var anuncioResposta: AdvertiseCallback? = null
+
+
+if (anuncioResposta == null) {
+    // Declara as 3 variáveis que utilizarão no método
+    // Todas são objetos de uma classe e o valor é obtido através de um método
+    // respectivo a cada classe
+    var anuncioResposta: AdvertiseCallback = sampleAdvertiseCallback()
+    val configs: AdvertiseSettings = buildAdvertiseSettings()
+    val dados: AdvertiseData = buildAdvertiseData()
+    
+    // Chama o método startAdvertising usando a variável que é um objeto da classe
+    // BluetoothLeAdvertiser
+    bluetoothLeAdvertiser?.startAdvertising(configs, dados, anuncioResposta)
+}
+```
+
+Alterei o nome das variáveis para ficar mais fácil de reconhecer mas essa é a lógica. Importa as bibliotecas, transforma as variáveis como objeto de certa classe e assim pode usar os métodos dessa classe através da notação de pontos (lembrando que qualquer método de qualquer classe pode ser chamada através dessa notação).
+
+Também lembrar para ficar fácil, no exemplo de aula, quando falamos <mark style="color:red;">`private var anuncioResposta: AdvertiseCallback`</mark> podemos traduzir para o português: <mark style="color:blue;">**anuncioResposta É AdvertiseCallback**</mark>.
+
 ## Empilhamento de strings
 
 Quando você concatena strings em linguagens de programação como Kotlin, cada vez que você usa o operador de concatenação (por exemplo, `+`), uma nova string é criada na memória para armazenar o resultado da concatenação. Isso ocorre porque strings são imutáveis em Kotlin e em muitas outras linguagens de programação.
