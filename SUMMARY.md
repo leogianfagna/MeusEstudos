@@ -26,6 +26,7 @@
     * [Documentação básica](2024/dispositivos-moveis/kotlin/documentacao-basica.md)
     * [Características da linguagem](2024/dispositivos-moveis/kotlin/caracteristicas-da-linguagem.md)
   * [Android Studio](2024/dispositivos-moveis/android-studio/README.md)
+    * [Permissões importantes](2024/dispositivos-moveis/android-studio/permissoes-importantes.md)
     * [Firebase](2024/dispositivos-moveis/android-studio/firebase.md)
     * [Activitys](2024/dispositivos-moveis/android-studio/activitys.md)
     * [ViewBinding](2024/dispositivos-moveis/android-studio/viewbinding.md)
