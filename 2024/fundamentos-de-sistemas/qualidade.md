@@ -30,7 +30,7 @@ Quanto maior o nível de acoplamento, pior. Isso pois está muito ligado com a c
 
 É uma métrica usada para medir a complexidade de um programa (classe, método, rotina etc). Ela indica a dificuldade de se construir testes de unidade em um determinado código uma vez que ela mede a <mark style="color:blue;">**quantidade de caminhos linearmente independentes**</mark> neste código.
 
-<figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 
 

@@ -1,5 +1,7 @@
 # Bluetooth
 
+## Explicação
+
 Nada mais é que um hardware de comunicação por radio frequência. Toda placa física de comunicação tem um endereço MAC, que esse endereço é único no mundo.
 
 Procurar dispositivos com Bluetooth usam o SCANNER, que ele faz um processo chamado Broadcast, que é uma comunicação pública onde manda um sinal de rápido para ser captado e respondido por todos os dispositivos próximos para saber quem está presente.
@@ -25,9 +27,81 @@ Os devices possuem canais de áudio que são os caminhos de onde estão vindo os
 
 ### Socket
 
-É um canal de comunicação que dispõe de entrada e saída. Podemos imaginar como um cano conectado entre os dispositivos emparelhados onde, dentro desse cano possui outros dois canos: o INPUT e o OUTPUT. Um dispositivo fornece dados no OUTPUT que o outro dispositivo receberá no INPUT e vice-versa, trocando informações.
 
 
+
+
+## Permissões
+
+O uso do Bluetooth requer que uma quantia de permissões seja declarada no arquivo de manifesto para funcionar:
+
+```xml
+<!-- Permite que aplicativos descubram e emparelhem dispositivos Bluetooth -->
+<uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+
+<!-- Permite que aplicativos se conectem a dispositivos Bluetooth emparelhados -->
+<uses-permission android:name="android.permission.BLUETOOTH" />
+<uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+<!--
+    Essa permissão é necessária para escanear dispositivos próximos nas versões
+    Android entre N e R
+-->
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+```
+
+## Classes
+
+Todas as classes estão disponíveis no pacote android.bluetooth.
+
+### BluetoothAdapter
+
+<mark style="color:blue;">**Nosso dispositivo é representado**</mark> por essa classe. Essa classe é o ponto de entrada para qualquer interação bluetooth:
+
+* Descobrir dispositivos
+* Consultar dispositivos pareados
+* Instanciar um `BluetoothDevice` usando um endereço MAC
+* Criar um BluetoothServerSocket para ouvir comunicações de outros dispositivos
+
+### BluetoothDevice
+
+Essa classe <mark style="color:blue;">**representa um dispositivo remoto**</mark>, portanto, ela deve ser utilizada para fazer qualquer conexão com esse dispositivo (não é o nosso). Essa conexão pode ser consultar informações sobre o dispositivo ou solicitar uma conexão, o que vai exigir a classe BluetoothSocket.
+
+### BluetoothSocket
+
+Socket (ou soquete, que pode ser traduzido para um ponto de comunicação), é um canal de comunicação que dispõe de entrada e saída. Podemos imaginar como um cano conectado entre os dispositivos emparelhados onde, dentro desse cano possui outros dois canos: o INPUT e o OUTPUT. Um dispositivo fornece dados no OUTPUT que o outro dispositivo receberá no INPUT e vice-versa, trocando informações.
+
+Em termos de código, representa a <mark style="color:blue;">**interface de um soquete Bluetooth**</mark>, como já foi dito acima, com InputStream (o que recebe) e OutputStream (o que envia). É ele que permite a troca de dados entre dispositivos.
+
+<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+### BluetoothServerSocket
+
+Para conectar dois dispositivos, um deles precisa <mark style="color:blue;">**abrir um soquete de servidor com essa classe**</mark>. Quando um dispositivo remoto Bluetooth faz uma solicitação de conexão, ele aceita a conexão e retorna um objeto do tipo <mark style="color:red;">**BluetoothSocket**</mark> conectado.
+
+### BluetoothClass
+
+É usada para <mark style="color:blue;">**descrever as características**</mark> de um dispositivo Bluetooth remoto.&#x20;
+
+```kotlin
+return when (bluetoothClass.deviceClass) {
+    BluetoothClass.Device.PHONE_SMART -> "Smartphone"
+    BluetoothClass.Device.COMPUTER_LAPTOP -> "Laptop"
+    BluetoothClass.Device.AUDIO_VIDEO_HEADPHONES -> "Headphones"
+    BluetoothClass.Device.WEARABLE_WRIST_WATCH -> "Wrist Watch"
+    else -> "Unknown"
+}
+```
+
+### Outras classes
+
+* **BluetoothProfile**: É usada para representar um perfil Bluetooth específico, como o perfil A2DP, HFP ou HID. Esses perfis representam diferentes tipos de funcionalidades que os dispositivos Bluetooth podem suportar
+* **BluetoothHeadset**: Oferece suporte para fones de ouvido via Bluetooth
+* **BluetoothA2dp**: Define como fazer streaming de áudio de alta qualidade de um dispositivo para outro por uma conexão Bluetooth usando o **BluetoothProfile** A2DP (significa distribuição de áudio avançada)
+* **BluetoothHealth**: Representa um proxy do perfil do Health Device que controla o serviço do Bluetooth
+* **BluetoothHealthCallBack**: É uma classe usada para extender a classe **BluetoothHealth** e conseguir obter callbacks, que serão atualizações sobre mudanças no estado de registro do app e no estado do canal Bluetooth
+* **BluetoothHealthAppConfiguration**: Representa uma configuração de app que o app de saúde do Bluetooth registra para se comunicar com um dispositivo de saúde remoto do Bluetooth
+* **BluetoothProfile.ServerListener**: Uma interface que notifica os clientes de comunicação entre processos da classe **BluetoothProfile** quando eles são conectados ou desconectados do serviço interno que executa um perfil específico.
 
 ## Código
 
@@ -53,10 +127,4 @@ Possui a referência do Bluetooth do dispositivo atual, o celular em que está o
 ### Handler
 
 É um objeto que executa um outro bloco de código de forma agendada em uma outra thread segura, que não é a principal (UI).
-
-
-
-## Prova
-
-<mark style="background-color:red;">o que ler para a prova: Bluetooth Overview, vai ter as classes chaves, que viemos em aula. Exemplo: a classe BluetoothDevice representa um dispositivo remoto e o seu dispositivo é representado pelo BluetoohAdapter )</mark>
 

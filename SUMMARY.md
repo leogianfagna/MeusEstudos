@@ -29,6 +29,7 @@
     * [Permissões importantes](2024/dispositivos-moveis/android-studio/permissoes-importantes.md)
     * [Firebase](2024/dispositivos-moveis/android-studio/firebase.md)
     * [Activitys](2024/dispositivos-moveis/android-studio/activitys.md)
+    * [Fragments](2024/dispositivos-moveis/android-studio/fragments.md)
     * [ViewBinding](2024/dispositivos-moveis/android-studio/viewbinding.md)
     * [Estrutura layout](2024/dispositivos-moveis/android-studio/estrutura-layout.md)
     * [RecyclerView](2024/dispositivos-moveis/android-studio/recyclerview.md)

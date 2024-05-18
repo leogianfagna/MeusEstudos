@@ -33,7 +33,7 @@ A modificação dessa classe para implementação de novas funcionalidades pode 
 
 A solução para esse problema encontre-se na refatoração das classes, onde foca em criar/dividir as classes em forma que as responsabilidades de cada classe fiquem bem definida e distintas.
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 Aplicando essa correção vai resultar na melhoria da organização no código que, por consequência, vai reduzir a duplicação do mesmo código e vai simplificar o suporte, corrigindo o problema do Divergent Change, onde uma alteração/modificação pode ser feita apenas em um lugar só, sem causar incompatibilidade.
 
@@ -45,7 +45,7 @@ A causa desse problema também é o oposto das modificações divergentes. A sol
 
 A solução para esse sinal seria identificar os métodos e campos repetidos e mover para uma nova classe e, se a classe antiga estiver “vazia”, tentar livrar-se dela. Isso vai gerar os mesmos efeitos na qualidade do código, como: facilitar manutenção, melhor organização e menos código repetido.
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption><p><a href="https://refactoring.guru/pt-br/smells/shotgun-surgery">https://refactoring.guru/pt-br/smells/shotgun-surgery</a></p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p><a href="https://refactoring.guru/pt-br/smells/shotgun-surgery">https://refactoring.guru/pt-br/smells/shotgun-surgery</a></p></figcaption></figure>
 
 ### Hierarquia de heranças paralelas (Parallel Inheritance Hierarchies)&#x20;
 
@@ -53,5 +53,5 @@ A solução para esse sinal seria identificar os métodos e campos repetidos e m
 
 A solução recomendada é “desduplicar” hierarquias de classes paralelas em duas etapas. Primeiro, faça com que as instâncias de uma hierarquia se refiram às instâncias de outra hierarquia. Em seguida, remova a hierarquia da classe referida. Contudo, existe uma exceção na hora de tentar solucionar. Algumas vezes, a tentativa dessa solução pode causar um código ainda maior e “feio”. Nestes casos, fica mais fácil manter da forma que estar e pensar em uma refatoração mais adiante.
 
-<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption><p><a href="https://refactoring.guru/pt-br/smells/parallel-inheritance-hierarchies">https://refactoring.guru/pt-br/smells/parallel-inheritance-hierarchies</a></p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption><p><a href="https://refactoring.guru/pt-br/smells/parallel-inheritance-hierarchies">https://refactoring.guru/pt-br/smells/parallel-inheritance-hierarchies</a></p></figcaption></figure>
 
