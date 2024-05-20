@@ -8,7 +8,7 @@ Para começar usar, precisa adicionar as 3 dependências no Gradle do módulo do
 
 ```groovy
 dependencies {
-    //Dependência do CAMERAX
+    // Dependência do CAMERAX
     implementation("androidx.camera:camera-view:1.3.3")
     implementation("androidx.camera:camera-lifecycle:1.3.3")
     implementation("androidx.camera:camera-camera2:1.3.3")
@@ -19,10 +19,10 @@ E essas permissões no manifest:
 
 ```xml
 <!-- Define que o aparelho precisa ter camêra para ser instalado -->
-<uses-feature android:name="android.hardware.camera.any"/>
+<uses-feature android:name="android.hardware.camera.any" />
 
-<!-- Defnie a permissão para usar -->
-<uses-permission android:name="android.permission.CAMERA"/>
+<!-- Define a permissão para usar -->
+<uses-permission android:name="android.permission.CAMERA" />
 ```
 
 O ViewBinding deve estar disponível no projeto.
@@ -48,7 +48,7 @@ Iremos criar uma activity chamada CameraPreviewLayout com o seguinte layout:
     <androidx.camera.view.PreviewView
         android:id="@+id/cameraPreview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent" />
     
     <!-- Posiciona na parte inferior da tela centralizada -->
     <com.google.android.material.button.MaterialButton

@@ -132,7 +132,10 @@ override fun onCreate(savedInstanceState: Bundle?) {
 // Esse método possui essa estrutura: getActivity(Context, int, Intent, int)
 ```
 
-
+{% hint style="info" %}
+* _**FLAG\_ACTIVITY\_SINGLE\_TOP** é uma flag para conferir se a activity já está no topo da pilha de activitys e não criar uma nova instância_
+* _**PendingIntent.FLAG\_IMMUTABLE** serve apenas para deixar esse intent como imutável e não sofrer alterações. Ele entra em um contexto de Int, não sei explicar o porquê_
+{% endhint %}
 
 ### 5. Filtrar as intenções relacionadas à descoberta anterior
 
@@ -188,18 +191,27 @@ intent.getParcelableArrayExtra(NfcAdapter.EXTRA_NDEF_MESSAGES)
 Essa função por inteiro podemos definir em nosso código da seguinte forma:
 
 ```kotlin
-override fun onNewIntent(intent: Intent?) {
-    super.onNewIntent(intent)
+override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
 
-    if (NfcAdapter.ACTION_NDEF_DISCOVERED == intent?.action) {
-        intent.getParcelableArrayExtra(NfcAdapter.EXTRA_NDEF_MESSAGES)?.also { rawMessages ->
-            val dadosMensagens: List<NdefMessage> = rawMessages.map { it as NdefMessage }
+        if (NfcAdapter.ACTION_NDEF_DISCOVERED == intent.action) {
+            val rawMessages = intent.getParcelableArrayListExtra<Parcelable>(NfcAdapter.EXTRA_NDEF_MESSAGES)
 
-            // Finalmente: Manipulação de dados!
-            var i: List<NdefMessage> = dadosMensagens
+            rawMessages?.let {
+                val dadosMensagens: List<NdefMessage> = it.map { it as NdefMessage }
+
+                for (mensagem in dadosMensagens) {
+                    val records = mensagem.records
+
+                    for (record in records) {
+                        val payload = record.payload // Processar cada NdefRecord
+                        val text = String(payload, Charsets.UTF_8) // Converter o payload para String
+                        // Manipular os dados com a variável "text"
+                    }
+                }
+            }
         }
     }
-}
 ```
 
 Vemos dentro dessa função que é passado uma variável <mark style="color:purple;">**intent**</mark> que é utilizada várias vezes e é essencial para resgatar as informações. Ela vem através dos registros que foram feitos anteriormente com <mark style="color:purple;">`enableForegroundDispatch()`</mark>. Como dito anteriormente, preparou-se as configurações nos registros.
@@ -217,3 +229,14 @@ override fun onPause() {
 }
 ```
 
+## Resumo de variáveis/classes <a href="#ndef-disc" id="ndef-disc"></a>
+
+| Variável ou classe         | Utilização                                                                                                                                                  |
+| -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| NfcAdapter                 | Atua como interface hardware NFC para detectar, registra os filtros e obtém acesso do adaptador do dispositivo.                                             |
+| nfcAdapter                 | Vai ser a instância relacionada ao dispositivo                                                                                                              |
+| pendingIntent              | Instância usada para identificar quando a tag é descoberta                                                                                                  |
+| PendingIntent              | Classe que objetos possuem a intenção e alvo das execuções                                                                                                  |
+| ndefFilter                 | Usada para ser um objeto da classe IntentFilter                                                                                                             |
+| IntentFilter               | Filtra as intenções definindo os critérios que uma intenção deve atender                                                                                    |
+| enableForegroundDispatch() | Método da classe NfcAdapter que vai permitir que a activity intercepte as intenções. Precisa do pendingIntent, de filtros e de um techList para ser chamada |

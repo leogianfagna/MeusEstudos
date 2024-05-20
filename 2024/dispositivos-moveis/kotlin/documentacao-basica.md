@@ -201,7 +201,21 @@ when (x) {
 }
 ```
 
+### Múltiplas condições
 
+Nestes casos fica muito parecido ás linguagens comuns como Javascript. Usar os operadores **`&&`** e **`||`**, assim como o **`!`** para não.
+
+```kotlin
+val a = 5
+val b = 10
+val c = 15
+
+if ((a < b && b < c) || (a + b > c)) {
+    println("Condições complexas satisfeitas.")
+} else {
+    println("Condições complexas não satisfeitas.")
+}
+```
 
 ## Alcance (range)
 

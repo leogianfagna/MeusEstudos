@@ -42,7 +42,7 @@ private fun isNetworkAvailable(): Boolean {
 
 <mark style="color:purple;">`getSystemService`</mark> é uma função da classe Context do Android que é a principal classe de <mark style="color:blue;">**acesso a recursos e serviços**</mark> no Android, então ela está nativamente disponível. Alguns dos serviços disponíveis são: ConnectivityManager (usaremos agora), LocationManager, WindowManager. Usaremos essa função para obter uma instância do serviço ConnectivityManager.&#x20;
 
-A função `isNetworkAvailable` foi projetada para verificar a disponibilidade de uma conexão de internet utilizando as APIs recomendadas a partir do Android 10. A função realiza as seguintes operações: obtém o `ConnectivityManager`, verifica a rede ativa, obtém as capacidades dessa rede e verifica se a rede pode acessar a internet. A permissão `ACCESS_NETWORK_STATE` é necessária para que a aplicação possa acessar o estado das redes no dispositivo.
+A função `isNetworkAvailable()` checa se o dispositivo está conectado à internet da seguinte forma: obtém o `ConnectivityManager`, verifica a rede ativa, obtém as capacidades dessa rede e verifica se a rede pode acessar a internet. A permissão `ACCESS_NETWORK_STATE` é necessária para que a aplicação possa acessar o estado das redes no dispositivo.
 
 Lembrando que ela retorna TRUE ou FALSE, portanto, basta apenas usar o retorno dessa função para usar em uma activity, por exemplo:
 

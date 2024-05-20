@@ -8,6 +8,7 @@ description: Lista de conceitos rápidos para fixação de aprendizado.
 
 * Thread Safe: não interfere na UI Thread, é da classe Async Task
 * Callback: resposta
+* Provider: janela que solicita permissão durante o uso do app
 
 ## Relacionado com interface
 
@@ -24,3 +25,9 @@ description: Lista de conceitos rápidos para fixação de aprendizado.
 ## Relacionado com dependências
 
 * Firebase Bom: Simplifica a gestão de dependências do Firebase em projetos Android
+
+## Relacionado com Bluetooth
+
+* BluetoothManager: classe que possui uma instância bm.adapter que gerencia as conexões. Invocar o método getSystemServices() passando uma constante chamada BLUETOOTH.SERVICES responde com uma instância dessa classe
+* BluetoothAdapter: classe que representa nosso dispositivo, descobre e consulta aparelhos
+* BluetoothLeScanner: classe com funcionalidades para escanear e filtrar dispositivos, callbacks de conexões e configurações.

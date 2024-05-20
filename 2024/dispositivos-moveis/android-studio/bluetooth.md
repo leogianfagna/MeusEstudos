@@ -25,12 +25,6 @@ Parear dispositivos tecnicamente falando, traduzimos para "mandei meu adapter se
 
 Os devices possuem canais de áudio que são os caminhos de onde estão vindo os áudios, por exemplo, do aplicativo A, B, da rádio, etc. A existência do Mixer serve para controlar esses canais, por exemplo, em alguns dispositivos quando estamos ouvindo uma música e começamos a ouvir um áudio no Whatsapp, o mixer diminui o volume da música e aumenta do áudio. A inexistência de canais ou de mixer vai fazer com que um interrompa o outro.
 
-### Socket
-
-
-
-
-
 ## Permissões
 
 O uso do Bluetooth requer que uma quantia de permissões seja declarada no arquivo de manifesto para funcionar:
@@ -48,6 +42,10 @@ O uso do Bluetooth requer que uma quantia de permissões seja declarada no arqui
     Android entre N e R
 -->
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+<uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" />
+<uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+<uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
 ```
 
 ## Classes
