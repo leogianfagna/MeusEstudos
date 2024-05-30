@@ -15,6 +15,7 @@
     * [Tutoriais diversos](2023/web/javascript/tutoriais-diversos/README.md)
       * [String contém](2023/web/javascript/tutoriais-diversos/string-contem.md)
       * [Switch True](2023/web/javascript/tutoriais-diversos/switch-true.md)
+      * [Extrair da String](2023/web/javascript/tutoriais-diversos/extrair-da-string.md)
   * [Bootstrap](2023/web/bootstrap.md)
 * [📚 Manutenção e evolução](2023/manutencao-e-evolucao/README.md)
   * [Code Smells](2023/manutencao-e-evolucao/code-smells.md)
