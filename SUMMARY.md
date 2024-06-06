@@ -55,3 +55,4 @@
   * [Ciclos de vida](2024/fundamentos-de-sistemas/ciclos-de-vida.md)
   * [Scrum](2024/fundamentos-de-sistemas/scrum.md)
   * [Qualidade](2024/fundamentos-de-sistemas/qualidade.md)
+  * [Estudo para prova](2024/fundamentos-de-sistemas/estudo-para-prova.md)

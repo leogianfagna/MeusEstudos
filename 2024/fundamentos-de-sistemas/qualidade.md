@@ -135,13 +135,15 @@ Finalizando o sistema total, então temos:
 
 <figure><img src="../../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
 
+<mark style="color:red;">**OBSERVAÇÃO:**</mark> No "fim do `while`" ou de qualquer lógica repetitiva como um `for`, ele será o nó final e não terá nada ligado depois dele. A seta que continua o sistema parte do primeiro nó que entrou nessa lógica repetitiva. Então lembrar de não ligar nada depois do fim do `while`.
+
 #### Cálculo de regiões
 
 Regiões são áreas do código que são executadas em conjunto sem bifurcações internas. São aquelas sequências de comandos executadas de forma linear, sem desvios de fluxo, portanto, <mark style="color:green;">**cada desvio de fluxo determina uma nova região**</mark>. Essas regiões indicam a complexidade e estrutura do programa. Curiosamente, áreas com mais regiões simbolizam mais facilidade de testar.
 
 Para calcular o número de regiões (ou componentes conexos), precisamos já ter o gráfico construído. Depois identificamos os nós de decisão: eles são as bolinhas. Nós de decisão são aqueles que puxam setas fora da direção linear, ou seja, há uma bifurcação (IF, WHILE, SWITCH)
 
-A região será demarcada do primeiro desvio de fluxo a partir do nó encontrado até um nó que o fluxo volta ao normal. Aqui está um exemplo:
+A região será demarcada do primeiro desvio de fluxo a partir do nó encontrado até um nó que o fluxo volta ao normal. Basicamente, toda área fechada é uma região. Aqui está um exemplo:
 
 <figure><img src="../../.gitbook/assets/cálculo de regiões com mccabe.png" alt=""><figcaption></figcaption></figure>
 
