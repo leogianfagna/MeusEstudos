@@ -71,7 +71,7 @@ Socket (ou soquete, que pode ser traduzido para um ponto de comunicação), é u
 
 Em termos de código, representa a <mark style="color:blue;">**interface de um soquete Bluetooth**</mark>, como já foi dito acima, com InputStream (o que recebe) e OutputStream (o que envia). É ele que permite a troca de dados entre dispositivos.
 
-<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### BluetoothServerSocket
 

@@ -2,7 +2,7 @@
 
 É um popup que aparece para o usuário. Ele pode ser apenas um aviso e o usuário clicar para fora dele para esconder ou pode ser usado para telas de confirmação, <mark style="color:blue;">**podemos adicionar diversos botões que quisermos**</mark>. Nesse caso, fiz um dessa forma:
 
-<figure><img src="../../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Usando o padrão do próprio Android
 

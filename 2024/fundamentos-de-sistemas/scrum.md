@@ -2,7 +2,7 @@
 
 O modelo e fases de vida do Scrum é composto dessa forma:
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Quem realiza as tarefas do scrum é uma equipe, composta por:&#x20;
 

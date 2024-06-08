@@ -48,6 +48,7 @@
     * [Intents](2024/dispositivos-moveis/android-studio/intents.md)
     * [CameraX](2024/dispositivos-moveis/android-studio/camerax.md)
     * [Bluetooth](2024/dispositivos-moveis/android-studio/bluetooth.md)
+  * [Flutter](2024/dispositivos-moveis/flutter.md)
   * [Códigos documentados](2024/dispositivos-moveis/codigos-documentados.md)
 * [📚 Fundamentos de Sistemas](2024/fundamentos-de-sistemas/README.md)
   * [Conceitos da disciplina](2024/fundamentos-de-sistemas/conceitos-da-disciplina.md)

@@ -45,7 +45,7 @@ A causa desse problema também é o oposto das modificações divergentes. A sol
 
 A solução para esse sinal seria identificar os métodos e campos repetidos e mover para uma nova classe e, se a classe antiga estiver “vazia”, tentar livrar-se dela. Isso vai gerar os mesmos efeitos na qualidade do código, como: facilitar manutenção, melhor organização e menos código repetido.
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption><p><a href="https://refactoring.guru/pt-br/smells/shotgun-surgery">https://refactoring.guru/pt-br/smells/shotgun-surgery</a></p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption><p><a href="https://refactoring.guru/pt-br/smells/shotgun-surgery">https://refactoring.guru/pt-br/smells/shotgun-surgery</a></p></figcaption></figure>
 
 ### Hierarquia de heranças paralelas (Parallel Inheritance Hierarchies)&#x20;
 
