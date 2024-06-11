@@ -14,3 +14,9 @@ Estudos para programação em wEB usando linguagem HTML, CSS, Javasript e TypeSc
 * [ ] Melhorar a parte de backend faltando pedaços
 * [ ] Mostrar como adicionar o boostrap
 * [ ] Melhorar conceituação de boostrap
+
+
+
+## Observação
+
+Dentro de cada página, tem tutoriais a respeito daquela linguagem.
