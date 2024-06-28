@@ -14,6 +14,7 @@
   * [CSS](2023/web/css/README.md)
     * [Adicionando fontes](2023/web/css/adicionando-fontes.md)
     * [Atributos de um botão](2023/web/css/atributos-de-um-botao.md)
+    * [Atributos de alinhamento](2023/web/css/atributos-de-alinhamento.md)
   * [Backend](2023/web/backend.md)
   * [Javascript](2023/web/javascript/README.md)
     * [Tutoriais básicos](2023/web/javascript/tutoriais-basicos/README.md)
