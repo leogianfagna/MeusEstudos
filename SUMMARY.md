@@ -11,6 +11,7 @@
   * [HTML](2023/web/html/README.md)
     * [Importar estilos ou scripts](2023/web/html/importar-estilos-ou-scripts.md)
     * [Elementos escondidos](2023/web/html/elementos-escondidos.md)
+    * [Alterar elementos pelo script](2023/web/html/alterar-elementos-pelo-script.md)
   * [CSS](2023/web/css/README.md)
     * [Adicionando fontes](2023/web/css/adicionando-fontes.md)
     * [Atributos de um botão](2023/web/css/atributos-de-um-botao.md)
