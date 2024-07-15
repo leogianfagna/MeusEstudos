@@ -36,7 +36,12 @@ Existem algumas ideias sobre integridade relacional: na hora de declarar a chave
 
 Para criar uma chave estrangeira, faça:&#x20;
 
-<figure><img src="../../.gitbook/assets/chaves estrangeiras plsql.png" alt=""><figcaption></figcaption></figure>
+```sql
+    ID_Filho NUMBER PRIMARY KEY,
+    OutrosCampos VARCHAR(50),
+    ID_Pai NUMBER,
+    CONSTRAINT fk_Tabela_Pai FOREIGN KEY (ID_Pai) REFERENCES TabelaPai(Id_Pai)
+```
 
 ## Inner join
 

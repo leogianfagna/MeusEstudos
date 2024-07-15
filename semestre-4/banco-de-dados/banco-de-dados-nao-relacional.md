@@ -166,7 +166,34 @@ Agregações são retorno de múltiplos valores de vários documentos em um agre
 
 No comando da array, utiliza-se <mark style="color:purple;">`db.[nome da coleção].aggregate`</mark>. Qualquer tipo de consulta sempre inicia com as condições, se tiver.
 
-<figure><img src="../../.gitbook/assets/agregacoes em mongodb.png" alt=""><figcaption></figcaption></figure>
+```mongodb
+// Contando por tipo
+db.restaurants.aggregate([
+    {
+        $group: {_id: "plataform", quantidade: {$count: {}}}
+    }
+])
+
+// Contando apenas a plataforma que queremos
+db.games.aggregate([
+    {
+        $match: {plataform: "Switch"}
+    },
+    {
+        $group: {_id: "plataform", quantidade: {$count: {}}}
+    }
+])
+
+// Contando com uma condição OU
+db.games.aggregate([
+    {
+        $match: {$or: [ {plataform: "Switch"}, {plataform: "iOS"}]}
+    },
+    {
+        $group: {_id: "plataform", quantidade: {$count: {}}}
+    }
+])
+```
 
 ## Traduzindo um comando SQL para Mongo&#x20;
 

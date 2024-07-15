@@ -14,6 +14,10 @@
 
 ## Semestre 2
 
+* [Fundamentos de Engenharia de Sistemas](semestre-2/fundamentos-de-engenharia-de-sistemas/README.md)
+  * [Conceitos rápidos](semestre-2/fundamentos-de-engenharia-de-sistemas/conceitos-rapidos.md)
+  * [Modelagem](semestre-2/fundamentos-de-engenharia-de-sistemas/modelagem/README.md)
+    * [SysM](semestre-2/fundamentos-de-engenharia-de-sistemas/modelagem/sysm.md)
 * [📚 Web](semestre-2/web/README.md)
   * [Conceitos da disciplina](semestre-2/web/conceitos-da-disciplina/README.md)
     * [Conceitos rápidos](semestre-2/web/conceitos-da-disciplina/conceitos-rapidos.md)

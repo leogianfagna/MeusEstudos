@@ -12,7 +12,18 @@ Essa linguagem é organizada em um bloco PL/SQL, que são um grupo de instruçõ
 * BEGIN: onde vai o código&#x20;
 * END: termina com ponto e vírgula&#x20;
 
-<figure><img src="../../.gitbook/assets/estrutura do plsql.png" alt=""><figcaption></figcaption></figure>
+```plsql
+DECLARE
+    numero_a PLS_INTEGER := 1;
+    numero_b PLS_INTEGER := 2;
+    resultado PLS_INTEGER := 0;
+
+BEGIN
+    resultado := numero_a + numero_b;
+    DBMS_OUTPUT.put_line('Resultado'||resultado);
+
+END;
+```
 
 > O DBMS Output (Database Management System Output) É um gerenciador de saída de dados do gerenciar do banco, como um log. É necessário habilitá-lo no SQL DEVELOPER, na opção View.
 
@@ -22,15 +33,31 @@ Variáveis são objetos que armazenam e manipulam valores temporários durante a
 
 A declaração da variável tem que ser o mais específico possível. Quando se trata de uma variável local, utiliza-se o prefixo “l\_” e quando se trata de uma global o prefixo “g\_”, por exemplo, “**l\_total\_sales**”. Também deve especificar o tipo de dado que recebe a variável.
 
-<figure><img src="../../.gitbook/assets/variaveis em plsql.png" alt=""><figcaption></figcaption></figure>
+```plsql
+l_total_sales NUMBER(15,2);
+l_credit_limit NUMBER(10,0);
+l_contact_name VARCHAR2(255);
+```
 
 Para atribuir um valor à ela, utiliza-se o operador “:=” ou também é possível fazer isso com o operador DEFAULT.
 
-<figure><img src="../../.gitbook/assets/atribuicao de variaveis plsql.png" alt=""><figcaption></figcaption></figure>
+```sql
+DECLARE
+    l_minha_variavel VARCHAR2(255) DEFAULT 'Valor';
+    l_minha_segunda_variavel NUMBER(5,0) := 5;
+
+BEGIN
+    -- ...
+
+END;
+```
 
 É possível impor para a variável a declaração de NOT NULL, mas, neste caso, você deve atribuir um valor a variável logo na declaração dela.
 
-<figure><img src="../../.gitbook/assets/not null variaveis plsql.png" alt=""><figcaption></figcaption></figure>
+```plsql
+DECLARE
+    l_status VARCHAR2(25) NOT NULL := 'Entregue';
+```
 
 ### Declarações ancoradas:
 
@@ -52,7 +79,37 @@ O código de uma procedure é estruturado em:
 2. Parte executável
 3. Exceções
 
-<figure><img src="../../.gitbook/assets/procedures plsql.png" alt=""><figcaption></figcaption></figure>
+```plsql
+-- Declaração de procedure
+CREATE PROCEDURE print_contact(
+    in_customer_id NUMBER
+)
+
+-- Declara variável do tipo ROWTYPE.
+-- Isso quer dizer que essa variável terá
+-- a mesma estrutura da tabela CONTACTS
+IS
+    r_contact contacts%ROWTYPE;
+
+-- Implementação da lógica
+BEGIN
+    -- Consulta SQL
+    SELECT *
+    INTO r_contact -- Variável que vai armazenar resultado
+    FROM contacts
+    WHERE customer_id = p_customer_id;
+
+    -- Imprimir informações (lógica final do código)
+    DBMS_OUTPUT.put_line(r_contact.first_name || ' ' ||
+    r_contact.last_name || '<' || r_contact.email || '>');
+
+-- Bloco de execução, qualquer erro vai entrar aqui
+EXCEPTION
+    WHEN OTHERS THEN
+        DBMS_OUTPUT.put_line( SQLERRM );
+
+END;
+```
 
 ### Cabeçalho da procedure:
 
@@ -82,7 +139,35 @@ Funções são blocos de código que realizam uma tarefa específica e retornam 
 
 Funções podem ser declaradas dentro de um bloco PL/SQL ou fora dele. Dentro de um bloco, você pode chamar funções para realizar tarefas específicas e retornar valores que podem ser utilizados no restante do bloco.
 
-<figure><img src="../../.gitbook/assets/declaracao função plsql.png" alt=""><figcaption></figcaption></figure>
+```plsql
+-- Declaração da função
+CREATE FUNCTION calcular_area_circulo(p_raio NUMBER)
+    RETURN NUMBER IS v_area NUMBER;
+
+BEGIN
+    -- Cálculo da área do círculo
+    v_area := 3.14 * POWER(p_raio, 2);
+
+    -- Retorna área calculada
+    RETURN v_area;
+END calcular_area_circulo; -- Nome da função novamente
+/
+
+-- Bloco PL/SQL que chama a função
+DECLARE 
+    v_raio NUMBER := 5;
+    v_resultado NUMBER;
+
+BEGIN
+    -- Chama a função e armazena o resultado em v_resultado
+    v_resultado := calcular_area_circulo(v_raio);
+
+    -- Exibe o resultado
+    DBMS_OUTPUT.put_line('Área é: ' || v_resultado);
+
+END;
+/
+```
 
 Algo notável é que durante a construção das funções, utiliza-se muito SELECT INTO para o resultado de uma certa busca ser usada como valor em uma variável escolhida.
 
@@ -90,7 +175,15 @@ Algo notável é que durante a construção das funções, utiliza-se muito SELE
 
 É um conjunto de instruções PL/SQL, mas que não possui um nome associado, assim como é nos cursores, funções, etc. Também possui a estrutura de DECLARE, BEGIN e END, mas só é executado uma vez quando invocado e não pode ser chamado novamente.&#x20;
 
-<figure><img src="../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+```sql
+DECLARE
+    v_numero NUMBER := 10;
+BEGIN
+    -- Lógica do bloco anônimo
+END;
+```
+
+Basicamente, esses exemplos trabalham com blocos anônimos.
 
 ## IF-ELSE:
 
@@ -104,11 +197,44 @@ END IF;
 
 O THEN significa o que irá ser executado caso o IF seja verdadeiro. Um exemplo básico seria:
 
-<figure><img src="../../.gitbook/assets/ifelse plsql.png" alt=""><figcaption></figcaption></figure>
+```plsql
+DECLARE
+    -- Variáveis
+BEGIN
+    -- Lógicas e operações
+
+    IF v_bonus_percentage > 10 THEN
+        -- Operações se verdade
+    ELSE
+        -- Operações se falso
+        NULL; -- Não fazer nada
+    END IF;
+
+    DBMS_OUTPUT.put_line('...');
+END;
+/
+```
 
 Todas as lógicas de código usados em uma outra linguagem que envolvam formatações condicionais também podem ser replicadas aqui. Isto é, operadores IF em cadeia, IF dentro de IF e também operadores para estabelecer duas condições, como condição\_1 e condição\_2 usando AND. Além disso, o ELSE IF padrão torna-se ELSIF na linguagem PL/SQL. Por exemplo:
 
-<figure><img src="../../.gitbook/assets/elsif plsql.png" alt=""><figcaption></figcaption></figure>
+```plsql
+DECLARE
+    n_sales NUMBER := 300000;
+    n_comission NUMBER(10,2) := 0; 
+BEGIN
+    IF n_sales > 200000 THEN
+        n_comission := n_sales * 0.1;
+
+    -- Entra caso a primeira não seja cumprida
+    ELSIF n_sales > 400000 AND n_sales < 600000 THEN -- Duas condições
+        n_comission := n_sales * 0.2;
+
+    -- ELSE final
+    ELSE
+        n_comission := n_sales * 0.05;
+    END IF;
+END;
+```
 
 ## CASE-WHEN:
 
@@ -116,7 +242,24 @@ Estrutura condicional que é usada para controle condicional dentro de um bloco,
 
 Quando o SQL encontra sua primeira condição WHEN verdadeira, ele para de verificar as demais, assim como acontece em outras linguagens de programação. Essa estrutura também suporta o operador <mark style="color:red;">**ELSE**</mark>, para caso nenhuma tenha sido avaliada, igual ao “default” nas lógicas “switch case” de outras linguagens. Por exemplo:
 
-<figure><img src="../../.gitbook/assets/case when plsql.png" alt=""><figcaption></figcaption></figure>
+```plsql
+DECLARE
+    v_order_status orders.status%TYPE := 'ENTREGUE';
+    v_action VARCHAR2(50);
+BEGIN
+    -- Estrutura CASE-WHEN para determinar a ação
+    CASE v_order_status
+        WHEN 'NOVO' THEN
+            v_action := 'Processar novo pedido';
+        WHEN 'ENTREGUE' THEN
+            v_action := 'Atualizar informações';
+        WHEN 'CANCELADO' THEN
+            v_action := 'Processar cancelamento';
+        ELSE
+            v_action := 'Status desconhecido';
+    END CASE; -- Lembrar de fechar
+END;
+```
 
 Também existe a opção de nada acontecer no ELSE, simbolizando que a estrutura CASE-WHEN não foi encontrada nenhum valor verdadeiro. Para isso:
 
@@ -136,9 +279,42 @@ WHEN n_sales >= 100000 AND n_sales < 200000 THEN
 
 Estrutura de loop que executa um bloco de código repetidamente até que uma condição seja atendida. Essa condição pode ser verificada com a estrutura IF-ELSE (e utilizando o operador EXIT) ou com uma nova sintaxe do loop EXIT WHEN. Por exemplo:
 
-<figure><img src="../../.gitbook/assets/loop plsql 1.png" alt=""><figcaption></figcaption></figure>
+```plsql
+DECLARE
+    l_variavel NUMBER := 0;
+BEGIN
+    
+    LOOP
+        l_variavel := l_variavel + 1;
 
-<figure><img src="../../.gitbook/assets/loop plsql 2.png" alt=""><figcaption></figcaption></figure>
+        IF l_variavel > 3 THEN
+            EXIT;
+        END IF;
+
+        DBMS_OUTPUT.put_line('Dentro do loop: ' || l_variavel);
+    END LOOP; -- Lembrar de fechar
+
+    DBMS_OUTPUT.put_line('Fora do loop:' || l_variavel);
+END;
+```
+
+```plsql
+-- Troca o IF para saída por uma condição EXIT
+DECLARE
+    l_variavel NUMBER := 0;
+BEGIN
+    
+    LOOP
+        l_variavel := l_variavel + 1;
+
+        EXIT WHEN l_variavel > 3; -- Condição
+        DBMS_OUTPUT.put_line('Dentro do loop: ' || l_variavel);
+
+    END LOOP; -- Lembrar de fechar
+
+    DBMS_OUTPUT.put_line('Fora do loop:' || l_variavel);
+END;
+```
 
 Um detalhe muito importante é que normalmente utiliza-se o EXIT WHEN logo nas linhas de cima, ao abrir o LOOP. Contudo, as linhas após o EXIT WHEN fazem parte do código do loop. Neste exemplo acima, “Inside loop” faz parte da operação do loop e será executado repetidamente até que o loop termine.
 
@@ -146,15 +322,52 @@ Um detalhe muito importante é que normalmente utiliza-se o EXIT WHEN logo nas l
 
 A cláusula SELECT INTO é usada dentro de um bloco para armazenar o resultado de uma consulta em uma variável, permitindo o acesso e manipulação desses dados no restante do bloco como a forma da variável.
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+```plsql
+DECLARE
+    nome_funcionario VARCHAR2(50);
+BEGIN
+    SELECT nome
+    INTO nome_funcionario
+    FROM funcionarios
+    WHERE id = 1;
+    -- Agora, nome_funcionario contém o nome
+    -- do funcionário com id = 1 
+END;
+```
 
 O tipo de retorno deve condizer com o tipo da variável, por exemplo, se a busca na tabela vai retornar várias linhas, a variável declarada para receber este valor deve ser do mesmo tipo. Para funcionar corretamente, há maneiras de já declarar automaticamente com o tipo que será retornado, por exemplo:
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+```sql
+DECLARE
+    -- Dado de apenas uma coluna
+    l_customer_name customers.name%TYPE;
+
+    -- Retorna os dados da linha inteira,
+    -- por isso não especifica a coluna
+    r_customer customers%TYPE;
+```
 
 Lembrando que também é possível selecionar múltiplos dados pois, em uma busca no banco de dados, logo depois do operador SELECT é possível colocar mais de uma coluna na busca, como por exemplo SELECT NOME, ENDEREÇO, IDADE e assim é possível assimilar essas buscas em diferentes variáveis. Por exemplo:
 
-<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+```sql
+DECLARE
+    l_customer_name customers.name%TYPE;
+    l_contact_first_name contacts.first_name%TYPE;
+    l_contact_last_name contacts.last_name%TYPE;
+
+BEGIN
+    -- Atribuir nas variáveis
+    SELECT
+        name,
+        first_name,
+        last_name
+    INTO
+        l_customer_name,
+        l_contact_first_name,
+        l_contact_last_name
+    FROM
+        customers
+```
 
 ## Cursores (FETCH, OPEN, CLOSE):
 
@@ -202,9 +415,61 @@ Depois, completando o comando SQL, adicionou uma condição para a atualização
 
 Depois existe um novo EXIT WHEN que foi criado em caso que o orçamento foi zerado. Vendo o código, temos dois EXIT WHEN mas ambos são para sair do mesmo LOOP. São dois por conta que são duas condições diferentes, mas eles poderiam estar em um mesmo comando utilizando uma condição OU para satisfazer um ou outro resultado (ou cursor vazio ou orçamento zerado).
 
-<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+```plsql
+DECLARE
+    -- Declarando e criando o cursor
+    CURSOR c_sales IS
+        SELECT * FROM sales
+        ORDER BY total DESC;
+    
+    -- Variáveis
+    r_sales c_sales%ROWTYPE; -- Do mesmo tipo do cursor
+    l_budget NUMBER := 1000000;
 
-<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+BEGIN
+    -- Limpa todos os dados
+    UPDATE customers SET credit_limit = 0;
+
+    OPEN c_sales; -- Abriu o cursor
+
+    LOOP
+        FETCH c_sales INTO r_sales;
+        -- Condição para sair do LOOP
+        -- que está dentro do LOOP é executado
+        EXIT WHEN c_sales%NOTFOUND;
+
+        -- Comando SQL UPDATE
+        UPDATE
+            customers
+        SET
+            credit_limit =
+
+            -- Abre uma condição para o valor que será atribuído
+            -- à "credit_limit"
+            CASE 
+                -- Primeira condição WHEN
+                WHEN l_budget > r_sales.credit THEN
+                    r_sales.credit
+
+                ELSE
+                    l_budget
+            
+            -- Fecha o CASE
+            END
+        
+        WHERE   
+            customer_id = r_sales.customer_id;
+
+        -- Um pouco de lógica
+        l_budget := l_budget - r_sales.credit;
+
+        EXIT WHEN l_budget <= 0;
+
+    -- Somente aqui sai do LOOP e todo o código acima é
+    -- executado em cada instância do LOOP
+    END LOOP;
+END;
+```
 
 ## Triggers
 
@@ -219,7 +484,40 @@ A criação de um trigger consiste em um HEAD e um BODY onde o corpo BODY tem a 
 
 As definições de quando um trigger é lançado ficam definidas no HEAD enquanto os disparos que o trigger irá realizar (ações e execuções) são definidas no campo BODY (no bloco). Uma estrutura pronta da criação de um novo trigger pode ser representada pelo seguinte exemplo:
 
-<figure><img src="../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+```sql
+-- Criação do trigger "trg_nome"
+CREATE TRIGGER trg_nome
+
+-- Define se ele vai ser disparado antes ou depois
+-- de acontecer o "triggering_event", que ppode ser
+-- INSERT, UPDATE, DELETE, etc na table "table_name"
+{ BEFORE | AFTER } triggering_event ON table_name
+
+-- Define se vai ser disparado para cada coluna
+-- alterada ou somente uma vez
+[FOR EACH ROW]
+
+-- Define se esse trigger criado "trg_nome" vai
+-- ser executado antes (FOLLOW) ou depois (PROCEDE)
+-- do trigger "trg_outro". Podem ter vários triggers
+-- associado ao mesmo evento
+[FOLLOWS | PRECEDES trg_outro]
+
+-- Define se está habilidade ou desabilitado
+[ENABLE  | DISABLE]
+
+-- Condições
+[WHEN condition]
+
+-- BODY
+DECLARE
+    ...
+BEGIN
+    ...
+EXCEPTION
+    ...
+END;
+```
 
 Lendo um trigger passo a passo, vamos supor o seguinte trigger criado:
 
@@ -238,7 +536,10 @@ Lendo um trigger passo a passo, vamos supor o seguinte trigger criado:
 
 É possível especificar em qual coluna deve ser feito a modificação para o trigger ser disparado dessa forma:
 
-<figure><img src="../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+```sql
+INSERT OR DELETE OR UPDATE OF coluna1, coluna2, ...
+ON nome_da_tabela
+```
 
 ### Triggers em nível de instrução
 
@@ -246,7 +547,23 @@ O parâmetro FOR EACH ROW vai definir se o trigger será disparado para cada lin
 
 Ele pode ser utilizado para várias funcionalidades, mas, uma ideia é para gerar exceções. Por exemplo, em um banco de dados de venda, o administrador quer bloquear qualquer tipo de alteração no banco durante os dias 28 e 31 do mês para fazer o fechamento. Para isso, é possível criar um trigger que, caso satisfaça as condições, retorne um erro ao usuário. Por exemplo:
 
-<figure><img src="../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+```sql
+CREATE TRIGGER customers_credit_trg
+
+    BEFORE UPDATE OF credit_limit
+    ON customers
+
+DECLARE
+    l_day_of_month NUMBER;
+
+BEGIN
+    l_day_of_month := EXTRACT(DAY FROM sysdate);
+
+    IF l_day_of_month BETWEEN 28 AND 31 THEN
+        raise_application_error(-20100, 'Não é possível atualizar final de mês.');
+    END IF;
+END;
+```
 
 Nesse exemplo acima, utilizou a procedure RAISE\_APPLICATION\_ERROR para retornar um erro ao usuário e não fazer a alteração no banco de dados. Por isso, é importante saber que os triggers eles nem sempre são relacionados a modificações no banco e podem ser usados com outros propósitos, principalmente no modo de nível de instrução, onde não é executado para cada linha.
 
@@ -254,13 +571,22 @@ Nesse exemplo acima, utilizou a procedure RAISE\_APPLICATION\_ERROR para retorna
 
 Para aqueles triggers que são disparados linha por linha, é possível resgatar o valor antigo e novo dessa linha usando a sintaxe :OLD e :NEW seguido pelo nome da coluna. Por exemplo:
 
-<figure><img src="../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+```plsql
+IF :NEW.credit_limit > :OLD.credit_limit THEN
+    -- Fazer algo
+END;
+```
 
 Vale lembrar que há de se pensar se existe o valor antigo e o novo em determinadas situações, por exemplo, não terá o valor NEW depois de uma ação de DELETE ou o valor OLD em uma ação de INSERT. Como essas sintaxes são referenciadas externamente, necessita dos dois pontos na frente para utiliza-las.
 
 Os triggers em FOR EACH ROW serão disparados várias vezes, dependendo do número de alterações. Por exemplo, se 1000 linhas foi alterada ele irá disparar mil vezes. Para aprimorar isso, podemos adicionar a condição WHEN para disparar somente nas ocorrências que queremos:
 
-<figure><img src="../../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
+```sql
+BEFORE UPDATE OF credit_limit
+ON customers
+FOR EACH ROW
+WHEN (NEW.credit_limit > 0)
+```
 
 Neste caso (dentro da condição), não são necessários os dois pontos. Lembrando que essa formatação está referenciando ao valor daquela coluna em específico, ou seja, um valor somente. Mas é possível conseguir fazer isso para a linha inteira, referenciando o valor antigo da linha e o novo. Para isso, utiliza-se REFERENCING e NEW. Neste exemplo:
 
