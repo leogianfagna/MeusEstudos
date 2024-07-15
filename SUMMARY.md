@@ -70,6 +70,8 @@
     * [Bluetooth](semestre-3/dispositivos-moveis/android-studio/bluetooth.md)
   * [Flutter](semestre-3/dispositivos-moveis/flutter.md)
   * [Códigos documentados](semestre-3/dispositivos-moveis/codigos-documentados.md)
+* [Projeto de Interação e da Experiência do Usuário](semestre-3/projeto-de-interacao-e-da-experiencia-do-usuario/README.md)
+  * [Design Thinking](semestre-3/projeto-de-interacao-e-da-experiencia-do-usuario/design-thinking.md)
 
 ## Semestre 4
 
