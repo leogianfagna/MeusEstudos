@@ -14,10 +14,6 @@
 
 ## Semestre 2
 
-* [Fundamentos de Engenharia de Sistemas](semestre-2/fundamentos-de-engenharia-de-sistemas/README.md)
-  * [Conceitos rápidos](semestre-2/fundamentos-de-engenharia-de-sistemas/conceitos-rapidos.md)
-  * [Modelagem](semestre-2/fundamentos-de-engenharia-de-sistemas/modelagem/README.md)
-    * [SysM](semestre-2/fundamentos-de-engenharia-de-sistemas/modelagem/sysm.md)
 * [📚 Web](semestre-2/web/README.md)
   * [Conceitos da disciplina](semestre-2/web/conceitos-da-disciplina/README.md)
     * [Conceitos rápidos](semestre-2/web/conceitos-da-disciplina/conceitos-rapidos.md)
@@ -38,6 +34,11 @@
       * [Extrair da String](semestre-2/web/javascript/tutoriais-basicos/extrair-da-string.md)
       * [Deixar apenas números](semestre-2/web/javascript/tutoriais-basicos/deixar-apenas-numeros.md)
   * [Bootstrap](semestre-2/web/bootstrap.md)
+* [Fundamentos de Engenharia de Sistemas](semestre-2/fundamentos-de-engenharia-de-sistemas/README.md)
+  * [Conceitos rápidos](semestre-2/fundamentos-de-engenharia-de-sistemas/conceitos-rapidos.md)
+  * [Modelagem](semestre-2/fundamentos-de-engenharia-de-sistemas/modelagem/README.md)
+    * [SysM](semestre-2/fundamentos-de-engenharia-de-sistemas/modelagem/sysm.md)
+* [Métodos de Engenharia de Software](semestre-2/metodos-de-engenharia-de-software.md)
 
 ## Semestre 3
 
@@ -82,4 +83,10 @@
 ## Semestre 6
 
 * [📚 Manutenção e evolução](semestre-6/manutencao-e-evolucao/README.md)
+  * [Capacidade de sobrevivência de sistemas](semestre-6/manutencao-e-evolucao/capacidade-de-sobrevivencia-de-sistemas.md)
+  * [Engenharia de proteção](semestre-6/manutencao-e-evolucao/engenharia-de-protecao.md)
   * [Code Smells](semestre-6/manutencao-e-evolucao/code-smells.md)
+* [Normas e qualidade de software](semestre-6/normas-e-qualidade-de-software/README.md)
+  * [Definições](semestre-6/normas-e-qualidade-de-software/definicoes.md)
+  * [Ferramentas da qualidade](semestre-6/normas-e-qualidade-de-software/ferramentas-da-qualidade.md)
+  * [Normas](semestre-6/normas-e-qualidade-de-software/normas.md)
