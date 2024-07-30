@@ -92,3 +92,13 @@
   * [Definições](semestre-6/normas-e-qualidade-de-software/definicoes.md)
   * [Ferramentas da qualidade](semestre-6/normas-e-qualidade-de-software/ferramentas-da-qualidade.md)
   * [Normas](semestre-6/normas-e-qualidade-de-software/normas.md)
+
+## Outros estudos
+
+* [Ubuntu](outros-estudos/ubuntu/README.md)
+  * [Definições](outros-estudos/ubuntu/definicoes.md)
+  * [Reinicialização](outros-estudos/ubuntu/reinicializacao.md)
+  * [Pacotes](outros-estudos/ubuntu/pacotes.md)
+  * [Backups](outros-estudos/ubuntu/backups.md)
+  * [Ferramentas](outros-estudos/ubuntu/ferramentas/README.md)
+    * [Net Data](outros-estudos/ubuntu/ferramentas/net-data.md)
