@@ -45,6 +45,9 @@ document.getElementById('meuLink').href = 'https://novo-link.com';
 ```javascript
 document.getElementById('meuElemento').classList.add('novaClasse');
 document.getElementById('meuElemento').classList.remove('classeExistente');
+
+// Use className para setar uma classe, podendo remover todas desta forma:
+document.getElementById('meuElemento').className = '';
 ```
 
 ## **Mudar múltiplos estilos de uma vez**:
