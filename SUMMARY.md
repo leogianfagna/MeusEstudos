@@ -97,8 +97,13 @@
 
 * [Ubuntu](outros-estudos/ubuntu/README.md)
   * [Definições](outros-estudos/ubuntu/definicoes.md)
+  * [Uso básico](outros-estudos/ubuntu/uso-basico.md)
   * [Reinicialização](outros-estudos/ubuntu/reinicializacao.md)
   * [Pacotes](outros-estudos/ubuntu/pacotes.md)
   * [Backups](outros-estudos/ubuntu/backups.md)
+  * [Segurança](outros-estudos/ubuntu/seguranca/README.md)
+    * [SSH](outros-estudos/ubuntu/seguranca/ssh.md)
+    * [Bloquear IPs](outros-estudos/ubuntu/seguranca/bloquear-ips.md)
+    * [Fail2Ban](outros-estudos/ubuntu/seguranca/fail2ban.md)
   * [Ferramentas](outros-estudos/ubuntu/ferramentas/README.md)
     * [Net Data](outros-estudos/ubuntu/ferramentas/net-data.md)
