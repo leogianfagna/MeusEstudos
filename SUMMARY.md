@@ -97,6 +97,8 @@
 
 * [Ubuntu](outros-estudos/ubuntu/README.md)
   * [Definições](outros-estudos/ubuntu/definicoes.md)
+  * [Daemon](outros-estudos/ubuntu/daemon/README.md)
+    * [Wings](outros-estudos/ubuntu/daemon/wings.md)
   * [Uso básico](outros-estudos/ubuntu/uso-basico.md)
   * [Pacotes](outros-estudos/ubuntu/pacotes.md)
   * [Backups](outros-estudos/ubuntu/backups.md)
