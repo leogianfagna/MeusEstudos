@@ -81,6 +81,7 @@
   * [Banco de dados relacional](semestre-4/banco-de-dados/banco-de-dados-relacional.md)
   * [PL/SQL](semestre-4/banco-de-dados/pl-sql.md)
   * [Banco de dados não relacional](semestre-4/banco-de-dados/banco-de-dados-nao-relacional.md)
+* [Programação orientada à objetos](semestre-4/programacao-orientada-a-objetos.md)
 
 ## Semestre 6
 
