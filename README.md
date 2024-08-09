@@ -10,5 +10,3 @@ Meus estudos e anotações sobre a área de Software durante os estudos da facul
 * Usar formatação de cores no caderno banco de dados
 * Definir conceito de CSS
 * Melhorar a parte de backend faltando pedaços
-* Importar demais cadernos
-* Anotações de Python

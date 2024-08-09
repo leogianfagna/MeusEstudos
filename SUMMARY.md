@@ -4,6 +4,9 @@
 
 ## Semestre 1
 
+* [Algoritmos de programação](semestre-1/algoritmos-de-programacao/README.md)
+  * [Características do Python](semestre-1/algoritmos-de-programacao/caracteristicas-do-python/README.md)
+    * [Números e operadores](semestre-1/algoritmos-de-programacao/caracteristicas-do-python/numeros-e-operadores.md)
 * [📚 Fundamentos de Sistemas](semestre-1/fundamentos-de-sistemas/README.md)
   * [Conceitos da disciplina](semestre-1/fundamentos-de-sistemas/conceitos-da-disciplina.md)
   * [Conceitos básicos](semestre-1/fundamentos-de-sistemas/conceitos-basicos.md)
