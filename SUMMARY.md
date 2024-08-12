@@ -5,8 +5,12 @@
 ## Semestre 1
 
 * [Algoritmos de programação](semestre-1/algoritmos-de-programacao/README.md)
+  * [Variados](semestre-1/algoritmos-de-programacao/variados.md)
   * [Características do Python](semestre-1/algoritmos-de-programacao/caracteristicas-do-python/README.md)
     * [Números e operadores](semestre-1/algoritmos-de-programacao/caracteristicas-do-python/numeros-e-operadores.md)
+  * [Prático](semestre-1/algoritmos-de-programacao/pratico/README.md)
+    * [Métodos comuns](semestre-1/algoritmos-de-programacao/pratico/metodos-comuns.md)
+    * [Entrada e saída](semestre-1/algoritmos-de-programacao/pratico/entrada-e-saida.md)
 * [📚 Fundamentos de Sistemas](semestre-1/fundamentos-de-sistemas/README.md)
   * [Conceitos da disciplina](semestre-1/fundamentos-de-sistemas/conceitos-da-disciplina.md)
   * [Conceitos básicos](semestre-1/fundamentos-de-sistemas/conceitos-basicos.md)
