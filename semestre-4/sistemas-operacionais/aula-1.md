@@ -1,4 +1,4 @@
-# Sistemas operacionais
+# Aula 1
 
 Um código de um sistema operacional não possui classes e objetos, é como se fosse um único código tudo junto, onde se algo der errado em certa parte, claramente terá problema em todo o resto. Isso é feito para ser extremamente rápido.
 
@@ -10,7 +10,7 @@ O computador fica ciclando cada processo de cada programa de cada vez, revezando
 
 O sistema operacional é quem controla esses processos, <mark style="color:blue;">alocando recursos e gerenciando execução</mark>, portanto, podemos definí-lo como uma <mark style="color:green;">interface que traduz o que está acontecendo</mark>. O sistema operacional possui um núcleo, chamado de <mark style="color:red;">kernel</mark>.
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/comunicação com SO.png" alt=""><figcaption></figcaption></figure>
 
 > **Observação:**
 >
@@ -30,11 +30,11 @@ Entender esse modo de trabalho operação dual nos leva a precisar entender as c
 
 Ela funciona como se fosse uma função, contudo, ela não é chamada diretamente. Essas chamadas estão presentes através de uma biblioteca que dentro da api usa a chamada de sistema. O comando `printf()`, por exemplo, é uma biblioteca que usa uma chamada de sistema. Vejamos um exemplo prático:
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/chamadas de sistemas.png" alt=""><figcaption></figcaption></figure>
 
 Esse é um programa para copiar um arquivo. Com exceção do loop e checagens de condições, literalmente todo o restante é uma chamada de sistema. Tecnicamente, uma chamada de sistema é um código presente dentro do sistema operacional escrito em c++ e ela vem associada a um número, onde nós não precisamos ter mais detalhes sobre isso. A chamada de sistema também poderá ser escritra como **Syscall**.
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/interface syscall.png" alt=""><figcaption></figcaption></figure>
 
 #### Gerenciamento de memória
 
@@ -55,3 +55,4 @@ O loader é quem carrega esse arquivo na memória para ser executado. Por conta 
   * bloco só de código (kernel)
 * micro kernel
   * divisão em varios pedaços
+
