@@ -35,6 +35,7 @@
     * [Adicionando fontes](semestre-2/web/css/adicionando-fontes.md)
     * [Atributos de um botão](semestre-2/web/css/atributos-de-um-botao.md)
     * [Atributos de alinhamento](semestre-2/web/css/atributos-de-alinhamento.md)
+    * [Posicionamento de divs](semestre-2/web/css/posicionamento-de-divs.md)
   * [Backend](semestre-2/web/backend.md)
   * [Javascript](semestre-2/web/javascript/README.md)
     * [Tutoriais básicos](semestre-2/web/javascript/tutoriais-basicos/README.md)
