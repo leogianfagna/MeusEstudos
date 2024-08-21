@@ -37,6 +37,7 @@
     * [Atributos de alinhamento](semestre-2/web/css/atributos-de-alinhamento.md)
     * [Posicionamento de divs](semestre-2/web/css/posicionamento-de-divs.md)
   * [Backend](semestre-2/web/backend.md)
+  * [Estilização](semestre-2/web/estilizacao.md)
   * [Javascript](semestre-2/web/javascript/README.md)
     * [Tutoriais básicos](semestre-2/web/javascript/tutoriais-basicos/README.md)
       * [String contém](semestre-2/web/javascript/tutoriais-basicos/string-contem.md)
