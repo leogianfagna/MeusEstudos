@@ -13,7 +13,7 @@ Para importar, mostrará duas opções: a opção estática e opção estilizada
 
 Cada uma dessas opções vai dar uma opção de href diferente para ser importada. Podemos ver ela ao <mark style="color:purple;">lado direito</mark> logo após escolher um ícone:
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/instruções de importação do google icons.png" alt=""><figcaption></figcaption></figure>
 
 Assim, pegamos o que desejamos e importamos no `<head>` e depois usamos o ícone com o atributo `<span>`, igual mostra na aba lateral:
 

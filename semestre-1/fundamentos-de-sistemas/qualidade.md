@@ -30,7 +30,7 @@ Quanto maior o nível de acoplamento, pior. Isso pois está muito ligado com a c
 
 É uma métrica usada para medir a complexidade de um programa (classe, método, rotina etc). Ela indica a dificuldade de se construir testes de unidade em um determinado código uma vez que ela mede a <mark style="color:blue;">**quantidade de caminhos linearmente independentes**</mark> neste código.
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/nós e arestas em maccabe.png" alt=""><figcaption></figcaption></figure>
 
 
 
@@ -44,11 +44,11 @@ $$
 
 Vemos abaixo um exemplo prático, onde começa na primeira linha e depois abre condições. No caso do **IF/ELSE** abre um fluxo para cada lado, cada lado simbolizando ou o IF ou o ELSE. É importante saber que o <mark style="color:orange;">**IF é representado para a DIREITA**</mark> e o <mark style="color:purple;">**ELSE para a ESQUERDA**</mark>.
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/exemplo básico de fluxo maccabe.png" alt=""><figcaption></figcaption></figure>
 
 É importante lembrar que existe a possibilidade da <mark style="color:red;">**inexistência do ELSE**</mark>. Sendo apenas com IF, não há dois lados para ir e apenas uma linha única com uma ramificação, por exemplo:
 
-<figure><img src="../../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/mccabe com condições ifelse.png" alt=""><figcaption></figcaption></figure>
 
 Mesmo sem a existência do ELSE, como regra, o IF ainda sim é representado para a direita. Dentro dos círculos, em um exemplo foi escrito apenas o "IF" e em outro foi escrito as etapas, como "1" e "2".
 
@@ -56,7 +56,7 @@ Mesmo sem a existência do ELSE, como regra, o IF ainda sim é representado para
 
 Vamos supor que o programa possa se encerrar dentro de uma condição, em vez de passar por todas as etapas primeiro. A representação disso é bem fácil, como um **círculo que simboliza o status final do programa**. Então, se em alguma condição o programa finalizar com um return, puxa uma seta desse estado ligando até o estado final, e assim simbolizamos seu fim. Por exemplo:
 
-<figure><img src="../../.gitbook/assets/image (8) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/exemplo prático de regiõescom condições.png" alt=""><figcaption></figcaption></figure>
 
 
 
@@ -99,7 +99,7 @@ Também é legal representar com V e F as possíveis saídas para melhorar a vis
 
 Vamos basear em um seguinte código:
 
-<figure><img src="../../.gitbook/assets/image (9) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/contagem de regiões a partir de um código.png" alt=""><figcaption></figcaption></figure>
 
 Cada etapa foi numerada e veja abaixo como deve ser representada cada etapa:
 
@@ -110,7 +110,7 @@ Cada etapa foi numerada e veja abaixo como deve ser representada cada etapa:
 
 Até o momento, podemos ter esse diagrama:
 
-<figure><img src="../../.gitbook/assets/image (11) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/possíveis saídas de condições maccabe.png" alt=""><figcaption></figcaption></figure>
 
 A partir daqui temos nosso primeiro IF, neste caso, se há uma lógica dentro de um IF, uma das setas começa a ser puxada para a difeita. Continuando então temos:
 
@@ -122,7 +122,7 @@ A partir daqui temos nosso primeiro IF, neste caso, se há uma lógica dentro de
 
 E assim, essa lógica passa a ficar dessa maneira:
 
-<figure><img src="../../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/maccabe dentro de while.png" alt=""><figcaption></figcaption></figure>
 
 Para finalizar, ainda temos uma lógica IF/ELSE após esse WHILE que finaliza o nosso sistema. Continuando:
 
@@ -133,7 +133,7 @@ Para finalizar, ainda temos uma lógica IF/ELSE após esse WHILE que finaliza o 
 
 Finalizando o sistema total, então temos:
 
-<figure><img src="../../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/exemplo completo maccabe.png" alt=""><figcaption></figcaption></figure>
 
 <mark style="color:red;">**OBSERVAÇÃO:**</mark> No "fim do `while`" ou de qualquer lógica repetitiva como um `for`, ele será o nó final e não terá nada ligado depois dele. A seta que continua o sistema parte do primeiro nó que entrou nessa lógica repetitiva. Então lembrar de não ligar nada depois do fim do `while`.
 

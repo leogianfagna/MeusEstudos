@@ -12,7 +12,7 @@ O termo “search” se difere do “find”. SEARCH é usado com mais profundez
 
 Vamos precisar de uma conta no GitHub para armazenar os repositórios. Ao abrir o Visual Studio pela primeira vez, fazer os downloads dos seguintes plugins (extensões):
 
-<figure><img src="../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/extensões para programar em web.png" alt=""><figcaption></figcaption></figure>
 
 A indicação é trabalhar com fontes de tamanho 16-18, que podem ser alteradas nas configurações do VSCode. Para começar, devemos criar arquivos dentro desse repositório. O primeiro arquivo será: index.html
 
