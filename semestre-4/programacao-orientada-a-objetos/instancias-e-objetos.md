@@ -1,10 +1,10 @@
-# Programação orientada à objetos
+# Instâncias e objetos
 
 Uma programação orientada à objetos significa que ela está <mark style="color:blue;">orientada à peças</mark>. O conceito de peça é muito importante para entender como é feita essa linguagem de programação. O nome objeto não é um termo muito correto pois objeto não é peça, mas uma instância é. Veja mais abaixo.
 
 ## Conceito de peça (instância)
 
-Muitas coisas são construídas com através de peças (como um motor) e outras que não possuem peças e sim seu resultado único (como um prato). Quando um prato quebra ele é varrido e jogado fora, mas quando algo que é montado através de peças quebra, é possível arrumar trocando a peça ou montando novamente.
+Muitas coisas são construídas através de peças (como um motor) e outras que não possuem peças e sim seu resultado único (como um prato). Quando um prato quebra ele é varrido e jogado fora, mas quando algo que é montado através de peças quebra, é possível arrumar trocando a peça ou montando novamente.
 
 A ideia de criação de novas peças tem que ser muito atentada com:
 
@@ -41,6 +41,8 @@ System.out.println(new Data(5,8,2024).getMes()); // Uma instância
 System.out.println(new Data(5,8,2024).getDia()); // Segunda instância
 ```
 
+A palavra `new` é um <mark style="color:purple;">**malloc**</mark> das outras linguagens, ela aloca um espaço de memória para essa variável.
+
 ### Instância renomeada
 
 Atribuindo um nome para a instância, podemos usar ela mesma novamente:
@@ -62,52 +64,14 @@ System.out.println(amanha.getMes()); // Erro
 
 Esse exemplo mostra muito como o objeto funciona. Aqui, esse objeto não faz referência a nenhuma instância e possui apenas só um nome. É a mesma coisa que pedir para "Alfredo" fechar a porta, sendo que não tem ninguém com esse nome.
 
-## Uso de classes para instâncias
+## Criação prática
 
-Todo programa possui uma <mark style="color:blue;">classe executável</mark>, que por padrão <mark style="color:orange;">possui apenas um método</mark> nela chamada main(). Portanto, vemos qual é a classe executável do projeto através da presença desse método, dessa forma:
+Em orientação a objetos, toda instância está obrigatoriamente relacionada a uma classe, pois vamos lembrar que a classe vai servir como um molde para ela. Podemos enxergar a instância como uma cópia concreta da classe.
 
-```java
-public class Main
-{
-    public static void main(String[] args) {
-        // ... Linha de racicínio
-    }
-}
-```
+Portanto, criar uma instância em Java significa criar uma nova peça a partir de uma classe (usando `new`). Então, supondo que vamos criar uma instância de um classe chamada "_Contatos_", a utilização da palavra `new` chama automaticamente o <mark style="color:purple;">**construtor**</mark> que está dentro da classe. Esse construtor possui <mark style="color:orange;">o mesmo da classe</mark>, não retorna nada e tem como objetivo garantir que as instâncias nasçam com atributos válidos.
 
-Já as outras classes, servirão de moldes/formar para fazer instâncias (elas não são programadas uma a uma e sim formadas por essa classe). Portanto, quando usamos `new Porta = ...` simboliza que a instância Porta veio do molde de uma classe e que vai ter as características previstas nesta classe.
+<figure><img src="../../.gitbook/assets/criação de instâncias vistas em classes.png" alt=""><figcaption></figcaption></figure>
 
-### Criação de classes de forma segura
+O que estamos vendo: uma variável de referencia nomeada como meuCarro cria uma instância da classe Carro por usar a palavra new, alocando memória e chamando o contrutor (seta laranja) de dentro da classe e inicializa com 3 parâmetros. Esta variável chamada meuCarro é do tipo "Carro", o nome da classe. Demonstrativamente:
 
-Dentro da classe, a definição de atributos seguem depois dos conceitos de <mark style="color:purple;">`private/public`</mark> que controlam se ela poderá ser usada também fora daquela classe. Um atributo sendo público vai implicar que ele poderá ser manipulado de qualquer forma fora daquela classe, o que não é seguro caso o atributo seja uma variável. Caso esse atributo seja uma constante, está tudo bem usar public.
-
-A criação de atributos com variáveis que são privates deverão ter implementadas métodos dentro dela para acessar ou manipular de forma segura as mesmas. Por exemplo, criar métodos `getDia()` ou `setDia()` para manipular o atributo de forma segura, pois esses métodos teriam condições para checar o valor inserido. Caso seja inválido, usamos algo chamado <mark style="color:red;">exception</mark> que vai pedir para redigitar ou parar o programa.
-
-Por fim, o uso de construtores servirão para previnir lixo na memória e não criar atributos com valores vazios, pois ele trabalha para iniciar os atributos de forma automatica na hora de criar o objeto já que ele é um método e exige que forneça os parâmetros. Toda vez que usamos a palavra `New`, estamos criando um novo espaço na memória. Veja todas essas explicações acima na prática:
-
-```java
-Data ontem;
-ontem = New Data(9,8,2024); // Construtor
-
-ontem.dia = 5; // Erro: nunca mexer diretamente
-ontem.setDia(5); // OK
-```
-
-> Um objeto zerado significa `null`, o que seria a mesma coisa que apontar para nada.
-
-Por isso, quando trabalhamos com extra classes não veremos uma variável recebendo um valor e sempre métodos, por exemplo:
-
-```java
-newMeta.setDisplayName(oldMeta.getDisplayName());
-newMeta.setLore(oldMeta.getLore());
-```
-
-Construtores possuem o mesmo nome da classe e é `void`, porém não escrevemos void nele, dessa forma:
-
-```java
-public /* void */ Data(...)
-```
-
-### Membro estático
-
-...
+<figure><img src="../../.gitbook/assets/definição na criação de instâncias em Java.png" alt=""><figcaption></figcaption></figure>
