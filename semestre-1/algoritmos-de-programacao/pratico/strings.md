@@ -133,9 +133,29 @@ novaString = str1.replace(" ", caractereSubstituicao)
 
 ### Outros métodos
 
-A lista de métodos é muito grande com diversos métodos, eles estão documentados no site oficial[https://docs.python.org/3/library/stdtypes.html](https://docs.python.org/3/library/stdtypes.html) na seção "String Methods".
+A lista de métodos é muito grande com diversos métodos, eles estão documentados no site oficial[https://docs.python.org/3/library/stdtypes.html](https://docs.python.org/3/library/stdtypes.html) na seção "String Methods", ou nessa documentação em portugues [https://docs.python.org/pt-br/3.6/library/stdtypes.html#text-sequence-type-str](https://docs.python.org/pt-br/3.6/library/stdtypes.html#text-sequence-type-str).
 
+## Percorrer
 
+O `for` usado em strings significa percorrê-la usando o seu **índice**. Um exemplo básico disto está abaixo, demonstrando e printando cada elemento usando essa sequência repetitiva.
 
-> Parei em OUTROS MÉTODOS
+```python
+string = "Alguma string qualquer"
 
+for i in range(len(string)):
+    print(string[i])
+```
+
+Dentro dessa linha de raciocínio, podemos incluir condições usando os índices, criando o famoso exemplo de substituir todo caractere "a" por um asterisco ou algo do tipo:
+
+```python
+for k in range(len(frase)):
+    if frase[k] != 'a':
+        print({frase[k]}) # Printa o caractere verdadeiro
+    else:
+        print("*") # Printa um asterisco no lugar
+```
+
+## Exercícios
+
+Exercícios básicos usando lógicas repetitivas e métodos foram feitos [aqui](https://github.com/leogianfagna/MeusEstudos/blob/main/arquivos/semestre-1/python/exercicios/strings-basico.py).
