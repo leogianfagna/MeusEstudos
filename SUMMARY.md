@@ -37,6 +37,7 @@
     * [Atributos de um botão](semestre-2/web/css/atributos-de-um-botao.md)
     * [Atributos de alinhamento](semestre-2/web/css/atributos-de-alinhamento.md)
     * [Posicionamento de divs](semestre-2/web/css/posicionamento-de-divs.md)
+    * [Ocupação de divs](semestre-2/web/css/ocupacao-de-divs.md)
   * [Backend](semestre-2/web/backend.md)
   * [Estilização](semestre-2/web/estilizacao.md)
   * [Javascript](semestre-2/web/javascript/README.md)
