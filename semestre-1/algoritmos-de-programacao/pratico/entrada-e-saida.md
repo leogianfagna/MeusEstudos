@@ -2,6 +2,8 @@
 
 ## Saída
 
+É o que aparece na tela.
+
 ### Print
 
 Saída são representadas por qualquer exibição na tela, dentre a mais comum e famosa, a função <mark style="color:red;">`print()`</mark>. Existem <mark style="color:green;">várias formas</mark> de usar este método, porém o mais padrão e comum é através das _<mark style="color:blue;">f-strings</mark>_ quando queremos inserir variáveis juntos, que são muito flexisíveis e bem mais otimizadas do que alguma que utilize concatenação. Eis o seu uso:
@@ -20,7 +22,20 @@ print(f"Ambos inteiros {numeroInteiro} e {numeroQuebrado:.0f}")
 print(f"Numero em porcentagem {numeroPorcentagem:.2%}")
 ```
 
-Isso mostra que existem diversas opções de formatação de números (assim como também tem nos outros tipos de print), mas que vai muito além de apenas formatar casas decimais, como porcentagem, separar por milhares, zeros à esquerda, etc.&#x20;
+Isso mostra que existem diversas opções de formatação de números (assim como também tem nos outros tipos de print), mas que vai muito além de apenas formatar casas decimais, como porcentagem, separar por milhares, zeros à esquerda, etc.
+
+O método <mark style="color:red;">`print()`</mark> possui dois parâmetros que podem ser adicionados dentro dele: o `sep` e o `end`. Eles indicam, respecitivamente, o que estará entre as variáveis colocadas e o que estará no final do print. No caso do end, <mark style="color:orange;">por padrão desse método</mark>, ele é adicionado um `\n` para pular uma linha. Portanto, se especificarmos o nosso end, podemos colocar de outra forma para ele não pular, por exemplo:
+
+```python
+string = "Algo legal"
+
+print(f"String: {string}", end = '!!!\n')
+print(f"String sem pular linha depois: {string}", end = '')
+print(f". Continuando...")
+
+# String: Algo legal!!!
+# String sem pular linha depois: Algo legal. Continuando...
+```
 
 #### Largura mínima
 
