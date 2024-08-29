@@ -30,6 +30,26 @@ Usando imagens em WEB, ter várias imagens (máximo de 100kb) ao invés de uma g
 
 Sempre usar padrões encontrados em estatística. Números em uma tabela devem ser alinhados na direita, devido a área chamada semiótica.
 
+### Padrões de nomes de arquivos
+
+Por uma melhor qualidade, sempre seguimos padrões. A nomeação de arquivos dentro de um projeto Web, sejam eles `.css`, `.html` e `.js`, seguem uma formatação chamada <mark style="color:purple;">**Kebab Case**</mark>, que consiste no nome com letras minúsculas e separadas por hífens. Para CSS, também podemos usar **BEM Naming**, mas é algo avançado e não será comentado.
+
+Então, por padrão, iremos usar esses tipos de nomes:
+
+```
+\html
+   - index.html
+   - status-page.html
+   
+\scripts
+   - check-status.js
+   - main-script.js
+
+\styles
+   - card-animation-presets.css
+   - styles.css
+```
+
 ## Arquitetando o projeto
 
 Na criação de projeto web, seguir algumas etapas:
@@ -41,3 +61,4 @@ Na criação de projeto web, seguir algumas etapas:
    2. Independente de um texto já está centralizado, deve criar o estilo para todos
 3. Tipografia (qual fonte utilizar)
 4. Design
+

@@ -46,6 +46,7 @@
       * [Switch True](semestre-2/web/javascript/tutoriais-basicos/switch-true.md)
       * [Extrair da String](semestre-2/web/javascript/tutoriais-basicos/extrair-da-string.md)
       * [Deixar apenas números](semestre-2/web/javascript/tutoriais-basicos/deixar-apenas-numeros.md)
+  * [Percorrer todos elementos](semestre-2/web/percorrer-todos-elementos.md)
   * [Bootstrap](semestre-2/web/bootstrap.md)
 * [Fundamentos de Engenharia de Sistemas](semestre-2/fundamentos-de-engenharia-de-sistemas/README.md)
   * [Conceitos rápidos](semestre-2/fundamentos-de-engenharia-de-sistemas/conceitos-rapidos.md)
