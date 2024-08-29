@@ -1,5 +1,9 @@
 # CSS
 
+## Definição
+
+O HTML não foi projetado para ter tags que ajudariam a formatar a página, por isso a criação do CSS (_Cascading Style Sheets)_ que é feito para estilizar elementos escritos em uma linguagem de marcação de texto (por exemplo HTML, XML, etc). Ele faz isso usando uma sintaxe simples baseada em inglês com um conjunto de regras que o governam
+
 ## Estilos
 
 * ID: Identifica um elemento com um ID específico. No caso, o musicList foi utilizado.

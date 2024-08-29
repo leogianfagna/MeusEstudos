@@ -8,6 +8,5 @@ Meus estudos e anotações sobre a área de Software durante os estudos da facul
 
 * Reorganizar melhor páginas de banco de dados
 * Usar formatação de cores no caderno banco de dados
-* Definir conceito de CSS
 * Melhorar a parte de backend faltando pedaços
 * CSS ocupação de divs melhorar conceituação que foi feito nas pressas, definindo também `viewport`
