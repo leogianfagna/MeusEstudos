@@ -14,6 +14,7 @@
     * [Condições](semestre-1/algoritmos-de-programacao/pratico/condicoes.md)
     * [Repetições](semestre-1/algoritmos-de-programacao/pratico/repeticoes.md)
     * [Strings](semestre-1/algoritmos-de-programacao/pratico/strings.md)
+    * [Listas](semestre-1/algoritmos-de-programacao/pratico/listas.md)
 * [📚 Fundamentos de Sistemas](semestre-1/fundamentos-de-sistemas/README.md)
   * [Conceitos da disciplina](semestre-1/fundamentos-de-sistemas/conceitos-da-disciplina.md)
   * [Conceitos básicos](semestre-1/fundamentos-de-sistemas/conceitos-basicos.md)
