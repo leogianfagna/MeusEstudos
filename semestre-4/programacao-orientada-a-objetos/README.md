@@ -16,7 +16,7 @@ Por ser orientado a objetos, toda instância está relacionada a uma classe que 
 
 Existe a classe principal com o método executável e as demais classes que servirão de molde para a criação das instâncias. Como essas extras classes serão usadas o tempo inteiro, há de se cuidar com a segurança de uso delas (ouvimos como "antas" durante as aulas). Isso significa que essas classes possuem variáveis e métodos e que não podemos deixar que eles sejam manipulados livremente através de outras classes.
 
-Isso ocorre pela definição de [private ou public](classes.md#criacao-de-classes-de-forma-segura). Como eles estão privados e só podem ser manipulados dentro da própria classe, isso exige a criação de métodos getters e setters dentro da mesma para serem usados de forma externa. Basicamente, feito desta forma:
+Isso ocorre pela definição de [private ou public](classes/#criacao-de-classes-de-forma-segura). Como eles estão privados e só podem ser manipulados dentro da própria classe, isso exige a criação de métodos getters e setters dentro da mesma para serem usados de forma externa. Basicamente, feito desta forma:
 
 ```java
 public void setMes(byte mes) throw Exception {
