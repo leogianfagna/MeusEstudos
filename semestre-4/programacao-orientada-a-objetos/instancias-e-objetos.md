@@ -75,3 +75,14 @@ Portanto, criar uma instância em Java significa criar uma nova peça a partir d
 O que estamos vendo: uma variável de referencia nomeada como meuCarro cria uma instância da classe Carro por usar a palavra new, alocando memória e chamando o contrutor (seta laranja) de dentro da classe e inicializa com 3 parâmetros. Esta variável chamada meuCarro é do tipo "Carro", o nome da classe. Demonstrativamente:
 
 <figure><img src="../../.gitbook/assets/definição na criação de instâncias em Java.png" alt=""><figcaption></figcaption></figure>
+
+## Instância chamante
+
+Basicamente, em orientação a objetos sempre existe um chamante.&#x20;
+
+* Normalmente é uma instância: `meuCarro.alterarCor()`
+  * A instância meuCarro é uma instância chamante já que ela chama um método
+* Quando o método possui a palavra `static`, o chamante será a própria classe.
+  * Isso porque quem vai chamar ela é a própria classe e não outra instância
+  * Este caso não permite o uso do _this_
+  * Chamar basta usar o nome da classe: `CarrosManager.alterarCor()`
