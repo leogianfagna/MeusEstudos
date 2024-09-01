@@ -92,3 +92,77 @@ public class Main {
     }
 }
 ```
+
+## Palavra THIS
+
+Quando estamos dentro de uma classe, podemos ter as variáveis que são criadas dentro dela e os parâmetros recebidos dentro de uma função. Toda vez que iremos nos referir aos atributos da classe, precisamos usar a palavra this. Podemos sempre pensar que, quando ela aparece, "**estamos falando de mim mesmo**".
+
+```java
+public class Data {
+    
+    private byte dia, mes;
+    private short mes;
+
+    public Data(byte dia, byte mes, short ano) throw Exception {  
+        this.dia = dia;
+        this.mes = mes;
+        this.ano = ano;
+    }
+    
+    // ... Mais código
+}
+```
+
+Esse código é o construtor da classe Data, que tem como objetivo atribuir os valores recebidos no parâmetro às variáveis da classe. As variáveis da classe são destacadas como `this.dia`, enquanto apenas `dia` é a variável/parâmetro.
+
+### Exemplo mais complexo
+
+```java
+// Classe Main
+public class AuseventosPlugin extends JavaPlugin {
+
+    @Override
+    public void onEnable() {
+        DatabaseManager databaseManager = new DatabaseManager(this);
+    }
+    
+    databaseManager.openConnection();
+    // ...
+}
+
+
+
+// Outra classe: DatabaseManager
+public class DatabaseManager {
+
+    private JavaPlugin plugin;
+
+    public DatabaseManager(JavaPlugin plugin) {
+        this.plugin = plugin;
+    }
+    
+    File dataFolder = plugin.getDataFolder();
+    // ...
+}
+```
+
+A classe Main cria uma nova instância da classe chamada DatabaseManager e passa a palavra this como parâmetro no construtor. Vamos lembrar do conceito: a classe é um molde para a criação da instância, então na linha da criação da nova instância, essa classe está fornecendo o kit completo para criar ela e podemos utilizar ao longo do código.
+
+Quando usamos o this no parâmetro do construtor, estamos passando a própria instância da classe main, isso porque a classe DatabaseManager vai precisar de métodos e informações da classe main para funcionar, como por exemplo, o método getDataFolder().
+
+Se a classe DatabaseManager não precisasse de nenhum método da classe Main, a criação desta instância não seria necessária. Portanto, isso só ocorreu pois na classe main tem métodos importantes que precisam ser utilizados em outras classes (que no caso deste código, eles não foram criados por lá, e sim herdam de JavaPlugin, visto na primeira linha).
+
+#### Por que não extender JavaPlugin na classe DatabaseManager?
+
+Pois não é uma prática recomendada por conta do conceito de responsabilidade onde cada classe deve ter apenas uma função clara e específica. A classe Main é responsável por isso enquanto as outras classes tem as suas próprias responsabilidades que é auxiliar a classe main e não se preocupar com o ciclo de vida do plugin.
+
+#### E se necessário mais parâmetros?
+
+Se o construtor da outra classe precisar de mais parâmetros para receber, basta adicioná-los normalmente. O `this` **não passa automaticamente outras variáveis** e sim a referência à instância do objeto, não as variáveis locais. Portanto, para isso:
+
+```java
+public void onEnable() {
+    databaseName = "custom_database_name.db";
+    DatabaseManager databaseManager = new DatabaseManager(this, databaseName);
+}
+```

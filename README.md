@@ -10,3 +10,4 @@ Meus estudos e anotações sobre a área de Software durante os estudos da facul
 * Usar formatação de cores no caderno banco de dados
 * Melhorar a parte de backend faltando pedaços
 * CSS ocupação de divs melhorar conceituação que foi feito nas pressas, definindo também `viewport`
+* Paginação padronizada igual WEB + SO, com descrição da matéria e um sumário bem organizado onde ver cada conteúdo
