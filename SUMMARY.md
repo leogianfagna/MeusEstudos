@@ -97,6 +97,7 @@
   * [PL/SQL](semestre-4/banco-de-dados/pl-sql.md)
   * [Banco de dados não relacional](semestre-4/banco-de-dados/banco-de-dados-nao-relacional.md)
 * [Programação orientada à objetos](semestre-4/programacao-orientada-a-objetos/README.md)
+  * [Regras de nomenclatura](semestre-4/programacao-orientada-a-objetos/regras-de-nomenclatura.md)
   * [Instâncias e objetos](semestre-4/programacao-orientada-a-objetos/instancias-e-objetos.md)
   * [Classes](semestre-4/programacao-orientada-a-objetos/classes/README.md)
     * [toString](semestre-4/programacao-orientada-a-objetos/classes/tostring.md)
