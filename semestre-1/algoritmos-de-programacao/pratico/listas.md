@@ -20,10 +20,7 @@ soma = listaMaluca[3] + 20
 
 Encontrar ou verificar dados de uma lista.
 
-| Objetivo                                                           | Método                  | Uso                                         |
-| ------------------------------------------------------------------ | ----------------------- | ------------------------------------------- |
-| Quantidade de elementos presentes em uma lista                     | len(lista)              | `for in range(len(lista))`                  |
-| Contar quantas vezes um certo elemento aparece dentro de uma lista | lista.count("elemento") | `quantidadeProntos = lista.count("pronto")` |
+<table><thead><tr><th>Objetivo</th><th width="205">Método</th><th>Uso</th></tr></thead><tbody><tr><td>Quantidade de elementos presentes em uma lista</td><td>len(lista)</td><td><code>for in range(len(lista))</code></td></tr><tr><td>Contar quantas vezes um certo elemento aparece dentro de uma lista</td><td>lista.count("elemento")</td><td><code>quantidadeProntos = lista.count("pronto")</code></td></tr><tr><td>Retorna o índice da primeira ocorrência de "elemento"</td><td>lista.index("elemento")</td><td><code>pos = lista.index("pronto")</code></td></tr></tbody></table>
 
 ## Manipulação
 
@@ -40,12 +37,13 @@ lista[3] = "pronto"
 
 ### Adição de itens
 
-Usando o método `append()`, pode-se adicionar um novo item ao **final** da lista:
+Usando o método `append()` podemos adicionar um novo item ao **final** da lista e `insert()` podemos definir a posição em que o novo item vai entrar:
 
 ```python
 lista = ["esperando", "execução", "parado", "finalizado"]
 
 lista.append("atrasado")
+lista.insert(2, "falho")
 ```
 
 ### Cópia identica de uma lista
@@ -72,7 +70,7 @@ listaUm.extend(listaDois) # Lista dois irá para o final
 
 ### Limpar uma lista
 
-Usando o método clear() limpamos a lista por completo, contudo, por facilidade você também pode atribuir uma lista vazia que o resultado será o mesmo:
+Usando o método `clear()` limpamos a lista por completo, contudo, por facilidade você também pode atribuir uma lista vazia que o resultado será o mesmo:
 
 ```python
 lista = ["esperando", "execução", "parado", "finalizado"]
@@ -80,6 +78,26 @@ lista = ["esperando", "execução", "parado", "finalizado"]
 lista.clear()
 lista = []
 ```
+
+### Remover elementos
+
+Usando o método `remove()` podemos remover um elemento no índice indicado. Com mais recursos, podemos usar o método `pop()` onde ele retorna qual foi o elemento removido, portanto, podemos combinar ele com uma variável para printar o que foi removido:
+
+```python
+lista = ["esperando", "execução", "parado", "finalizado"]
+
+lista.remove(1)
+
+itemRemovido = lista.pop(1)
+print(itemRemovido)
+```
+
+## Reorganizar
+
+Podemos reorganizar as listas de uma forma diferente, de dois jeitos:
+
+* Ordenar os elementos da lista usando `lista.sort()`
+* Inverter a ordem dos elementos usando `list.reverse()`
 
 ## Listas dentro de listas
 

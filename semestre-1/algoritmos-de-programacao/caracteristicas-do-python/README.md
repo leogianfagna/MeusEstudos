@@ -16,3 +16,12 @@ x = 5 # Nova variável criada
 print(x) # 5
 print(y) # Erro
 ```
+
+## Padrão de escrita
+
+Os padrões de escrita mudam um pouco se comparado com outras linguagens de programação:
+
+* Declaração de variáveis: snake\_case
+  * Palavras separadas por underlines
+  * Todas as letras minúsculas
+  * Ex: `minha_variavel`
