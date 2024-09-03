@@ -7,3 +7,6 @@
 [Aula 2](aula-2.md): Processos e Threads
 
 [Aula 3](aula-3.md): Escalonamento da CPU
+
+[Aula 4](aula-4.md): Sincronização
+
