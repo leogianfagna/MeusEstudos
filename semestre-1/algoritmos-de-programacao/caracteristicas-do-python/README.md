@@ -17,11 +17,18 @@ print(x) # 5
 print(y) # Erro
 ```
 
+## Comportamento da variável em repetição
+
+Quando temos uma repetição do tipo for, a variável que percorre se atribui o valor do elemento da vez, em vez de ser um contador. Isso é muito importante e causa muitas mudanças no código, [veja aqui](../pratico/repeticoes.md#comportamento-do-contador).
+
 ## Padrão de escrita
 
 Os padrões de escrita mudam um pouco se comparado com outras linguagens de programação:
 
-* Declaração de variáveis: snake\_case
+* Declaração de <mark style="color:purple;">variáveis</mark> (inclui listas e dicionários) e <mark style="color:purple;">funções</mark>: snake\_case
   * Palavras separadas por underlines
   * Todas as letras minúsculas
   * Ex: `minha_variavel`
+* Declaração de classes: PascalCase
+  * Iniciais em maíusculas
+  * Ex: `MinhaClasse`

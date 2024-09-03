@@ -58,13 +58,21 @@ Nesse exemplo, vai entrar pelo menos uma vez nesse while por ele já ser declara
 
 ## For
 
-Sequência imutável de números inteiros de um valor inicial até um número final (não incluído), com passo variado. Basicamente, funciona da mesma forma que conhecemos em outras linguagens. Segue essa sinxate:
+Sequência imutável de números inteiros de um valor inicial até um número final (não incluído), com passo variado. A repetição ocorre até atingir a range, mas o <mark style="color:red;">comportamento não segue igual as outras linguagens</mark> de programação. Segue essa sinxate:
 
 > `for elemento in lista/range`
 >
 > * Elemento é o contador
 > * Lista é os valores que serão percorridos
 > * Range é a faixa de dados suportada
+
+### Comportamento do contador
+
+Em Python, o comportamento do loop `for` é um pouco diferente do loop `for` clássico encontrado em linguagens. Neste caso, o loop `for` é usado para <mark style="color:purple;">iterar sobre sequências</mark> (como listas, tuplas, strings, dicionários, etc.) ou qualquer objeto que seja iterável.
+
+Portanto, a variável contador (tipo x, i, etc) <mark style="color:red;">não funciona com uma expressão de incremento</mark> e em vez disso, ele itera sobre uma sequência fornecida, ou seja, <mark style="color:blue;">**assume o valor da sequência atual**</mark>. Por isso, é especificado a sequência que é range e o contador vai ser cada resultado dessa range até que ela chegue ao fim.
+
+Muito por conta disso, podemos fazer várias sequências lógicas de imprimir cada elemento da repetição apenas usando `print(x)`, sendo o x o contador que itera a sequência. Veja um exemplo [aqui em dicionários](dicionarios.md#percorrer-elementos).
 
 ### Range
 
