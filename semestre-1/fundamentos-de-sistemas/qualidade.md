@@ -24,7 +24,7 @@ Acoplamento corresponde ao grau de <mark style="color:blue;">**interdependência
 
 Quanto maior o nível de acoplamento, pior. Isso pois está muito ligado com a coesão, quanto maior o acoplamento simboliza menor coesão.
 
-<figure><img src="../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/ramificação de funções para qualidade.png" alt=""><figcaption></figcaption></figure>
 
 ### McCabe
 
