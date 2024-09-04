@@ -50,6 +50,25 @@ Então, por padrão, iremos usar esses tipos de nomes:
    - styles.css
 ```
 
+### Padrões de variáveis
+
+Nome de classes ou ids de elementos em HTML também seguem o mesmo padrão e formatação Kebab Case dito acima. Assim ficando:
+
+```html
+<div id="main-forms">
+    <div class="list-items"></div>
+</div>
+```
+
+```css
+.cubes-formats {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-style: preserve-3d;
+}
+```
+
 ## Arquitetando o projeto
 
 Na criação de projeto web, seguir algumas etapas:
