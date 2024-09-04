@@ -108,6 +108,7 @@
   * [Aula 2](semestre-4/sistemas-operacionais/aula-2.md)
   * [Aula 3](semestre-4/sistemas-operacionais/aula-3.md)
   * [Aula 4](semestre-4/sistemas-operacionais/aula-4.md)
+  * [Aula 5](semestre-4/sistemas-operacionais/aula-5.md)
 * [Ideação e validação](semestre-4/ideacao-e-validacao/README.md)
   * [Mapa mental](semestre-4/ideacao-e-validacao/mapa-mental.md)
   * [Business Model Canvas](semestre-4/ideacao-e-validacao/business-model-canvas.md)

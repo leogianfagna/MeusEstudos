@@ -10,3 +10,4 @@
 
 [Aula 4](aula-4.md): Sincronização
 
+[Aula 5](aula-5.md): Deadlock
