@@ -104,6 +104,8 @@
   * [Classes](semestre-4/programacao-orientada-a-objetos/classes/README.md)
     * [toString](semestre-4/programacao-orientada-a-objetos/classes/tostring.md)
     * [equals](semestre-4/programacao-orientada-a-objetos/classes/equals.md)
+    * [hashCode](semestre-4/programacao-orientada-a-objetos/classes/hashcode.md)
+  * [Instância oca](semestre-4/programacao-orientada-a-objetos/instancia-oca.md)
 * [Sistemas operacionais](semestre-4/sistemas-operacionais/README.md)
   * [Aula 1](semestre-4/sistemas-operacionais/aula-1.md)
   * [Aula 2](semestre-4/sistemas-operacionais/aula-2.md)
