@@ -56,6 +56,9 @@
   * [Modelagem](semestre-2/fundamentos-de-engenharia-de-sistemas/modelagem/README.md)
     * [SysM](semestre-2/fundamentos-de-engenharia-de-sistemas/modelagem/sysm.md)
 * [Métodos de Engenharia de Software](semestre-2/metodos-de-engenharia-de-software.md)
+* [Estrutura de dados](semestre-2/estrutura-de-dados/README.md)
+  * [Algoritmos e linguagem de programação](semestre-2/estrutura-de-dados/algoritmos-e-linguagem-de-programacao/README.md)
+    * [Introdução linguagem C](semestre-2/estrutura-de-dados/algoritmos-e-linguagem-de-programacao/introducao-linguagem-c.md)
 
 ## Semestre 3
 
