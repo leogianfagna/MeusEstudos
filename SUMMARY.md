@@ -57,8 +57,11 @@
     * [SysM](semestre-2/fundamentos-de-engenharia-de-sistemas/modelagem/sysm.md)
 * [Métodos de Engenharia de Software](semestre-2/metodos-de-engenharia-de-software.md)
 * [Estrutura de dados](semestre-2/estrutura-de-dados/README.md)
-  * [Algoritmos e linguagem de programação](semestre-2/estrutura-de-dados/algoritmos-e-linguagem-de-programacao/README.md)
-    * [Introdução linguagem C](semestre-2/estrutura-de-dados/algoritmos-e-linguagem-de-programacao/introducao-linguagem-c.md)
+  * [Introdução linguagem C](semestre-2/estrutura-de-dados/introducao-linguagem-c.md)
+  * [Vetores e matrizes](semestre-2/estrutura-de-dados/vetores-e-matrizes.md)
+  * [Ponteiros](semestre-2/estrutura-de-dados/ponteiros.md)
+  * [Alocação dinâmica](semestre-2/estrutura-de-dados/alocacao-dinamica.md)
+  * [Struct](semestre-2/estrutura-de-dados/struct.md)
 
 ## Semestre 3
 
