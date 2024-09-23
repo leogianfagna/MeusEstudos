@@ -43,6 +43,10 @@ if (pid == 0) { // Filho
 }
 ```
 
+#### 8) Seria viável e aconselhável implementar a aplicação do shell, do exercício anterior, utilizando criação de novas threads ao invés de novos processos? Por quê?
+
+Não seria aconselhável a implementação de threads pois elas compartilham a mesma memória, ambiente e recursos com os processos. Portanto, existe a chance da thread falhar ou tudo falhar por conta do compartilhamento de variáveis e isso poderia prejudicaria de forma geral o shell e não seria interessante por esse motivo.
+
 #### 9) Um processo com PID=2600 cria um novo processo utilizando o código a seguir. O processo criado recebeu, do Sistema Operacional, o PID=2603. Suponha que exista uma função getpid() que devolve o valor do PID do processo que a chamou. Dê duas possíveis saídas impressas no terminal para a execução do programa.
 
 <figure><img src="../../.gitbook/assets/retorno de variáveis pid em c.png" alt=""><figcaption></figcaption></figure>
@@ -73,15 +77,21 @@ Um processo filho criado continua a partir da linha do `fork()`, mas se ele est�
 
 Por conta disso, supostamente teriamos `2^n` processos imprimindo printf, mas como não temos um wait(), não há garantia pois o pai pode encerrar e matar todos os outros. Portanto, podemos afirmar que pode-se imprimir de 1 até no máximo 2^n vezes.
 
+#### 11) Explique a diferença de escalonamento preemptivo e não-preemptivo.
+
+Um escalonamento não preemptivo só pode escolher os processos para entrarem em execução caso não há processos em execução no momento. Já um escalonamento preemptivo possui o poder de encerrar um processo imediatamente, independente o processo está para encerrar ou não para iniciar outro.
+
+Isso dá a chance de criar diferentes tipos de escalonamento como RR, que usa a sua preempção para encerrar processos e entregar unidades de tempo iguais para todos.
+
 #### 12) Suponha que os processos da tabela a seguir cheguem para execução nos tempos indicados. Cada processo executará pelo tempo da sua duração de pico.
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 #### a) Desenhe um esquema do escalonamento desses processos considerando escalonamento FCFS (first come, first served). Qual é o tempo médio de espera para os três processos?
 
 O escalonamento FCFS basta colocar quem chega primeiro e executa até a finalização dele. Portanto teremos:
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Tempo médio P1: Início do P1 - Chegada do P1 -> `0 - 0 = 0`
 * Tempo médio P2: Início do P2 - Chegada do P2 -> `8 - 3 = 5`
@@ -104,6 +114,20 @@ Esse escalonamento apenas deixa 2 unidades de tempo para cada processo e vai tro
 
 <figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
+#### 13) Explique o conceito de condição de corrida e como ele se relaciona com o conceito de seção crítica.
+
+Condição de corrida pode ser definido quando processos que são executados de forma concorrente e utilizam dos mesmos recursos, ao serem escalonados podem gerar dados inconsistentes. Esse dado inconsistente pode ser uma variável que está presente em ambos os processos.
+
+Ele se relaciona com seção crítica pois, a área de código que pode gerar um dado inconsistente (por exemplo essa variável) é chamada de seção crítica.
+
+#### 14) Quais são as três características de uma solução do problema da seção crítica, e o que elas significam?
+
+Para solucionar um problema de seção crítica, as 3 características são:
+
+* Exclusão mútua: quando um processo está na parte crítica, mais nenhum outro processo pode entrar
+* Progresso: o processamento não pode ficar parado e algum processo precisa iniciar imediatamente
+* Espera limitada: um processo não vai esperar para sempre para ser executado, limitando a quantia de vezes que outros processos podem executar antes dele (depois de solicitar)
+
 #### 15) Um programa qualquer precisa gerar um arquivo de log relatando todas as operações que foram feitas. O nome e caminho desse arquivo de log está escrito diretamente no código da aplicação e é sempre o mesmo, não importando quantas vezes o usuário executa o programa. Para criar uma mensagem de log, o programa utiliza uma função `void log(char* msg)`. Suponha que exista uma segunda função `void writeToLogFile(char* msg)` que abre o arquivo de log em modo de escrita, escreve a mensagem `msg` e fecha o arquivo, apenas. Suponha, também, que o Sistema Operacional permite que vários processos separados mantenham um mesmo arquivo aberto ao mesmo tempo, sem nenhuma restrição. Esboce o código da função log(...) de modo a garantir que as mensagens sejam escritas de maneira legível para um usuário humano.
 
 Como estamos falando de todos abrirem o mesmo arquivo e escrever, se o escalonador começar a trocar processos durante isso vai ficar tudo errado, portanto, estamos falando de uma seção crítica.  Então, precisamos escolher alguma forma de solução de solução crítica, como o Locks Mutex.
@@ -118,7 +142,53 @@ void log(char * msg) {
 
 Lembrando que este caso deixa apenas um acessar por vez. Caso pudesse mais de um, deveríamos usar o semáforo.
 
+#### 16) Em um sistema produtor-consumidor, um processo (ou thread) gera (produz) dados que serão utilizados (consumidos) por outro processo (ou thread) para continuar o processamento da aplicação. Esses dados são armazenados em uma região de memória compartilhada que pode armazenar uma estrutura de dados em fila, por exemplo. Você possui uma biblioteca que armazena uma estrutura de dados em fila em memória compartilhada que expõe as seguintes funções:
 
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+#### Utilizando as funções da biblioteca acima, esboce trechos de código para os programas produtor e consumidor, de modo de minimizar o tempo de CPU em espera em ação (busy wait) na sua aplicação. Note que o sistema pode ter vários processos produtores e vários consumidores, todos eles executam os mesmos códigos, todos eles operam sobre a mesma fila compartilhada, a produção e o consumo de um dado levam tempos arbitrários e não previsíveis, e nenhum desses fatores deveria influenciar na sua implementação de uma solução.
+
+A lógica nesse código é basicamente usar apenas os métodos de semáforos ensinados e não de fato aplicá-los de forma que funcione. Usando `wait(&s)` e `signal(&s)` podemos indicar onde é a seção crítica e assim fazer a linha de raciocínio dentro dela.
+
+Para o consumidor, criar uma variável do tipo item que recebe um ponteiro do _item\_retirado_ foi o jeito entendido da questão para usar o método `desenfileira()` que foi mostrado no enunciado.
+
+Esse mesmo exercício foi feito em um PDF de uma universidade, [neste link](https://www.ece.ufrgs.br/\~fetter/ele213/sem.pdf). Ele aplica o semáforo do jeito verdadeiro mas usa um buffer que não vi ainda.
+
+```c
+void *produtor(void *ptr)
+{
+    while (true) {
+        wait(&s);
+        enfileira(x);
+        signal(&s);
+    }
+}
+
+void *consumidor(void *ptr)
+{
+    item *item_retirado;
+    
+    while (true) {
+        wait(&s);
+        item_retirado = desenfileira();
+        
+        if (item_retirado == null) {
+            printf("Nulo"); 
+        } else {
+            ...
+        }
+        
+        signal(&s);
+    }
+}
+```
+
+#### 17) Quais são as quatro condições necessárias para que um deadlock aconteça e o que elas significam?
+
+* Espera circular: só pode ter apenas um processo sendo executado (por causa de seção crítica).
+* Retensão e espera: um processo espera pelo outro e não executa enquanto isso.
+* Sem preempção: pois com a possibilidade de encerrar um processo de imediato, isso poderia liberar recursos.
+* Espera circular: conceito que um processo espera pelo outro formando um ciclo que não há como sair.
 
 #### 18) Um sistema tem três recursos compartilhados, R1, R2 e R3, cada um com uma instância, e executa três processos, P1, P2 e P3. A tabela a seguir mostra uma sequência de chamadas em que um processo solicita um determinado recurso, na ordem em que essas chamadas devem acontecer.
 
