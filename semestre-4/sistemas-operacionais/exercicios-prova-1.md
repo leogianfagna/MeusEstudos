@@ -1,5 +1,31 @@
 # Exercícios prova 1
 
+#### 1) Cite quais são as principais funções de um Sistema Operacional.
+
+As principais funções do sistema operacional, mas não as únicas, é a alocação, gerenciamento e execução de recursos, como a alocação de memória e tarefas de escalonamento de processos. Um sistema operacional pode ser definido como uma interface que traduz o que está acontecendo.
+
+#### 2) Uma Chamada de Sistema é um dos pontos de entrada para que o Sistema Operacional atenda a uma requisição da aplicação de usuário. Explique o papel de uma Troca de Contexto para possibilitar isso.
+
+Quando um programa faz uma Chamada de Sistema, o sistema operacional assume para executar a tarefa em modo kernel. A troca de contexto neste caso é sobre o modo de execução, onde troca o contexto entre usuário e kernel pois o modo usuário não tem permissão de fazer muita coisa e precisa de ajuda do modo kernel (diferente contexto) para realizar outras operações. Não confundir com contexto de processos.
+
+#### 3) Dê exemplos de atividades que podem ser executadas em modo de execução de usuário ou devem ser executadas em modo núcleo (modo kernel ou modo máquina). O que há de diferente entre os dois modos que determinadas atividades podem estar em um, enquanto outras devem estar em outro?
+
+O modo kernel é privilegiado e não possui limitações de acesso, enquanto o modo usuário possui o direito de fazer operações matemáticas e executar lógicas do tipo for, while, if, etc. O que há de diferente é a proposta onde o modo usuário é muito limitado e sem permissões para garantir segurança e estabilidade, já o modo kernel passa a ser mais sensível/crítico pelo acesso ilimitado.
+
+#### 4) Um sistema tem uma CPU com apenas um core. Nesse sistema, queremos executar três processos, P0, P1 e P2, com tempos de execução em modo usuário de 5 ms, 10 ms e 20 ms. Na média, cada processo executa uma chamada de sistema a cada 1 ms. O escalonador do Sistema Operacional atua a cada 10 μs. O tempo médio de uma troca de contexto é de 1 μs. O tempo de tratamento de uma chamada de sistema específica é desprezível. Quanto é o tempo relógio total para execução dos três processos nesse sistema? Mostre como você chegou até a resposta.
+
+<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+
+#### 5) Um processo é uma abstração interna do Sistema Operacional que encapsula diversas informações sobre um programa em execução. Dê exemplos de informações que o Sistema Operacional guarda sobre cada processo em execução.
+
+Exemplos de informações são os estados dos processos, endereços das instruções, registradores da CPU, informações de escalonamento, gerenciamento de memória, estatísticas e informações de I/O.
+
+#### 6) Quando um processo é dividido em várias threads, algumas das informações armazenadas sobre o processo são compartilhadas entre todas as threads, e outras são replicadas e armazenadas para cada uma das threads do processo. Dê exemplos de informações para os dois casos.
+
+As informações compartilhadas entre todas as threads são: memória, arquivos e o código do processamento em vigor.
+
+As informações replicadas para cada thread são: registradores da CPU, contador de código e ponteiro de pilha.&#x20;
+
 #### 7) Um shell é uma aplicação de modo usuário utilizada para iniciar a execução, interativamente, de outros programas conforme solicitado pelo usuário. Para isso, o shell cria um novo processo e executa o novo programa dentro dele. Utilizando as chamadas de sistema e os padrões de chamada Linux estudados em aula, esboce um código em C para fazer a tarefa do shell de iniciar um novo programa. Você pode assumir que existe uma função de biblioteca GetPgmInfo() que devolve todas as informações necessárias sobre o programa solicitado pelo usuário já no formato necessário exigido pela chamada de sistema adequada.
 
 > Código em C para criação de novos processos
@@ -46,6 +72,53 @@ Mas a questão pede sobre saída no terminal. Pelo fato de termos a presença do
 Um processo filho criado continua a partir da linha do `fork()`, mas se ele está dentro de uma iteração, ele vai continuá-la do ponto que estão atualmente (com o mesmo valor de `i` quando entrou).
 
 Por conta disso, supostamente teriamos `2^n` processos imprimindo printf, mas como não temos um wait(), não há garantia pois o pai pode encerrar e matar todos os outros. Portanto, podemos afirmar que pode-se imprimir de 1 até no máximo 2^n vezes.
+
+#### 12) Suponha que os processos da tabela a seguir cheguem para execução nos tempos indicados. Cada processo executará pelo tempo da sua duração de pico.
+
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+#### a) Desenhe um esquema do escalonamento desses processos considerando escalonamento FCFS (first come, first served). Qual é o tempo médio de espera para os três processos?
+
+O escalonamento FCFS basta colocar quem chega primeiro e executa até a finalização dele. Portanto teremos:
+
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+* Tempo médio P1: Início do P1 - Chegada do P1 -> `0 - 0 = 0`
+* Tempo médio P2: Início do P2 - Chegada do P2 -> `8 - 3 = 5`
+* Tempo médio P3: Início do P3 - Chegada do P3 -> `12 - 10 = 2`
+* Tempo médio de espera: (TM(P1) + TM(P2) + TM(P3)) / 3 -> `(0 + 5 + 2) / 3 = 2,3`
+
+#### b) Desenhe um esquema do escalonamento desses processos considerando escalonamento SRTF (shortest remaining time first, versão preemptiva de shortest job first). Qual é o tempo médio de espera para os três processos?
+
+Esse escalonamento prioriza o processo com menor tempo e sua versão preemptiva confere a cada unidade de tempo se existe um processo com menos tempo para trocar. Assim, o esquema fica da seguinte maneira:
+
+<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+A média de tempo é somar cada unidade de tempo esperado por cada processo. P2 e P3 iniciam imediatamente ao chegar e terminam seus processos, portanto, o tempo médio deles é zero. Já P1 inicia imediatamente, mas depois espera 4 unidades de tempo até P2 terminar e depois mais 1 unidade de tempo até P3 terminar, portanto: `0 + 4 + 1 = 5`.
+
+O tempo médio total é `(5 + 0 + 0) / 3 = 1,6u`.
+
+#### c) Desenhe um esquema do escalonamento desses processos considerando escalonamento RR (round robin) com quantum de 2 unidades de tempo, em que todos os três processos têm o mesmo nível de prioridade.
+
+Esse escalonamento apenas deixa 2 unidades de tempo para cada processo e vai trocando eles. Como não há prioridade, é só ficar trocando e vendo o tempo restante de cada um. Assim, o escalonamento final será:
+
+<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+
+#### 15) Um programa qualquer precisa gerar um arquivo de log relatando todas as operações que foram feitas. O nome e caminho desse arquivo de log está escrito diretamente no código da aplicação e é sempre o mesmo, não importando quantas vezes o usuário executa o programa. Para criar uma mensagem de log, o programa utiliza uma função `void log(char* msg)`. Suponha que exista uma segunda função `void writeToLogFile(char* msg)` que abre o arquivo de log em modo de escrita, escreve a mensagem `msg` e fecha o arquivo, apenas. Suponha, também, que o Sistema Operacional permite que vários processos separados mantenham um mesmo arquivo aberto ao mesmo tempo, sem nenhuma restrição. Esboce o código da função log(...) de modo a garantir que as mensagens sejam escritas de maneira legível para um usuário humano.
+
+Como estamos falando de todos abrirem o mesmo arquivo e escrever, se o escalonador começar a trocar processos durante isso vai ficar tudo errado, portanto, estamos falando de uma seção crítica.  Então, precisamos escolher alguma forma de solução de solução crítica, como o Locks Mutex.
+
+```c
+void log(char * msg) {
+    acquire(&lock);
+    writeLogToFile(msg);
+    release(&lock);
+}
+```
+
+Lembrando que este caso deixa apenas um acessar por vez. Caso pudesse mais de um, deveríamos usar o semáforo.
+
+
 
 #### 18) Um sistema tem três recursos compartilhados, R1, R2 e R3, cada um com uma instância, e executa três processos, P1, P2 e P3. A tabela a seguir mostra uma sequência de chamadas em que um processo solicita um determinado recurso, na ordem em que essas chamadas devem acontecer.
 

@@ -100,3 +100,20 @@ A partir disso temos dois conceitos:
 Elas são subdivisões dentro do processo que podem ser escalonadas junto com eles. Elas aplicam os conceitos de <mark style="color:blue;">responsividade</mark> (permite continuar executando se parte do processo está bloqueado), <mark style="color:blue;">compartilhamento de recursos</mark>, <mark style="color:blue;">economia</mark> e <mark style="color:blue;">escalabilidade</mark> (threads podem ser executadas em paralelo).
 
 Tarefas diversas podem ser rodadas em outras threads para não interromper algo, como atualizar tela, buscar dados, corrigir ortografia, entre muitas outras. Nesse curso, não vamos precisar entrar afundo nelas, apenas saber que elas existem.
+
+### Dados compartilhados
+
+Quando um processo é dividido em várias threads, algumas das informações armazenadas sobre o processo são <mark style="color:blue;">compartilhadas entre todas as threads</mark> e outras são <mark style="color:blue;">replicadas e armazenadas para cada uma</mark> das threads do processo.&#x20;
+
+Abaixo podemos ver o esquema que vai nos dar o exemplo dos tipos de dados compartilhados para todas e os replicados, visto na horizontal e vertical respectivamente:
+
+* Compartilhada entre todas:
+  * Código (instruções): O código que está sendo executado pelo processo é compartilhado entre todas as threads. Cada thread pode executar partes diferentes do mesmo código ao mesmo tempo.
+  * Memória: Todas as threads de um processo compartilham o mesmo espaço de endereçamento, o que significa que elas podem acessar as mesmas variáveis globais e heap de memória.
+  * Arquivos: Se uma thread ou o próprio processo abre um arquivo, todas as threads têm acesso a ele.
+* Replicadas:
+  * Registradores da CPU: Cada thread tem seu próprio conjunto de registradores, que guardam o estado atual de execução, como os dados temporários e o valor do contador de programa.
+  * Ponteiro de pilha: Cada thread tem sua própria pilha (stack), que armazena variáveis locais, chamadas de funções, e o contexto de execução da thread. Isso permite que cada thread execute independentemente e mantenha o seu próprio estado local.
+  * Contador de programa: O contador de programa, que aponta para a próxima instrução a ser executada, é exclusivo para cada thread. Cada thread pode estar executando uma parte diferente do código, então cada uma precisa do seu próprio PC.
+
+<figure><img src="../../.gitbook/assets/compartilhamento de dados de threads.png" alt=""><figcaption></figcaption></figure>

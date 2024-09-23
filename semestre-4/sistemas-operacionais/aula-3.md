@@ -104,3 +104,15 @@ Ao final de cada unidade de tempo quantum (estilo escalonamento RR), a escolha d
 <figure><img src="../../.gitbook/assets/escalonamento RR com prioridade.png" alt=""><figcaption></figcaption></figure>
 
 Se na troca de processos, o processo atual tem a maior prioridade da fila, não ocorre a troca de processos. Se eles tem a mesma prioridade, os processos são trocados.
+
+## Tempo médio de espera
+
+O cálculo do tempo médio de espera não é algo estático. Por exemplo, se um processo chegou a partir de uma certa unidade de tempo, o tempo médio de espera dele será contada a partir do momento que ele chegou.
+
+Então supondo que temos esse seguinte processo para um escalonamento FCFS:
+
+* **P1**: Tempo de chegada = 0, Duração = 8, Inicia 0 e termina 8.
+* **P2**: Tempo de chegada = 3, Duração = 4, Inicia 8 e termina 12.
+* **P3**: Tempo de chegada = 10, Duração = 1, Inicia 12 e termina 13.
+
+Então por exemplo, apesar de P2 <mark style="color:orange;">iniciar</mark> na unidade 8, o tempo de espera não será 8 unidades de tempo pois ele <mark style="color:orange;">chegou</mark> na unidade 3. Isso significa que o tempo de espera dele foi `8 - 3 = 5`. É assim que se calcula o tempo médio de espera, levando em consideração o momento que chegou.
