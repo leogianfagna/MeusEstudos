@@ -14,7 +14,7 @@ O modo kernel é privilegiado e não possui limitações de acesso, enquanto o m
 
 #### 4) Um sistema tem uma CPU com apenas um core. Nesse sistema, queremos executar três processos, P0, P1 e P2, com tempos de execução em modo usuário de 5 ms, 10 ms e 20 ms. Na média, cada processo executa uma chamada de sistema a cada 1 ms. O escalonador do Sistema Operacional atua a cada 10 μs. O tempo médio de uma troca de contexto é de 1 μs. O tempo de tratamento de uma chamada de sistema específica é desprezível. Quanto é o tempo relógio total para execução dos três processos nesse sistema? Mostre como você chegou até a resposta.
 
-<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/resolução ex4 so.jpeg" alt=""><figcaption></figcaption></figure>
 
 #### 5) Um processo é uma abstração interna do Sistema Operacional que encapsula diversas informações sobre um programa em execução. Dê exemplos de informações que o Sistema Operacional guarda sobre cada processo em execução.
 
@@ -85,13 +85,13 @@ Isso dá a chance de criar diferentes tipos de escalonamento como RR, que usa a 
 
 #### 12) Suponha que os processos da tabela a seguir cheguem para execução nos tempos indicados. Cada processo executará pelo tempo da sua duração de pico.
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/enunciado ex12 so.png" alt=""><figcaption></figcaption></figure>
 
 #### a) Desenhe um esquema do escalonamento desses processos considerando escalonamento FCFS (first come, first served). Qual é o tempo médio de espera para os três processos?
 
 O escalonamento FCFS basta colocar quem chega primeiro e executa até a finalização dele. Portanto teremos:
 
-<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/resolucao ex 12a so.png" alt=""><figcaption></figcaption></figure>
 
 * Tempo médio P1: Início do P1 - Chegada do P1 -> `0 - 0 = 0`
 * Tempo médio P2: Início do P2 - Chegada do P2 -> `8 - 3 = 5`
@@ -102,7 +102,7 @@ O escalonamento FCFS basta colocar quem chega primeiro e executa até a finaliza
 
 Esse escalonamento prioriza o processo com menor tempo e sua versão preemptiva confere a cada unidade de tempo se existe um processo com menos tempo para trocar. Assim, o esquema fica da seguinte maneira:
 
-<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/resolucao ex12b so.png" alt=""><figcaption></figcaption></figure>
 
 A média de tempo é somar cada unidade de tempo esperado por cada processo. P2 e P3 iniciam imediatamente ao chegar e terminam seus processos, portanto, o tempo médio deles é zero. Já P1 inicia imediatamente, mas depois espera 4 unidades de tempo até P2 terminar e depois mais 1 unidade de tempo até P3 terminar, portanto: `0 + 4 + 1 = 5`.
 
@@ -112,7 +112,7 @@ O tempo médio total é `(5 + 0 + 0) / 3 = 1,6u`.
 
 Esse escalonamento apenas deixa 2 unidades de tempo para cada processo e vai trocando eles. Como não há prioridade, é só ficar trocando e vendo o tempo restante de cada um. Assim, o escalonamento final será:
 
-<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/resolucao ex12c so.png" alt=""><figcaption></figcaption></figure>
 
 #### 13) Explique o conceito de condição de corrida e como ele se relaciona com o conceito de seção crítica.
 
@@ -144,7 +144,7 @@ Lembrando que este caso deixa apenas um acessar por vez. Caso pudesse mais de um
 
 #### 16) Em um sistema produtor-consumidor, um processo (ou thread) gera (produz) dados que serão utilizados (consumidos) por outro processo (ou thread) para continuar o processamento da aplicação. Esses dados são armazenados em uma região de memória compartilhada que pode armazenar uma estrutura de dados em fila, por exemplo. Você possui uma biblioteca que armazena uma estrutura de dados em fila em memória compartilhada que expõe as seguintes funções:
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/enunciado ex16 so.png" alt=""><figcaption></figcaption></figure>
 
 #### Utilizando as funções da biblioteca acima, esboce trechos de código para os programas produtor e consumidor, de modo de minimizar o tempo de CPU em espera em ação (busy wait) na sua aplicação. Note que o sistema pode ter vários processos produtores e vários consumidores, todos eles executam os mesmos códigos, todos eles operam sobre a mesma fila compartilhada, a produção e o consumo de um dado levam tempos arbitrários e não previsíveis, e nenhum desses fatores deveria influenciar na sua implementação de uma solução.
 
@@ -185,7 +185,7 @@ void *consumidor(void *ptr)
 
 #### 17) Quais são as quatro condições necessárias para que um deadlock aconteça e o que elas significam?
 
-* Espera circular: só pode ter apenas um processo sendo executado (por causa de seção crítica).
+* Exclusão mútua: só pode ter apenas um processo sendo executado (por causa de seção crítica).
 * Retensão e espera: um processo espera pelo outro e não executa enquanto isso.
 * Sem preempção: pois com a possibilidade de encerrar um processo de imediato, isso poderia liberar recursos.
 * Espera circular: conceito que um processo espera pelo outro formando um ciclo que não há como sair.
