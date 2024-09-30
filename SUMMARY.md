@@ -124,6 +124,9 @@
   * [Mapa mental](semestre-4/ideacao-e-validacao/mapa-mental.md)
   * [Business Model Canvas](semestre-4/ideacao-e-validacao/business-model-canvas.md)
   * [Value Proposition Canvas](semestre-4/ideacao-e-validacao/value-proposition-canvas.md)
+* [Técnicas de Verificação e Validação](semestre-4/tecnicas-de-verificacao-e-validacao/README.md)
+  * [Introdução](semestre-4/tecnicas-de-verificacao-e-validacao/introducao.md)
+  * [Etapas da técnica](semestre-4/tecnicas-de-verificacao-e-validacao/etapas-da-tecnica.md)
 
 ## Semestre 6
 
