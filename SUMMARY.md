@@ -111,6 +111,7 @@
     * [toString](semestre-4/programacao-orientada-a-objetos/classes/tostring.md)
     * [equals](semestre-4/programacao-orientada-a-objetos/classes/equals.md)
     * [hashCode](semestre-4/programacao-orientada-a-objetos/classes/hashcode.md)
+    * [compareTo](semestre-4/programacao-orientada-a-objetos/classes/compareto.md)
   * [Instância oca](semestre-4/programacao-orientada-a-objetos/instancia-oca.md)
   * [Classes Wrapper](semestre-4/programacao-orientada-a-objetos/classes-wrapper.md)
 * [Sistemas operacionais](semestre-4/sistemas-operacionais/README.md)
