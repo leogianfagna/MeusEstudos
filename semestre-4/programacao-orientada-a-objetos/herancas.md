@@ -2,7 +2,7 @@
 
 Herança faz parte dos 3 pilares de orientação à objetos. Uma herança herda todos os atributos, métodos e características. Na classe herdada podemos adicionar e re-implementar métodos. Copiar classes geram necessidades de manutenção em cada classe e não somente na original.
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/extends em java.png" alt=""><figcaption></figcaption></figure>
 
 A herança herda praticamente tudo, exceto <mark style="color:red;">construtores</mark>. Com a exceção deles, se não re-implementarmos nenhum método ou atributo na nova classe, tudo funcionaria. Em uma classe executável, ao instanciar objeto da nova classe, já podemos usar os métodos da classe herdada.
 
@@ -48,4 +48,16 @@ Portanto, na implementação da nova classe, CHAMA aquele construtor que não fo
 public AgendaConsultavel(AgendaConsultavel modelo) {
     super (modelo);
 }
+```
+
+## Anotações de importações
+
+Para herdar, precisamos importar a classe herdada. Para isso, podemos seguir os seguintes padrões:
+
+<figure><img src="../../.gitbook/assets/importações na herança.png" alt=""><figcaption></figcaption></figure>
+
+Também podemos fazer da seguinte forma para importar tudo:
+
+```java
+import agenda.*;
 ```
