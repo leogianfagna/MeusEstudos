@@ -11,3 +11,14 @@ Meus estudos e anotações sobre a área de Software durante os estudos da facul
 * Melhorar a parte de backend faltando pedaços
 * CSS ocupação de divs melhorar conceituação que foi feito nas pressas, definindo também `viewport`
 * Paginação padronizada igual WEB + SO, com descrição da matéria e um sumário bem organizado onde ver cada conteúdo
+*   Técnicas avançadas de programação:
+
+
+
+    ```java
+    public void exibaItens() {
+        for (T item : itens) {
+            System.out.println(item);
+        }
+    }
+    ```

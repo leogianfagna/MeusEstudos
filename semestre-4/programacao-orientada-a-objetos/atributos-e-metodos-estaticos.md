@@ -32,7 +32,7 @@ Vemos o static que serve para dizer que o atributo "teclado" pertence à classe 
 
 ## Diferenças em exemplo
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/exemplo de membros estaticos e não.png" alt=""><figcaption></figcaption></figure>
 
 Neste exemplo prático fica nítido a diferença entre os dois, onde o método estático consegue fazer tudo apenas recebendo um parâmetro enquanto o método não estático tem que usar atributos do objeto (aqueles referenciados como this), por isso, eles devem ser chamados através de instâncias.
 

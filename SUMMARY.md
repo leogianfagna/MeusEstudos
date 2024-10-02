@@ -116,6 +116,7 @@
   * [Classes Wrapper](semestre-4/programacao-orientada-a-objetos/classes-wrapper.md)
   * [Atributos e métodos estáticos](semestre-4/programacao-orientada-a-objetos/atributos-e-metodos-estaticos.md)
   * [Digitação de dados](semestre-4/programacao-orientada-a-objetos/digitacao-de-dados.md)
+  * [Classes parametrizadas](semestre-4/programacao-orientada-a-objetos/classes-parametrizadas.md)
 * [Sistemas operacionais](semestre-4/sistemas-operacionais/README.md)
   * [Aula 1](semestre-4/sistemas-operacionais/aula-1.md)
   * [Aula 2](semestre-4/sistemas-operacionais/aula-2.md)
