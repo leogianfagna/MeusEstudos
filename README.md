@@ -21,4 +21,10 @@ Meus estudos e anotações sobre a área de Software durante os estudos da facul
             System.out.println(item);
         }
     }
+
+    ...
+
+        for (;;) {
+            break; // Para sair
+        }
     ```
