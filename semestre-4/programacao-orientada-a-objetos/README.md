@@ -1,28 +1,55 @@
 # Programação orientada à objetos
 
-{% hint style="info" %}
-Uma programação orientada a objetos pode exigir muitos conceitos complexos, portanto, esta página é um cronograma resumido de aprendizagem onde o aprofundamento de termos e explicações estão nas sub páginas dessa disciplina.
-{% endhint %}
+Aprendizado da linguagem Java e técnicas de qualquer outra linguagem orientada a objetos.
 
-## Definição
+## Sumário
 
-Orientação à objetos significa orientação à peças que são instâncias. Instâncias podem ser vistas como um kit com ferramentas que processam dados e possuem algoritmos para esses dados, compostos de métodos (funções ou procedimentos) e atributos (variáveis ou constantes).
-
-Um objeto é nada mais nada menos que uma [renomeação para a instância](instancias-e-objetos.md#instancia-renomeada), de outra forma, é um ponteiro, que aponta para o conteúdo dela. Nomes dados às instâncias significam que elas poderão ser reutilizadas ao longo do código. Uma instância sem nome só poderá ser usada uma vez no seu ciclo de vida.
-
-Por ser orientado a objetos, toda instância está relacionada a uma classe que tem um construtor com o seu mesmo nome (chamado automaticamente). Assim, a criação da classe se dá de uma <mark style="color:blue;">alocação usando new e o construtor da classe</mark>, dessa forma:
-
-<figure><img src="../../.gitbook/assets/definição na criação de instâncias (resumida).png" alt=""><figcaption></figcaption></figure>
-
-Existe a classe principal com o método executável e as demais classes que servirão de molde para a criação das instâncias. Como essas extras classes serão usadas o tempo inteiro, há de se cuidar com a segurança de uso delas (ouvimos como "antas" durante as aulas). Isso significa que essas classes possuem variáveis e métodos e que não podemos deixar que eles sejam manipulados livremente através de outras classes.
-
-Isso ocorre pela definição de [private ou public](classes/#criacao-de-classes-de-forma-segura). Como eles estão privados e só podem ser manipulados dentro da própria classe, isso exige a criação de métodos getters e setters dentro da mesma para serem usados de forma externa. Basicamente, feito desta forma:
-
-```java
-public void setMes(byte mes) throw Exception {
-  if (!Data.isValida(this.dia, mes, this.ano)) throw new Exception ("Mês inválido");
-  this.mes = mes;
-}
-```
-
-O construtor serve para dar os valores iniciais das variáveis da classe, em outras palavras, nascer com atributos válidos, também servindo como forma de segurança para não ter valores zerados ou equivocados.
+* [Regras de nomenclatura](regras-de-nomenclatura.md): como nomear classes, variáveis, métodos, etc.
+* [Instâncias e objetos](instancias-e-objetos.md): explicação inicial de como entender o conceito de peça.
+  * [Entendendo instâncias](instancias-e-objetos.md#o-que-sao-instancias)
+  * [Entendendo objetos como um ponteiro](instancias-e-objetos.md#o-que-sao-objetos)
+  * [Criação prática de uma instância](instancias-e-objetos.md#criacao-pratica)
+  * [Primeiro contato com instância chamante](instancias-e-objetos.md#instancia-chamante)
+* [Classes:](classes/) conceito de ser um molde para instâncias
+  * [A classe executável](classes/#uso-de-classes-para-instancias)
+  * [Criação de classes seguras](classes/#criacao-de-classes-de-forma-segura)
+    * Uso de qualificadores private/public
+    * Métodos getters e setters
+    * Objetivo do construtor
+  * [Primeiro contato com membros estáticos](classes/#membro-estatico)
+  * [Classe object:](classes/#classe-object) a classe onde todas herdam e precisa de re-implementações.
+    * [toString](classes/tostring.md)
+    * [equals](classes/equals.md)
+    * [hashCode](classes/hashcode.md)
+    * [compareTo](classes/compareto.md)
+      * Carteirinha Comparable
+    * clone
+* [Classes Wrapper:](classes-wrapper.md) conceito de embrulhar um tipo primitivo e disponibilizar métodos.
+  * Comodidade na automatização de objetos
+  * Conceito de boxed e unboxed
+* [Classes parametrizadas:](classes-parametrizadas.md) direcionar o modo de funcionamento.
+  * Classes genéricas
+  * [Conjuntos homogêneos e heterogêneos](classes-parametrizadas.md#conjuntos-heterogenios)
+* [Instância oca:](instancia-oca.md) criar instância de classes com apenas atributos estáticos
+* [Atributos e métodos estáticos:](atributos-e-metodos-estaticos.md) qualificador static
+  * Entende o significa encapsulamento
+  * [Objeto chamante](atributos-e-metodos-estaticos.md#objeto-chamante)
+  * Conceito de classe não replicável
+  * [Chamadas dentro da própria classe](atributos-e-metodos-estaticos.md#chamando-dentro-da-propria-classe)
+* [Digitação de dados:](digitacao-de-dados.md) classe auxiliar para ler dados em formato de string.
+  * Lendo strings e convertendo para outros tipos de dados
+  * [Variáveis na inicialização](digitacao-de-dados.md#variaveis-na-inicializacao)
+  * [Funcionamento do try-catch](digitacao-de-dados.md#funcionamento-do-try-catch)
+* [Heranças:](herancas.md) classe herda atributos e métodos de outra
+  * Palavra extend
+  * [Qualificador protected](herancas.md#novo-qualificador-protected)
+  * [Palavra super](herancas.md#palavra-super)
+  * [Importações](herancas.md#anotacoes-de-importacoes)
+* [Javadoc:](javadoc.md) ferramenta para gerar uma documentação do código em HTML.
+  * Detalhes de como usar
+  * Notações usadas
+* [Outros:](outros/)
+  * [Resuminho básico](outros/resuminho.md)
+  * [Expressões regulares:](outros/expressoes-regulares.md) validação sofisticada de dados.
+    * Compilação de expressões
+    * Uso prático
