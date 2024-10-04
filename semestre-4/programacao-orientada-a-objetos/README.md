@@ -23,7 +23,8 @@ Aprendizado da linguagem Java e técnicas de qualquer outra linguagem orientada 
     * [hashCode](classes/hashcode.md)
     * [compareTo](classes/compareto.md)
       * Carteirinha Comparable
-    * clone
+    * [clone](classes/clone.md)
+      * [Construtor de cópia](classes/clone.md#construtor-de-copia)
 * [Classes Wrapper:](classes-wrapper.md) conceito de embrulhar um tipo primitivo e disponibilizar métodos.
   * Comodidade na automatização de objetos
   * Conceito de boxed e unboxed
