@@ -1,2 +1,0 @@
-# Conceitos da disciplina
-

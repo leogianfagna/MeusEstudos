@@ -2,6 +2,12 @@
 
 Aqui estaremos falando de ocupação da div sem nos preocupar com o [posicionamento](posicionamento-de-divs.md) dela, seja a posição dela na tela, a orientação ou coisas do tipo. Esse tópico foi bem detalhado na página anterior. A ocupação é sobre a <mark style="color:blue;">área que ela vai ocupar</mark>, sendo ela fixa, estática, etc.
 
+## Tamanho das divs
+
+Há de se entender tamanhos físicos, estáticos, relativos e posicionados. O estático vai ocupar o tamanho determinado, por exemplo, 500 pixels independente da tela. Se for celular, possivelmente ganhará uma rolagem.
+
+É imprescindível que o nosso layout funcione em navegador e dispositivo móvel. Para isso, usar tamanho relativo que respeita o tamanho da tela do browser, por exemplo, 50% do tamanho total.
+
 ## Ocupação pré definida
 
 Vamos supor que queremos que uma div ocupe um <mark style="color:purple;">espaço da tela pré definidos</mark> por nós e este espaço seja uma porcentagem da div pai dela. Para isso, precisamos usar esses atributos nesta div:

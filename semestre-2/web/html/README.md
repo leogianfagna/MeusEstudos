@@ -25,9 +25,3 @@ Na estrutura HTML, nesse caso podemos dividir em HEAD e BODY. Fazendo uma estrut
 <figure><img src="../../../.gitbook/assets/head e body html.png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../../.gitbook/assets/head e body html explicado.png" alt=""><figcaption></figcaption></figure>
-
-## Tamanho das divs
-
-Há de se entender tamanhos físicos, estáticos, relativos e posicionados. O estático vai ocupar o tamanho determinado, por exemplo, 500 pixels independente da tela. Se for celular, possivelmente ganhará uma rolagem.
-
-É imprescindível que o nosso layout funcione em navegador e dispositivo móvel. Para isso, usar tamanho relativo que respeita o tamanho da tela do browser, por exemplo, 50% do tamanho total.

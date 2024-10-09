@@ -22,7 +22,7 @@ Por definição, o estilo row é o padrão utilizado. Então, não indicar essa 
 
 ## Outras características do `display: flex`:
 
-Muitas das seguintes caracterísitcas são aspectos de alinhamento, descritas em "[Atributos de alinhamento](atributos-de-alinhamento.md)".
+Muitas das seguintes caracterísitcas são aspectos de alinhamento, descritas em "[Atributos de alinhamento](alinhamento.md)".
 
 1. **Alinhamento ao longo do eixo principal e cruzado:**
    * `justify-content`: Alinha os itens ao longo do eixo principal (horizontal por padrão).

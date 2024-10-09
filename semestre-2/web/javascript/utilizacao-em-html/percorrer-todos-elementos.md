@@ -1,6 +1,6 @@
 # Percorrer todos elementos
 
-Uma função incrível pode percorrer todos os elementos do nosso HTML para tentar algo específico. Vamos supor que temos diversos [elementos escondidos](html/elementos-escondidos.md) e queremos exibir todos chamando uma função, muito útil ao selecionar uma opção em que precisamos exibir tudo e depois esconder o que queremos.
+Uma função incrível pode percorrer todos os elementos do nosso HTML para tentar algo específico. Vamos supor que temos diversos [elementos escondidos](../../html/elementos-escondidos.md) e queremos exibir todos chamando uma função, muito útil ao selecionar uma opção em que precisamos exibir tudo e depois esconder o que queremos.
 
 Podemos criar essa função para fazer tal funcionalidade:
 
