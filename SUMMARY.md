@@ -48,6 +48,7 @@
       * [Switch True](semestre-2/web/javascript/utilizacao-basica/switch-true.md)
       * [Extrair da String](semestre-2/web/javascript/utilizacao-basica/extrair-da-string.md)
       * [Deixar apenas números](semestre-2/web/javascript/utilizacao-basica/deixar-apenas-numeros.md)
+      * [Replace](semestre-2/web/javascript/utilizacao-basica/replace.md)
     * [Utilização em HTML](semestre-2/web/javascript/utilizacao-em-html/README.md)
       * [Percorrer todos elementos](semestre-2/web/javascript/utilizacao-em-html/percorrer-todos-elementos.md)
   * [Estilização](semestre-2/web/estilizacao.md)
