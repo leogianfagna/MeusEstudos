@@ -16,6 +16,7 @@ Aprendizado da linguagem Java e técnicas de qualquer outra linguagem orientada 
     * Uso de qualificadores private/public
     * Métodos getters e setters
     * Objetivo do construtor
+    * Formas de validar dados em construtores
   * [Primeiro contato com membros estáticos](classes/#membro-estatico)
   * [Classe object:](classes/#classe-object) a classe onde todas herdam e precisa de re-implementações.
     * [toString](classes/tostring.md)

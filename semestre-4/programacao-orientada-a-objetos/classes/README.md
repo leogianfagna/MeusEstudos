@@ -40,56 +40,74 @@ newMeta.setDisplayName(oldMeta.getDisplayName());
 newMeta.setLore(oldMeta.getLore());
 ```
 
+## Criação de um construtor
+
 Construtores possuem o mesmo nome da classe e é `void`, porém não escrevemos void nele, dessa forma:
 
 ```java
 public /* void */ Data(...)
 ```
 
-### Membro estático
+O construtor vai instanciar as variáveis da classe baseado no que foi recebido no parâmetro, mas e se esses parâmetros forem algo equivocado e não servidor, por exemplo, int minutos vale 80? Por conta disso, os dados <mark style="color:orange;">precisam ser validados</mark> antes de atribuir, <mark style="color:orange;">retornando uma exceção</mark> (`Exception`) caso tenha algum erro. Existem várias maneiras de fazer isso.
 
-Esses membros são úteis para implementar funcionalidades globais ou compartilhar estados comuns entre a classe <mark style="color:green;">sem a necessidade de instâncias</mark>. Em Java, membros estáticos são atributos ou métodos pertencentes à classe e que podem ser <mark style="color:blue;">compartilhadas e usadas globalmente dentro dela</mark>.
+#### Maneira 1: usar um método estático isValido
 
-Os atributos estáticos servem para representar informações compartilhada para toda a classe e os métodos estáticos para implementar funcionalidades que não dependem de nenhuma outra coisa (métodos estáticos não operam em instâncias). Por isso, podem ser chamados diretamente pelo nome da classe, sem a necessidade de instâncias.
+Talvez no nosso código precisamos chamar inúmeras vezes o método isValido, por exemplo em cada setter ou em várias funções, pois é necessário verificar se após uma mudança, a instância continua válida, por exemplo horário.
 
-#### Exemplo variável estática
-
-Criou a variável estática contador, cujo método `exemplo()` aumenta seu valor toda vez que chamada. Usa esse método duas vezes na classe executável, portanto, sobe o valor de contador duas vezes e ela pode ser imprimida normalmente com saída igual a `2` no final:
+Se o horário for 23:20:14 e mudar as horas para 40 (ficando 40:20:14), isso ficaria muito equivocado, então pode ter esse método para validar sempre. Se esse método existir, podemos usá-lo para validar os parâmetros recebidos antes, desta forma:
 
 ```java
-public class Exemplo {
-    static int contador = 0;
+public Horario(int horas, int minutos, int segundos) throws Exception {
+    if (!Horario.isValido(horas, minutos, segundos))
+        throw new Exception("Horário inválido");
 
-    public Exemplo() {
-        contador++;
-    }
+    this.horas = horas;
+    this.minutos = minutos;
+    this.segundos = segundos;
 }
 
-public class Main {
-    public static void main(String[] args) {
-        Exemplo obj1 = new Exemplo();
-        Exemplo obj2 = new Exemplo();
-        System.out.println(Exemplo.contador);
-    }
+//isValido() apenas verifica se hora < 0 || hora > 23 etc...
+```
+
+#### Maneira 2: usar os setters
+
+Se a nossa classe possui setters, por exemplo setHorario, setMinutos e setSegundos, esses setters precisam validar o valor chegado, certo? Um setter não pode simplesmente atribuir ao this qualquer valor recebido no parâmetro e ele precisa validar.
+
+Por conta disso, podemos usar os setters para atribuir ao this, já que cada setter vai fazer a validação e vai retornar uma exceção se estiver equivocada.
+
+```java
+public Horario(int horas, int minutos, int segundos) throws Exception {
+    this.setHora(horas);
+    this.setMinutos(minutos);
+    this.setSegundos(segundos);
 }
 ```
 
-#### Exemplo método estático
+#### Maneira 3: validação bruta
 
-Cria-se um método estático chamado `somar()` que vai ser utilizado depois na classe executável:
+Se não tivermos os setters e nem uma função isValido, podemos validar de forma bruta no próprio construtor variável por variável. Isso também vai funcionar, mas fazer isso apenas se nenhuma das alternativas acima existirem.
 
 ```java
-public class Utilidade {
-    public static int somar(int a, int b) {
-        return a + b;
-    }
-}
+public Horario(int horas, int minutos, int segundos) throws Exception {
+    if (horas < 0 || horas > 23) throw new Exception("Horas inválidas");
+    if (minutos < 0 || minutos > 59) throw new Exception("Minutos inválidos");
+    if (segundos < 0 || segundos > 59) throw new Exception("Segundos inválidos");
 
-public class Main {
-    public static void main(String[] args) {
-        int resultado = Utilidade.somar(3, 5);
-        System.out.println(resultado);
-    }
+    this.horas = horas;
+    this.minutos = minutos;
+    this.segundos = segundos;
+}
+```
+
+#### Maneira 4: sem validação
+
+Neste caso não, mas supondo uma classe de ângulos onde é aceito qualquer valor, seja negativo ou positivo, do menos infinito ao mais infinito. Este caso não precisa de validação nenhuma e podemos apenas atribuir sem nenhum medo.
+
+```java
+public Horario(int horas, int minutos, int segundos) throws Exception {
+    this.horas = horas;
+    this.minutos = minutos;
+    this.segundos = segundos;
 }
 ```
 
