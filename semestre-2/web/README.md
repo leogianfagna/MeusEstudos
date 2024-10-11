@@ -30,6 +30,9 @@ Estudos para programação em Web usando linguagem HTML, CSS, Javasript e TypeSc
   * [Alinhamento](css/alinhamento.md)
   * [Posicionamento](css/posicionamento-de-divs.md)
   * [Ocupação](css/ocupacao-de-divs.md)
+  * [Abordagem de estilos](css/abordagem-de-estilos.md)
+    * Melhor qualidade de projetos para arquivos css
+    * [Seletores](css/abordagem-de-estilos.md#seletores)
 * [Linguaguem JavaScript](javascript/): explicação de conceitos complexos da linguagem e como usar para scripts&#x20;
   * Conceitos da linguagem
     * [Notação de pontos](javascript/conceitos.md#notacao-de-pontos-dot-notation)

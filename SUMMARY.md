@@ -41,6 +41,7 @@
     * [Alinhamento](semestre-2/web/css/alinhamento.md)
     * [Posicionamento de divs](semestre-2/web/css/posicionamento-de-divs.md)
     * [Ocupação de divs](semestre-2/web/css/ocupacao-de-divs.md)
+    * [Abordagem de estilos](semestre-2/web/css/abordagem-de-estilos.md)
   * [JavaScript](semestre-2/web/javascript/README.md)
     * [Conceitos](semestre-2/web/javascript/conceitos.md)
     * [Utilização básica](semestre-2/web/javascript/utilizacao-basica/README.md)
