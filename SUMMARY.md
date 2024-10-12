@@ -39,6 +39,7 @@
     * [Atributos de estilização](semestre-2/web/css/atributos-de-estilizacao/README.md)
       * [Botão](semestre-2/web/css/atributos-de-estilizacao/botao.md)
     * [Alinhamento](semestre-2/web/css/alinhamento.md)
+    * [Espaçamento](semestre-2/web/css/espacamento.md)
     * [Posicionamento de divs](semestre-2/web/css/posicionamento-de-divs.md)
     * [Ocupação de divs](semestre-2/web/css/ocupacao-de-divs.md)
     * [Abordagem de estilos](semestre-2/web/css/abordagem-de-estilos.md)

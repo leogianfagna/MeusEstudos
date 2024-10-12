@@ -28,6 +28,10 @@ Estudos para programação em Web usando linguagem HTML, CSS, Javasript e TypeSc
   * Atributos de estilização: atributos salvos comumente usados em certos elementos
     * [Botão](css/atributos-de-estilizacao/botao.md)
   * [Alinhamento](css/alinhamento.md)
+  * [Espaçamento](css/espacamento.md)
+    * Tamanho fixo
+      * [Não responsivo](css/espacamento.md#nao-responsivo-tamanho-fixo)
+      * [Responsivo](css/espacamento.md#responsivo-tambem-tamanho-fixo)
   * [Posicionamento](css/posicionamento-de-divs.md)
   * [Ocupação](css/ocupacao-de-divs.md)
   * [Abordagem de estilos](css/abordagem-de-estilos.md)
