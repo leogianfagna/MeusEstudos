@@ -49,6 +49,7 @@ Estudos para programação em Web usando linguagem HTML, CSS, Javasript e TypeSc
   * [Bootstrap](bootstrap/): framework que facilita a criação de projetos web
     * [Uso](bootstrap/importacao.md)
     * [Criação de layouts](bootstrap/layout.md)
+    * [Alterar os estilos criados e usados](bootstrap/alterar-estilos.md)
   * [Backend](backend.md): integrar o projeto web com um banco de dados
     * Conceitos
       * O que é NodeJs

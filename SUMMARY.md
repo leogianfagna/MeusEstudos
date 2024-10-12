@@ -56,6 +56,7 @@
   * [Bootstrap](semestre-2/web/bootstrap/README.md)
     * [Importação](semestre-2/web/bootstrap/importacao.md)
     * [Layout](semestre-2/web/bootstrap/layout.md)
+    * [Alterar estilos](semestre-2/web/bootstrap/alterar-estilos.md)
   * [Backend](semestre-2/web/backend.md)
 * [Fundamentos de Engenharia de Sistemas](semestre-2/fundamentos-de-engenharia-de-sistemas/README.md)
   * [Conceitos rápidos](semestre-2/fundamentos-de-engenharia-de-sistemas/conceitos-rapidos.md)
