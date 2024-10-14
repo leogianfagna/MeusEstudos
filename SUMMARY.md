@@ -71,6 +71,7 @@
   * [Ponteiros](semestre-2/estrutura-de-dados/ponteiros.md)
   * [Alocação dinâmica](semestre-2/estrutura-de-dados/alocacao-dinamica.md)
   * [Struct](semestre-2/estrutura-de-dados/struct.md)
+  * [Recursão](semestre-2/estrutura-de-dados/recursao.md)
 
 ## Semestre 3
 
