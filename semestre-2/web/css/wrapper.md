@@ -22,3 +22,49 @@ Para isso, usamos um estilo ou id wrapper. Ele consiste em declarar um estilo pr
 Então o estilo `card` <mark style="color:orange;">só vai funcionar caso ele também esteja herdando</mark> o estilo `kart-info`. Então, para resolver o problema acima, podemos fazer isso para que esse estilo só seja aplicado em uma determinada condição e não em todos os HTML. Podemos fazer isso também com ID, ficando assim o resultado final:
 
 <figure><img src="../../../.gitbook/assets/wrapper css com id.png" alt=""><figcaption></figcaption></figure>
+
+## Uso moderno
+
+Recente foi possível fazer um novo uso da classe wrapper. Vamos supor que não apenas um, mas vamos customizar vários elementos wrapper. Isso ficaria desta forma:
+
+```css
+.kartodromos-view {
+    margin-top: 50px;
+    display: flex;
+}
+
+.kartodromos-view .card {
+    background-color: #b0b2b3;
+}
+
+.kartodromos-view .card-header {
+    background-color: var(--light-bg-color);
+}
+
+.kartodromos-view .active {
+    background-color: #b0b2b3;
+}
+```
+
+Com o resultado sendo exatamente o mesmo, podemos escrever de uma forma diferente, que fica mais legível que essas classes são aplicadas de forma wrapper, podendo modernizar a escrita desta forma:
+
+```css
+.kartodromos-view {
+    margin-top: 50px;
+    display: flex;
+    
+    & .card {
+        background-color: #b0b2b3;
+    }
+    
+    & .card-header {
+        background-color: var(--light-bg-color)
+    }
+    
+    & .active {
+        background-color: #b0b2b3
+    }
+}
+```
+
+De número de linhas e espaçamento é a mesma coisa, mas isso fica mais legível para deixar todos os elementos wrapper dentro das chaves do primeiro elemento.
