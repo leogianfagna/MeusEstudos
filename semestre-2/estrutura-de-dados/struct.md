@@ -31,6 +31,19 @@ int main() {
 
 Podemos ver aqui que podemos atribuir os valores à uma struct através da notação de pontos, que também serve para resgatar os valores caso necessário, como se fosse um objeto em Java. Também vimos que podemos declarar os dados da struct logo depois de criar a variável `pessoaDeclarada`, sem a necessidade depois de atribuir um por um.
 
+
+
+:warning: **Detalhes para uso de elementos da struct**
+
+Apesar de idade ser um `int`, a declaração dele na main para usar e manipular essa variável nunca citou o tipo `int`. Isso porque usar uma struct tem obrigatoriamente essa estrutura:&#x20;
+
+```c
+struct NomeDaStruct nomeQueEuEscolho;
+nomeQueEuEscolho.idade = 30;
+```
+
+Portanto, usar um elemento da struct criada sempre vai seguir o padrão inicial de `struct NomeDaStruct` e isso é muito importante saber para não confundir, principalmente pois será usado na declaração de listas ligadas.
+
 ## Ponteiros em struct
 
 Podemos criar um ponteiro para uma struct (do tipo da struct) permitindo <mark style="color:blue;">acessar membros da estrutura indiretamente através dele</mark>. Em outras palavras, usamos o ponteiro criado para resgatar os valores da struct e não o nome da struct diretamente.
