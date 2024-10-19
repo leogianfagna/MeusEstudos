@@ -6,7 +6,7 @@ _Tutorial Try It de Nav bar:_ [_https://www.w3schools.com/howto/tryit.asp?filena
 
 Possivelmente o alinhamento mais difícil, isso é quando temos conteúdos que ficam um abaixo do outro e queremos alinhá-los verticalmente. Dessa forma:
 
-<figure><img src="../../../.gitbook/assets/image.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/alinhamento vertical em html.png" alt="" width="375"><figcaption></figcaption></figure>
 
 Para fazer isso de uma forma **responsiva**, usamos o [Bootstrap](../bootstrap/). Ele mesmo possui essa página a respeito de [alinhamento vertical](https://getbootstrap.com/docs/5.3/utilities/vertical-align/), o que possui de forma pronta vários estilos poderosos para tabelas ou coisas do tipo, mas se queremos alinhar um elemento abaixo do outro verticalmente, precisamos inserir mais classes.
 

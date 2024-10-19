@@ -28,6 +28,7 @@ Estudos para programação em Web usando linguagem HTML, CSS, Javasript e TypeSc
   * Atributos de estilização: atributos salvos comumente usados em certos elementos
     * [Botão](css/atributos-de-estilizacao/botao.md)
   * [Alinhamento](css/alinhamento.md)
+    * [Alinhar elementos verticalmente](css/alinhamento.md#alinhar-elementos-na-vertical)
   * [Espaçamento](css/espacamento.md)
     * Tamanho fixo
       * [Não responsivo](css/espacamento.md#nao-responsivo-tamanho-fixo)
@@ -38,6 +39,7 @@ Estudos para programação em Web usando linguagem HTML, CSS, Javasript e TypeSc
     * Melhor qualidade de projetos para arquivos css
     * [Seletores](css/abordagem-de-estilos.md#seletores)
   * [Wrappers](css/wrapper.md)
+  * [Estilos legais e com frequente uso](css/estilos-legais.md)
 * [Linguaguem JavaScript](javascript/): explicação de conceitos complexos da linguagem e como usar para scripts&#x20;
   * Conceitos da linguagem
     * [Notação de pontos](javascript/conceitos.md#notacao-de-pontos-dot-notation)
