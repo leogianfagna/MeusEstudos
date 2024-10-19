@@ -7,7 +7,7 @@ Um [vetor](vetores-e-matrizes.md), toda vez que insere ou remove posições tem 
 
 Uma struct sendo uma estrutura de elementos, a lista ligada funciona com cada desse elemento possuindo um <mark style="color:blue;">ponteiro que aponta para o próximo elemento</mark>, sendo o <mark style="color:blue;">último um ponteiro nulo</mark>. Isso torna algo não sequenciado, o que significa que podemos adicionar elementos em qualquer posição e apenas mudar o ponteiro da posição anterior, sem necessariamente mudar todo o restante. A remoção acontece da mesma forma, removendo um elemento e mudando o ponteiro do anterior para apontar para o próximo.
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Esse exemplo acima mostra como elas não necessariamente estão organizadas sequencialmente dentro da memória. Como o uso de memória acontece de forma dinâmica, esses detalhes e usos são essenciais:
 
