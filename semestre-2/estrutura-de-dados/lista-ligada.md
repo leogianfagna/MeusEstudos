@@ -21,6 +21,39 @@ Por conta que listas ligadas não possuem índices como vetores, não é possív
 
 O <mark style="color:purple;">primeiro elemento é chamado de cabeça</mark> (ou head). Acessar um elemento precisa caminhar por todos começando a partir do primeiro elemento.
 
+## Como funciona a criação
+
+A lista ligada pode ser feita inserindo os elementos no final da lista ou no início, isso vai influencia se o próximo elemento vai apontar para a cabeça ou se a cabeça vai apontar para o próximo elemento. <mark style="color:blue;">Ambos os casos</mark>, sempre vai ser necessário <mark style="color:blue;">possuir um ponteiro que indica a primeira posição da lista</mark>.
+
+### Inserir no início
+
+<figure><img src="../../.gitbook/assets/lista ligada inserindo no inicio.png" alt=""><figcaption></figcaption></figure>
+
+Usa apenas um ponteiro chamado "lista" que deve SEMPRE possuir o <mark style="color:green;">endereço de memória da posição zero</mark> (nesse caso o 40, que foi inserido por último). Por isso, usar `inserir()` ou `inserirPos()` deve <mark style="color:orange;">**retornar**</mark> esse endereço. Não podemos só chamar a função pois precisamos ter esse ponteiro atualizado.
+
+<figure><img src="../../.gitbook/assets/ponteiros de lista retornando.png" alt=""><figcaption></figcaption></figure>
+
+O caso de inserir em uma posição específica vai precisar ter um if/else dentro da função para garantir que vai retornar o endereço certo. Se inserir na posição zero, retorna o novo elemento. Se inserir em qualquer outra posição, retorna o que já tinha (o que foi passado pelo parâmetro).
+
+### Inserir no final
+
+<figure><img src="../../.gitbook/assets/lista ligada inserindo no final.png" alt=""><figcaption></figcaption></figure>
+
+Este caso usa dois ponteiros, o "pri" que guarda o endereço do primeiro elemento (no caso 10) que vai se alterar APENAS se o primeiro elemento mudar, e o ponteiro "lista" que se altera conforme necessidade. Esse jeito é mais fácil pois sempre teremos o "pri" para ajudar a passar a primeira posição, mas nestes estudos **usaremos a inserção no início da lista**.
+
+## Como usar lista ligada
+
+Tecnicamente falando, para começar a usar uma lista, é necessário realizar esses seguintes passos:
+
+1. Declarar a estrutura do nó: vai conter o dado e o ponteiro para a próxima posição.
+2. Função para inicializar: podemos inicializar o primeiro elemento da lista como nulo, isso porque, ele não tem para onde apontar, portanto inicializar ele dessa forma e sem dados está correto.
+3. Função para inserir: vai criar uma alocação dinâmica de memória que equivale a um novo elemento e depois retorna o endereço de memória (um ponteiro) referente a esse elemento. Esse novo elemento agora é a primeira posição, então retornar vai ser necessário para o próximo elemento inserido usá-lo para apontar para ele, ligando os dois (lembrar que sempre precisamos retornar o primeiro elemento).
+4. Função para inserir em determinada posição: se não queremos inserir no início da lista, podemos decidir uma posição específica. Acontece que, se essa nova posição não for a primeira, devemos retornar o ponteiro antigo mas caso seja devemos retornar o ponteiro novo.&#x20;
+5. Função para percorrer: recebendo o primeiro ponteiro, podemos seguir ele até quando o próximo ponteiro for nulo e imprimindo o atributo da vez.
+6.
+
+
+
 ## Como usar
 
 ### 1 - Estrutura de um nó
@@ -34,9 +67,9 @@ Cada elemento da lista se chama nó e possui a estrutura comentada acima:
   * Por isso, em caso de dúvidas ler [esse tópico](struct.md).
 
 ```c
-struct Node {
-    int data;
-    struct Node *next;
+struct No {
+    int dado;
+    struct No *proximo;
 };
 ```
 
@@ -47,48 +80,115 @@ Também conhecido como head, é o primeiro elemento da lista ligada que vai faze
 * Acessar membros da struct pode ser feito usando o ponto, por exemplo minhaStruct.data.
 * Agora, quando a variável é um pontiero que aponta para uma struct, acessar **os mesmos dados** passa a ser o operador de seta.
 
-Portanto, esse passo consiste em declarar o head (que precisa fazer o malloc como dito acima) e definir os dados da struct. O primeiro dado "data" é como a gente quiser mas o ponteiro para a próxima struct sempre é iniciada como `NULL`, pois ainda não há uma ligação para outro elemento. Como a cabeça head é um ponteiro, os elementos da struct são acessados com as setas.
+Inicializar a cabeça da lista pode ser feita através de uma função que na main vai ser atribuída ao primeiro elemento da lista. O primeiro ponteiro sempre será iniciado com NULL pois ainad não há uma ligação para outro elemento:
 
 ```c
-int main() {
-    struct Node *head = (struct Node*)malloc(sizeOf(struct Node));
-    head->data = 10;
-    head->next = NULL;
+struct No* incializar() {
+    return NULL;
+}
 
-    return 0;
+int main() {
+    struct No* lista = inicializar();
+    ...
 }
 ```
 
-### 3 - Inserir novo nó no final
+### 3 - Inserir novo nó no início
 
-A inserção de novos elementos na lista é mais comum no final. A criação desse novo elemento segue o mesmo padrão que a criação do cabeçalho, a diferença é que vamos precisar mudar o ponteiro do elemento anterior para que aponte para o novo elemento.
+Usaremos uma função que vai criar uma <mark style="color:green;">alocação dinâmica</mark> de memória que equivale a um novo elemento e, <mark style="color:blue;">como agora ele é o primeiro elemento</mark>, vamos retornar o ponteiro dele.
 
 ```c
+struct No* inserir(struct No* lista, int valor) {
+    struct No *novo = (struct No*)malloc(sizeof(struct No));
+    novo->dado = valor;
+    novo->proximo = lista;
+    
+    return novo;
+}
+
 int main() {
-    // Código anterior
-
-    struct Node *second = (struct Node*)malloc(sizeOf(struct Node));
-    second->data = 15;
-    second->next = NULL;
-
-    head->next = second; // Aponta o cabeçalho para o novo ponteiro
-
-    // Código posterior
+    ...
+    
+    lista = inserir(lista, 10);
+    lista = inserir(lista, 20);
+    lista = inserir(lista, 30);
 }
 ```
 
+A função inserir recebe como parâmetro o ponteiro "lista", pois ele sempre será a primeira posição. Portanto, ele é necessário para saber para quem o "novo" irá apontar.
 
+<figure><img src="../../.gitbook/assets/inserir na lista ligada.png" alt="" width="375"><figcaption></figcaption></figure>
 
+> Lembrança: o ponteiro "lista" (primeiro elemento) sempre vai apontar para o próximo elemento, então <mark style="color:orange;">não precisamos</mark> se preocupar em mudar nada dele, apenas usar ele para ser apontado.
 
+### 4 - Inserir em posição específica
 
+Assim como o inserir no início, deve retornar a primeira posição da lista, mas agora a primeira posição não necessariamente vai mudar:
 
+* Se a posição específica for zero, tem que retornar o novo ponteiro.
+* Se a posição específica não for zero, retorna o mesmo ponteiro de antes (que foi passado no parâmetro).
 
-## Como usar v2
+Essa função temos que fazer duas lógicas diferentes, pois se não for a posição zero, terá que percorrer a lista inteira até achar a posição que quer, usando dois ponteiros auxiliares. A ideia é criar o ponteiro `atual` e ponteiro `anterior` para armazenar duas posições seguidas, pois assim, ao encontrar a posição que queremos, podemos colocar o <mark style="color:blue;">novo elemento no meio dos dois</mark>.
 
-Tecnicamente falando, para começar a usar uma lista, é necessário realizar esses seguintes passos:
+```c
+struct No* inserirPos(struct No* lista, int valor, int pos) {
+    struct No* novo = (struct No*)malloc(sizeof(struct No));
+    novo->dado = valor;
+    
+    if (pos == 0) {
+        novo->proximo = lista;
+        return novo;
+    }
+    
+    int counter = 0;
+    struct No* atual = lista;
+    struct No* anterior = NULL;
+    
+    // Avançando as posições com nós auxiliares
+    while (counter != pos) {
+        anterior = atual;
+        atual = atual->proximo;
+        counter++;
+    }
+    
+    // Encaixar na fila
+    if (atual == NULL) {
+        printf("Posição maior que lista");
+    } else {
+        novo->proximo = atual;
+        anterior->proximo = novo;
+    }
+    
+    return lista; // "novo" não é posição zero, portanto retornar lista
+}
 
-1. Declarar a estrutura do nó: vai conter o dado e o ponteiro para a próxima posição.
-2. Função para inicializar: podemos inicializar o primeiro elemento da lista como nulo, isso porque, ele não tem para onde apontar, portanto inicializar ele dessa forma e sem dados está correto.
-3. Função para inserir: vai criar uma alocação dinâmica de memória que equivale a um novo elemento e depois retorna o endereço de memória (um ponteiro) referente a esse elemento. Esse retorno vai ser necessário para o próximo elemento inserido usá-lo para apontar para ele, ligando os dois.
-4. Função para percorrer:&#x20;
+int main() {
+    ...
+    lista = inserirPos(lista, 40, 2);
+}
+```
 
+#### Percorrendo até chegar na posição desejada
+
+<figure><img src="../../.gitbook/assets/iteração de ponteiros auxiliares em lista c.png" alt=""><figcaption></figcaption></figure>
+
+#### Chegou na posição, agora inserir no meio
+
+<figure><img src="../../.gitbook/assets/inserir ponteiro no meio de dois ponteiros.png" alt=""><figcaption></figcaption></figure>
+
+### 5 - Percorrer os elementos
+
+Como sempre armazenamos o primeiro nó é uma função muito simples de iteração. O segredo é que precisamos criar um nó auxiliar que recebe lista, pois não podemos percorrer os elementos de "lista", esse ponteiro é sagrado e não pode ser alterado. Portanto, fazemos isso com um ponteiro auxiliar que vai receber lista.
+
+```c
+void percorrer(struct No* lista) {
+    struct No *aux = lista;
+    
+    while (aux->prox != NULL) {
+        printf("Valor %d", aux->dado);
+        aux = aux->proximo;
+    }
+}
+```
+
+> Falta: buscar, remover, liberar, final e exercícios.
