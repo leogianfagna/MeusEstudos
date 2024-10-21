@@ -51,6 +51,7 @@ Estudos para programação em Web usando linguagem HTML, CSS, Javasript e TypeSc
     * [Apenas números](javascript/utilizacao-basica/deixar-apenas-numeros.md)
   * Utilização para HTML
     * [Percorrer todos elementos](javascript/utilizacao-em-html/percorrer-todos-elementos.md)
+  * [Async/wait](javascript/async-wait.md)
   * [Estilização](estilizacao.md): extras de estilizar as páginas que exigem a integração das linguagens
     * [Ícones](estilizacao.md#adicionar-icones)
   * [Bootstrap](bootstrap/): framework que facilita a criação de projetos web

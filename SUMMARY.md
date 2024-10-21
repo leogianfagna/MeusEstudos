@@ -55,6 +55,7 @@
       * [Replace](semestre-2/web/javascript/utilizacao-basica/replace.md)
     * [Utilização em HTML](semestre-2/web/javascript/utilizacao-em-html/README.md)
       * [Percorrer todos elementos](semestre-2/web/javascript/utilizacao-em-html/percorrer-todos-elementos.md)
+    * [Async wait](semestre-2/web/javascript/async-wait.md)
   * [Estilização](semestre-2/web/estilizacao.md)
   * [Bootstrap](semestre-2/web/bootstrap/README.md)
     * [Importação](semestre-2/web/bootstrap/importacao.md)
