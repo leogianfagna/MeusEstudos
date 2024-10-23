@@ -43,6 +43,7 @@
     * [Posicionamento de divs](semestre-2/web/css/posicionamento-de-divs.md)
     * [Ocupação de divs](semestre-2/web/css/ocupacao-de-divs.md)
     * [Abordagem de estilos](semestre-2/web/css/abordagem-de-estilos.md)
+    * [Responsividade](semestre-2/web/css/responsividade.md)
     * [Wrapper](semestre-2/web/css/wrapper.md)
     * [Estilos legais](semestre-2/web/css/estilos-legais.md)
   * [JavaScript](semestre-2/web/javascript/README.md)

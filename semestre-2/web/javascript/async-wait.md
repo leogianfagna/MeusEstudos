@@ -19,8 +19,8 @@ Vamos supor uma função que retorne um json do banco de dados tudo em uma vari�
 
 ### Função sem async
 
-<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/fetch sem usar async.png" alt=""><figcaption></figcaption></figure>
 
 ### Transformando em async
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/exemplo async task completo.png" alt=""><figcaption></figcaption></figure>
