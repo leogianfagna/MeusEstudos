@@ -145,6 +145,8 @@
   * [Aula 4](semestre-4/sistemas-operacionais/aula-4.md)
   * [Aula 5](semestre-4/sistemas-operacionais/aula-5.md)
   * [Sistema de arquivos](semestre-4/sistemas-operacionais/sistema-de-arquivos.md)
+  * [Sistemas de IO](semestre-4/sistemas-operacionais/sistemas-de-io.md)
+  * [Memória](semestre-4/sistemas-operacionais/memoria.md)
   * [Exercícios prova 1](semestre-4/sistemas-operacionais/exercicios-prova-1.md)
 * [Ideação e validação](semestre-4/ideacao-e-validacao/README.md)
   * [Mapa mental](semestre-4/ideacao-e-validacao/mapa-mental.md)
