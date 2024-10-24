@@ -1,7 +1,5 @@
 # Sistema de arquivos
 
-> DÚVIDA QUE PRECISA SER SANADA: Precisamos saber os diferentes tipos de estruturas de diretório? Tipo Grafos Acíclicos, gerais, etc.
-
 O disco rídigo é uma parte redonda com vários empilhados em cima dos outros formando um cilindro. Cada um deles com trilhas e setores, como foi visto na matéria de organização e arquitetura de computadores, chamamos isso de <mark style="color:purple;">formatação de baixo nível ou formatação física</mark>. Geralmente cada setor possui 512K de dados.
 
 Essas estruturas de trilhas e setores são criadas pelo próprio sistema operacional, elas não são "risgadas" fisicamente ali. Essa estrutura é chamada de <mark style="color:purple;">formatação lógica</mark>. Além disso o disco precisa passar por <mark style="color:purple;">particionamento</mark> (grupos de cilindros). Uma partição representa uma seção específica de um espaço de armazenamento em disco rígido que é subdividido para gerenciar dados de maneira organizada e eficiente. Cada partição possui a capacidade de alojar diferentes sistemas de arquivos, permitindo assim configurações diversas para o armazenamento e acesso a dados.
