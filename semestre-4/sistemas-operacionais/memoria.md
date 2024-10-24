@@ -56,3 +56,34 @@ Se um processo a ser escalonado estiver no disco, existe uma troca de contexto q
 * 2 segundos para tirar um processo de 100 MB e mandar pro disco.
 * 2 segundos para trazer um processo de 100 MB do disco.
 * 4 segundos da troca de contexto só para swap.
+
+## Paginação
+
+Para evitar a <mark style="color:purple;">fragmentação</mark> e a necessidade de usar blocos de memória contíguos, usamos a paginação. Consiste em:
+
+* <mark style="color:blue;">Dividir a memória virtual em páginas</mark> (igual caderno, com tamanho fixo e previsível).
+* Dividir a memória física em quadros, também com todos do mesmo tamanho.
+* Cada quadro pode armazenar uma página daquele caderno virtual. Então para N páginas temos N quadros.
+
+> O endereço virtual aponta para um dado de uma página que está em um quadro.
+
+Qualquer página da CPU pode estar em qualquer quadro da RAM. A tabela de páginas faz a tradução das páginas para os quadros, sendo basicamente um sumário de onde está cada página. Esse sumário fica em algum lugar da memória.
+
+### Tradução de endereços
+
+O número lógico é dividido em:
+
+* Número da página (índice para o sumário)
+* Deslocamento: combinado com o endereço base para definir o endereço físico enviado para a MMU. Significa o quanto está dentro de uma página
+
+<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+
+A paginação começa definindo os espaços entre páginas e quadros, precisa ter o mesmo espaço em um e depois em outro.
+
+<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
