@@ -43,19 +43,6 @@ Este caso usa dois ponteiros, o "pri" que guarda o endereço do primeiro element
 
 ## Como usar lista ligada
 
-Tecnicamente falando, para começar a usar uma lista, é necessário realizar esses seguintes passos:
-
-1. Declarar a estrutura do nó: vai conter o dado e o ponteiro para a próxima posição.
-2. Função para inicializar: podemos inicializar o primeiro elemento da lista como nulo, isso porque, ele não tem para onde apontar, portanto inicializar ele dessa forma e sem dados está correto.
-3. Função para inserir: vai criar uma alocação dinâmica de memória que equivale a um novo elemento e depois retorna o endereço de memória (um ponteiro) referente a esse elemento. Esse novo elemento agora é a primeira posição, então retornar vai ser necessário para o próximo elemento inserido usá-lo para apontar para ele, ligando os dois (lembrar que sempre precisamos retornar o primeiro elemento).
-4. Função para inserir em determinada posição: se não queremos inserir no início da lista, podemos decidir uma posição específica. Acontece que, se essa nova posição não for a primeira, devemos retornar o ponteiro antigo mas caso seja devemos retornar o ponteiro novo.&#x20;
-5. Função para percorrer: recebendo o primeiro ponteiro, podemos seguir ele até quando o próximo ponteiro for nulo e imprimindo o atributo da vez.
-6.
-
-
-
-## Como usar
-
 ### 1 - Estrutura de um nó
 
 Cada elemento da lista se chama nó e possui a estrutura comentada acima:
@@ -192,3 +179,116 @@ void percorrer(struct No* lista) {
 ```
 
 > Falta: buscar, remover, liberar, final e exercícios.
+
+### 6 - Buscar elementos
+
+Consiste em percorrer com um ponteiro auxiliar todos os elementos da lista, até que o dado seja o valor procurado. Precisa de uma condição `while (atual != null)` para percorrer o tamanho total da lista, pois imagine que nunca encontre o elemento, se não tiver esse while, percorreria para sempre.
+
+Ele retorna um novo ponteiro, mas esse novo ponteiro não pode ser atribuído à variável que guarda a primeira posição (no nosso caso "lista"). Portanto, na main ele é atribuído a um novo, que assim pode fazer o que quiser com ele.
+
+```c
+int main() {
+    ...
+    struct No* buscarElemento = buscar(lista, 40);
+}
+
+int buscar(struct No* lista, valor) {
+    struct No *aux = lista;
+    
+    while (aux != NULL) {
+        
+        if (aux->dado == valor) return aux;
+        aux = aux->proximo;
+    
+    }
+    
+    return NULL; // Nada encontrado
+}
+```
+
+### 7 - Remover elementos
+
+Vai percorrer os dados usando dois ponteiros (igual ao buscarPos) pois ao encontrar o elemento para remover, vai precisar ajeitar os ponteiros ligados à posição removida. No caso de remover, usamos o método `free()`.
+
+Possui a lógica de percorrer semelhante aos demais e vai conferindo se `atual->dado` é o elemento certo para remover. Se ele for, existem duas possibilidades:
+
+#### 1) Elemento a ser removido está na primeira posição
+
+* Retorno: Isso vai mudar o que será retornado. Já que sempre temos que retornar o primeiro da lista, se o primeiro for removido precisamos retornar o próximo dele, que vai ser `atual->proximo`.
+* Checagem: Conferimos se é o primeiro elemento se satisfazer a condição `if (anterior == NULL)` pois iniciamos o ponteiro "anterior" como NULL, então se ele for nulo significa que o ponteiro não saiu do lugar pois encontrou direto na primeira posição.
+* O que fazer: Definir novo primeiro elemento. A nova "lista" será `atual->proximo`, que é o elemento seguinte daquele que foi removido.
+
+#### 2) Elemento a ser removido está no meio da lista
+
+* Retorno: Neste caso retornamos o próprio "lista" passado pelos parâmetros, ele vai continuar sendo o primeiro elemento.
+* Checagem: Basicamente o else da condição acima, caso o ponteiro "anterior" não for nulo.
+* O que fazer: o ponteiro "atual" é o ponteiro a ser removido, então será `free(atual)`. Já que ele vai ser removido, precisa ajeitar o ponteiro "anterior" que antes apontava para ele. Encontramos a posição seguinte com `anterior->proximo = atual->proximo`. Como mostra o desenho abaixo.
+
+<figure><img src="../../.gitbook/assets/remover pos em lista ligada.png" alt=""><figcaption></figcaption></figure>
+
+A função é construída com um while percorrendo todos os elementos até encontrar, em vez de criar condições encadeadas.
+
+```c
+struct No* remover(struct No* lista, int valor) {
+
+    struct No* anterior = NULL;
+    struct No* atual = lista;
+    
+    // Percorrer
+    while (atual != NULL && atual->dado != valor) {
+        anterior = atual;
+        atual = atual->proximo;
+    }
+    
+    if (atual == NULL) {
+        printf("Elemento não encontrado");
+        return lista;
+    }
+    
+    if (anterior == NULL) {
+        lista = atual->proximo; // É o primeiro elemento
+    } else {
+        anterior->proximo = atual->proximo; // Está no meio da lista
+    }
+    
+    free(atual);
+    return lista;
+}
+```
+
+### 8 - Liberar a lista (memória)
+
+Consiste em percorrer todos os nós e liberando um por um usando free(). Para isso é necessário dois ponteiros pois já salva o próximo nó em um ponteiro e apaga o atual. Ainda sim é criado o ponteiro "atual" para preservar o "lista" apenas por comodidade pois teoricamente não seria necessário.
+
+```c
+void liberarLista(struct No* lista) {
+    
+    struct No* atual = lista;
+
+    while (atual != NULL) {
+    
+        struct No* temp = atual;
+        atual = atual->proximo;
+        free(temp);
+        
+    }
+}
+```
+
+
+
+## Detalhe importante de funcionamento
+
+Quando precisamos de um ponteiro auxiliar, do tipo aux, a gente faz ele receber a lista de parâmetro, por exemplo:
+
+```c
+void exemplo(struct No* lista)
+{
+    struct No *aux = lista;
+    aux = aux->proximo;
+}
+```
+
+Mas a dúvida que fica é, já que "aux" recebe "lista", alterar "aux" não alteraria a "lista" por se tratarem de ponteiros? Na verdade não pois quando fazemos `*aux = lista` estamos fazendo eles <mark style="color:red;">apontarem para o mesmo lugar, mas não serem o mesmo ponteiro</mark>. Então `aux->proximo` vai alterar apenas o ponteiro "aux", deixando "lista" intacto.
+
+Eles podem apontar para a mesma coisa inicialmente, mas são ponteiros diferentes e cada um possui seu próprio endereço de memória.
