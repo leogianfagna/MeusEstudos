@@ -52,17 +52,18 @@ Estudos para programação em Web usando linguagem HTML, CSS, Javasript e TypeSc
   * Utilização para HTML
     * [Percorrer todos elementos](javascript/utilizacao-em-html/percorrer-todos-elementos.md)
   * [Async/wait](javascript/async-wait.md)
-  * [Estilização](estilizacao.md): extras de estilizar as páginas que exigem a integração das linguagens
-    * [Ícones](estilizacao.md#adicionar-icones)
-  * [Bootstrap](bootstrap/): framework que facilita a criação de projetos web
-    * [Uso](bootstrap/importacao.md)
-    * [Criação de layouts](bootstrap/layout.md)
-    * [Alterar os estilos criados e usados](bootstrap/alterar-estilos.md)
-  * [Backend](backend.md): integrar o projeto web com um banco de dados
-    * Conceitos
-      * O que é NodeJs
-      * Verbos HTTP
-      * Req e Res
-      * Corpo e cabeçalho da requesição
-      * Promise
-    * Implementação
+  * [Clean Code (programação avançada)](javascript/tecnicas-clean-code.md)
+* [Estilização](estilizacao.md): extras de estilizar as páginas que exigem a integração das linguagens
+  * [Ícones](estilizacao.md#adicionar-icones)
+* [Bootstrap](bootstrap/): framework que facilita a criação de projetos web
+  * [Uso](bootstrap/importacao.md)
+  * [Criação de layouts](bootstrap/layout.md)
+  * [Alterar os estilos criados e usados](bootstrap/alterar-estilos.md)
+* [Backend](backend.md): integrar o projeto web com um banco de dados
+  * Conceitos
+    * O que é NodeJs
+    * Verbos HTTP
+    * Req e Res
+    * Corpo e cabeçalho da requesição
+    * Promise
+  * Implementação
