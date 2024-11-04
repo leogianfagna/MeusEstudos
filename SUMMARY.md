@@ -77,6 +77,7 @@
   * [Struct](semestre-2/estrutura-de-dados/struct.md)
   * [Recursão](semestre-2/estrutura-de-dados/recursao.md)
   * [Lista ligada](semestre-2/estrutura-de-dados/lista-ligada.md)
+  * [Fila](semestre-2/estrutura-de-dados/fila.md)
 
 ## Semestre 3
 
