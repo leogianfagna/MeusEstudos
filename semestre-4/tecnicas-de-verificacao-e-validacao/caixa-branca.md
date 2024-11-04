@@ -32,7 +32,9 @@ Veja um exemplo completo:
 
 <figure><img src="../../.gitbook/assets/gfc.png" alt=""><figcaption></figcaption></figure>
 
-Se não houvesse uma linha de else, o nó 4 seria substituído por um nó ND, mas a estrutura continuaria a mesma (o restante dos números iam diminuir uma unidade pela inexistencia do 4).
+<figure><img src="../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+
+No primeir exemplo, se não houvesse uma linha de else, o nó 4 seria substituído por um nó ND, mas a estrutura continuaria a mesma, exatamente o que acontece no segundo exemplo.
 
 ### Numeração do processo
 
@@ -45,3 +47,11 @@ Então, apenas seguimos as linhas e montamos a linha de execução:
 ```
 0 1 3 5 ND 6
 ```
+
+#### Simplificação da numeração do fluxo
+
+No segundo exemplo já foi inserido a numeração na imagem. Mas vimos que existe um while que se repete três vezes de forma igual. Isso pode ser simplificado desta forma:
+
+<figure><img src="../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+
+> Lembrando que todos esses fluxos são previsíveis pois é um teste de caixa branca, que temos o código e os valores de entrada, então podemos saber exatamente por onde o código deve passar.
