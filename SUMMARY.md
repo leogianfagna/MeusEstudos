@@ -157,6 +157,7 @@
   * [Introdução](semestre-4/tecnicas-de-verificacao-e-validacao/introducao.md)
   * [Etapas da técnica](semestre-4/tecnicas-de-verificacao-e-validacao/etapas-da-tecnica.md)
   * [Caixa branca](semestre-4/tecnicas-de-verificacao-e-validacao/caixa-branca.md)
+  * [Pairwise](semestre-4/tecnicas-de-verificacao-e-validacao/pairwise.md)
 
 ## Semestre 6
 
