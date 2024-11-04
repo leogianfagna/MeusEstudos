@@ -17,7 +17,7 @@
     * [Listas](semestre-1/algoritmos-de-programacao/pratico/listas.md)
     * [Dicionários](semestre-1/algoritmos-de-programacao/pratico/dicionarios.md)
     * [Funções](semestre-1/algoritmos-de-programacao/pratico/funcoes.md)
-* [📚 Fundamentos de Sistemas](semestre-1/fundamentos-de-sistemas/README.md)
+* [Fundamentos de Sistemas](semestre-1/fundamentos-de-sistemas/README.md)
   * [Conceitos da disciplina](semestre-1/fundamentos-de-sistemas/conceitos-da-disciplina.md)
   * [Conceitos básicos](semestre-1/fundamentos-de-sistemas/conceitos-basicos.md)
   * [Ciclos de vida](semestre-1/fundamentos-de-sistemas/ciclos-de-vida.md)
@@ -156,6 +156,7 @@
 * [Técnicas de Verificação e Validação](semestre-4/tecnicas-de-verificacao-e-validacao/README.md)
   * [Introdução](semestre-4/tecnicas-de-verificacao-e-validacao/introducao.md)
   * [Etapas da técnica](semestre-4/tecnicas-de-verificacao-e-validacao/etapas-da-tecnica.md)
+  * [Caixa branca](semestre-4/tecnicas-de-verificacao-e-validacao/caixa-branca.md)
 
 ## Semestre 6
 
