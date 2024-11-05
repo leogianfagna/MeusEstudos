@@ -18,9 +18,19 @@ Todas as representações de operações como IF/ELSE, WHILE, FOR etc podem ser 
 
 <figure><img src="../../.gitbook/assets/gfc numeração de blocos.png" alt=""><figcaption></figcaption></figure>
 
-**Numeração em if/else:** As estruturas de decisões colocam números na primeira linha mas não no else. Além disso, numeram a linha do if e de dentro do if também. O número a seguir do IF é o que está dentro do else. Veja abaixo os padrões de numeração dessas estruturas:
+**Numeração em if/else:** As estruturas de decisões colocam números na primeira linha mas não no else. Além disso, numeram a linha do if e de dentro do if também. O número a seguir do IF é o que está dentro do else.&#x20;
+
+Podemos numerar o else logo após o if (como está no exemplo) mas também podemos numerar em sequência sem problema (professor fez assim). Veja abaixo um exemplo de numeração dessas estruturas:
 
 <figure><img src="../../.gitbook/assets/gfc numeração de blocos ifelse.png" alt=""><figcaption></figcaption></figure>
+
+**Numeração em while:** Uma simples numeração onde a estrutura de decisão recebe um número e o que está abaixo recebe o seguinte.
+
+<figure><img src="../../.gitbook/assets/while em gfc.png" alt=""><figcaption></figcaption></figure>
+
+**Numeração em for:** Aqui existe uma diferença pois exige um nó noov para simbolizar o fim do for, no qual ele não aparece na linha de código explicitamente, ele seria o fecha chaves.
+
+<figure><img src="../../.gitbook/assets/for em gfc.png" alt=""><figcaption></figcaption></figure>
 
 ### Desenho dos blocos
 
@@ -32,7 +42,7 @@ Veja um exemplo completo:
 
 <figure><img src="../../.gitbook/assets/gfc.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gfc de while prático.png" alt=""><figcaption></figcaption></figure>
 
 No primeir exemplo, se não houvesse uma linha de else, o nó 4 seria substituído por um nó ND, mas a estrutura continuaria a mesma, exatamente o que acontece no segundo exemplo.
 
@@ -52,6 +62,6 @@ Então, apenas seguimos as linhas e montamos a linha de execução:
 
 No segundo exemplo já foi inserido a numeração na imagem. Mas vimos que existe um while que se repete três vezes de forma igual. Isso pode ser simplificado desta forma:
 
-<figure><img src="../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/numeração processo gfc.png" alt=""><figcaption></figcaption></figure>
 
 > Lembrando que todos esses fluxos são previsíveis pois é um teste de caixa branca, que temos o código e os valores de entrada, então podemos saber exatamente por onde o código deve passar.
