@@ -20,7 +20,7 @@ MongoDB é manter alta disponibilidade. Deve ser construído pelo design da solu
 
 Replica Sets (ou conjunto replicado) é um grupo de pelo menos 3 instâncias (também chamados de node, o que seria um computador).&#x20;
 
-<figure><img src="../../.gitbook/assets/esquema de replica set.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/esquema de replica set.png" alt=""><figcaption></figcaption></figure>
 
 Cluster na prática é uma sala cheia de computadores conectados, em algum desses computadores está rodando o nó primário do cluster, no nosso caso, o N0 (banco de dados).&#x20;
 

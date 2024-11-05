@@ -65,7 +65,7 @@ As variáveis normalmente têm o seu valor entregue baseado na consulta de uma t
 
 Para isso, ao invés de declarar o tipo como anteriormente, utiliza-se o padrão: <mark style="color:orange;">`tabela.coluna%TYPE`</mark>. Um exemplo abaixo:
 
-<figure><img src="../../.gitbook/assets/declaracoes ancoradas plsql.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/declaracoes ancoradas plsql.png" alt=""><figcaption></figcaption></figure>
 
 ## Procedimentos (procedures):
 
@@ -123,15 +123,15 @@ Como as procedures são criadas para executar uma tarefa, esses parâmetros são
 
 Neste caso, utiliza-se o parâmetro IN pois só vai receber a variável e encaixar na busca, desta forma:
 
-<figure><img src="../../.gitbook/assets/cabeçalho procedure com in plsql.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/cabeçalho procedure com in plsql.png" alt=""><figcaption></figcaption></figure>
 
 Agora supondo que esse procedure utilize um SELECT INTO e vai usar essa variável em outros lugares dessa mesma procedure. Um SELECT INTO salva a busca em um nome de uma variável escolhida e, neste caso, pode passar como parâmetro o nome dessa variável usando o OUT. Por exemplo:
 
-<figure><img src="../../.gitbook/assets/cabeçalho procedure com out plsql.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/cabeçalho procedure com out plsql.png" alt=""><figcaption></figcaption></figure>
 
 E no último caso, pode usar uma variável na procedure que tanto recebe um dado e pode ser alterada no meio da execução quanto ela mesmo pode fornecer um valor essencial para a procedure. Então por exemplo, ao chamar a procedure utiliza-se um parâmetro (variável) mas essa mesma variável vai ser alterada no meio do caminho, portanto, a procedure na hora da criação deve usar o INOUT. Por exemplo:
 
-<figure><img src="../../.gitbook/assets/cabeçalho procedure com inout plsql.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/cabeçalho procedure com inout plsql.png" alt=""><figcaption></figcaption></figure>
 
 ## Funções
 
@@ -373,7 +373,7 @@ BEGIN
 
 Cursores são frequentemente declarados na seção DECLARE de um bloco. Eles são uma estrutura utilizada para percorrer conjuntos de resultados e processar dados linha por linha dentro do bloco. Lembrar da ideia de varrer resultados. A vida útil de um cursor consiste em OPEN, FETCH e CLOSE, seguindo o seguinte caminho:
 
-<figure><img src="../../.gitbook/assets/ciclo de vida cursor plsql.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/ciclo de vida cursor plsql.png" alt=""><figcaption></figcaption></figure>
 
 O cursor é criado em DECLARE e em seguida definindo o tipo de busca com a palavra-chave IS.
 
@@ -521,7 +521,7 @@ END;
 
 Lendo um trigger passo a passo, vamos supor o seguinte trigger criado:
 
-<figure><img src="../../.gitbook/assets/triggers em plsql.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/triggers em plsql.png" alt=""><figcaption></figcaption></figure>
 
 1. Cria o novo trigger com o nome inserido
 2. Define quando esse trigger será disparado (BEFORE ou AFTER), no caso, depois de inserir ou deletar qualquer tipo de linha na tabela de clientes
@@ -590,6 +590,6 @@ WHEN (NEW.credit_limit > 0)
 
 Neste caso (dentro da condição), não são necessários os dois pontos. Lembrando que essa formatação está referenciando ao valor daquela coluna em específico, ou seja, um valor somente. Mas é possível conseguir fazer isso para a linha inteira, referenciando o valor antigo da linha e o novo. Para isso, utiliza-se REFERENCING e NEW. Neste exemplo:
 
-<figure><img src="../../.gitbook/assets/referecing e new em triggers plsql.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/referecing e new em triggers plsql.png" alt=""><figcaption></figcaption></figure>
 
 Neste caso, está recebendo o valor da LINHA inteira antiga como OLD\_ROW e da nova após a modificação como NEW\_ROW e está utilizando esses valores para inserir a linha inteira na auditoria.
