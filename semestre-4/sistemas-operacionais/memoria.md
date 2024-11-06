@@ -1,5 +1,18 @@
 # Memória
 
+## Resumo (conferir se está tudo nesse caderno)
+
+* Memória física é uma dimensão com vários endereços.
+* CPU gera endereços que precisam estar na memória física.
+* CPU precisa executar várias aplicações.
+* Problema: aplicações acham que estão sozinhos na memória.
+* Problema 2: não sabe o tanto de memória que vai usar.
+* Memória virtual é inventado e não existe.
+* MMU traduz e divide a memória física e virtual em padaços que chamam páginas.
+* Não existe nenhum tipo de associação matemática entre as duas memórias, só precisa de um mapeamento que leve da virtual para física (uma tabela guardada na memória física que faz esse mapa).
+* TLB: acesso a memória física é demorada, portanto, em vez de trazer página por página já traz um conjunto de páginas e armazena em cache. MMU acessa tabela de páginas através da TLB.
+* Swap: na memória não cabe tudo então usa o disco e fica trocando processos com a memória RAM.
+
 Todas as instruções, endereços e os dados necessários para executá-la precisam estar na memória RAM, que é carregado do disco. A memória conversa diretamente com a CPU, responsável por executar. As instruções precisam estar na memória RAM pois a CPU não conversa diretamente com o disco. Além do que, o acesso à memória é lento.
 
 ## Endereçamento físico e lógico
@@ -87,3 +100,28 @@ A paginação começa definindo os espaços entre páginas e quadros, precisa te
 <figure><img src="../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/tradução de endereços na paginação.png" alt=""><figcaption></figcaption></figure>
+
+### Implementação tabela de páginas
+
+Teoricamente, agora existe um problema pois o sumário está na RAM, então a CPU precisa acessar a memória duas vezes (uma vez pro dado e outra pra resgatar a tabela). Como acessar duas vezes é um problema e a tabela sempre mantém **razoavelmente** fixa, podemos resolver isso utilizando cache.
+
+Basicamente, resgatamos uma parte dessa tabela que são as páginas mais acessadas e colocamos em um cache dentro da MMU. Esse cache de tabela de páginas se chama <mark style="color:purple;">**TLB**</mark> (Translation Look-Aside Buffer). Fisicamente, ficaria assim:
+
+<figure><img src="../../.gitbook/assets/TLB fisicamente.png" alt="" width="375"><figcaption></figcaption></figure>
+
+E agora que sabemos como fica, podemos visualizar o hardware final:
+
+<figure><img src="../../.gitbook/assets/hardware com tlb.png" alt=""><figcaption></figcaption></figure>
+
+A TLB é bem pequena então não cabe todos os dados. Por conta disso existe uma <mark style="color:purple;">política de substituíção</mark> para que novos dados possam entrar.
+
+### Paginação sob demanda
+
+Não é necessário carregar todo o código na memória e precisa apenas a linha de código que está sendo executada. Além disso, existem funções e tratamentos de erros que podem nunca ser executadas (exceptions, funções não chamadas, etc). Isso quer dizer que existe uma grande parte da aplicação que você não precisa <mark style="color:red;">agora</mark>.
+
+Se não precisa agora não precisa carregar na memória. Assim entra o conceito de paginação sob demanda que consiste <mark style="color:blue;">não trazer se não necessário</mark>. Quem cuida disso é o sistema operacional.
+
+Esse conceito só funciona por causa da memória virtual, pois ela é capaz de apontar para uma página que existe mas não está na memória, e consegue trazer quango precisa.
+
