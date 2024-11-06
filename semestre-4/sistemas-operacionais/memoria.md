@@ -125,7 +125,7 @@ Se não precisa agora não precisa carregar na memória. Assim entra o conceito 
 
 Esse conceito só funciona por causa da **memória virtual**, pois ela é capaz de apontar para uma página que existe mas não está na memória, e consegue trazer quango precisa. Outro fator da memória virtual que torna isso capaz é o fato dela poder ser maior que a memória física:
 
-<figure><img src="../../.gitbook/assets/image.png" alt="" width="444"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/tamanho memória virtual.png" alt="" width="444"><figcaption></figcaption></figure>
 
 #### Bit de validade
 
@@ -154,3 +154,69 @@ Simboliza quando a página não está na memória e é preciso lidar com isso. U
 <figure><img src="../../.gitbook/assets/lidar com page fault.png" alt=""><figcaption></figcaption></figure>
 
 Isso não considerou se não houver espaço na memória. Caso aconteça, vai requerer substituição de páginas: escolhe uma página que não é modificada e não vai precisar em um futuro próximo. Mas não é possível prever o futuro. Portanto, esse problema será trabalhado em <mark style="color:purple;">substituição de páginas</mark>.
+
+### Substituição de páginas
+
+A substituição de páginas acontece quando não tem mais espaço na <mark style="color:orange;">memória física</mark> para receber uma página. Isso não implica em memória completamente cheia mas sim em espaço insuficiente para a página de um determinado processo.
+
+O algoritmo de substituição de página faz apenas a escolha da página que vai embora. Essa página se chama <mark style="color:purple;">vítima</mark>. Se ela vai conceder seu espaço, é necessário reescrevê-la no disco, o que é algo lento e por isso esse algoritmo precisa escolher corretamente.
+
+O pensamento de como esse algoritmo vai funcionar pode ser feito de algumas maneiras, tendo em vista a presença das páginas no disco (números em cima) e a forma que vamos substituir as páginas na memória (números em colunas em baixo):
+
+#### FIFO (formato fila)
+
+A primeira página a ter chego na memória será a primeira a sair. Vemos em <mark style="color:red;">vermelho</mark> o número que sai, começando pelo 7 pois ele foi o primeiro a chegar, em seguida do zero e assim sucessivamente. A barra reta significa que não houve mudança na memória, vemos que o zero foi solicitado mas ele já está na memória, então nada a ser feito.
+
+
+
+<figure><img src="../../.gitbook/assets/substituição de páginas fifo.png" alt=""><figcaption></figcaption></figure>
+
+A contagem de page fault equivale ao número de vezes que precisou colocar uma página do disco para a memória, ou seja, basta contar as <mark style="color:blue;">colunas que não são barras verticais</mark>. Neste caso, temos 8 pages fault.
+
+#### O modelo ótimo
+
+Se pegarmos o modelo acima e colocar 4 páginas ao invés de três, o page fault subiria de 9 para 10. O que deveria melhorar acabou piorando e isso é chamado de <mark style="color:purple;">Anomalia de Belady</mark>. Isso mostra que o FIFO não é uma boa ideia. Isso acontece porque, ele substitui páginas que vão ser usadas logo em seguidas.
+
+A solução ótima seria substituir as páginas que estão mais distantes de serem utilizadas. Teoricamente, analisaria as páginas alocadas atualmente e identifica a que vai demorar mais para ser solicitada novamente. Essa página seria escolhida para substituir (vítima).
+
+<figure><img src="../../.gitbook/assets/substituição de páginas ótimo.png" alt=""><figcaption></figcaption></figure>
+
+No primeiro exemplo, o momento que vai precisar ser substituído é na "terceira casa". Então, neste momento é necessário avaliar quem será a vítima. Como o 7 está o mais distante de ser usado, ele será o escolhido. Fazer isso para cada vez que precisa ter uma troca.
+
+Para ter noção, esse mesmo exemplo com FIFO daria 15 page faults enquanto esse resulta em 9 page faults. Contudo, mesmo com essa otimização, o algoritmo ótimo é <mark style="color:red;">impossível de ser implementado</mark> pois essa sequência de páginas não existe (futuro, não sabe quando vai usar tal página).
+
+Já que ele não é possível implementar, ele pode ser usado após que esse processo finalizou para calcular e analisar como poderia ter sido melhor, servindo apenas como um <mark style="color:blue;">**parâmetro de comparação**</mark>.
+
+#### LRU (Menos recente utilizado)
+
+Se não podemos olhar para o futuro, vamos olhar para o passado. Vamos pensar em substituir aqueles que faz mais tempo que utilizamos pois uma probabilidade diz que, quanto mais tempo faz que usamos uma página, mais distante ela estará de ser utilizada novamente.
+
+<figure><img src="../../.gitbook/assets/substituição de páginas lru.png" alt=""><figcaption></figcaption></figure>
+
+Este exemplo final mostra que:
+
+* Horrível com 15 page fault.
+* Ótimo com 9 page fault.
+* LRU com 12 page fault.
+
+#### Aproximações do LRU
+
+Apesar da implementação do LRU ser possível, é um algoritmo complicado pois exige ficar salvando o tempo em que cada página foi utilizada, exigindo um hardware especial. Então temos essa outra alternativa usando <mark style="color:purple;">bit de referência</mark>. Basicamente ele funciona dessa forma:
+
+* Todas as páginas iniciam com o bit zero.
+* Uma página acessada tem seu bit alterado para 1.
+* Se a página já está escalonada e aparece novamente na solicitação, volta para zero.
+* Substitui as páginas cujo bit é igual a zero.
+
+<figure><img src="../../.gitbook/assets/substituição de páginas com bit validade.png" alt=""><figcaption></figcaption></figure>
+
+#### Segunda chance
+
+Esse algoritmo inlcui um segundo bit para não mover uma página que foi modificada. Assim, tem dois bits e um conjunto de quatro possibilidades:
+
+1. (0, 0) nem usado, nem modificado – melhor página para substituir
+2. (0, 1) não usado, mas modificado – não tão bom, precisa primeiro escrever no disco
+3. (1, 0) usado recentemente mas não modificado – deve ser usado de novo logo
+4. (1, 1) usado e modificado – pior candidato
+
+Esse algoritmo entrega ainda melhores candidatos de páginas vítimas. Contudo, esse algoritmo <mark style="color:red;">não é possível escrever na prática</mark>, portanto, não precisamos se importar muito com ele.
