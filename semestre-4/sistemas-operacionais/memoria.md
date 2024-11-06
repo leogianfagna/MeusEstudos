@@ -25,11 +25,11 @@ Exemplo de endereço virtual/lógico: compilar dois códigos ao mesmo tempo e im
 
 É um disposito que está entre a CPU e a memória que faz a tradução de um endereço virtual para o físico. Por ser um tradutor, ele faz com que a CPU nunca saiba de qual endereço de fato veio a instrução.
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 O MMU engloba os registradores, como pode ser visto acima. É nos registradores que ficam armazenados a base e o limite de onde estão os processos, que esses dados serão usados para fazer o mapeamento.
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Memória compartilhada
 
@@ -123,5 +123,34 @@ Não é necessário carregar todo o código na memória e precisa apenas a linha
 
 Se não precisa agora não precisa carregar na memória. Assim entra o conceito de paginação sob demanda que consiste <mark style="color:blue;">não trazer se não necessário</mark>. Quem cuida disso é o sistema operacional.
 
-Esse conceito só funciona por causa da memória virtual, pois ela é capaz de apontar para uma página que existe mas não está na memória, e consegue trazer quango precisa.
+Esse conceito só funciona por causa da **memória virtual**, pois ela é capaz de apontar para uma página que existe mas não está na memória, e consegue trazer quango precisa. Outro fator da memória virtual que torna isso capaz é o fato dela poder ser maior que a memória física:
 
+<figure><img src="../../.gitbook/assets/image.png" alt="" width="444"><figcaption></figcaption></figure>
+
+#### Bit de validade
+
+A trocação de páginas entre memória e disco leva algumas operações:
+
+* Fazer referência: ao precisar de uma página.
+* Abordar: caso a página seja inválida.
+* Trazer para a memória: caso a página não esteja lá.
+
+Para conseguir distinguir, cada página que entra na memória ela tem um bit de validade (`v` para válida se estiver na memória e `i` para inválida caso não esteja), iniciando todas com `i`. Quando a MMU está fazendo a tradução, se ela encontra o bit `i`, isso simboliza um <mark style="color:purple;">**page fault**</mark>.
+
+### Page fault
+
+Simboliza quando a página não está na memória e é preciso lidar com isso. Uma forma de acontecer o page fault é a seguinte:
+
+* Gerar o endereço virtual, aponta para uma página virtual.
+* MMU traduz o endereço, antes verificando se está na TLB e se não resgata da memória. O processo de tradução exige ajuda do sistema operacional que consequentemente vai exigir uma troca de contexto (atrasando o processo).
+  * Esse endereço talvez não possa ser encontrado.
+  * Se encontrar, precisa ver se o bit de validade é zero ou um. Se a página estiver na memória, já joga para a TLB.
+  * A TLB agora tem a informação necessária, troca o contexto novamente e reinicia a instrução. Com o endereço na TLB o processo continua normal.
+  * Mas se o bit de validade implicar que não está na memória, significa que não há tradução (está no disco) e agora precisa carregar de lá. O que significa novamente o <mark style="color:purple;">page fault</mark>.
+* A ideia é: fazer o máximo possível enquanto está em uma página antes de precisar pular para uma próxima.
+
+#### Lidar com o page fault
+
+<figure><img src="../../.gitbook/assets/lidar com page fault.png" alt=""><figcaption></figcaption></figure>
+
+Isso não considerou se não houver espaço na memória. Caso aconteça, vai requerer substituição de páginas: escolhe uma página que não é modificada e não vai precisar em um futuro próximo. Mas não é possível prever o futuro. Portanto, esse problema será trabalhado em <mark style="color:purple;">substituição de páginas</mark>.

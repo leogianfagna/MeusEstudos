@@ -51,7 +51,7 @@ Classes saída:
 
 Baseado nos valores válidos de entrada, precisamos decidir quais valores usaremos para inserir no teste. Todos os valores escolhidos devem ser justificados, por exemplo, escolher valores que representam uma semana exata, ou valores dos limites possíveis, valores mais frequentes baseado nas estatísticas da empresa, etc.
 
-<figure><img src="../../.gitbook/assets/image (1) (1).png" alt="" width="149"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt="" width="149"><figcaption></figcaption></figure>
 
 ### Cortar valores
 
