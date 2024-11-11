@@ -2,7 +2,7 @@
 
 Filas, pilhas e árvores são listas ligadas, só que possuem formas estruturais e filosofias diferentes:
 
-* Filosofia: A fila implica que o primeiro a entrar é o primeiro a sair. Só pode inserir no final e retirar do começo.
+* Filosofia da fila: Implica que o primeiro a entrar é o primeiro a sair. Só pode inserir no final e retirar do começo.
 * Estrutura: Novo struct que guarda um <mark style="color:blue;">ponteiro do primeiro e do último elemento</mark> para ter fácil acesso.
 
 A forma estudada será que o primeiro elemento aponta para o segundo e o último aponta para null, seguindo a ordem inversa.
