@@ -65,9 +65,9 @@ struct No {
 Também conhecido como head, é o primeiro elemento da lista ligada que vai fazer nossa lista nascer. A partir deste ponto, estaremos acessando dados de uma struct através de ponteiros, o que começa a ser necessário usar o operador `->` que é explicado em [ponteiros em struct](struct.md#ponteiros-em-struct).
 
 * Acessar membros da struct pode ser feito usando o ponto, por exemplo minhaStruct.data.
-* Agora, quando a variável é um pontiero que aponta para uma struct, acessar **os mesmos dados** passa a ser o operador de seta.
+* Agora, quando a variável é um ponteiro que aponta para uma struct, acessar **os mesmos dados** passa a ser o operador de seta.
 
-Inicializar a cabeça da lista pode ser feita através de uma função que na main vai ser atribuída ao primeiro elemento da lista. O primeiro ponteiro sempre será iniciado com NULL pois ainad não há uma ligação para outro elemento:
+Inicializar a cabeça da lista pode ser feita através de uma função que na main vai ser atribuída ao primeiro elemento da lista. O primeiro ponteiro sempre será iniciado com NULL pois ainda não há uma ligação para outro elemento:
 
 ```c
 struct No* incializar() {
@@ -169,16 +169,17 @@ Como sempre armazenamos o primeiro nó é uma função muito simples de iteraç�
 
 ```c
 void percorrer(struct No* lista) {
-    struct No *aux = lista;
+    if (lista == NULL) {
+        printf("Lista nula.");
+    }
     
+    struct No *aux = lista;
     while (aux->prox != NULL) {
         printf("Valor %d", aux->dado);
         aux = aux->proximo;
     }
 }
 ```
-
-> Falta: buscar, remover, liberar, final e exercícios.
 
 ### 6 - Buscar elementos
 
@@ -192,7 +193,7 @@ int main() {
     struct No* buscarElemento = buscar(lista, 40);
 }
 
-int buscar(struct No* lista, valor) {
+struct No* buscar(struct No* lista, valor) {
     struct No *aux = lista;
     
     while (aux != NULL) {
