@@ -103,7 +103,8 @@ void removerPrimeiro(struct fila* f) {
         return;
     }
     
-    printf("Elemento atendido: %d %s", f->first->id, f->first->nome);
+    struct cliente *temp = f->first;
+    printf("Elemento atendido: %d %s", temp->id, temp->nome);
     
     f->first = f->first->next;
     if (f->first == NULL) {
