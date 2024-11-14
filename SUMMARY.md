@@ -70,6 +70,7 @@
     * [SysM](semestre-2/fundamentos-de-engenharia-de-sistemas/modelagem/sysm.md)
 * [Métodos de Engenharia de Software](semestre-2/metodos-de-engenharia-de-software.md)
 * [Estrutura de dados](semestre-2/estrutura-de-dados/README.md)
+  * [Resumo](semestre-2/estrutura-de-dados/resumo.md)
   * [Introdução linguagem C](semestre-2/estrutura-de-dados/introducao-linguagem-c.md)
   * [String copy](semestre-2/estrutura-de-dados/string-copy.md)
   * [Vetores e matrizes](semestre-2/estrutura-de-dados/vetores-e-matrizes.md)

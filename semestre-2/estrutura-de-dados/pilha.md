@@ -29,6 +29,17 @@ Como dito acima, a pilha utiliza duas structs. A struct nó não será passada c
 
 A struct que guarda o dado seria passada como parâmetro em caso de editar os dados ali dentro (int, char, etc), de resto o importante é a <mark style="color:blue;">struct que guarda o ponteiro do topo</mark>.
 
+```c
+struct no {
+    int dado;
+    struct no *prox;
+};
+
+struct pilha {
+    struct no *topo;
+};
+```
+
 ### 2 - Inicialização
 
 Ambos os ponteiros nascem vazios. A struct nó só nasce dentro das funções inserir quando chamadas.
