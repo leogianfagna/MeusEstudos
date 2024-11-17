@@ -11,7 +11,8 @@ public int hashCode() {
     
     // se "atr" fosse um atributo não estático
     // que fosse um objeto de alguma classe
-    if (atr != null) ret = ret * 7 + atr.hashCode();
+    if (atr != null)
+        ret = ret * 7 + atr.hashCode();
     
     // Fazer isso para cada atributo não estático
     ret = ret * 2 + Byte.valueOf(this.meuAtributoTipoByte).hashCode();
@@ -22,6 +23,8 @@ public int hashCode() {
     return ret;
 }
 ```
+
+> Vemos acima que criamos uma condição para `atr != null`. Nesse caso, se o atributo for um objeto, precisa conferir se é **nulo**. Não é necessário com tipos primitivos.
 
 As multiplicações que vemos tipo `* 7`, `* 2` ou `* 11` são números primos quaisquer. Esse método foi testado para melhor desempenho (impírico) portanto devemos fazer desta forma.
 

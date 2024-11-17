@@ -1,5 +1,7 @@
 # Classes
 
+> Todas as classes herdam de [Object](classe-object/).
+
 ## Uso de classes para instâncias
 
 Todo programa possui uma <mark style="color:blue;">classe executável</mark>, que por padrão <mark style="color:orange;">possui apenas um método</mark> nela chamada main(). Portanto, vemos qual é a classe executável do projeto através da presença desse método, dessa forma:
@@ -184,17 +186,3 @@ public void onEnable() {
     DatabaseManager databaseManager = new DatabaseManager(this, databaseName);
 }
 ```
-
-## Classe object
-
-Toda herança acontece pois uma classe não te atende perfeitamente pois, caso atendesse, usaríamos esta classe. A classe Object é uma classe onde todas as classes criadas em um projeto Java herdam, diretamente ou indiretamente. Uma classe só pode herdar de uma:
-
-<figure><img src="../../../.gitbook/assets/herança direta ou indireta java.png" alt=""><figcaption></figcaption></figure>
-
-Esta classe possui vários métodos, mas existem 3 específicos que não funcionam corretamente na classe herdade, portanto, precisam ser re-implementados na própria classe criada. Um método implementado novamente precisa receber a notação `@Override`. São eles:
-
-* [toString()](tostring.md)
-* [equals()](equals.md)
-* hashCode()
-
-> Java permite métodos com o mesmo nome mas seus parâmetros devem ser diferentes, caso contrário, ocorre o termo <mark style="color:orange;">sobrecarga</mark>.

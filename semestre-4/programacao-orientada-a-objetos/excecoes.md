@@ -2,9 +2,9 @@
 
 Uma exceção aciona quando existe a possibilidade de receber parâmetros inválidos e também quando a formação da instância é inválida.
 
-## Parâmetro de métodos
+## Testar nulo
 
-Quando um método recebe um parâmetro e esse parâmetro é outra classe, ele precisa lançar uma exceção, pois se tratando de um objeto, ele pode ser nulo.
+Objetos de outras classes e vetores podem ser nulos. Qualquer tipo primitivo não pode ser nulo em Java. Por conta disso, receber uma dessas opções vai exigir testar se ele é nulo, lançando uma exceção caso seja.
 
 ```java
 public boolean doSomething(Data dataRecebida) throws Exception {
@@ -13,6 +13,8 @@ public boolean doSomething(Data dataRecebida) throws Exception {
     ...
 }
 ```
+
+## Parâmetro de métodos
 
 Quando o parâmetro recebido não serve por conta de alguma condição da classe, também podemos lançar uma exceção.
 

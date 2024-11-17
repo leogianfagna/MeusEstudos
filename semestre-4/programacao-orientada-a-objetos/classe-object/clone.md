@@ -14,7 +14,7 @@ Portanto, uma cópia vai se manter estável caso a cópia ou o objeto original <
 
 ## Quando deve conter
 
-O método clone precisa estar presente quando a classe <mark style="color:orange;">**possui métodos não estáticos que alteram atributos**</mark>. Exemplo desse método:
+O método clone precisa estar presente quando a classe <mark style="color:orange;">**possui métodos que alteram atributos não estáticos**</mark>. Exemplo desse método:
 
 ```java
 public void setSaldo(double saldo) {

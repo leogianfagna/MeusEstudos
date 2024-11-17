@@ -10,22 +10,22 @@ Aprendizado da linguagem Java e técnicas de qualquer outra linguagem orientada 
   * [Entendendo objetos como um ponteiro](instancias-e-objetos.md#o-que-sao-objetos)
   * [Criação prática de uma instância](instancias-e-objetos.md#criacao-pratica)
   * [Primeiro contato com instância chamante](instancias-e-objetos.md#instancia-chamante)
-* [Classes:](classes/) conceito de ser um molde para instâncias
-  * [A classe executável](classes/#uso-de-classes-para-instancias)
-  * [Criação de classes seguras](classes/#criacao-de-classes-de-forma-segura)
+* [Classes:](classes.md) conceito de ser um molde para instâncias
+  * [A classe executável](classes.md#uso-de-classes-para-instancias)
+  * [Criação de classes seguras](classes.md#criacao-de-classes-de-forma-segura)
     * Uso de qualificadores private/public
     * Métodos getters e setters
     * Objetivo do construtor
     * Formas de validar dados em construtores
-  * [Primeiro contato com membros estáticos](classes/#membro-estatico)
-  * [Classe object:](classes/#classe-object) a classe onde todas herdam e precisa de re-implementações.
-    * [toString](classes/tostring.md)
-    * [equals](classes/equals.md)
-    * [hashCode](classes/hashcode.md)
-    * [compareTo](classes/compareto.md)
+  * [Primeiro contato com membros estáticos](classes.md#membro-estatico)
+  * [Classe object:](classes.md#classe-object) a classe onde todas herdam e precisa de re-implementações.
+    * [toString](broken-reference)
+    * [equals](broken-reference)
+    * [hashCode](broken-reference)
+    * [compareTo](broken-reference)
       * Carteirinha Comparable
-    * [clone](classes/clone.md)
-      * [Construtor de cópia](classes/clone.md#construtor-de-copia)
+    * [clone](broken-reference)
+      * [Construtor de cópia](broken-reference)
 * [Classes Wrapper:](classes-wrapper.md) conceito de embrulhar um tipo primitivo e disponibilizar métodos.
   * Comodidade na automatização de objetos
   * Conceito de boxed e unboxed
