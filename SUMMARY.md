@@ -129,7 +129,7 @@
 * [Programação orientada à objetos](semestre-4/programacao-orientada-a-objetos/README.md)
   * [Regras de nomenclatura](semestre-4/programacao-orientada-a-objetos/regras-de-nomenclatura.md)
   * [Instâncias e objetos](semestre-4/programacao-orientada-a-objetos/instancias-e-objetos.md)
-  * [Page](semestre-4/programacao-orientada-a-objetos/page.md)
+  * [Conversão e revelação](semestre-4/programacao-orientada-a-objetos/conversao-e-revelacao.md)
   * [Exceções](semestre-4/programacao-orientada-a-objetos/excecoes.md)
   * [Classes](semestre-4/programacao-orientada-a-objetos/classes.md)
   * [Classe Object](semestre-4/programacao-orientada-a-objetos/classe-object/README.md)
