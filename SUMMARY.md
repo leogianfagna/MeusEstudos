@@ -129,6 +129,7 @@
 * [Programação orientada à objetos](semestre-4/programacao-orientada-a-objetos/README.md)
   * [Regras de nomenclatura](semestre-4/programacao-orientada-a-objetos/regras-de-nomenclatura.md)
   * [Instâncias e objetos](semestre-4/programacao-orientada-a-objetos/instancias-e-objetos.md)
+  * [Exceções](semestre-4/programacao-orientada-a-objetos/excecoes.md)
   * [Classes](semestre-4/programacao-orientada-a-objetos/classes/README.md)
     * [toString](semestre-4/programacao-orientada-a-objetos/classes/tostring.md)
     * [equals](semestre-4/programacao-orientada-a-objetos/classes/equals.md)
