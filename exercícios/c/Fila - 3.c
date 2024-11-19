@@ -19,10 +19,6 @@ struct fila {
 void inserirFila(struct fila *f, int id) {
     struct no *novo = (struct no*)malloc(sizeof(struct no));
     
-    if (novo == NULL) {
-        printf("Sem espaço na memória");
-    }
-    
     novo->id = id;
     novo->prox = NULL;
     
@@ -37,7 +33,7 @@ void inserirFila(struct fila *f, int id) {
 }
 
 void atenderFila(struct fila *f) {
-    if (f == NULL) {
+    if (f->first == NULL) {
         printf("Fila vazia.");
         return;
     }

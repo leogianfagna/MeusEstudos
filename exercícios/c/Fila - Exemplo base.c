@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+// Inserindo no final da fila, guarda os ponteiros first e last para ter fácil acesso onde inserir e onde retirar
 struct cliente {
     int id;
     char nome[50];
@@ -13,12 +14,12 @@ struct fila {
     struct cliente *first;
 };
 
+// Necessário atualizar dois ponteiros nessa situação pelo fato de inserir no final da fila:
+//   1 - O ponteiro last consequentemente passa a ser outro
+//   2 - O último elemento agora deve apontar para o novo último (igual na fila mas de forma diferente).
+//       Precisa conferir se a fila estava vazia, pois caso contrário, não vai existir o antigo último
 void inserirCliente(struct fila *f, int id, const char *nome) {
     struct cliente *novo = (struct cliente*)malloc(sizeof(struct cliente));
-    
-    if (novo == NULL) {
-        printf("Sem espaço na memória");
-    }
     
     novo->id = id;
     novo->prox = NULL;
@@ -36,8 +37,10 @@ void inserirCliente(struct fila *f, int id, const char *nome) {
     printf("Cliente inserido.");
 }
 
+// A remoção de elementos ocorre através do first. Toda alteração na fila precisa atualizar os ponteiros.
+// Checagem para ver se a fila passou a ser vazia para atualizar ambos os ponteiros
 void atenderCliente(struct fila *f) {
-    if (f == NULL) {
+    if (f->first == NULL) {
         printf("Fila vazia.");
         return;
     }
@@ -54,11 +57,13 @@ void atenderCliente(struct fila *f) {
     free(temp);
 }
 
+// Sempre conferir o topo/first elemento se está vazio e não o ponteiro passado como parâmetro
 void printLista(struct fila *f) {
     struct cliente *aux = f->first;
     
     if (aux == NULL) {
         printf("Fila vazia");
+        return;
     }
     
     while (aux != NULL) {
@@ -67,6 +72,7 @@ void printLista(struct fila *f) {
     }
 }
 
+// Em estruturas que possuem sua própria struct (como filas), precisa apontar os ponteiros para NULL
 void liberarFila(struct fila *f) {
     struct cliente *aux = f->first;
     
@@ -81,9 +87,8 @@ void liberarFila(struct fila *f) {
     printf("Fila liberada");
 }
 
-
-int main()
-{
+// Necessário criar o ponteiro da fila e lembrar de apontar sua primeira estrutura para NULL
+int main() {
     struct fila *f = (struct fila*)malloc(sizeof(struct fila));
     f->first = NULL;
     f->last = NULL;

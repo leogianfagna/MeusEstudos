@@ -17,11 +17,6 @@ struct fila {
 void inserirFila(struct fila *f, int dado) {
     struct no *novo = (struct no*)malloc(sizeof(struct no));
     
-    if (novo == NULL) {
-        printf("Sem espaço na memória");
-        return;
-    }
-    
     novo->dado = dado;
     novo->prox = NULL;
     

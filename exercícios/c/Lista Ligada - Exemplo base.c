@@ -1,5 +1,3 @@
-// Lista ligada exemplo base
-
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -12,7 +10,7 @@ struct no* inicializar() {
     return NULL;
 }
 
-// Sempre inserir no início e retornar o mesmo
+// Inserir no início e retornar o mesmo. Nenhuma verificação
 struct no* inserir(struct no *lista, int valor) {
     struct no *novo = (struct no*)malloc(sizeof(struct no));
     
@@ -23,7 +21,8 @@ struct no* inserir(struct no *lista, int valor) {
 
 // Conferir se inseriu no início para saber se vai retornar o novo nó ou o mesmo nó de antes
 // Caso seja no meio, precisa percorrer usando ponteiros auxiliares até que atinja a contagem.
-// Lembrar desse caso quando há necessidade de ajeitar ponteiros depois
+// Percorrer tudo e depois fora do while fazer o necessário. Lembrar desse caso quando há necessidade
+// de ajeitar ponteiros depois. Verificação se atual == NULL apenas
 struct no* inserirPos(struct no *lista, int valor, int pos) {
     struct no *novo = (struct no*)malloc(sizeof(struct no));
     novo->dado = valor;
@@ -53,7 +52,7 @@ struct no* inserirPos(struct no *lista, int valor, int pos) {
     return lista;
 }
 
-// Percorre tudo até o final da lista com nó auxiliar
+// Percorre tudo até o final da lista com nó auxiliar. Verifica se lista é nula
 void percorrer(struct no* lista) {
     
     if (lista == NULL) {
@@ -67,7 +66,7 @@ void percorrer(struct no* lista) {
     }
 }
 
-// Percorre tudo até o final da lista com nó auxiliar
+// Percorre tudo até o final da lista com nó auxiliar. Checa se achou dentro do while
 struct no* buscar(struct no* lista, int valor) {
     struct no *aux = lista;
     
@@ -80,8 +79,8 @@ struct no* buscar(struct no* lista, int valor) {
     return NULL;
 }
 
-// Percorre elementos usando dois ponteiros ENQUANTO NÃO ENCONTRA O DADO. Sabemos se está na primeira posição
-// caso o ponteiro "anterior" continue sendo NULO.
+// Percorre elementos usando dois ponteiros ENQUANTO NÃO ENCONTRA O DADO ou lista é nula. Sabemos se está na
+// primeira posição caso o ponteiro "anterior" continue sendo NULO.
 struct no* remover(struct no* lista, int valor) {
     struct no* atual = lista;
     struct no* anterior = NULL;
