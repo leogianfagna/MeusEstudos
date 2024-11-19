@@ -23,23 +23,17 @@ O <mark style="color:purple;">primeiro elemento é chamado de cabeça</mark> (ou
 
 ## Como funciona a criação
 
-A lista ligada pode ser feita inserindo os elementos no final da lista ou no início, isso vai influencia se o próximo elemento vai apontar para a cabeça ou se a cabeça vai apontar para o próximo elemento. <mark style="color:blue;">Ambos os casos</mark>, sempre vai ser necessário <mark style="color:blue;">possuir um ponteiro que indica a primeira posição da lista</mark>.
+A lista ligada pode ser feito inserindo os elementos no **final** da lista ou no **início**:
 
-### Inserir no início
-
-<figure><img src="../../.gitbook/assets/lista ligada inserindo no inicio.png" alt=""><figcaption></figcaption></figure>
-
-Usa apenas um ponteiro chamado "lista" que deve SEMPRE possuir o <mark style="color:green;">endereço de memória da posição zero</mark> (nesse caso o 40, que foi inserido por último). Por isso, usar `inserir()` ou `inserirPos()` deve <mark style="color:orange;">**retornar**</mark> esse endereço. Não podemos só chamar a função pois precisamos ter esse ponteiro atualizado.
+* Início: A main vai conter um ponteiro chamado "lista" que deve SEMPRE possuir o <mark style="color:green;">endereço de memória da posição zero</mark>. Por isso, usar `inserir()` ou `inserirPos()` deve <mark style="color:orange;">**retornar**</mark> esse endereço. Não podemos só chamar a função pois precisamos ter esse ponteiro atualizado.
 
 <figure><img src="../../.gitbook/assets/ponteiros de lista retornando.png" alt=""><figcaption></figcaption></figure>
 
+* Final: Usar um ponteiro extra, chamado "pri" que tem a primeira posição da lista e consegue percorrer todo o restante.
+
+Essa escolha vai influenciar se o próximo elemento vai apontar para a cabeça ou se a cabeça vai apontar para o próximo elemento. <mark style="color:blue;">Ambos os casos</mark>, sempre vai ser necessário <mark style="color:blue;">possuir um ponteiro que indica a primeira posição da lista</mark>. No caso de estudos a seguir, utilizamos a técnica de inserir no início, onde a forma estrutural pode ser vista [visualmente aqui](resumo.md#formas-estruturais).
+
 O caso de inserir em uma posição específica vai precisar ter um if/else dentro da função para garantir que vai retornar o endereço certo. Se inserir na posição zero, retorna o novo elemento. Se inserir em qualquer outra posição, retorna o que já tinha (o que foi passado pelo parâmetro).
-
-### Inserir no final
-
-<figure><img src="../../.gitbook/assets/lista ligada inserindo no final.png" alt=""><figcaption></figcaption></figure>
-
-Este caso usa dois ponteiros, o "pri" que guarda o endereço do primeiro elemento (no caso 10) que vai se alterar APENAS se o primeiro elemento mudar, e o ponteiro "lista" que se altera conforme necessidade. Esse jeito é mais fácil pois sempre teremos o "pri" para ajudar a passar a primeira posição, mas nestes estudos **usaremos a inserção no início da lista**.
 
 ## Como usar lista ligada
 
@@ -290,6 +284,6 @@ void exemplo(struct No* lista)
 }
 ```
 
-Mas a dúvida que fica é, já que "aux" recebe "lista", alterar "aux" não alteraria a "lista" por se tratarem de ponteiros? Na verdade não pois quando fazemos `*aux = lista` estamos fazendo eles <mark style="color:red;">apontarem para o mesmo lugar, mas não serem o mesmo ponteiro</mark>. Então `aux->proximo` vai alterar apenas o ponteiro "aux", deixando "lista" intacto.
+Mas a dúvida que fica é, já que "aux" recebe "lista", alterar "aux" não alteraria a "lista" por se tratarem de ponteiros? Na verdade, não pois quando fazemos `*aux = lista` estamos fazendo eles <mark style="color:red;">apontarem para o mesmo lugar, mas não serem o mesmo ponteiro</mark>. Então `aux->proximo` vai alterar apenas o ponteiro "aux", deixando "lista" intacto.
 
 Eles podem apontar para a mesma coisa inicialmente, mas são ponteiros diferentes e cada um possui seu próprio endereço de memória.

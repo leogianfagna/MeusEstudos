@@ -56,17 +56,12 @@ A forma completa acrescenta uma checagem para ver se ainda existe memória dispo
 void inserirCliente(struct fila* f, int id, const char* nome) {
     struct cliente* novo= (struct cliente*)malloc(sizeof(struct cliente));
     
-    if (novo == NULL) {
-        printf("Sem espaço na memória");
-        return;
-    }
-    
     novo->id = id;
     strncpy(novo->nome, nome, sizeof(novo->nome) - 1);
     novo->nome[sizeof(novo->nome) - 1] = '\0';
     novo->next = NULL;
     
-    if (f->first = NULL) {
+    if (f->last == NULL) {
         f->first = novo;
     } else {
         // Precisa estar no else pois se tiver vazia, vai tentar trocar o ponteiro

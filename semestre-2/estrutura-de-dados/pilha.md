@@ -89,10 +89,10 @@ Será removido necessariamente o topo. Nesse caso:
 * Liberar memória do nó removido, atribuindo o nó a uma struct temporária e usando `free(temp)`.
 
 ```c
-void removerPrimeiro(struct pilha* p) {
-    if (p == NULL) {
+int pop(struct pilha* p) {
+    if (p->top == NULL) {
         printf("Pilha vazia!");
-        return;
+        return -1;
     }
     
     struct no *temp = p->top;
@@ -145,7 +145,6 @@ void liberar(struct pilha *p) {
 
   while (atual != NULL) {
     struct no *temp = atual;
-
     atual = atual->next;
     free(temp);
   }
