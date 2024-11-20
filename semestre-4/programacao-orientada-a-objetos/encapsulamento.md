@@ -10,13 +10,13 @@ Como objetos são ponteiros e através deles existe a possibilidade de alterar o
 
 Veja abaixo como um valor que é private[^1] pode ser alterado através do ponteiro.
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/ferindo encapsulmento.png" alt=""><figcaption></figcaption></figure>
 
 Esse caso é possível porque a classe Data [possui métodos que alteram atributos](#user-content-fn-2)[^2]. Como o parâmetro data é a instância original e não uma cópia, isso significa que todos eles estão compartilhando o mesmo endereço de memória.
 
 Se todos tem o mesmo endereço de memória, se a variável for alterada em qualquer lugar, o novo valor vai valer para todos os outros.
 
-<figure><img src="../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/instancias com mesmo endereco de memoria.png" alt=""><figcaption></figcaption></figure>
 
 ### Previnindo o risco no encapsulamento
 
@@ -43,9 +43,20 @@ Para isso, devemos executar uma verificação de instância para determinar se o
 
 <pre class="language-java"><code class="lang-java">public void setNascimento(Data n) {
     
-<strong>    if (n instanceof Cloneable) {
-</strong>        this.nascimento = (Data) n.clone();
-    }
+<strong>    if (n instanceof Cloneable)
+</strong>        this.nascimento = (Data) n.clone();  // Deep copy
+    else
+        this.nascimento = n;                 // Shallow copy
+    
+}
+
+
+public X getElemento(int i) throws Exception {
+    
+    if (this.elem[i] instanceof Cloneable)
+        return (X)this.elem[i].clone();
+    else
+        return this.elem[i];
     
 }
 </code></pre>
