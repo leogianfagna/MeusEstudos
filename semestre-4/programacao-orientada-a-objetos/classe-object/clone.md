@@ -8,7 +8,7 @@ Para fins de entender melhor, veja os exemplos:
 
 <figure><img src="../../../.gitbook/assets/conceituação de cópias de instâncias.png" alt=""><figcaption></figcaption></figure>
 
-Podemos concluir que, como são objetos, eles são ponteiros e apontam para um endereço de memória, portanto, se não instanciarmos um novo, teremos apenas um endereço de memória e aí o mesmo valor vai valer para os dois (não pode).
+Podemos concluir que, como são objetos, eles são ponteiros e apontam para um endereço de memória, portanto, se não instanciarmos um novo, teremos apenas um endereço de memória e aí o mesmo valor vai valer para os dois (não pode). Isso causaria problema no encapsulamento, que é [descrito detalhamente aqui](../encapsulamento.md).
 
 Portanto, uma cópia vai se manter estável caso a cópia ou o objeto original <mark style="color:blue;">fazer uma nova instanciação</mark> (exemplos 1 e 2). Sem uma nova instância, os valores serão compartilhados.&#x20;
 

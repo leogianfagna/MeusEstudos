@@ -29,9 +29,9 @@ Aprendizado da linguagem Java e técnicas de qualquer outra linguagem orientada 
 * [Classes Wrapper:](classes-wrapper.md) conceito de embrulhar um tipo primitivo e disponibilizar métodos.
   * Comodidade na automatização de objetos
   * Conceito de boxed e unboxed
-* [Classes parametrizadas:](classes-parametrizadas.md) direcionar o modo de funcionamento.
+* [Classes parametrizadas:](classes-genericas.md) direcionar o modo de funcionamento.
   * Classes genéricas
-  * [Conjuntos homogêneos e heterogêneos](classes-parametrizadas.md#conjuntos-heterogenios)
+  * [Conjuntos homogêneos e heterogêneos](classes-genericas.md#conjuntos-heterogenios)
 * [Instância oca:](instancia-oca.md) criar instância de classes com apenas atributos estáticos
 * [Atributos e métodos estáticos:](atributos-e-metodos-estaticos.md) qualificador static
   * Entende o significa encapsulamento
