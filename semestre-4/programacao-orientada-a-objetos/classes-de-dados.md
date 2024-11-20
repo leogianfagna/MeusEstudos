@@ -29,3 +29,40 @@ public String toString() {
     return ret + "}";
 }
 ```
+
+## Implementação
+
+> [Aqui está um exemplo](../../exerc%C3%ADcios/java/exemplos/Conjunto%20de%20dados.java) de uma classe conjunto completa.
+
+Os dados podem ser guardados em vetores normais em Java, onde cada posição equivale a um elemento do tipo X. Como `X` é indefinido durante a escrita do código, não podemos tratar o tipo dos dados [sendo do tipo `X`](#user-content-fn-1)[^1]. Por conta disso, precisamos tratar o tipo dos elementos desta classe como `Object`.
+
+```java
+public class Conjunto<X> {
+    private Object[] elem;
+
+    public Conjunto(int capInicial) throws Exception {
+        this.elem = new Object[capInicial];
+    }
+}
+```
+
+#### Métodos básicos
+
+* `redimensioneSe`: Método importante pois vetores em Java possuem tamanhos fixos. Se a inserção de dados ultrapassar esse limite, cria um novo vetor com o tamanho do antigo dobrado.
+* `ondeEsta`: Retorna se o elemento informado existe e em qual posição está.
+* `inclua`: Método que recebe um elemento e inclua-o de forma simples, fazendo as checagens necessárias.
+* `getElemento`: Método que resgata o elemento baseado na posição.
+
+Os métodos `equals` e `hashCode` precisam se adaptar para todos os elementos do vetor. Além disso, classes genéricas não levam `compareTo`.&#x20;
+
+#### Uso na main
+
+O uso de uma classe genérica basta criar uma instância informando o tipo de dado que será parametrizado, depois utilizar os métodos cabíveis:
+
+```java
+Conjunto<String> conj = new Conjunto<String>();
+conj.inclua("Alguma coisa");
+conj.inclua("Outra coisa");
+```
+
+[^1]: Por exemplo: `new X[capInicial]`. O compilador daria erro.

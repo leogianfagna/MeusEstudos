@@ -1,4 +1,10 @@
-# Classes parametrizadas
+---
+description: >-
+  Como criar uma classe genérica, como um conjunto de dados, é mostrado na
+  página de "Classes de dados".
+---
+
+# Classes genéricas
 
 Podemos ter um parâmetro em classes para influenciar/direcionar no modo de funcionamento:
 
