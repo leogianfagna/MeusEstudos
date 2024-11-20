@@ -200,3 +200,4 @@
   * [DNS e resolução de problemas](outros-estudos/ubuntu/dns-e-resolucao-de-problemas.md)
   * [Ferramentas](outros-estudos/ubuntu/ferramentas/README.md)
     * [Net Data](outros-estudos/ubuntu/ferramentas/net-data.md)
+* [Técnicas de programação](outros-estudos/tecnicas-de-programacao.md)
