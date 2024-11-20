@@ -147,6 +147,7 @@
   * [Heranças](semestre-4/programacao-orientada-a-objetos/herancas.md)
   * [Javadoc](semestre-4/programacao-orientada-a-objetos/javadoc.md)
   * [Encapsulamento](semestre-4/programacao-orientada-a-objetos/encapsulamento.md)
+  * [Classes de dados](semestre-4/programacao-orientada-a-objetos/classes-de-dados.md)
   * [Outros](semestre-4/programacao-orientada-a-objetos/outros/README.md)
     * [Resuminho](semestre-4/programacao-orientada-a-objetos/outros/resuminho.md)
     * [Expressões regulares](semestre-4/programacao-orientada-a-objetos/outros/expressoes-regulares.md)
