@@ -14,7 +14,10 @@ Esta classe possui vários métodos, mas existem 5 específicos que não funcion
 
 > Java permite métodos com o mesmo nome mas seus parâmetros devem ser diferentes, caso contrário, ocorre o termo <mark style="color:orange;">sobrecarga</mark>.
 
-Os três primeiros métodos, `toString()`, `equals()` e `hashCode()` são quase obrigatórios em todas as classes. Contudo, eles <mark style="color:red;">não devem</mark> ser reimplementados em uma <mark style="color:blue;">classe 100% estática</mark> que não faz alteração em nenhum atributo.
+Os três primeiros métodos, `toString()`, `equals()` e `hashCode()` são quase obrigatórios em todas as classes. Contudo, eles <mark style="color:red;">não devem</mark> ser reimplementados quando:
+
+* A classe é <mark style="color:blue;">100% estática</mark> que não faz alteração em nenhum atributo.
+* Eles estão em uma classe que herda de outra e a classe pai implementa esses métodos e satisfaz corretamente todos eles.
 
 O método `compareTo()` deve ser implementado sempre que houver um critério de comparação, mas esse critério deve ser [puramente na linguagem de programação](#user-content-fn-1)[^1]. Esse método precisa retornar a mesma coisa que `equals()` retorne, assim também podemos visualizar melhor se existe um critério de comparação.
 
