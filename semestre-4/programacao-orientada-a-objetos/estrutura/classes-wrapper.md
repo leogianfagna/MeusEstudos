@@ -28,7 +28,7 @@ Integer media, a = 3, b = 7;   -> OBJETOS
 
 Por conta de Integer ser uma classe, as variáveis `a`, `b` e `media` <mark style="color:blue;">passam a ser objetos</mark>. Quando temos um objeto e vamos atribuir algo a ele, normalmente criamos uma instância com "new". Mas o Java permite escrever a = 3, isso representa:
 
-<figure><img src="../../.gitbook/assets/comodidade Java em classes wrapper.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/comodidade Java em classes wrapper.png" alt=""><figcaption></figcaption></figure>
 
 Tudo isso é **comodidade** que o Java fornece, faz automático. Isso também acontece até no `println(a)`, que não é necessário chamar o método `a.intValue()`.
 

@@ -2,7 +2,7 @@
 
 Toda herança acontece pois uma classe não te atende perfeitamente pois, caso atendesse, usaríamos esta classe. A classe Object é uma classe onde todas as classes criadas em um projeto Java herdam, diretamente ou indiretamente. Uma classe só pode herdar de uma:
 
-<figure><img src="../../../.gitbook/assets/herança direta ou indireta java.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/herança direta ou indireta java.png" alt=""><figcaption></figcaption></figure>
 
 Esta classe possui vários métodos, mas existem 5 específicos que não funcionam corretamente na classe herdada, portanto, precisam ser re-implementados na própria classe criada. Um método implementado novamente precisa receber a notação `@Override`. São eles:
 

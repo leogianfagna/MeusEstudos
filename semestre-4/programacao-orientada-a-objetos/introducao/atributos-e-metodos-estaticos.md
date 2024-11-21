@@ -9,7 +9,7 @@
 
 Sempre que há uma chamada de método temos o **chamante**, aquele que está à esquerda do ponto. O chamante nem sempre será um objeto e poderá ser uma classe, por exemplo:
 
-<figure><img src="../../.gitbook/assets/exemplo de objetos chamantes.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/exemplo de objetos chamantes.png" alt=""><figcaption></figcaption></figure>
 
 Um método que foi criado com static usa a classe como chamante enquanto caso não tenha, usa o objeto. Caso visto na documentação que mostra `static int` na coluna "Modifier and Type".
 
@@ -32,7 +32,7 @@ Vemos o static que serve para dizer que o atributo "teclado" pertence à classe 
 
 ## Diferenças em exemplo
 
-<figure><img src="../../.gitbook/assets/exemplo de membros estaticos e não.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/exemplo de membros estaticos e não.png" alt=""><figcaption></figcaption></figure>
 
 Neste exemplo prático fica nítido a diferença entre os dois, onde o método estático consegue fazer tudo apenas recebendo um parâmetro enquanto o método não estático tem que usar atributos do objeto (aqueles referenciados como this), por isso, eles devem ser chamados através de instâncias.
 

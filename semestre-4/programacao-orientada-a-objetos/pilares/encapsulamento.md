@@ -10,13 +10,13 @@ Como objetos são ponteiros e através deles existe a possibilidade de alterar o
 
 Veja abaixo como um valor que é private[^1] pode ser alterado através do ponteiro.
 
-<figure><img src="../../.gitbook/assets/ferindo encapsulmento.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/ferindo encapsulmento.png" alt=""><figcaption></figcaption></figure>
 
 Esse caso é possível porque a classe Data [possui métodos que alteram atributos](#user-content-fn-2)[^2]. Como o parâmetro data é a instância original e não uma cópia, isso significa que todos eles estão compartilhando o mesmo endereço de memória.
 
 Se todos tem o mesmo endereço de memória, se a variável for alterada em qualquer lugar, o novo valor vai valer para todos os outros.
 
-<figure><img src="../../.gitbook/assets/instancias com mesmo endereco de memoria.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/instancias com mesmo endereco de memoria.png" alt=""><figcaption></figcaption></figure>
 
 ### Previnindo o risco no encapsulamento
 

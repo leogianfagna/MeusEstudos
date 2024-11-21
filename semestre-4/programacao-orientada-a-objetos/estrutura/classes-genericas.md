@@ -8,7 +8,7 @@ description: >-
 
 Podemos ter um parâmetro em classes para influenciar/direcionar no modo de funcionamento:
 
-<figure><img src="../../.gitbook/assets/parametros em classes java.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/parametros em classes java.png" alt="" width="375"><figcaption></figcaption></figure>
 
 Neste caso, indicamos que o vetor `v` guardará datas. O parâmetro de uma classe <mark style="color:orange;">deve ser uma outra classe</mark>. Já que muitas classes Java são parametrizadas, as **classes Wrapper** servem para esse intuito. Veja um exemplo na main:
 
@@ -23,7 +23,7 @@ public static void main(String[] args) {
 
 Quando uma classe tem parâmetro, ela é chamada de <mark style="color:blue;">genérica</mark>. A classe genérica permite uma única implementação, não precisa criar várias para cada tipo de parâmetro/tipo:
 
-<figure><img src="../../.gitbook/assets/parâmetros em classes java na pratica.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/parâmetros em classes java na pratica.png" alt=""><figcaption></figcaption></figure>
 
 Aqui vemos a criação de uma instância da classe **Conjunto** parametrizando uma String. Essa classe conjunto deixa a parametrização como `X`, o que significa que, esse X vai assumir o tipo inserido na hora da instanciação, ou seja, **String**. Então, se o conjunto foi criado com o tipo X sendo uma String, não aceitará (resultará erro) outro tipo, que é o exemplo da linha 3.
 
@@ -43,7 +43,7 @@ Classes que são estruturas de dados guardam coisas. Essas coisas possuem um tip
 
 ### Lidando com tipos
 
-Um tipo `X` que ainda não existe <mark style="color:red;">não pode ser instanciado ou virar um vetor</mark>. A solução disso é criar como for um Object mas podendo receber apenas do tipo `X`. Ele vai guardar objetos desse tipo mas estão sendo vistos como Object, resolver isso podemos usar a [revelação](conversao-e-revelacao.md).
+Um tipo `X` que ainda não existe <mark style="color:red;">não pode ser instanciado ou virar um vetor</mark>. A solução disso é criar como for um Object mas podendo receber apenas do tipo `X`. Ele vai guardar objetos desse tipo mas estão sendo vistos como Object, resolver isso podemos usar a [revelação](../funcionamento/conversao-e-revelacao.md).
 
 ```java
 // Definir vetor
@@ -75,7 +75,7 @@ Elas não possuem `compareTo` e a implementação dos demais métodos levam a me
 
 ### Implementação
 
-> [Aqui está um exemplo](../../exerc%C3%ADcios/java/exemplos/Conjunto%20de%20dados.java) de uma classe conjunto completa.
+> [Aqui está um exemplo](../../../exerc%C3%ADcios/java/exemplos/Conjunto%20de%20dados.java) de uma classe conjunto completa.
 
 Os dados podem ser guardados em vetores normais em Java, onde cada posição equivale a um elemento do tipo X. Como `X` é indefinido durante a escrita do código, não podemos tratar o tipo dos dados [sendo do tipo `X`](#user-content-fn-2)[^2]. Por conta disso, precisamos tratar o tipo dos elementos desta classe como `Object`.
 

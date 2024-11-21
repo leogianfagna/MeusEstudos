@@ -70,11 +70,11 @@ Em orientação a objetos, toda instância está obrigatoriamente relacionada a 
 
 Portanto, criar uma instância em Java significa criar uma nova peça a partir de uma classe (usando `new`). Então, supondo que vamos criar uma instância de um classe chamada "_Contatos_", a utilização da palavra `new` chama automaticamente o <mark style="color:purple;">**construtor**</mark> que está dentro da classe. Esse construtor possui <mark style="color:orange;">o mesmo da classe</mark>, não retorna nada e tem como objetivo garantir que as instâncias nasçam com atributos válidos.
 
-<figure><img src="../../.gitbook/assets/criação de instâncias vistas em classes.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/criação de instâncias vistas em classes.png" alt=""><figcaption></figcaption></figure>
 
 O que estamos vendo: uma variável de referencia nomeada como meuCarro cria uma instância da classe Carro por usar a palavra new, alocando memória e chamando o contrutor (seta laranja) de dentro da classe e inicializa com 3 parâmetros. Esta variável chamada meuCarro é do tipo "Carro", o nome da classe. Demonstrativamente:
 
-<figure><img src="../../.gitbook/assets/definição na criação de instâncias em Java.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/definição na criação de instâncias em Java.png" alt=""><figcaption></figcaption></figure>
 
 ## Instância chamante
 

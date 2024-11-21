@@ -78,7 +78,7 @@ public static char getUmChar() throws Exception {
 
 ## Comunicação com a main (lendo dados)
 
-A forma de comunicação dessa nossa classe criada com a main é <mark style="color:blue;">chamando os métodos</mark> da classe. Como são [static](atributos-e-metodos-estaticos.md), fazemos dessa forma:
+A forma de comunicação dessa nossa classe criada com a main é <mark style="color:blue;">chamando os métodos</mark> da classe. Como são [static](../introducao/atributos-e-metodos-estaticos.md), fazemos dessa forma:
 
 ```java
 System.out.println("Digite um long: ");
