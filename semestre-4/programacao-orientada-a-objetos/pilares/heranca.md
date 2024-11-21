@@ -63,16 +63,20 @@ import agenda.*;
   * Usa a palavra `extends`.
 * Heterogênea: Quando uma classe herda de interface. Não é possível uma interface herdar de classe.
   * Usa a palavra `implements`.
-  * Obriga a classe implementar os métodos e dados abstratos herdados. Métodos abstratos implementados recomendam o uso de `@Override`.
+  * Obriga a classe implementar os métodos e dados abstratos herdados.
 
 ## Interfaces
 
 Lembram classes mas com restrições:
 
-* Só podem ter [<mark style="color:purple;">métodos abstratos</mark>](#user-content-fn-3)[^3].
+* Só podem ter [métodos abstratos](polimorfismo.md#metodos-abstratos).
 * Só podem ter métodos públicos.
 * Não podem ter atributos variáveis, são necessário ser constantes.
 * Como só aceitam métodos desse tipo, omitem as palavras `public` e `abstract` em cada método.
+
+### Métodos abstratos
+
+
 
 ### Inner class
 
@@ -99,7 +103,7 @@ protected ArrayList<Agenda.Contato> contatos;
 
 Essas declarações de atributos em classes que herdam de interfaces geram mudanças nos métodos abstratos implementados. Cada exemplo acima precisa lidar de um jeito diferente. Isso quer dizer que está livre para implementar como quiser.
 
-Classes que possuem métodos abstratos ou interfaces não podem ser instanciadas[^4]. Mas **podem criar objetos**. Já as classes herdadas de interfaces podem ser instanciadas.
+Classes que possuem métodos abstratos ou interfaces não podem ser instanciadas[^3]. Mas **podem criar objetos**. Já as classes herdadas de interfaces podem ser instanciadas.
 
 ```java
 Agenda agenda = new Agenda(...);  // Não pode
@@ -110,6 +114,4 @@ Agenda agenda = null;             // Pode criar objetos
 
 [^2]: Private é um qualificador exclusivo para a classe que ele está e nem mesmo as herdadas poderiam usar.
 
-[^3]: Especificam um padrão de comportamento.
-
-[^4]: Usar `new`.
+[^3]: Usar `new`.

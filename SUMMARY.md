@@ -135,6 +135,7 @@
   * [Pilares](semestre-4/programacao-orientada-a-objetos/pilares/README.md)
     * [Herança](semestre-4/programacao-orientada-a-objetos/pilares/heranca.md)
     * [Encapsulamento](semestre-4/programacao-orientada-a-objetos/pilares/encapsulamento.md)
+    * [Polimorfismo](semestre-4/programacao-orientada-a-objetos/pilares/polimorfismo.md)
   * [Estrutura](semestre-4/programacao-orientada-a-objetos/estrutura/README.md)
     * [Classes](semestre-4/programacao-orientada-a-objetos/estrutura/classes.md)
     * [Classe Object](semestre-4/programacao-orientada-a-objetos/estrutura/classe-object/README.md)
