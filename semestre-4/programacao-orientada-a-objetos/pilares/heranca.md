@@ -57,8 +57,59 @@ Também podemos fazer da seguinte forma para importar tudo:
 import agenda.*;
 ```
 
+## Tipos de heranças
 
+* Homogênea: Quando classe herda de classe ou interface herda de interface, ou seja, tipos iguais.
+  * Usa a palavra `extends`.
+* Heterogênea: Quando uma classe herda de interface. Não é possível uma interface herdar de classe.
+  * Usa a palavra `implements`.
+  * Obriga a classe implementar os métodos e dados abstratos herdados. Métodos abstratos implementados recomendam o uso de `@Override`.
+
+## Interfaces
+
+Lembram classes mas com restrições:
+
+* Só podem ter [<mark style="color:purple;">métodos abstratos</mark>](#user-content-fn-3)[^3].
+* Só podem ter métodos públicos.
+* Não podem ter atributos variáveis, são necessário ser constantes.
+* Como só aceitam métodos desse tipo, omitem as palavras `public` e `abstract` em cada método.
+
+### Inner class
+
+É uma classe criada que fica dentro da interface. Essa classe não precisa seguir as restrições acima.
+
+```java
+public interface Agenda extends Cloneable {
+    ...
+    
+    class Contato {
+        ...
+    }
+
+}
+```
+
+Objetos do tipo de uma innerclass podem ser criados e armazenados em vetores.
+
+```java
+protected Agenda.Contato[] contato
+protected Vecttor<Agenda.Contato> contatos;
+protected ArrayList<Agenda.Contato> contatos;
+```
+
+Essas declarações de atributos em classes que herdam de interfaces geram mudanças nos métodos abstratos implementados. Cada exemplo acima precisa lidar de um jeito diferente. Isso quer dizer que está livre para implementar como quiser.
+
+Classes que possuem métodos abstratos ou interfaces não podem ser instanciadas[^4]. Mas **podem criar objetos**. Já as classes herdadas de interfaces podem ser instanciadas.
+
+```java
+Agenda agenda = new Agenda(...);  // Não pode
+Agenda agenda = null;             // Pode criar objetos
+```
 
 [^1]: Podemos chamar os métodos normalmente com `meuMetodo()`, sem a necessidade da palavra `super`.
 
 [^2]: Private é um qualificador exclusivo para a classe que ele está e nem mesmo as herdadas poderiam usar.
+
+[^3]: Especificam um padrão de comportamento.
+
+[^4]: Usar `new`.
