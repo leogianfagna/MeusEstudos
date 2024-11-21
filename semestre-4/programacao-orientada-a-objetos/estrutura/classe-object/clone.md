@@ -64,3 +64,37 @@ Além disso, um método clone tem que retornar obrigatoriamente um Object, como 
 ```java
 Data copia = (Data) data.clone();
 ```
+
+### Exemplo com classe genérico e vetor
+
+Se temos um vetor armazenador de dados, o construtor de cópia também precisa copiar todos os [<mark style="color:orange;">dados válidos</mark>](#user-content-fn-1)[^1] dentro do vetor.
+
+* Os parâmetros e instanciações são o tipo da classe com o tipo genérico `<X>` junto.
+* O novo vetor precisa ser instanciado (como Object) com o tamanho do vetor modelo.
+
+```java
+public Conjunto(Conjunto<X> modelo) throws Exception {
+    if (modelo == null)
+        throw new Exception("Modelo ausente.");
+
+    this.qtd = modelo.qtd;
+    this.capacidadeInicial = modelo.capacidadeInicial;
+    this.elem = new Object[modelo.elem.length];
+
+    for (int i = 0; i < this.qtd; i++)
+        this.elem[i] = modelo.elem[i];
+}
+
+@Override
+public Object clone() {
+    Conjunto<X> ret = null;
+
+    try {
+        ret = new Conjunto<X>(this);
+    } catch (Exception e) {}
+
+    return ret;
+}
+```
+
+[^1]: O tamanho alocado do vetor pode ser visto como `vetor.lenght`. Não necessariamente todo esse espaço está sendo ocupado por elementos. Portanto,  o `for` que copia os elementos tem como critério de parada um atributo que simboliza a quantidade de elementos **adicionados efetivamente** no vetor. No caso, simbolizado como `qtd`.
