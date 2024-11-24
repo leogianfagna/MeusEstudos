@@ -4,7 +4,7 @@ Um sistema com o objetivo de criar um dataset (combinação dos valores) de test
 
 A regra do pairwise é combinar os pares de tal forma <mark style="color:blue;">minimizar a repetição deles</mark>. Nunca terá um teste com dois valores idênticos. Quando o teste tem duas entradas, isso não muda nada, mas a partir de 3 entradas, o número já decai.
 
-<figure><img src="../../.gitbook/assets/pairwise na pratica.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/pairwise na pratica.png" alt=""><figcaption></figcaption></figure>
 
 Esse exemplo acima mostra na **prática** como funciona. O conjunto `{kg: 70, categoria: 3}` poderia aparecer **3** vezes:
 

@@ -4,6 +4,8 @@
 
 Consiste em <mark style="color:blue;">escrever quais serão as variáveis</mark> que receberão dados e as variáveis que serão retornadas. Todos os dados de entrada são atribuídos à variáveis então elas são as de entrada. Toda função para teste vai retornar um valor então elas são a de saída.
 
+Para fazer algo ainda mais completo, pode-se indicar o tipo de variável que será, como: `float`, `int`, `string` e outras.
+
 > ### Exemplo:
 >
 > Classes de Entrada:
@@ -19,7 +21,7 @@ Consiste em <mark style="color:blue;">escrever quais serão as variáveis</mark>
 
 ## Definir os domínios
 
-Também conhecido como <mark style="color:purple;">escopo</mark>, os <mark style="color:blue;">domínios são os valores válidos</mark> que as classes definidas acima podem receber ou retornar. Precisamos fazer essa etapa junto com a próxima, a análise BVA.
+Também conhecido como <mark style="color:purple;">escopo</mark>, os <mark style="color:blue;">domínios são os valores válidos</mark> que as classes definidas acima podem receber ou retornar. Precisamos fazer essa etapa junto com a próxima, a análise BVA. Esses valores devem abrangir todas as [possibilidades de contexto](#user-content-fn-1)[^1].
 
 > ### Exemplo:
 >
@@ -36,7 +38,7 @@ Também conhecido como <mark style="color:purple;">escopo</mark>, os <mark style
 
 ## Valores típicos (análise BVA)
 
-Análise BVA é a borda[^1] (range) de valores possíveis para os domínios. Os <mark style="color:blue;">valores típicos são uma série de escolha de valores</mark> dentro de cada intervalo para serem usados como teste. Aqui estaremos falando apenas dos **valores de entrada**.
+Análise BVA é a borda[^2] (range) de valores possíveis para os domínios. Os <mark style="color:blue;">valores típicos são uma série de escolha de valores</mark> dentro de cada intervalo para serem usados como teste. Aqui estaremos falando apenas dos **valores de entrada**.
 
 Essa etapa exige <mark style="color:blue;">explicar a decisão dos valores</mark>. As explicações geram em torno de falar o que vai gerar (ou o que se espera) no teste usando aqueles dados e especificar alguns valores bem específicos escolhidos.
 
@@ -48,12 +50,12 @@ Essa etapa exige <mark style="color:blue;">explicar a decisão dos valores</mark
 
 ## Dataset
 
-É uma tabela com diversas linhas, onde cada linha representa um conjunto de valores de entrada que servirão para fazer um teste. Vai existir dois datasets:
+É uma tabela com diversas linhas, onde cada linha representa um <mark style="color:blue;">conjunto de valores de entrada</mark> que servirão para fazer um teste. Vai existir dois datasets:
 
 * Dataset válido: Uma tabela gerada usando todos os valores válidos escolhidos na análise acima.
-* Dataset inválido: Agrega todos os valores válidos com os valores inválidos depois remove as linhas cujo os valores de entrada [resultariam em um valor válido](#user-content-fn-2)[^2]. Certificar de ao menos um valor de entrada inválido por teste/linha.
+* Dataset inválido: Agrega todos os valores válidos com os valores inválidos depois remove as linhas cujo os valores de entrada [resultariam em um valor válido](#user-content-fn-3)[^3]. Certificar de ao menos um valor de entrada inválido por teste/linha.
 
-O Dataset é gerado com todas as possibilidades de conjuntos com os valores de entrada fornecidos nos valores típicos. Depois, a <mark style="color:blue;">quantidade de resultados deve ser reduzida</mark> usando técnicas, como o [Pairwise](pairwise.md).
+O Dataset é gerado com todas as possibilidades de conjuntos com os valores de entrada fornecidos nos valores típicos. Depois, a <mark style="color:blue;">quantidade de resultados deve ser reduzida</mark> usando técnicas, como o [Pairwise](ferramentas/pairwise.md).
 
 > ### Exemplo real dos datasets
 
@@ -61,11 +63,11 @@ O Dataset é gerado com todas as possibilidades de conjuntos com os valores de e
 
 ## Definição dos GFC
 
-O GFC é uma técnica válida apenas para testes de caixa branca onde podemos ver o código. A criação do GFC deve seguir os ensinamentos descritos [nesta página](gfc.md). O código com as linhas numeradas deve estar presente.
+O GFC é uma técnica válida apenas para testes de caixa branca onde podemos ver o código. A criação do GFC deve seguir os ensinamentos descritos [nesta página](ferramentas/gfc.md). O código com as linhas numeradas deve estar presente.
 
 ## Fluxos do GFC
 
-Os [fluxos do GFC](gfc.md) consistem em calcular todos os possíveis caminhos dentro do diagrama gerado na etapa acima. Cada caminho deve ser descrito em uma tabela indicando o que acontece e o que retorna.
+Os [fluxos do GFC](ferramentas/gfc.md) consistem em calcular todos os possíveis caminhos dentro do diagrama gerado na etapa acima. Cada caminho deve ser descrito em uma tabela indicando o que acontece e o que retorna.
 
 Para um trabalho ainda mais completo, pode-se desenhar cada fluxo destacado ao lado da linha de código indicando cada linha que está passando naquele fluxo.
 
@@ -79,12 +81,14 @@ Todas as etapas acima devem ser feitas no documento de texto com numeração de 
 
 ## Aplicação dos testes
 
-A aplicação dos testes segue como base o protocolo criado. Usando o mesmo formato de folha mas em uma folha nova, a [aplicação dos testes](etapas.md#aplicacao-dos-testes) devem seguir os passos descritos nessa página.
+A aplicação dos testes segue como base o protocolo criado. Usando o mesmo formato de folha mas em uma folha nova, a [aplicação dos testes](aplicacao.md) devem seguir os passos descritos nessa página.
 
 ## Apresentar conclusão
 
 Uma breve descrição do que foi feito, basicamente falando que os protocolos foram criados e os testes foram executados. Essa não é sobre as observações nas folhas, mas sim uma conclusão geral final do que foi feito e observado.
 
-[^1]: Lembrar do exemplo do braço mecânico que um plano cartesiano com um círculo no meio mostrada quais eram os valores máximos alcançados, e qualquer coisa fora do círculo estava inválido.
+[^1]: Em exemplos mais complexos, tipo o de calcular salário de diferentes cargos de funcionário, os valores de entrada devem ser suficientes para todos os cargos, para que o software funcione independente do contexto do funcionário.
 
-[^2]: Como foi usado válores válidos junto com inválidos, pode haver linhas em que só existem valores válidos para entrada. Isso faria com que o resultado do teste fosse válido. Basta remover essa linha para que fique **ao menos** um valor de entrada inválido por teste.
+[^2]: Lembrar do exemplo do braço mecânico que um plano cartesiano com um círculo no meio mostrada quais eram os valores máximos alcançados, e qualquer coisa fora do círculo estava inválido.
+
+[^3]: Como foi usado válores válidos junto com inválidos, pode haver linhas em que só existem valores válidos para entrada. Isso faria com que o resultado do teste fosse válido. Basta remover essa linha para que fique **ao menos** um valor de entrada inválido por teste.

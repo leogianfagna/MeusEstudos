@@ -175,11 +175,10 @@
 * [Técnicas de Verificação e Validação](semestre-4/tecnicas-de-verificacao-e-validacao/README.md)
   * [Etapas](semestre-4/tecnicas-de-verificacao-e-validacao/etapas.md)
   * [Protocolos](semestre-4/tecnicas-de-verificacao-e-validacao/protocolos.md)
-  * [Realização](semestre-4/tecnicas-de-verificacao-e-validacao/realizacao.md)
-  * [GFC](semestre-4/tecnicas-de-verificacao-e-validacao/gfc.md)
-  * [Etapas da técnica](semestre-4/tecnicas-de-verificacao-e-validacao/etapas-da-tecnica.md)
-  * [Caixa branca](semestre-4/tecnicas-de-verificacao-e-validacao/caixa-branca.md)
-  * [Pairwise](semestre-4/tecnicas-de-verificacao-e-validacao/pairwise.md)
+  * [Aplicação](semestre-4/tecnicas-de-verificacao-e-validacao/aplicacao.md)
+  * [Ferramentas](semestre-4/tecnicas-de-verificacao-e-validacao/ferramentas/README.md)
+    * [GFC](semestre-4/tecnicas-de-verificacao-e-validacao/ferramentas/gfc.md)
+    * [Pairwise](semestre-4/tecnicas-de-verificacao-e-validacao/ferramentas/pairwise.md)
 
 ## Semestre 6
 
