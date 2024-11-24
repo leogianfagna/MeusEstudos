@@ -111,7 +111,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
 
 ### 4. Identificar quando a tag é descoberta e enviar intents
 
-Um <mark style="color:purple;">**PendingIntent**</mark>** **<mark style="color:blue;">**é uma classe**</mark> que suas instâncias <mark style="color:blue;">**retornam a intenção e o alvo**</mark> da ação para executar. As instâncias podem ser criadas utilizando qualquer um [desses métodos](https://developer.android.com/reference/android/app/PendingIntent) que retornam um objeto com as descrições das execuções, que essas execuções podem ser feitas por outras aplicações.
+Um <mark style="color:purple;">**PendingIntent**</mark>**&#x20;**<mark style="color:blue;">**é uma classe**</mark> que suas instâncias <mark style="color:blue;">**retornam a intenção e o alvo**</mark> da ação para executar. As instâncias podem ser criadas utilizando qualquer um [desses métodos](https://developer.android.com/reference/android/app/PendingIntent) que retornam um objeto com as descrições das execuções, que essas execuções podem ser feitas por outras aplicações.
 
 Seu objetivo principal é identificar quando uma tag é descoberta e iniciar a atividade correspondente.
 
