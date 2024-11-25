@@ -168,6 +168,7 @@
   * [Sistemas de IO](semestre-4/sistemas-operacionais/sistemas-de-io.md)
   * [Memória](semestre-4/sistemas-operacionais/memoria.md)
   * [Exercícios prova 1](semestre-4/sistemas-operacionais/exercicios-prova-1.md)
+  * [Exercícios prova 2](semestre-4/sistemas-operacionais/exercicios-prova-2.md)
 * [Ideação e validação](semestre-4/ideacao-e-validacao/README.md)
   * [Mapa mental](semestre-4/ideacao-e-validacao/mapa-mental.md)
   * [Business Model Canvas](semestre-4/ideacao-e-validacao/business-model-canvas.md)

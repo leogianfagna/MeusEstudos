@@ -1,14 +1,20 @@
+---
+description: Exercícios 1 a 3 do exercícios de prova são sobre esse assunto.
+---
+
 # Sistema de arquivos
 
-O disco rídigo é uma parte redonda com vários empilhados em cima dos outros formando um cilindro. Cada um deles com trilhas e setores, como foi visto na matéria de organização e arquitetura de computadores, chamamos isso de <mark style="color:purple;">formatação de baixo nível ou formatação física</mark>. Geralmente cada setor possui 512K de dados.
+O disco rídigo é uma parte redonda com vários empilhados em cima dos outros formando um cilindro. Cada cilindro possui [trilhas e setores](#user-content-fn-1)[^1] com cada setor possuindo geralmente 512K de dados. Essa estrutura descrita, que é feita pelo fabricante, é denominada de <mark style="color:purple;">formatação de baixo nível ou formatação física</mark>.
 
-Essas estruturas de trilhas e setores são criadas pelo próprio sistema operacional, elas não são "risgadas" fisicamente ali. Essa estrutura é chamada de <mark style="color:purple;">formatação lógica</mark>. Além disso o disco precisa passar por <mark style="color:purple;">particionamento</mark> (grupos de cilindros). Uma partição representa uma seção específica de um espaço de armazenamento em disco rígido que é subdividido para gerenciar dados de maneira organizada e eficiente. Cada partição possui a capacidade de alojar diferentes sistemas de arquivos, permitindo assim configurações diversas para o armazenamento e acesso a dados.
+Para usar o disco, o sistema operacional precisa guardar suas próprias estruturas. Para isso, o disco é dividido pelo processo de <mark style="color:purple;">particionamento</mark>, que vai dividí-lo em [seções específicas](#user-content-fn-2)[^2] para permitir que diferentes sistemas de arquivos coexistam.
+
+Cada partição gerada é configurada pela <mark style="color:purple;">formatação lógica</mark>, onde o sistema operacional organiza o sistema de arquivos de uma partição para tornar cada partição utilizável.
 
 > O disco realmente fica girando como se fosse um vinil, o que faz ele se tornar lento. O SSD não repete esse mesmo comportamento.
 
 ## Arquivos
 
-É um vetor grande de dados e o formato do arquivo, junto com vários outros <mark style="color:purple;">atributos</mark>, indicam como esse vetor será lido e esses atributos são mantidos na <mark style="color:purple;">estrutura de diretórios.</mark>
+É um vetor grande de dados e o formato do arquivo, junto com vários outros [<mark style="color:purple;">atributos</mark>](#user-content-fn-3)[^3], indicam como esse vetor será lido e esses atributos são mantidos na <mark style="color:purple;">estrutura de diretórios.</mark>
 
 A estrutura de diretórios está presente no disco. Ela é uma <mark style="color:blue;">coleção de dados</mark> com informações sobre outros arquivos, servindo como uma espécie de sumário de tradução. A estrutura de diretório é uma organização de como os arquivos estão salvos e pode ser organizada de diferentes formas:
 
@@ -34,7 +40,7 @@ Generaliza a estrutura de dois níveis onde os usuários podem criar sub-diretó
 
 ### Estrutura de diretórios em grafos acíclicos
 
-Permite o compartilhamento de arquivos e/ou diretórios, tornando possível que o mesmo diretório ou arquivo esteja presente em diferentes diretórios. Tem como seu maior problema não permitir ciclos, o que é necessário em alguns sistemas, por exemplo:
+Permite [<mark style="color:purple;">links</mark>](#user-content-fn-4)[^4] de arquivos e/ou diretórios, tornando possível que o <mark style="color:blue;">mesmo diretório ou arquivo esteja presente em diferentes diretórios</mark>. Tem como seu maior problema não permitir ciclos, o que é necessário em alguns sistemas, por exemplo:
 
 * O programa do diretório A necessita da biblioteca do diretório B criando uma dependência entre os dois.
 * Em um sistema, depois de percorrer uma certa distância de diretórios, é necessário retroceder posições.
@@ -69,10 +75,20 @@ Os modos de acesso foram definidos como `R` (read), `W` (write) e `X` (execute) 
 
 Depois de definido, converte os números binários em decimais. Binário `111` em decimal é `7`, `110` em decimal é `6` e `001` em decimal é `1`. É daí que surge os números 7, 6 e 1 de cada grupo. Se as permissões fossem diferentes, os números também seriam.
 
-Por isso, se formou a sequência `761`. As permissões de arquivos são <mark style="color:blue;">representadas por um número composto de três dígitos</mark>, cada um para cada grupo. O comando `chmod 761 game` ajusta as permissões do arquivo ou diretório chamado "game":
+Por isso, se formou a sequência `761`. As permissões de arquivos são <mark style="color:blue;">representadas por um número composto de três dígitos</mark>, cada um para cada grupo. O comando `chmod 761 game` ajusta as permissões do arquivo ou diretório chamado "game".
+
+> Veja no [exercício 3](exercicios-prova-2.md#id-3) um exemplo prático de permissões.
 
 #### Resumo:
 
 * As permissões de arquivos em Unix/Linux são configuradas para o dono, grupo e público.
 * Cada classe (dono, grupo, público) pode ter permissões de leitura, escrita e execução.
 * As permissões são representadas por números (ex: 761), e esses números controlam o que cada classe pode fazer com o arquivo ou diretório.
+
+[^1]: Como foi visto na matéria de organização e arquitetura de computadores.
+
+[^2]: Serão chamadas de partições, fisicamente é um grupo de cilindros.
+
+[^3]: Nome, identificador, tipo, tamanho, localização, permissões e outras coisas.
+
+[^4]: Pode se dizer compartilhamento.
