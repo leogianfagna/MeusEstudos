@@ -16,6 +16,8 @@ Esse campo vai introduzir alguns dos elementos feitos nas [etapas](etapas.md), q
 
 Escreve levemente sobre o [que se trata](#user-content-fn-1)[^1] e depois descreve com mais detalhes o objetivo, que seria o fluxo GFC escolhido. Precisa escrever sobre os valores típicos: se eles são válidos, qual dos valores típicos escolhidos vai resultar em um fluxo diferente, qual o objetivo desses valores e coisas desse tipo.
 
+> Exemplo rápido: Teste para intervalo de valores de salário com valores não válidos. Espera execução completa do código e retorno: { -1, "FORA DO INTERVALO" }.
+
 ### 2. Dataset
 
 O Dataset com todas as opções de valores que resultam no fluxo escolhido para o protocolo deve ser inserido. Ou seja, é inserido uma tabela inteira onde, qualquer linha escolhida, vai resultar onde queremos chegar.
