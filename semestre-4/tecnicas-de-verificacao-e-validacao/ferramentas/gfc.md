@@ -49,9 +49,9 @@ else:
 2     status = 'acima média'    
 3 elif (var == 5):
 4    status = 'na média'
-5 else:
-6    status = 'abaixo média'
-7 ...
+  else:
+5    status = 'abaixo média'
+6 ...
 
 
 # WHILE: Numera a estrutura e segue para a lógica dentro da condição.
