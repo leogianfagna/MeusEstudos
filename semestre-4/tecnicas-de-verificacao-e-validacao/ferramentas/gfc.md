@@ -61,14 +61,12 @@ else:
 2    print(var)
 3 ...
 
-# FOR: Recebe um detalhe importante. O fechamento do for recebe uma numeração (onde
-# supostamente ficaria o fecha chaves).
+# FOR: Numera a estrutura e segue para a lógica dentro da condição.
 0 ...
 1 for var in range(6):
 2    freq = freq + var
 2    print(var)
-3
-4 ...
+3 ...
 
 # DO-WHILE: A linha da estrutura "do" não recebe numeração, mas sim o conteúdo e o
 # "while" logo após. Não existe do-while em Python então foi feito em JavaScript.
@@ -79,60 +77,47 @@ else:
 3 console.log("Fim");
 ```
 
-### Numeração não definida
+### Numeração em controle
 
-\[ TO - DO]
+Linhas que chamam funções recebem um novo valor, pois elas são uma estrutura de controle que mudam o fluxo de execução. Nesse caso, não há nenhum segredo e basta seguir uma linha reta.
 
 ## Desenho do grafo
 
-O desenho dos grafos são baseados na numeração feita no código. Dentro de protocolos de teste, deve inserir tanto o grafo quanto a numeração. Cada estrutura pode ser representada pelos seguintes diagramas:
+O desenho dos grafos são baseados na numeração feita no código. Tudo começa com um cabeçalho do que o que aquele programa faz, já apontando para o nó inicial, o zero. Dentro de protocolos de teste, deve inserir tanto o grafo quanto a numeração.&#x20;
 
+### Desenho de estruturas
 
+Cada estrutura pode ser representada pelos seguintes diagramas:
 
+<figure><img src="../../../.gitbook/assets/estruturas de decisão gfc.png" alt=""><figcaption></figcaption></figure>
 
+### Desenho do Não Definido
 
+Um nó não definido pode aparecer se:
 
+* A estrutura `else` não existe. Logo, seu nó será substituído por esse.
+* Houver um `if/else` dentro de um `if`. <mark style="color:red;">Não pode agrupar</mark> mais de dois elementos em um nó somente. Portanto, um resultado do `if/else` interno nesse composto não pode já apontar para o nó seguinte, ele tem que apontar para um nó não definido.
 
+Portanto, cria-se um nó imaginário para completar com sentido a sequência.&#x20;
 
+### Desenho do return
 
-**Numeração em if/else:** As estruturas de decisões colocam números na primeira linha mas não no else. Além disso, numeram a linha do if e de dentro do if também. O número a seguir do IF é o que está dentro do else.&#x20;
+Um programa pode ser encerrado em diferentes etapas do código. Depois do encerramento do programa, não pode-se puxar uma continuação. O fim do código é representado por um nó chamado "fim".
 
-Podemos numerar o else logo após o if (como está no exemplo) mas também podemos numerar em sequência sem problema (professor fez assim). Veja abaixo um exemplo de numeração dessas estruturas:
+Abaixo um exemplo de um `return` usado dentro de uma condição. Uma condição se ramifica e deve voltar para um mesmo nó depois. Nesse caso, como em uma condição o programa foi encerrado, eles não são fundidos novamente e seguem caminhos distintos.
 
-<figure><img src="../../../.gitbook/assets/gfc numeração de blocos ifelse.png" alt=""><figcaption></figcaption></figure>
-
-**Numeração em while:** Uma simples numeração onde a estrutura de decisão recebe um número e o que está abaixo recebe o seguinte.
-
-<figure><img src="../../../.gitbook/assets/while em gfc.png" alt=""><figcaption></figcaption></figure>
-
-**Numeração em for:** Aqui existe uma diferença pois exige um nó noov para simbolizar o fim do for, no qual ele não aparece na linha de código explicitamente, ele seria o fecha chaves.
-
-<figure><img src="../../../.gitbook/assets/for em gfc.png" alt=""><figcaption></figcaption></figure>
-
-### Desenho dos blocos
-
-Tudo começa com um cabeçalho do que o que aquele programa faz, já apontando para o nó inicial, o zero.
-
-Por **norma**, <mark style="color:red;">não pode agrupar</mark> mais de dois elementos em um nó somente. Portanto, um resultado do if/else nesse composto não pode já apontar para o nó seguinte, ele tem que apontar para um <mark style="color:purple;">nó não definido</mark>.
-
-Veja um exemplo completo:
-
-<figure><img src="../../../.gitbook/assets/gfc.png" alt=""><figcaption></figcaption></figure>
-
-<figure><img src="../../../.gitbook/assets/gfc de while prático.png" alt=""><figcaption></figcaption></figure>
-
-No primeir exemplo, se não houvesse uma linha de else, o nó 4 seria substituído por um nó ND, mas a estrutura continuaria a mesma, exatamente o que acontece no segundo exemplo.
+<figure><img src="../../../.gitbook/assets/return em gfc.png" alt=""><figcaption></figcaption></figure>
 
 ## Fluxos
 
-No teste de caixa branca, precisamos mostrar no relatório linha por linha que o código está seguindo a sequência de teste válido. Essa sequência é o caminho que passa baseado nos dados fornecidos. Dados essas variáveis, o exemplo acima teve o seguinte progresso:
+Os fluxos GFC são **todos os possíveis** caminhos que uma linha pode percorrer no diagrama gerado na etapa anterior. Com dados fornecidos, podemos prever qual será o caminho esperado para se percorrer:
 
 <figure><img src="../../../.gitbook/assets/linhas de execução gfc.png" alt=""><figcaption></figcaption></figure>
 
 Então, apenas seguimos as linhas e montamos a linha de execução:
 
 ```
-0 1 3 5 ND 6
+0 1 3 5 ND 6 FIM
 ```
 
 #### Simplificação da numeração do fluxo
@@ -141,6 +126,12 @@ No segundo exemplo já foi inserido a numeração na imagem. Mas vimos que exist
 
 <figure><img src="../../../.gitbook/assets/numeração processo gfc.png" alt=""><figcaption></figcaption></figure>
 
-> Lembrando que todos esses fluxos são previsíveis pois é um teste de caixa branca, que temos o código e os valores de entrada, então podemos saber exatamente por onde o código deve passar.
+## Exemplos
+
+Abaixo estão alguns exemplos básicos que implementam as técnicas necessárias para saber criar um GFC. [Neste arquivo](https://github.com/leogianfagna/MeusEstudos/tree/main/exerc%C3%ADcios/t%C3%A9cnicas%20de%20valida%C3%A7%C3%A3o), mostra um trabalho feito que representa um fluxo mais complexo e grande. Note que neste trabalho, condições e condições são fechadas com ND por ainda estarem abertas, além de que foi criado um nó ND para representar o fim do `while` e um nó ND que representaria o próximo passo do `while`, que não existe.
+
+<figure><img src="../../../.gitbook/assets/gfc.png" alt=""><figcaption><p>Nesse exemplo, numera primeiro o <code>else</code> e depois o <code>if</code>. Não é necessário. Perceba como o nó 4 e 5 são levados para um ND.</p></figcaption></figure>
+
+<figure><img src="../../../.gitbook/assets/gfc de while prático.png" alt=""><figcaption><p>Perceba como o fim do <code>while</code> é representado como um ND pois sua representação é necessária.</p></figcaption></figure>
 
 [^1]: São exeplos `if`, `while`, `for` e qualquer outra que exista uma condição que possa alterar o fluxo de execução do código.
