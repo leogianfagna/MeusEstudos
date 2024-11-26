@@ -22,25 +22,25 @@ A estrutura de diretórios está presente no disco. Ela é uma <mark style="colo
 
 ### Estrutura de diretórios de um nível
 
-Todos arquivos estão contidos no mesmo diretório. Pode dar problema caso tenha mais de um usuário, colisão de nome e busca pouco eficiente.
+Todos arquivos estão <mark style="color:blue;">contidos no mesmo diretório</mark>. Pode dar problema caso tenha mais de um usuário, colisão de nome e busca pouco eficiente.
 
 <figure><img src="../../.gitbook/assets/estrutura de diretórios de um nível.png" alt=""><figcaption></figcaption></figure>
 
 ### Estrutura de diretórios de dois níveis
 
-Cada usuário tem seu diretório pessoal, resolvendo apenas um dos problemas.
+Cada <mark style="color:blue;">usuário tem seu diretório pessoal</mark>, resolvendo apenas um dos problemas.
 
 <figure><img src="../../.gitbook/assets/estrutura de diretórios de dois níveis.png" alt=""><figcaption></figcaption></figure>
 
 ### Estrutura de diretórios em árvores
 
-Generaliza a estrutura de dois níveis onde os usuários podem criar sub-diretórios aumentando a organização e a árvore tem um diretório raiz. Isso faz com que, excluir um diretório vai fazer com que tudo o que está abaixo dele seja excluído também.
+Existência de <mark style="color:blue;">sub-diretórios com organização hierarquica</mark> aumentando a organização e a árvore tem um diretório raiz. Isso faz com que, excluir um diretório vai fazer com que tudo o que está abaixo dele seja excluído também.
 
 <figure><img src="../../.gitbook/assets/estrutura de diretórios em árvores.png" alt=""><figcaption></figcaption></figure>
 
 ### Estrutura de diretórios em grafos acíclicos
 
-Permite [<mark style="color:purple;">links</mark>](#user-content-fn-4)[^4] de arquivos e/ou diretórios, tornando possível que o <mark style="color:blue;">mesmo diretório ou arquivo esteja presente em diferentes diretórios</mark>. Tem como seu maior problema não permitir ciclos, o que é necessário em alguns sistemas, por exemplo:
+Lógica da árvore porém permite [<mark style="color:purple;">links</mark>](#user-content-fn-4)[^4] de arquivos e/ou diretórios, tornando possível que o <mark style="color:blue;">mesmo diretório ou arquivo esteja presente em diferentes diretórios</mark>. Tem como seu maior problema não permitir ciclos, o que é necessário em alguns sistemas, por exemplo:
 
 * O programa do diretório A necessita da biblioteca do diretório B criando uma dependência entre os dois.
 * Em um sistema, depois de percorrer uma certa distância de diretórios, é necessário retroceder posições.
