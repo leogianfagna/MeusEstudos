@@ -1,29 +1,16 @@
 # Memória
 
-## Resumo (conferir se está tudo nesse caderno)
-
-* Memória física é uma dimensão com vários endereços.
-* CPU gera endereços que precisam estar na memória física.
-* CPU precisa executar várias aplicações.
-* Problema: aplicações acham que estão sozinhos na memória.
-* Problema 2: não sabe o tanto de memória que vai usar.
-* Memória virtual é inventado e não existe.
-* MMU traduz e divide a memória física e virtual em padaços que chamam páginas.
-* Não existe nenhum tipo de associação matemática entre as duas memórias, só precisa de um mapeamento que leve da virtual para física (uma tabela guardada na memória física que faz esse mapa).
-* TLB: acesso a memória física é demorada, portanto, em vez de trazer página por página já traz um conjunto de páginas e armazena em cache. MMU acessa tabela de páginas através da TLB.
-* Swap: na memória não cabe tudo então usa o disco e fica trocando processos com a memória RAM.
-
 Todas as instruções, endereços e os dados necessários para executá-la precisam estar na memória RAM, que é carregado do disco. A memória conversa diretamente com a CPU, responsável por executar. As instruções precisam estar na memória RAM pois a CPU não conversa diretamente com o disco. Além do que, o acesso à memória é lento.
 
 ## Endereçamento físico e lógico
 
-É preciso proteger o acesso à memória. Um processo só pode acessar a memória que pertence à ele. Por isso existem os endereços lógicos (ou virtuais) e os endereços físicos, pois um processo acredita que está sozinho na memória.
+<mark style="color:purple;">Memória física</mark> é uma dimensão com vários endereços gerados pela CPU. Já a <mark style="color:purple;">memória virtual</mark> é inventada e não existe, é apenas uma abstração para que os processos funcionem pois os processos acham que estão sozinhos na memória. Essa memória é <mark style="color:blue;">traduzida e dividida em páginas</mark>, feito pela MMU explicado a seguir.
 
-Exemplo de endereço virtual/lógico: compilar dois códigos ao mesmo tempo e imprimir o endereço de uma variável primitiva vai resultar em endereços iguais. Isso é possível pois na verdade esse endereço impresso é o virtual e não o verdadeiro (o físico). Esse endereço é gerado pela CPU sendo que o físico está na RAM.
+> Exemplo de endereço virtual/lógico: compilar dois códigos ao mesmo tempo e imprimir o endereço de uma variável primitiva vai resultar em endereços iguais. Isso é possível pois na verdade esse endereço impresso é o virtual e não o verdadeiro (o físico). Esse endereço é gerado pela CPU sendo que o físico está na RAM.
 
 ### MMU (Memory-Management Unit)
 
-É um disposito que está entre a CPU e a memória que faz a tradução de um endereço virtual para o físico. Por ser um tradutor, ele faz com que a CPU nunca saiba de qual endereço de fato veio a instrução.
+É um disposito que está entre a CPU e a memória que faz a <mark style="color:blue;">tradução de um endereço virtual para o físico</mark> usando a [<mark style="color:purple;">TLB</mark>](#user-content-fn-1)[^1]. Por ser um tradutor, ele faz com que a CPU nunca saiba de qual endereço de fato veio a instrução.
 
 <figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
@@ -37,7 +24,7 @@ A **memória principal** do sistema precisa ser compartilhada entre os processos
 
 ### Alocação contígua
 
-A **alocação contígua** é uma forma de organizar a memória de forma que cada processo receba um A **alocação contígua de memória** é uma técnica onde a memória é dividida em partições, uma para o sistema operacional e outra para os processos de usuários, com cada processo recebendo uma área contínua de memória.
+A **alocação contígua de memória** é uma técnica onde a memória é dividida em partições, uma para o sistema operacional e outra para os processos de usuários, com cada processo recebendo uma área contínua de memória.
 
 Essa alocação é gerenciada de forma segura usando **registradores de realocação**, que delimitam o espaço de cada processo. O objetivo é garantir a **eficiência no uso da memória** e a **segurança** entre os processos. Essa foto acima de base e limite é armazenado pelo registrador base e pelo registrador limite.
 
@@ -82,6 +69,11 @@ Para evitar a <mark style="color:purple;">fragmentação</mark> e a necessidade 
 
 Qualquer página da CPU pode estar em qualquer quadro da RAM. A tabela de páginas faz a tradução das páginas para os quadros, sendo basicamente um sumário de onde está cada página. Esse sumário fica em algum lugar da memória.
 
+É por conta disso que o dois processos separados podem compartilhar um espaço de memória em comum. Apesar dos dois processos estarem compartilhando a mesma memória física, na memória virtual, eles estão identificados em páginas virtuais diferentes. Exemplo:
+
+* **Processo A**: Página virtual 3 mapeada para o quadro físico 5.
+* **Processo B**: Página virtual 7 mapeada para o mesmo quadro físico 5.
+
 ### Tradução de endereços
 
 O número lógico é dividido em:
@@ -123,7 +115,7 @@ Não é necessário carregar todo o código na memória e precisa apenas a linha
 
 Se não precisa agora não precisa carregar na memória. Assim entra o conceito de paginação sob demanda que consiste <mark style="color:blue;">não trazer se não necessário</mark>. Quem cuida disso é o sistema operacional.
 
-Esse conceito só funciona por causa da **memória virtual**, pois ela é capaz de apontar para uma página que existe mas não está na memória, e consegue trazer quango precisa. Outro fator da memória virtual que torna isso capaz é o fato dela poder ser maior que a memória física:
+Esse conceito só funciona por causa da **memória virtual**, pois ela é capaz de apontar para uma página que existe mas não está na memória, e consegue trazer quando precisa. Outro fator da memória virtual que torna isso capaz é o fato dela poder ser maior que a memória física:
 
 <figure><img src="../../.gitbook/assets/tamanho memória virtual.png" alt="" width="444"><figcaption></figcaption></figure>
 
@@ -132,22 +124,14 @@ Esse conceito só funciona por causa da **memória virtual**, pois ela é capaz 
 A trocação de páginas entre memória e disco leva algumas operações:
 
 * Fazer referência: ao precisar de uma página.
-* Abordar: caso a página seja inválida.
+* Abortar: caso a página seja inválida.
 * Trazer para a memória: caso a página não esteja lá.
 
-Para conseguir distinguir, cada página que entra na memória ela tem um bit de validade (`v` para válida se estiver na memória e `i` para inválida caso não esteja), iniciando todas com `i`. Quando a MMU está fazendo a tradução, se ela encontra o bit `i`, isso simboliza um <mark style="color:purple;">**page fault**</mark>.
+Para conseguir distinguir, cada página que entra na memória tem um bit de validade (`v` para válida se estiver na memória e `i` para inválida caso não esteja), iniciando todas com `i`. Quando a MMU está fazendo a tradução, se ela encontra o bit `i`, isso simboliza um <mark style="color:purple;">**page fault**</mark>.
 
 ### Page fault
 
-Simboliza quando a página não está na memória e é preciso lidar com isso. Uma forma de acontecer o page fault é a seguinte:
-
-* Gerar o endereço virtual, aponta para uma página virtual.
-* MMU traduz o endereço, antes verificando se está na TLB e se não resgata da memória. O processo de tradução exige ajuda do sistema operacional que consequentemente vai exigir uma troca de contexto (atrasando o processo).
-  * Esse endereço talvez não possa ser encontrado.
-  * Se encontrar, precisa ver se o bit de validade é zero ou um. Se a página estiver na memória, já joga para a TLB.
-  * A TLB agora tem a informação necessária, troca o contexto novamente e reinicia a instrução. Com o endereço na TLB o processo continua normal.
-  * Mas se o bit de validade implicar que não está na memória, significa que não há tradução (está no disco) e agora precisa carregar de lá. O que significa novamente o <mark style="color:purple;">page fault</mark>.
-* A ideia é: fazer o máximo possível enquanto está em uma página antes de precisar pular para uma próxima.
+Simboliza quando a <mark style="color:blue;">página não está na memória</mark> e é preciso lidar com isso. A ideia é fazer o máximo possível enquanto está em uma página antes de precisar pular para uma próxima.
 
 #### Lidar com o page fault
 
@@ -199,9 +183,11 @@ Este exemplo final mostra que:
 * Ótimo com 9 page fault.
 * LRU com 12 page fault.
 
-#### Aproximações do LRU
+#### Aproximações do LRU (algoritmo da Segunda Chance)
 
-Apesar da implementação do LRU ser possível, é um algoritmo complicado pois exige ficar salvando o tempo em que cada página foi utilizada, exigindo um hardware especial. Então temos essa outra alternativa usando <mark style="color:purple;">bit de referência</mark>. Basicamente ele funciona dessa forma:
+Apesar da implementação do LRU ser possível, é um algoritmo complicado pois exige ficar salvando o tempo em que cada página foi utilizada, exigindo um hardware especial.
+
+Então temos essa outra alternativa usando <mark style="color:purple;">bit de referência</mark>. Seu objetivo é <mark style="color:blue;">não mover uma página que foi acessada recentemente</mark>, dando a ideia de "segunda chance de se manter na memória". Basicamente ele funciona dessa forma:
 
 * Todas as páginas iniciam com o bit zero.
 * Uma página acessada tem seu bit alterado para 1.
@@ -210,13 +196,15 @@ Apesar da implementação do LRU ser possível, é um algoritmo complicado pois 
 
 <figure><img src="../../.gitbook/assets/substituição de páginas com bit validade.png" alt=""><figcaption></figcaption></figure>
 
-#### Segunda chance
+#### Segunda chance melhorado
 
-Esse algoritmo inlcui um segundo bit para não mover uma página que foi modificada. Assim, tem dois bits e um conjunto de quatro possibilidades:
+Esse algoritmo inclui um segundo bit para não mover uma página que foi modificada. Assim, tem dois bits e um conjunto de quatro possibilidades:
 
-1. (0, 0) nem usado, nem modificado – melhor página para substituir
-2. (0, 1) não usado, mas modificado – não tão bom, precisa primeiro escrever no disco
-3. (1, 0) usado recentemente mas não modificado – deve ser usado de novo logo
-4. (1, 1) usado e modificado – pior candidato
+1. (0, 0) nem usado, nem modificado – melhor página para substituir.
+2. (0, 1) não usado, mas modificado – não tão bom, precisa primeiro escrever no disco.
+3. (1, 0) usado recentemente mas não modificado – deve ser usado de novo logo.
+4. (1, 1) usado e modificado – pior candidato.
 
 Esse algoritmo entrega ainda melhores candidatos de páginas vítimas. Contudo, esse algoritmo <mark style="color:red;">não é possível escrever na prática</mark>, portanto, não precisamos se importar muito com ele.
+
+[^1]: Guarda uma parte da <mark style="color:purple;">tabela de páginas</mark>. A tabela de páginas é um mapeamento presente na memória RAM que será visto a seguir. Não existe nenhuma relação matemática entre as duas memórias.
