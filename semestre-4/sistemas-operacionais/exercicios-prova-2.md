@@ -16,4 +16,5 @@ Estruturas de diretório são uma coleção de dados sobre arquivos que diz como
 
 Uma consideração adicional para links é que o mesmo diretório pode estar presente em vários outros. Eles podem causar loops e devem se manter sincronizados com os outros.
 
-#### 3)&#x20;
+#### 3) Um sistema Linux possui quatro usuários humanos: alan, bruna, celso e deise. Para cada usuário, existe um grupo de mesmo nome do qual apenas o respectivo usuário faz parte. Além desses grupos, alan e deise são membros de um grupo chamado professores, e bruna e celso fazem parte do grupo alunos. A tabela abaixo indica o resultado da listagem de um diretório qualquer dentro desse sistema, informando as entradas e seus respectivos proprietários, grupos e permissões de acesso em formato octal.
+

@@ -55,35 +55,47 @@ Lógica da árvore porém permite [<mark style="color:purple;">links</mark>](#us
 
 ## Proteção
 
-Existem atributos de proteção que falam quem pode mexer (ler, escrever, excutar e outros tipos de acesso) em um determinado arquivo. O Linux possui muitos usuários que podem estar sozinhos ou dentro de grupos e assim as permissões de arquivos <mark style="color:blue;">são configuradas para o dono, grupo e público</mark>. As permissões concedidas claramente podem ser diferentes para cada.
-
-> Arquivos também podem pertencer a grupos.
-
-### Modos de Acesso
-
-Os **modos de acesso** referem-se aos <mark style="color:blue;">tipos de operações</mark> que um usuário pode realizar em um arquivo ou diretório que foram mencionados acima. Além dos 3 principais também há exclusão, listagem e acréscimo. Das 3 principais, vai ser condido os números `zero` ou `um` que significa se aquela pessoa/grupo tem ou não tem aquele modo de acesso.
+Os atributos de proteção indicam o <mark style="color:purple;">modo de acesso</mark>, que diz quem pode `ler`, `escrever` e `executar` um determinado arquivo ou diretório. Esses atributos são configurados para três categorias de usuários: <mark style="color:blue;">dono do arquivo, um grupo específico e o público geral</mark>.&#x20;
 
 ### As permissões
 
-Os modos de acesso foram definidos como `R` (read), `W` (write) e `X` (execute) e definido `zero` e `um` para cada modo e cada grupo. Vendo a imagem abaixo, podemos ver:
+Uma permissão é um número binário composto de três dígitos. Cada [<mark style="color:purple;">categoria de usuário</mark>](#user-content-fn-5)[^5] vai receber um número de zero à sete. Esse número recebido, convertido em binário e mantendo três casas, vai indicar qual modo de acesso a pessoa tem. Veja abaixo um exemplo disso:
 
-* O proprietário tem todas as permissões, resultando em `111`.
-* Quem pertence ao grupo recebe o direito de ler e escrever, então foi colocado `110`.
-* O público recebeu só de executar, então `001`.
+<figure><img src="../../.gitbook/assets/convertendo permissões.png" alt="" width="563"><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/permissões para grupos linux.png" alt=""><figcaption></figcaption></figure>
+* O proprietário `111`: Tem todas as permissões pois todos são `1`.
+* Quem pertence ao grupo `110`: Tem o direito de ler e escrever, mas não executar.
+* O público `001`: Só há `1` no executar então só pode executar e mais nada.
 
-Depois de definido, converte os números binários em decimais. Binário `111` em decimal é `7`, `110` em decimal é `6` e `001` em decimal é `1`. É daí que surge os números 7, 6 e 1 de cada grupo. Se as permissões fossem diferentes, os números também seriam.
+Pode haver situações de fazer o caminho inverso, recebendo o número binário e querendo o número de permissão. Basta converter cada categoria de usuário e depois colocar na ordem os números convertidos. Podemos ver isso na prática com `chmod 761 game`, que são os números `7`, `6` e `1` convertidos e juntados.
 
-Por isso, se formou a sequência `761`. As permissões de arquivos são <mark style="color:blue;">representadas por um número composto de três dígitos</mark>, cada um para cada grupo. O comando `chmod 761 game` ajusta as permissões do arquivo ou diretório chamado "game".
+### Conjunto de permissões
+
+Se um arquivo como `notas.csv` recebe um número de permissão `760`, você precisa converter cada número individualmente para binário, gerando o resultado para cada categoria de usuário, assim:
+
+* `script.sh` tem a permissão `760`, então:
+  * `7` -> Dono do arquivo: O dono do arquivo pode fazer tudo pois resulta em `1 1 1`.
+  * `6` -> Grupo: Membros do grupo só não poderão executar pois resulta em `1 1 0`.
+  * `0` -> Público: Usuários não vão receber nada de permissão pois resulta em `0 0 0`.
+* Portanto, isso significa que:
+  * `Read`: Proprietário + grupo.
+  * `Write`: Proprietário + grupo.
+  * `Execute`: Proprietário.
+
+<figure><img src="../../.gitbook/assets/conjunto de permissões.png" alt=""><figcaption></figcaption></figure>
 
 > Veja no [exercício 3](exercicios-prova-2.md#id-3) um exemplo prático de permissões.
 
-#### Resumo:
+### Permissões necessárias
 
-* As permissões de arquivos em Unix/Linux são configuradas para o dono, grupo e público.
-* Cada classe (dono, grupo, público) pode ter permissões de leitura, escrita e execução.
-* As permissões são representadas por números (ex: 761), e esses números controlam o que cada classe pode fazer com o arquivo ou diretório.
+As permissões começam a ser solicitadas a partir da execução de comandos usando os arquivos em questão:
+
+<table><thead><tr><th width="280">Comando</th><th>Descrição</th><th>Permissão</th></tr></thead><tbody><tr><td><code>mkdir pasta</code></td><td>Criar diretório.</td><td><code>write</code> no diretório.</td></tr><tr><td><code>./arquivo</code></td><td>Executar algo.</td><td><code>execute</code> no arquivo.</td></tr><tr><td><code>rm arquivo</code></td><td>Remover algo.</td><td><code>write</code> no diretório.</td></tr><tr><td><code>cat arquivo1 > arquivo2</code></td><td>Copia conteúdo de um arquivo para outro.</td><td><code>read</code> no arquivo1 e <code>write</code> no arquivo2.</td></tr><tr><td><code>cp arquivo arquivo</code></td><td>Copia o arquivo.</td><td><code>write</code> no diretório.</td></tr></tbody></table>
+
+> **Extras:**
+>
+> 1. Arquivos também podem pertencer a grupos.
+> 2. Além de leitura, escrita e execução, também existem `exclusão`, `listagem` e `acréscimo`.
 
 [^1]: Como foi visto na matéria de organização e arquitetura de computadores.
 
@@ -92,3 +104,7 @@ Por isso, se formou a sequência `761`. As permissões de arquivos são <mark st
 [^3]: Nome, identificador, tipo, tamanho, localização, permissões e outras coisas.
 
 [^4]: Pode se dizer compartilhamento.
+
+[^5]: * Um número para o dono do arquivo.
+    * Outro número para o grupo.
+    * Outro número para o público geral.
