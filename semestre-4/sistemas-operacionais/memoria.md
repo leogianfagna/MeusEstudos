@@ -6,11 +6,19 @@ Todas as instruções, endereços e os dados necessários para executá-la preci
 
 <mark style="color:purple;">Memória física</mark> é uma dimensão com vários endereços gerados pela CPU. Já a <mark style="color:purple;">memória virtual</mark> é inventada e não existe, é apenas uma abstração para que os processos funcionem pois os processos acham que estão sozinhos na memória. Essa memória é <mark style="color:blue;">traduzida e dividida em páginas</mark>, feito pela MMU explicado a seguir.
 
+O endereçamento físico e lógico é composto pelo número da página[^1] ou quadro[^2] e o deslocamento. O deslocamento significa o quão está dentro, ou seja, ele é limitado pelo tamanho da página/quadro.
+
+#### Cálculo do endereçamento
+
+A página ou o quadro vai precisar informar quantas palavras cabem dentro, por exemplo: 1024 palavras. Tendo em vista que cada palavra ocupa 4KB, podemos fazer a seguinte conta:
+
+<figure><img src="../../.gitbook/assets/calculo de enderecamento.png" alt=""><figcaption></figcaption></figure>
+
 > Exemplo de endereço virtual/lógico: compilar dois códigos ao mesmo tempo e imprimir o endereço de uma variável primitiva vai resultar em endereços iguais. Isso é possível pois na verdade esse endereço impresso é o virtual e não o verdadeiro (o físico). Esse endereço é gerado pela CPU sendo que o físico está na RAM.
 
 ### MMU (Memory-Management Unit)
 
-É um disposito que está entre a CPU e a memória que faz a <mark style="color:blue;">tradução de um endereço virtual para o físico</mark> usando a [<mark style="color:purple;">TLB</mark>](#user-content-fn-1)[^1]. Por ser um tradutor, ele faz com que a CPU nunca saiba de qual endereço de fato veio a instrução.
+É um disposito que está entre a CPU e a memória que faz a <mark style="color:blue;">tradução de um endereço virtual para o físico</mark> usando a [<mark style="color:purple;">TLB</mark>](#user-content-fn-3)[^3]. Por ser um tradutor, ele faz com que a CPU nunca saiba de qual endereço de fato veio a instrução.
 
 <figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
@@ -207,4 +215,8 @@ Esse algoritmo inclui um segundo bit para não mover uma página que foi modific
 
 Esse algoritmo entrega ainda melhores candidatos de páginas vítimas. Contudo, esse algoritmo <mark style="color:red;">não é possível escrever na prática</mark>, portanto, não precisamos se importar muito com ele.
 
-[^1]: Guarda uma parte da <mark style="color:purple;">tabela de páginas</mark>. A tabela de páginas é um mapeamento presente na memória RAM que será visto a seguir. Não existe nenhuma relação matemática entre as duas memórias.
+[^1]: A lógica/virtual é dividida em páginas.
+
+[^2]: A física é dividida em quadros.
+
+[^3]: Guarda uma parte da <mark style="color:purple;">tabela de páginas</mark>. A tabela de páginas é um mapeamento presente na memória RAM que será visto a seguir. Não existe nenhuma relação matemática entre as duas memórias.
