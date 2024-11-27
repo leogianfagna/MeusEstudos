@@ -12,7 +12,7 @@ O endereçamento físico e lógico é composto pelo número da página[^1] ou qu
 
 A página ou o quadro vai precisar informar quantas palavras cabem dentro, por exemplo: 1024 palavras. Tendo em vista que cada palavra ocupa 4KB, podemos fazer a seguinte conta:
 
-<figure><img src="../../.gitbook/assets/calculo de enderecamento.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/calculo de enderecamento.png" alt=""><figcaption></figcaption></figure>
 
 > Exemplo de endereço virtual/lógico: compilar dois códigos ao mesmo tempo e imprimir o endereço de uma variável primitiva vai resultar em endereços iguais. Isso é possível pois na verdade esse endereço impresso é o virtual e não o verdadeiro (o físico). Esse endereço é gerado pela CPU sendo que o físico está na RAM.
 
@@ -20,11 +20,11 @@ A página ou o quadro vai precisar informar quantas palavras cabem dentro, por e
 
 É um disposito que está entre a CPU e a memória que faz a <mark style="color:blue;">tradução de um endereço virtual para o físico</mark> usando a [<mark style="color:purple;">TLB</mark>](#user-content-fn-3)[^3]. Por ser um tradutor, ele faz com que a CPU nunca saiba de qual endereço de fato veio a instrução.
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 O MMU engloba os registradores, como pode ser visto acima. É nos registradores que ficam armazenados a base e o limite de onde estão os processos, que esses dados serão usados para fazer o mapeamento.
 
-<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Memória compartilhada
 
@@ -51,7 +51,7 @@ Todas são uma escolha ruim pois, ou vão causar perda de espaço que poderia es
 * Interna: Há espaço para colocar um processo lá, mas depois de colocar vai sobrar um espaço que não vai servir para nada pois nada cabe lá.
 * Externa: Somando os espaços livres, há memória suficiente mas não há um espaço contíguo suficiente para alocar.
 
-<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 ### Swapping
 
@@ -89,31 +89,37 @@ O número lógico é dividido em:
 * Número da página (índice para o sumário)
 * Deslocamento: combinado com o endereço base para definir o endereço físico enviado para a MMU. Significa o quanto está dentro de uma página
 
-<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 A paginação começa definindo os espaços entre páginas e quadros, precisa ter o mesmo espaço em um e depois em outro.
 
-<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/tradução de endereços na paginação.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/tradução de endereços na paginação.png" alt=""><figcaption></figcaption></figure>
 
 ### Implementação tabela de páginas
+
+Veja nessa página abaixo detalhadamente como fazer a implementação da tabela de páginas, também utilizada no [exercício 11 da lista](../exercicios-prova-2.md#id-11-as-tabelas-a-seguir-mostram-o-estado-atual-de-um-sistema-de-memoria-virtual-em-que-o-tamanho-de-u).
+
+{% content-ref url="implementacao-tabela-de-paginas.md" %}
+[implementacao-tabela-de-paginas.md](implementacao-tabela-de-paginas.md)
+{% endcontent-ref %}
 
 Teoricamente, agora existe um problema pois o sumário está na RAM, então a CPU precisa acessar a memória duas vezes (uma vez pro dado e outra pra resgatar a tabela). Como acessar duas vezes é um problema e a tabela sempre mantém **razoavelmente** fixa, podemos resolver isso utilizando cache.
 
 Basicamente, resgatamos uma parte dessa tabela que são as páginas mais acessadas e colocamos em um cache dentro da MMU. Esse cache de tabela de páginas se chama <mark style="color:purple;">**TLB**</mark> (Translation Look-Aside Buffer). Fisicamente, ficaria assim:
 
-<figure><img src="../../.gitbook/assets/TLB fisicamente.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/TLB fisicamente.png" alt="" width="375"><figcaption></figcaption></figure>
 
 E agora que sabemos como fica, podemos visualizar o hardware final:
 
-<figure><img src="../../.gitbook/assets/hardware com tlb.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/hardware com tlb.png" alt=""><figcaption></figcaption></figure>
 
 A TLB é bem pequena então não cabe todos os dados. Por conta disso existe uma <mark style="color:purple;">política de substituíção</mark> para que novos dados possam entrar.
 
@@ -125,7 +131,7 @@ Se não precisa agora não precisa carregar na memória. Assim entra o conceito 
 
 Esse conceito só funciona por causa da **memória virtual**, pois ela é capaz de apontar para uma página que existe mas não está na memória, e consegue trazer quando precisa. Outro fator da memória virtual que torna isso capaz é o fato dela poder ser maior que a memória física:
 
-<figure><img src="../../.gitbook/assets/tamanho memória virtual.png" alt="" width="444"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/tamanho memória virtual.png" alt="" width="444"><figcaption></figcaption></figure>
 
 #### Bit de validade
 
@@ -143,7 +149,7 @@ Simboliza quando a <mark style="color:blue;">página não está na memória</mar
 
 #### Lidar com o page fault
 
-<figure><img src="../../.gitbook/assets/lidar com page fault.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/lidar com page fault.png" alt=""><figcaption></figcaption></figure>
 
 Isso não considerou se não houver espaço na memória. Caso aconteça, vai requerer substituição de páginas: escolhe uma página que não é modificada e não vai precisar em um futuro próximo. Mas não é possível prever o futuro. Portanto, esse problema será trabalhado em <mark style="color:purple;">substituição de páginas</mark>.
 
@@ -161,7 +167,7 @@ A primeira página a ter chego na memória será a primeira a sair. Vemos em <ma
 
 
 
-<figure><img src="../../.gitbook/assets/substituição de páginas fifo.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/substituição de páginas fifo.png" alt=""><figcaption></figcaption></figure>
 
 A contagem de page fault equivale ao número de vezes que precisou colocar uma página do disco para a memória, ou seja, basta contar as <mark style="color:blue;">colunas que não são barras verticais</mark>. Neste caso, temos 8 pages fault.
 
@@ -171,7 +177,7 @@ Se pegarmos o modelo acima e colocar 4 páginas ao invés de três, o page fault
 
 A solução ótima seria substituir as páginas que estão mais distantes de serem utilizadas. Teoricamente, analisaria as páginas alocadas atualmente e identifica a que vai demorar mais para ser solicitada novamente. Essa página seria escolhida para substituir (vítima).
 
-<figure><img src="../../.gitbook/assets/substituição de páginas ótimo.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/substituição de páginas ótimo.png" alt=""><figcaption></figcaption></figure>
 
 No primeiro exemplo, o momento que vai precisar ser substituído é na "terceira casa". Então, neste momento é necessário avaliar quem será a vítima. Como o 7 está o mais distante de ser usado, ele será o escolhido. Fazer isso para cada vez que precisa ter uma troca.
 
@@ -183,7 +189,7 @@ Já que ele não é possível implementar, ele pode ser usado após que esse pro
 
 Se não podemos olhar para o futuro, vamos olhar para o passado. Vamos pensar em substituir aqueles que faz mais tempo que utilizamos pois uma probabilidade diz que, quanto mais tempo faz que usamos uma página, mais distante ela estará de ser utilizada novamente.
 
-<figure><img src="../../.gitbook/assets/substituição de páginas lru.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/substituição de páginas lru.png" alt=""><figcaption></figcaption></figure>
 
 Este exemplo final mostra que:
 
@@ -202,7 +208,7 @@ Então temos essa outra alternativa usando <mark style="color:purple;">bit de re
 * Se a página já está escalonada e aparece novamente na solicitação, volta para zero.
 * Substitui as páginas cujo bit é igual a zero.
 
-<figure><img src="../../.gitbook/assets/substituição de páginas com bit validade.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/substituição de páginas com bit validade.png" alt=""><figcaption></figcaption></figure>
 
 #### Segunda chance melhorado
 
