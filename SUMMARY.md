@@ -81,6 +81,7 @@
   * [Lista ligada](semestre-2/estrutura-de-dados/lista-ligada.md)
   * [Fila](semestre-2/estrutura-de-dados/fila.md)
   * [Pilha](semestre-2/estrutura-de-dados/pilha.md)
+  * [Árvores](semestre-2/estrutura-de-dados/arvores.md)
 
 ## Semestre 3
 

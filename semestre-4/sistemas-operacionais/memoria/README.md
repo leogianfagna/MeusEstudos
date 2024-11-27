@@ -20,11 +20,11 @@ A página ou o quadro vai precisar informar quantas palavras cabem dentro, por e
 
 É um disposito que está entre a CPU e a memória que faz a <mark style="color:blue;">tradução de um endereço virtual para o físico</mark> usando a [<mark style="color:purple;">TLB</mark>](#user-content-fn-3)[^3]. Por ser um tradutor, ele faz com que a CPU nunca saiba de qual endereço de fato veio a instrução.
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 O MMU engloba os registradores, como pode ser visto acima. É nos registradores que ficam armazenados a base e o limite de onde estão os processos, que esses dados serão usados para fazer o mapeamento.
 
-<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Memória compartilhada
 
@@ -51,7 +51,7 @@ Todas são uma escolha ruim pois, ou vão causar perda de espaço que poderia es
 * Interna: Há espaço para colocar um processo lá, mas depois de colocar vai sobrar um espaço que não vai servir para nada pois nada cabe lá.
 * Externa: Somando os espaços livres, há memória suficiente mas não há um espaço contíguo suficiente para alocar.
 
-<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Swapping
 
