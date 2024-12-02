@@ -20,9 +20,9 @@ Uma árvore é uma estrutura de dados <mark style="color:blue;">não linear</mar
 * <mark style="color:purple;">Árvore estritamente binária</mark>: Todos os nós tem dois ou nenhum filho. Usada para expressões aritméticas onde nós internos são operadores e o externos são os números/operandos.
 * <mark style="color:purple;">Árvore binária cheia</mark>: É uma árvore estritamente binária mas que todos os nós se encerram na mesma profundidade.
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/termologias em arvores binarias.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/tipos de arvores binarias.png" alt=""><figcaption></figcaption></figure>
 
 ## Funcionamento
 

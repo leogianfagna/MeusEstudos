@@ -161,6 +161,8 @@ Há uma aba chamada scripts onde você pode criar seus próprios comandos. Nesse
 
 Aprenda a criar um backend usando um banco de dados MongoDB com tecnologia node. Um projeto que utiliza Node precisa tê-lo instalado no computador.
 
+<figure><img src="../../.gitbook/assets/diagrama de backend em node.png" alt=""><figcaption></figcaption></figure>
+
 Abaixo será mostrado baseado em um projeto real.&#x20;
 
 ### Instalação
@@ -175,7 +177,7 @@ Abaixo será mostrado baseado em um projeto real.&#x20;
 
 ### Configuração de conexão
 
-Criaremos um arquivo chamado `db.js` responsável por configurar a conexão usando moongose[^1]. Ele vai se conectar ao banco de dados usando a string de conexão que é fornecida pelo MongoDB. Utilizaremos um arquivo .env para salvar a string de conexão de forma segura.
+Criaremos um arquivo chamado `db.js` responsável por configurar a conexão usando moongose[^1]. Ele vai se <mark style="color:blue;">conectar ao banco de dados</mark> usando a string de conexão que é fornecida pelo MongoDB. Utilizaremos um arquivo .env para salvar a string de conexão de forma segura.
 
 ```yaml
 # Arquivo .env
@@ -199,7 +201,7 @@ export const connectDB = async () => {
 
 ### Configuração do servidor
 
-Esse arquivo é o núcleo da aplicação com [<mark style="color:purple;">Express</mark>](#user-content-fn-2)[^2], que integra os componentes. Usar `export const app = express()` estamos criando o aplicativo Express, que é a base para gerenciar rotas, middlewares e configurações e o export simboliza que ele poderá ser usado em outros arquivos.
+Esse arquivo `app.js` é o núcleo da aplicação com [<mark style="color:purple;">Express</mark>](#user-content-fn-2)[^2], que <mark style="color:blue;">integra os componentes</mark>. Usar `export const app = express()` estamos criando o aplicativo Express, que é a base para gerenciar rotas, middlewares e configurações e o export simboliza que ele poderá ser usado em outros arquivos.
 
 * Define as rotas usadas: Quando uma requisição chega ao servidor, o Express verifica as rotas conectadas e redireciona a requisição para o [controlador ](backend.md#controladores)correspondente. O controlador, por sua vez, processa a lógica e retorna uma resposta.
 * Estabelece conexão com o banco de dados: Usando a função criada na instalação, no arquivo `db.js`.
@@ -234,7 +236,7 @@ app.use("/", classificationRoutes, kartTrackRoutes)
 
 ### Inicialização do servidor
 
-Arquivo responsável pelo ponto de entrada do servidor. Rodar esse código <mark style="color:blue;">coloca o servidor no modo escuta</mark>, garantindo que a aplicação está acessível para receber requisições HTTP na porta 3000 (passa a escutar ela). Esse arquivo depende do app, ao qual já tem as configurações necessárias como rotas registradas e middlewares e já conecta ao banco.
+O arquivo `server.js` é responsável pelo ponto de entrada do servidor. Rodar esse código <mark style="color:blue;">coloca o servidor no modo escuta</mark>, garantindo que a aplicação está acessível para receber requisições HTTP na porta 3000 (passa a escutar ela). Esse arquivo depende do app, ao qual já tem as configurações necessárias como rotas registradas e middlewares e já conecta ao banco.
 
 ```javascript
 // Ponto de entrada de inicialização do servidor, garante requisições HTTP
@@ -357,7 +359,7 @@ export const getKartTracks = async (req, res) => {
 
 ### Rotas
 
-O [**rotedor** ](#user-content-fn-5)[^5]é onde você conecta **URLs** a **funções do controlador**. Quando o cliente faz uma requisição para tal rota, o roteador encaminha as requisições para o controlador associado e assim segue o caminho a partir de lá. Os dados enviados no corpo da requisição (JSON) serão processados pelo controlador.
+O [**rotedor** ](#user-content-fn-5)[^5]é onde você conecta **URLs** a **funções do controlador**. Quando o cliente faz uma requisição para tal rota, o roteador <mark style="color:purple;">encaminha as requisições para o controlador</mark> associado e assim segue o caminho a partir de lá. Os dados enviados no corpo da requisição (JSON) serão processados pelo controlador.
 
 As rotas criadas são exportadas para serem usadas no `app.js`.
 
