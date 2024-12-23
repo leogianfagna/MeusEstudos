@@ -152,7 +152,7 @@ A lógica nesse código é basicamente usar apenas os métodos de semáforos ens
 
 Para o consumidor, criar uma variável do tipo item que recebe um ponteiro do _item\_retirado_ foi o jeito entendido da questão para usar o método `desenfileira()` que foi mostrado no enunciado.
 
-Esse mesmo exercício foi feito em um PDF de uma universidade, [neste link](https://www.ece.ufrgs.br/\~fetter/ele213/sem.pdf). Ele aplica o semáforo do jeito verdadeiro mas usa um buffer que não vi ainda.
+Esse mesmo exercício foi feito em um PDF de uma universidade, [neste link](https://www.ece.ufrgs.br/~fetter/ele213/sem.pdf). Ele aplica o semáforo do jeito verdadeiro mas usa um buffer que não vi ainda.
 
 ```c
 void *produtor(void *ptr)
@@ -208,7 +208,7 @@ Sendo esse o resultado final, temos um deadlock pois está em espera circular.
 
 #### (b) Assumindo que o sistema implemente mecanismo para impedir deadlocks e que, ao início, todos os processos declaram que podem utilizar todos os recursos, desenhe o grafo de alocação de recursos para o sistema. O sistema entra em deadlock? Quais das chamadas são efetivamente executadas e atendidas?
 
-Essa descrição é o método de [impedir um deadlock](aula-5.md#impedir) que utiliza arestas de declarações para detectar um estado inseguro. Então esse grafo vai ter uma aresta a mais, a tracejada. <mark style="color:orange;">Para fazer</mark>, vamos ver a tabela e tracejar uma linha de todos os processos para todos os recursos solicitados.
+Essa descrição é o método de [impedir um deadlock](deadlock.md#impedir) que utiliza arestas de declarações para detectar um estado inseguro. Então esse grafo vai ter uma aresta a mais, a tracejada. <mark style="color:orange;">Para fazer</mark>, vamos ver a tabela e tracejar uma linha de todos os processos para todos os recursos solicitados.
 
 Depois disso, temos que pensar:
 

@@ -1,4 +1,4 @@
-# 📚 Dispositivos Móveis
+# Dispositivos Móveis
 
 Estudos para programação em Android usando linguagem Kotlin, Gradle e XML.
 

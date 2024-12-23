@@ -1,4 +1,4 @@
-# Aula 5
+# Deadlock
 
 Recursos (como a CPU, disco, basicamente tudo) são algo que o processo precisa para fazer alguma coisa. Esses recursos possuem instâncias, exemplo uma CPU com 4 cores, onde significa que esse recurso possui 4 instâncias e tanto faz qual usar. Os processos usam os recursos da seguinte maneira:
 
@@ -76,7 +76,7 @@ Segue um pouco da filosofia acima em procurar ciclos para sair desligando proces
 
 ### Ignorar
 
-Lidar com deadlock é algo muito difícil e crítico, portanto, esta metodologia será <mark style="color:blue;">usada na maioria esmagadora dos casos</mark>, que é o usuário apenas reiniciar o que travou. Ela só não poderá ser levada em consideração em casos críticos e para isso usamos o [impedir](aula-5.md#impedir).
+Lidar com deadlock é algo muito difícil e crítico, portanto, esta metodologia será <mark style="color:blue;">usada na maioria esmagadora dos casos</mark>, que é o usuário apenas reiniciar o que travou. Ela só não poderá ser levada em consideração em casos críticos e para isso usamos o [impedir](deadlock.md#impedir).
 
 ## Algorítmo de banqueiro
 

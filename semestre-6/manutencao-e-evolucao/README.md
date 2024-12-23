@@ -1,4 +1,4 @@
-# 📚 Manutenção e evolução
+# Manutenção e evolução
 
 ## Princípios iniciais&#x20;
 

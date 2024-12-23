@@ -4,27 +4,12 @@ Meus estudos e anotações sobre a área de Software durante os estudos da facul
 
 **Não contém** nenhuma propriedade de outro autor.
 
-### A fazer:
+## Ajuda ao criador
 
-* Reorganizar melhor páginas de banco de dados
-* Usar formatação de cores no caderno banco de dados
-* Melhorar a parte de backend faltando pedaços
-* CSS ocupação de divs melhorar conceituação que foi feito nas pressas, definindo também `viewport`
-* Paginação padronizada igual WEB + SO, com descrição da matéria e um sumário bem organizado onde ver cada conteúdo
-*   Técnicas avançadas de programação:
+Se você caiu na página do GitHub, deixe uma estrela no repositório para salvar e mais pessoas poderem ver esse conteúdo. O foco é ajudar outros estudantes mais novos e também somar conhecimento.
 
+<figure><img src=".gitbook/assets/github_star.gif" alt=""><figcaption></figcaption></figure>
 
+## Discussões
 
-    ```java
-    public void exibaItens() {
-        for (T item : itens) {
-            System.out.println(item);
-        }
-    }
-
-    ...
-
-        for (;;) {
-            break; // Para sair
-        }
-    ```
+Caso tenha uma dúvida, use a [página de discussões](https://github.com/leogianfagna/MeusEstudos/discussions/new/choose) do repositório para perguntar ou acrescentar algo!

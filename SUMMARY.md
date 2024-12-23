@@ -85,7 +85,7 @@
 
 ## Semestre 3
 
-* [📚 Dispositivos Móveis](semestre-3/dispositivos-moveis/README.md)
+* [Dispositivos Móveis](semestre-3/dispositivos-moveis/README.md)
   * [Conceitos da disciplina](semestre-3/dispositivos-moveis/conceitos-da-disciplina/README.md)
     * [Conceitos rápidos](semestre-3/dispositivos-moveis/conceitos-da-disciplina/conceitos-rapidos.md)
   * [Kotlin](semestre-3/dispositivos-moveis/kotlin/README.md)
@@ -160,11 +160,11 @@
     * [Expressões regulares](semestre-4/programacao-orientada-a-objetos/mecanismos/expressoes-regulares.md)
     * [Anotações](semestre-4/programacao-orientada-a-objetos/mecanismos/anotacoes.md)
 * [Sistemas operacionais](semestre-4/sistemas-operacionais/README.md)
-  * [Aula 1](semestre-4/sistemas-operacionais/aula-1.md)
-  * [Aula 2](semestre-4/sistemas-operacionais/aula-2.md)
-  * [Aula 3](semestre-4/sistemas-operacionais/aula-3.md)
-  * [Aula 4](semestre-4/sistemas-operacionais/aula-4.md)
-  * [Aula 5](semestre-4/sistemas-operacionais/aula-5.md)
+  * [Introdução à conceitos](semestre-4/sistemas-operacionais/introducao-a-conceitos.md)
+  * [Processos e threads](semestre-4/sistemas-operacionais/processos-e-threads.md)
+  * [Escalonamento da CPU](semestre-4/sistemas-operacionais/escalonamento-da-cpu.md)
+  * [Sincronização](semestre-4/sistemas-operacionais/sincronizacao.md)
+  * [Deadlock](semestre-4/sistemas-operacionais/deadlock.md)
   * [Sistema de arquivos](semestre-4/sistemas-operacionais/sistema-de-arquivos.md)
   * [Sistemas de IO](semestre-4/sistemas-operacionais/sistemas-de-io.md)
   * [Memória](semestre-4/sistemas-operacionais/memoria/README.md)
@@ -185,7 +185,7 @@
 
 ## Semestre 6
 
-* [📚 Manutenção e evolução](semestre-6/manutencao-e-evolucao/README.md)
+* [Manutenção e evolução](semestre-6/manutencao-e-evolucao/README.md)
   * [Capacidade de sobrevivência de sistemas](semestre-6/manutencao-e-evolucao/capacidade-de-sobrevivencia-de-sistemas.md)
   * [Engenharia de proteção](semestre-6/manutencao-e-evolucao/engenharia-de-protecao.md)
   * [Code Smells](semestre-6/manutencao-e-evolucao/code-smells.md)
