@@ -163,7 +163,13 @@ Aprenda a criar um backend usando um banco de dados MongoDB com tecnologia node.
 
 <figure><img src="../../.gitbook/assets/diagrama de backend em node.png" alt=""><figcaption></figcaption></figure>
 
-Abaixo será mostrado baseado em um projeto real.&#x20;
+### O que é node.js
+
+É uma [<mark style="color:purple;">runtime</mark> ](#user-content-fn-1)[^1]de Javascript que transforma esse código em C++ (muito perfomático). Ele é utilizado pois estende o JavaScript para fora do navegador, permitindo que ele interaja com o sistema operacional, arquivos locais, servidores e bancos de dados.
+
+O JavaScript só pode solicitar dados de um servidor existente (usando `fetch` ou `XMLHttpRequest`), já o Node permite criar o servidor. Não apenas isso mas o Node também garante segurança em requisições e vem com o `npm` (que é um gerenciador de pacotes do Node) que possui um vasto repositório de bibliotecas e pacotes reutilizáveis.
+
+Normalmente, toda linguagem que roda em servidor costuma ter o seu gerenciador de pacotes para instalar bibliotecas da internet. Os módulos ficam em `node_modules` mas essa pasta precisa ser descartável, isso quer dizer que cada instalação todos os pacotes são baixados novamente.
 
 ### Instalação
 
@@ -177,7 +183,7 @@ Abaixo será mostrado baseado em um projeto real.&#x20;
 
 ### Configuração de conexão
 
-Criaremos um arquivo chamado `db.js` responsável por configurar a conexão usando moongose[^1]. Ele vai se <mark style="color:blue;">conectar ao banco de dados</mark> usando a string de conexão que é fornecida pelo MongoDB. Utilizaremos um arquivo .env para salvar a string de conexão de forma segura.
+Criaremos um arquivo chamado `db.js` responsável por configurar a conexão usando moongose[^2]. Ele vai se <mark style="color:blue;">conectar ao banco de dados</mark> usando a string de conexão que é fornecida pelo MongoDB. Utilizaremos um arquivo .env para salvar a string de conexão de forma segura.
 
 ```yaml
 # Arquivo .env
@@ -201,11 +207,11 @@ export const connectDB = async () => {
 
 ### Configuração do servidor
 
-Esse arquivo `app.js` é o núcleo da aplicação com [<mark style="color:purple;">Express</mark>](#user-content-fn-2)[^2], que <mark style="color:blue;">integra os componentes</mark>. Usar `export const app = express()` estamos criando o aplicativo Express, que é a base para gerenciar rotas, middlewares e configurações e o export simboliza que ele poderá ser usado em outros arquivos.
+Esse arquivo `app.js` é o núcleo da aplicação com [<mark style="color:purple;">Express</mark>](#user-content-fn-3)[^3], que <mark style="color:blue;">integra os componentes</mark>. Usar `export const app = express()` estamos criando o aplicativo Express, que é a base para gerenciar rotas, middlewares e configurações e o export simboliza que ele poderá ser usado em outros arquivos.
 
 * Define as rotas usadas: Quando uma requisição chega ao servidor, o Express verifica as rotas conectadas e redireciona a requisição para o [controlador ](backend.md#controladores)correspondente. O controlador, por sua vez, processa a lógica e retorna uma resposta.
 * Estabelece conexão com o banco de dados: Usando a função criada na instalação, no arquivo `db.js`.
-* Configura [<mark style="color:purple;">middlewares</mark>](#user-content-fn-3)[^3]: Como habilitar o CORS[^4].
+* Configura [<mark style="color:purple;">middlewares</mark>](#user-content-fn-4)[^4]: Como habilitar o CORS[^5].
 
 ```javascript
 // Importações de framework
@@ -359,7 +365,7 @@ export const getKartTracks = async (req, res) => {
 
 ### Rotas
 
-O [**rotedor** ](#user-content-fn-5)[^5]é onde você conecta **URLs** a **funções do controlador**. Quando o cliente faz uma requisição para tal rota, o roteador <mark style="color:purple;">encaminha as requisições para o controlador</mark> associado e assim segue o caminho a partir de lá. Os dados enviados no corpo da requisição (JSON) serão processados pelo controlador.
+O [**rotedor** ](#user-content-fn-6)[^6]é onde você conecta **URLs** a **funções do controlador**. Quando o cliente faz uma requisição para tal rota, o roteador <mark style="color:purple;">encaminha as requisições para o controlador</mark> associado e assim segue o caminho a partir de lá. Os dados enviados no corpo da requisição (JSON) serão processados pelo controlador.
 
 As rotas criadas são exportadas para serem usadas no `app.js`.
 
@@ -380,12 +386,14 @@ classificationRoutes.post("/classifications", postClassification)
 export default classificationRoutes
 ```
 
-[^1]: Mongoose é um biblioteca de Modelagem de Dados de Objeto para MongoDB e Node.js. Ele é usado como tradutor entre objetos no código e a representação desses objetos no MongoDB.
+[^1]: Biblioteca utilizada por um compilador  na execução do programa.
 
-[^2]: Framework que manipula requisições e respostas no Node.js.
+[^2]: Mongoose é um biblioteca de Modelagem de Dados de Objeto para MongoDB e Node.js. Ele é usado como tradutor entre objetos no código e a representação desses objetos no MongoDB.
 
-[^3]: Middlewares são etapas pelo qual uma requisição passa antes de chegar ao seu destino final (ou controlador)
+[^3]: Framework que manipula requisições e respostas no Node.js.
 
-[^4]: Middleware que permite que seu servidor aceite requisições de outros domínios.
+[^4]: Middlewares são etapas pelo qual uma requisição passa antes de chegar ao seu destino final (ou controlador)
 
-[^5]: Será chamado como arquivo da rota.
+[^5]: Middleware que permite que seu servidor aceite requisições de outros domínios.
+
+[^6]: Será chamado como arquivo da rota.

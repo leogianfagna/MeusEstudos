@@ -64,6 +64,8 @@
     * [Layout](semestre-2/web/bootstrap/layout.md)
     * [Alterar estilos](semestre-2/web/bootstrap/alterar-estilos.md)
   * [Backend](semestre-2/web/backend.md)
+  * [React](semestre-2/web/react/README.md)
+    * [Conceitos](semestre-2/web/react/conceitos.md)
 * [Fundamentos de Engenharia de Sistemas](semestre-2/fundamentos-de-engenharia-de-sistemas/README.md)
   * [Conceitos rápidos](semestre-2/fundamentos-de-engenharia-de-sistemas/conceitos-rapidos.md)
   * [Modelagem](semestre-2/fundamentos-de-engenharia-de-sistemas/modelagem/README.md)
