@@ -1,5 +1,13 @@
 # Conceitos
 
+## Variáveis
+
+As variáveis `let` e `const` tem funcionalidades diferentes de `var` por não manchar o escopo global. Manchar o escopo significa perder o valor de uma variável global dentro de uma função, que pode acontecer se usarmos `var`.
+
+<figure><img src="../../../.gitbook/assets/variaveis var e let escopo global.png" alt=""><figcaption></figcaption></figure>
+
+Isso quer dizer que `let` e `const` respeitam o <mark style="color:purple;">escopo de bloco</mark>, ou seja, declarado entre chaves, significa que eles valem apenas dentro daquelas chaves.
+
 ### Notação de pontos (dot notation)
 
 O ponto é um operador muito importante para acessar um membro de um objeto. Esse membro pode ser propriedades ou métodos.
