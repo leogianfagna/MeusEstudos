@@ -66,6 +66,7 @@
   * [Backend](semestre-2/web/backend.md)
   * [React](semestre-2/web/react/README.md)
     * [Conceitos](semestre-2/web/react/conceitos.md)
+    * [Estrutura do código](semestre-2/web/react/estrutura-do-codigo.md)
 * [Fundamentos de Engenharia de Sistemas](semestre-2/fundamentos-de-engenharia-de-sistemas/README.md)
   * [Conceitos rápidos](semestre-2/fundamentos-de-engenharia-de-sistemas/conceitos-rapidos.md)
   * [Modelagem](semestre-2/fundamentos-de-engenharia-de-sistemas/modelagem/README.md)

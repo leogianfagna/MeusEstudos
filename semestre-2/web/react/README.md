@@ -4,13 +4,7 @@
 
 ## Instalação
 
-Apenas node é necessário para rodar uma aplicação react, que utiliza o comando `npx` (que o `x` vem de execute). Para iniciar, abrir um repositório no VsCode e executar o comando:
-
-```bash
-npx create-react-app nome-projeto
-```
-
-Essa versão acima pode estar deprecated. Neste caso, podemos criar uma aplicação react usando Vite, como [descrito aqui](https://www.freecodecamp.org/news/how-to-create-a-react-app-in-2024/). Nesse caso, usamos:
+Podemos criar uma aplicação react usando Vite, uma <mark style="color:purple;">ferramenta moderna de build</mark> que foi criada para fornecer um ambiente de desenvolvimento mais rápido e eficiente, como [descrito aqui](https://www.freecodecamp.org/news/how-to-create-a-react-app-in-2024/). Nesse caso, usamos:
 
 ```bash
 npm create vite@latest my-react-app -- --template react
@@ -19,6 +13,12 @@ cd my-react-app
 npm install
 npm run dev
 ```
+
+> Vídeo do curso ensinando como criar usando Vite [aqui](https://www.udemy.com/course/react-do-zero-a-maestria-c-hooks-router-api-projetos/learn/lecture/37942880?start=0#questions).
+
+## Extensões para uso
+
+<figure><img src="../../../.gitbook/assets/extensao snippets react.png" alt=""><figcaption></figcaption></figure>
 
 [^1]: Separa o site em pedaços, como barra de navegação. Eles são **reutilizados**. Menos código e mais projeto.
 
