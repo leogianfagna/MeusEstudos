@@ -21,7 +21,7 @@ console.log(arrowSum(5,5));   // = 10
 
 ## Sintaxe simplificada
 
-Quando temos apenas uma linha de código, que é algo comum em arrow functions, podemos simplificar sem a palavra `return` e também sem as chaves, ficando da seguinte forma:
+Quando temos apenas uma linha de código (ou podemos dizer que a arrow funcion não possui corpo, algo comum), podemos simplificar sem a palavra `return` e também sem as chaves, ficando da seguinte forma:
 
 ```javascript
 const arrowSum = (a,b) => a + b;
@@ -33,3 +33,10 @@ imprimir();
 
 ## Contexto de this
 
+Resumidamente, uma arrow function dentro de um objetivo <mark style="color:orange;">não tem o seu próprio this</mark> como seria no caso de uma função normal. Veja exemplos que guardam funções dentro de um objeto:
+
+<figure><img src="../../../.gitbook/assets/arrow function em objeto.png" alt=""><figcaption></figcaption></figure>
+
+O <mark style="color:blue;">contexto global</mark> seria onde ele está sendo executado. Então ele pode ser uma página HTML, um arquivo, uma função se estiver dentro de uma, etc. Portanto, a arrow function dentro de um objeto tem o mesmo resultado que uma função fora de qualquer objeto, como se fosse uma função normal sendo chamada `fun()` no meio do código.
+
+Isso é importante entender, muito mais em React, pois utiliza-se muito o this em classes de componentes. Isso será visto na página de [React](../react/).
