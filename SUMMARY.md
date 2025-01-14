@@ -51,6 +51,7 @@
     * [Truthy e Falsy values](semestre-2/web/javascript/truthy-e-falsy-values.md)
     * [Arrow Function](semestre-2/web/javascript/arrow-function.md)
     * [Métodos arrays](semestre-2/web/javascript/metodos-arrays.md)
+    * [Template Literals](semestre-2/web/javascript/template-literals.md)
     * [Utilização básica](semestre-2/web/javascript/utilizacao-basica/README.md)
       * [String contém](semestre-2/web/javascript/utilizacao-basica/string-contem.md)
       * [Switch True](semestre-2/web/javascript/utilizacao-basica/switch-true.md)
