@@ -18,8 +18,35 @@ Neste caso, “console” é o objeto global da linguagem JavaScript que oferece
 
 <figure><img src="../../../.gitbook/assets/javascript associar propriedades.png" alt=""><figcaption></figcaption></figure>
 
-### Notação de setas
+## Spread Operator
 
-São usadas para escrever funções anônimas de uma forma mais concisa. Como por exemplo:
+Usado com arrays e objetos, serve para constituir novos valores com base em outros existentes, em outras palavras, unir arrays ou objetos.
 
-<figure><img src="../../../.gitbook/assets/javascript notação de seta.png" alt=""><figcaption></figcaption></figure>
+#### Exemplos com array
+
+```javascript
+const a1 = [1,2,3]
+const a2 = [4,5,6]
+
+// Exemplos de Spread Operator
+const a3 = [...a1, ...a2]
+const a4 = [0, ...a1, 4]
+```
+
+#### Exemplos com objetos
+
+```javascript
+const carInfo = {
+    nome: "Yaris",
+    marca: "Toyota",
+    ano: 2019
+};
+
+const motorInfo = {
+    tipo: "flex",
+    potencia: 105,
+    motor: 1.5
+};
+
+const so = {...carInfo, ...motorInfo};
+```
