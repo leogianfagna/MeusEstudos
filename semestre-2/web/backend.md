@@ -153,13 +153,9 @@ Há uma aba chamada scripts onde você pode criar seus próprios comandos. Nesse
 
 <figure><img src="../../.gitbook/assets/comandos com packet json.png" alt=""><figcaption></figcaption></figure>
 
-
-
-
-
 ## Projeto BackEnd com node
 
-Aprenda a criar um backend usando um banco de dados MongoDB com tecnologia node. Um projeto que utiliza Node precisa tê-lo instalado no computador.
+Aprenda a criar um backend usando um banco de dados MongoDB com tecnologia node. Um projeto que utiliza Node precisa tê-lo instalado no computador. A criação de um back-end significa <mark style="color:blue;">fornecer uma API para a aplicação</mark>. Neste caso, estamos falando de uma API relacionada ao back-end.
 
 <figure><img src="../../.gitbook/assets/diagrama de backend em node.png" alt=""><figcaption></figcaption></figure>
 
