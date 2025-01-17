@@ -108,3 +108,49 @@ function FirstComponent() {
 ```
 
 `FirstComponent` e `AnotherComponent` são filhos de App, consequentemente são irmãos. Mas `AnotherComponent` também é filho de `FirstComponent`, pois está sendo utilizado nele.
+
+## Reutilização
+
+Com as [props](../avancando/props.md), a reutilização de componentes começa a fazer sentido pois agora não teremos componentes estáticos e podemos reaproveitar tudo do componente, como estilos, formatos, etc, mudando apenas os dados deles, tipo os títulos.
+
+Veja abaixo o reaproveitamento do componente CarDetailsDestructuring, onde todas as informações que preenche esse componente são fornecidas através de props.
+
+```jsx
+import CarDetailsDestructuring from "./components/CarDetailsDestructuring";
+
+function App() {
+  return (
+    <div className="tabela-carros">
+      <CarDetailsDestructuring brand="Toyota" km={0} color="black" />
+      <CarDetailsDestructuring brand="Fiat" km={53442} color="white" />
+      <CarDetailsDestructuring brand="Toyota" km={0} color="gray" />
+      <CarDetailsDestructuring brand="Renault" km={12432} color="black" />
+    </div>
+  );
+}
+
+export default App;
+```
+
+### Replicação
+
+Visto acima, se temos uma lista muito grande de produtos e precisamos exibir todos, podemos usar o que vimos em [renderização de lista](../avancando/renderizacao-de-lista.md) para renderizar todos os produtos. Vai consistir exatamente da mesma forma, mas em vez de renderizar tags HTML para cada iteração, vai ser renderizado o componente em si:
+
+```jsx
+function App() {
+  const carData = [
+    { id: 1, brand: "Toyota", km: 0, color: "black"},
+    { id: 2, brand: "Fiat", km: 0, color: "gray"},
+    { id: 3, brand: "Renault", km: 0, color: "red"},
+    { id: 4, brand: "Toyota", km: 0, color: "white"}
+  ]
+
+  return (
+    <div>
+      {carData.map((car) => (
+        <CarDetailsDestructuring key={car.id} brand={car.brand} km={car.km} color={car.color} />
+      ))}
+    </div>
+  );
+}
+```
