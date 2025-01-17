@@ -111,7 +111,7 @@ function FirstComponent() {
 
 ## Reutilização
 
-Com as [props](../../avancando/props.md), a reutilização de componentes começa a fazer sentido pois agora não teremos componentes estáticos e podemos reaproveitar tudo do componente, como estilos, formatos, etc, mudando apenas os dados deles, tipo os títulos.
+Com as [props](../avancando/props.md), a reutilização de componentes começa a fazer sentido pois agora não teremos componentes estáticos e podemos reaproveitar tudo do componente, como estilos, formatos, etc, mudando apenas os dados deles, tipo os títulos.
 
 Veja abaixo o reaproveitamento do componente CarDetailsDestructuring, onde todas as informações que preenche esse componente são fornecidas através de props.
 
@@ -134,7 +134,7 @@ export default App;
 
 ### Replicação
 
-Visto acima, se temos uma lista muito grande de produtos e precisamos exibir todos, podemos usar o que vimos em [renderização de lista](../../avancando/renderizacao-de-lista.md) para renderizar todos os produtos. Vai consistir exatamente da mesma forma, mas em vez de renderizar tags HTML para cada iteração, vai ser renderizado o componente em si:
+Visto acima, se temos uma lista muito grande de produtos e precisamos exibir todos, podemos usar o que vimos em [renderização de lista](../avancando/renderizacao-de-lista.md) para renderizar todos os produtos. Vai consistir exatamente da mesma forma, mas em vez de renderizar tags HTML para cada iteração, vai ser renderizado o componente em si:
 
 ```jsx
 function App() {

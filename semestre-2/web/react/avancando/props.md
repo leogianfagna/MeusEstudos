@@ -1,6 +1,6 @@
 # Props
 
-Possibilidade de passar valores de um componente pai para o componente filho, útil quando estamos lidando com dados vindos do back-end. Isso é responsável para gerar <mark style="color:purple;">componentes dinâmicos</mark>.&#x20;
+Possibilidade de <mark style="color:blue;">passar valores ou funções de um componente pai para o componente filho</mark>, útil quando estamos lidando com dados vindos do back-end. Isso é responsável para gerar <mark style="color:purple;">componentes dinâmicos</mark>.&#x20;
 
 Basicamente, quando o componente é inserido em algum lugar, ele pode receber tags, que serão esses dados. Essas tags são recebidas no arquivo do componente, onde podem ser manipuladas.
 
@@ -26,6 +26,29 @@ const ShowUserName = (props) => {
 };
 
 export default ShowUserName;
+```
+
+#### Caso de funções
+
+Se temos uma função declarada no elemento pai, ela também pode ser passada como props para o componente filho, como mostra abaixo. No componente filho, pode ser usada livremente, por exemplo, incluindo em tags tipo button formando algo do tipo:&#x20;
+
+```jsx
+<button onClick={children}>Executar função</button>
+```
+
+```jsx
+function App() {
+  function showMessage() {
+    console.log("!");
+  }
+  
+  return (
+    <div>
+      // Usando o componente e enviando propriedades
+      <MeuComponente myFuncion={showMessage} />
+    </div>
+  );
+}
 ```
 
 ## Destructuring em props
