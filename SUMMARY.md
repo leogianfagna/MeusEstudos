@@ -79,6 +79,7 @@
     * [Avançando](semestre-2/web/react/avancando/README.md)
       * [Imagens](semestre-2/web/react/avancando/imagens.md)
       * [Hooks](semestre-2/web/react/avancando/hooks.md)
+      * [Renderização de lista](semestre-2/web/react/avancando/renderizacao-de-lista.md)
   * [API](semestre-2/web/api/README.md)
     * [Criar API](semestre-2/web/api/criar-api.md)
     * [Postman](semestre-2/web/api/postman.md)

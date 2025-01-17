@@ -41,7 +41,7 @@ A função recebida do hook agora pode ser utilizada para alterar o valor de num
 import { useState } from "react";
 
 const ManageData = () => {
-  const [number, setNumber] = useState(10);
+  const [number, setNumber] = useState(10); // setNumber pode ser qualquer nome
 
   return (
     <div>
@@ -52,6 +52,38 @@ const ManageData = () => {
 };
 
 export default ManageData;
+```
+
+## Estado anterior
+
+Vimos acima que o hook useState altera o estado de um elemento, mas neste caso, para um número já definido e estático. Talvez possa ser necessário usar o estado atual para definir o novo valor de alteração, assim chamamos de <mark style="color:purple;">previous state</mark>. Muito comum em contadores, onde você precisa identificar qual número atual do contador para somar mais um.
+
+Sempre será resgatado o estado do elemento que está relacionado com ele. Vendo o exemplo acima, o método `setNumber` conseguirá resgatar o estado anterior da variável number, pois eles estão relacionados.
+
+<figure><img src="../../../../.gitbook/assets/previous state react.png" alt=""><figcaption></figcaption></figure>
+
+O estado anterior do elemento é passado como argumento da função. Então, se usássemos `setNumber(x)`, o valor de `x` será o estado anterior de number. Por convenção, a nomenclatura fica `prevElemento`.
+
+```jsx
+import { useState } from "react";
+
+const EstadoAnterior = () => {
+  const [varTeste, setState] = useState(15);
+
+  const dobrarValor = () => {
+    // Chama a função setState
+    setState((prevState) => prevState * 2); // Recebe prevState no parâmetro
+  };
+
+  return (
+    <div>
+      <p>Valor atual: {varTeste}</p>
+      <button onClick={dobrarValor}>Dobrar valor atual</button>
+    </div>
+  );
+};
+
+export default EstadoAnterior;
 ```
 
 [^1]: Como estado e ciclo de vida
