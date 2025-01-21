@@ -6,6 +6,8 @@ Na prática comum, cada arquivo do tipo JSX (uma sintaxe que permite escrever HT
 
 ## Criar componente
 
+> **Dica!** Para criar um componente de forma rápida, digite `rafce` no arquivo em branco e aperte TAB para se auto completar.
+
 O componente é composto por:
 
 * Função: Compõe a lógica e o template.
