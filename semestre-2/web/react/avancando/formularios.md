@@ -66,3 +66,103 @@ const [email, setMail] = useState();
   ></input>
 </label>
 ```
+
+## Envio
+
+Usando o evento `onSubmit` que fica na tag `<form>`, que [<mark style="color:blue;">chama uma função</mark>](#user-content-fn-1)[^1] para validar os dados. O submit no HTML faz recarregar a página e perder os dados, por isso, dentro dessa função podemos usar o método `preventDefault` para isso não acontecer.
+
+```jsx
+const MyForm = () => {
+  // Precisa atrelar esses valores ao dados inseridos nos formulários
+  const [number, setNumber] = useState();
+  const [email, setMail] = useState();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Enviando o form:");
+    console.log(`Dados:\n Número: ${number}\n Email: ${email}`)
+  }
+
+  const handleNumber = (e) => {
+    setNumber(e.target.value);
+  }
+
+  return (
+    <div>
+      {/* Criação do form */}
+      <form onSubmit={handleSubmit}>
+        
+        // Feito usando arrow function para definir o dado
+        <label>
+          <span>E-mail:</span>
+          <input
+            type="email"
+            name="email"
+            placeholder="Digite o email"
+            onChange={(e) => setMail(e.target.value)}
+          ></input>
+        </label>
+        
+        // Feito usando um método handleNumber
+        <label>
+          <span>Número:</span>
+          <input
+            type="number"
+            name="email"
+            placeholder="Coloque um número"
+            onChange={handleNumber}
+          ></input>
+        </label>
+
+        <input type="submit" value="enviar"></input>
+      </form>
+    </div>
+  );
+};
+```
+
+### Limpar o formulário
+
+Se necessidade limpar o formulário após o envio, basta apenas modificar `handleSubmit` para limpar os campos para strings vazias:
+
+```jsx
+const handleSubmit = (e) => {
+  e.preventDefault();
+  
+  // Limpar
+  setMail("");
+  setNumber("");
+}
+```
+
+## Controlled inputs (labels preenchidos)
+
+Serve para <mark style="color:purple;">formulários de edição</mark>, onde dados já vem prontos (de [props](props.md)). Apenas é modificado o componente acima:
+
+<figure><img src="../../../../.gitbook/assets/controlled inputs.png" alt=""><figcaption></figcaption></figure>
+
+```jsx
+// App.jsx
+<MyForm userData={{number: 4556, email: "leo@gmail.com"}}/>
+
+// MyForm.jsx
+const MyForm = ({ userData }) => {
+  const [number, setNumber] = useState(userData ? userData.number : "");
+  const [email, setMail] = useState(userData ? userData.email : "");
+  
+  return (
+    <form onSubmit={handleSubmit}>
+      <label>
+        <span>E-mail:</span>
+        <input
+          type="email"
+          name="email"
+          placeholder="Digite o email"
+          onChange={(e) => setMail(e.target.value)}
+          value={email} // Novo campo
+        ></input>
+      </label>
+      ...
+```
+
+[^1]: Normalmente chamada de `handleSubmit`.
