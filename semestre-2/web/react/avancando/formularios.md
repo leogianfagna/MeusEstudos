@@ -165,4 +165,22 @@ const MyForm = ({ userData }) => {
       ...
 ```
 
+## UseRef para focar
+
+É um hook que cria uma referência para algum lugar (elemento HTML) que neste caso será utilizado para o usuário estar com o teclado selecionado em algum input mesmo após o submit.
+
+```jsx
+const inputRef = useRef(null);
+
+const handleSubmit = (e) => {
+    inputRef.current.focus();
+}
+
+return (
+    <form onSubmit={handleSubmit}>
+        <input ref={inputRef}></input>
+    </form>
+);
+```
+
 [^1]: Normalmente chamada de `handleSubmit`.
