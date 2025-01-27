@@ -46,6 +46,8 @@
     * [Responsividade](semestre-2/web/css/responsividade.md)
     * [Wrapper](semestre-2/web/css/wrapper.md)
     * [Estilos legais](semestre-2/web/css/estilos-legais.md)
+    * [Como é feito](semestre-2/web/css/como-e-feito/README.md)
+      * [Imagem de fundo com conteúdo sobreposto](semestre-2/web/css/como-e-feito/imagem-de-fundo-com-conteudo-sobreposto.md)
   * [JavaScript](semestre-2/web/javascript/README.md)
     * [Conceitos](semestre-2/web/javascript/conceitos.md)
     * [Template Literals](semestre-2/web/javascript/template-literals.md)
