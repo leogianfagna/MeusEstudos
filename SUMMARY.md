@@ -190,6 +190,7 @@
     * [Reflect](semestre-4/programacao-orientada-a-objetos/mecanismos/reflect.md)
     * [Socket](semestre-4/programacao-orientada-a-objetos/mecanismos/socket.md)
     * [Expressões regulares](semestre-4/programacao-orientada-a-objetos/mecanismos/expressoes-regulares.md)
+    * [Plugins](semestre-4/programacao-orientada-a-objetos/mecanismos/plugins.md)
     * [Anotações](semestre-4/programacao-orientada-a-objetos/mecanismos/anotacoes.md)
 * [Sistemas operacionais](semestre-4/sistemas-operacionais/README.md)
   * [Introdução à conceitos](semestre-4/sistemas-operacionais/introducao-a-conceitos.md)
