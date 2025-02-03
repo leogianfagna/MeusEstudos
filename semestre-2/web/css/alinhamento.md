@@ -1,29 +1,27 @@
 # Alinhamento
 
-_Tutorial Try It de Nav bar:_ [_https://www.w3schools.com/howto/tryit.asp?filename=tryhow\_css\_topnav\_right_](https://www.w3schools.com/howto/tryit.asp?filename=tryhow\_css\_topnav\_right)
+_Tutorial Try It de Nav bar:_ [_https://www.w3schools.com/howto/tryit.asp?filename=tryhow\_css\_topnav\_right_](https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_topnav_right)
 
 ## Alinhar elementos na vertical
 
-Possivelmente o alinhamento mais difícil, isso é quando temos conteúdos que ficam um abaixo do outro e queremos alinhá-los verticalmente. Dessa forma:
+<figure><img src="../../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/alinhamento vertical em html.png" alt="" width="375"><figcaption></figcaption></figure>
+Usar `align-items: center` para centralizar os itens verticalmente dentro do [contêiner flexível](#user-content-fn-1)[^1]. Se necessário cálculos mais avançados, podemos utilizar a página de documentação sobre [alinhamento vertical](https://getbootstrap.com/docs/5.3/utilities/vertical-align/) do Bootstrap.
 
-Para fazer isso de uma forma **responsiva**, usamos o [Bootstrap](../bootstrap/). Ele mesmo possui essa página a respeito de [alinhamento vertical](https://getbootstrap.com/docs/5.3/utilities/vertical-align/), o que possui de forma pronta vários estilos poderosos para tabelas ou coisas do tipo, mas se queremos alinhar um elemento abaixo do outro verticalmente, precisamos inserir mais classes.
+### Erro: Alguns elementos tortos
 
-* `d-flex`: Classe necessária para transformar os itens filhos em flexíveis (apenas assim para deixar um abaixo do outro).
-* `flex-column`: Garante que os elementos estejam um abaixo do outro.
-* `justify-content-center`: Centraliza os itens verticalmente dentro do contêiner flexível.
-* `align-items-center`: Centraliza os itens horizontalmente dentro do contêiner flexível.
+<figure><img src="../../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
 
-```html
-<div class="d-flex flex-column justify-content-center align-items-center"
-     style="height: 100%;">
-    <h1>test h1</h1>
-    <p>test p</p>
-</div>
+Veja como está torto, isso porque elementos de escrita como \<p> possuem margens e espaçamentos extras, basta removê-las:
+
+```css
+.event-icon p,
+.event-name p {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
 ```
-
-Isso vai ser suficiente para nosso propósito e vai alinhar verticalmente e horizontalmente os elementos. O estilo `height` é <mark style="color:orange;">necessário</mark>, pois o alinhamento verticalmente é baseado em quanto a div tem de altura, correto? Por isso é necessário declarar para o cálculo. Neste caso, estamos usando `100%` que indica todo o tamanho da div pai. Se não houver div pai, você pode usar outros jeitos como `vh` ou tamanhos fixos.
 
 ## Margin padrão do body
 
@@ -157,3 +155,5 @@ Além de **none**, **right** e **left**, ele também poderá ser **inherit**, qu
 ```
 
 <figure><img src="../../../.gitbook/assets/alinhamento css 1.png" alt=""><figcaption></figcaption></figure>
+
+[^1]: Ou seja, precisa usar flex box.
