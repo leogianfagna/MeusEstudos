@@ -96,6 +96,7 @@
     * [Criar API](semestre-2/web/api/criar-api.md)
     * [Postman](semestre-2/web/api/postman.md)
     * [Status de resposta](semestre-2/web/api/status-de-resposta.md)
+  * [GitHub Pages](semestre-2/web/github-pages.md)
 * [Fundamentos de Engenharia de Sistemas](semestre-2/fundamentos-de-engenharia-de-sistemas/README.md)
   * [Conceitos rápidos](semestre-2/fundamentos-de-engenharia-de-sistemas/conceitos-rapidos.md)
   * [Modelagem](semestre-2/fundamentos-de-engenharia-de-sistemas/modelagem/README.md)
