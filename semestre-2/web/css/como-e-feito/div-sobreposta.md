@@ -1,6 +1,6 @@
 # Div sobreposta
 
-<figure><img src="../../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/nav bar.png" alt=""><figcaption></figcaption></figure>
 
 Quando criamos uma div, por exemplo, e queremos que ela fique em cima da div de baixo, sem quebrar sua formatação.
 

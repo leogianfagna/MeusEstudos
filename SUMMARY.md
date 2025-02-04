@@ -153,8 +153,9 @@
 
 * [Banco de dados](semestre-4/banco-de-dados/README.md)
   * [Estrutura e conceituação](semestre-4/banco-de-dados/estrutura-e-conceituacao/README.md)
-    * [Definições](semestre-4/banco-de-dados/estrutura-e-conceituacao/definicoes.md)
-    * [Conceitos da disciplina](semestre-4/banco-de-dados/estrutura-e-conceituacao/conceitos-da-disciplina.md)
+    * [Conceitos](semestre-4/banco-de-dados/estrutura-e-conceituacao/conceitos.md)
+    * [Fundamentos](semestre-4/banco-de-dados/estrutura-e-conceituacao/fundamentos.md)
+    * [Modelagem](semestre-4/banco-de-dados/estrutura-e-conceituacao/modelagem.md)
   * [Relacional](semestre-4/banco-de-dados/relacional/README.md)
     * [Banco de dados relacional](semestre-4/banco-de-dados/relacional/banco-de-dados-relacional.md)
     * [PL/SQL](semestre-4/banco-de-dados/relacional/pl-sql.md)

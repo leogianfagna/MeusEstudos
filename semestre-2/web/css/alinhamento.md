@@ -4,13 +4,13 @@ _Tutorial Try It de Nav bar:_ [_https://www.w3schools.com/howto/tryit.asp?filena
 
 ## Alinhar elementos na vertical
 
-<figure><img src="../../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/alinhamento correto pela tag p.png" alt=""><figcaption></figcaption></figure>
 
 Usar `align-items: center` para centralizar os itens verticalmente dentro do [contêiner flexível](#user-content-fn-1)[^1]. Se necessário cálculos mais avançados, podemos utilizar a página de documentação sobre [alinhamento vertical](https://getbootstrap.com/docs/5.3/utilities/vertical-align/) do Bootstrap.
 
 ### Erro: Alguns elementos tortos
 
-<figure><img src="../../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/alinhamento errado pela tag p.png" alt=""><figcaption></figcaption></figure>
 
 Veja como está torto, isso porque elementos de escrita como \<p> possuem margens e espaçamentos extras, basta removê-las:
 

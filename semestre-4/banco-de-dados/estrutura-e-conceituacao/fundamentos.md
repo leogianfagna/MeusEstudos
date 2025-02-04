@@ -1,20 +1,18 @@
-# Conceitos da disciplina
+# Fundamentos
 
 ## Banco de dados relacionais x não relacionais
 
-Esses bancos de dados possuem finalidades diferentes. O banco relacional trabalha com linhas e colunas, com a principal capacidade é estabelecer relacionamento entre as tabelas. Consiste em uma estrutura organizada, com estrutura de dados definida (relações claras entre as entidades), consultas complexas (podendo usar dados de diferentes tabelas), segurança, entre outros&#x20;
+Esses bancos de dados possuem finalidades diferentes. Não podemos comparar puramente pois eles são estruturas diferentes com propósitos também diferentes.
 
-Já o não relacional pode possuir um modelo colunar (coluna ao invés de linhas), de grafos (dados interconectados, montagem de sistema de recomendação), chave-valor (dados armazenados na chave e cache) e orientado a documentos (grande volume de informações, cada documento com uma quantia de informações). &#x20;
+O banco relacional foi feito para organizar o [pensamento analítico do projetista](#user-content-fn-1)[^1]. Ele trabalha com <mark style="color:blue;">tabelas estabelecendo relacionamento forte entre elas</mark>. Consiste em uma estrutura organizada que <mark style="color:green;">foca na integridade dos dados</mark>, com estrutura de dados definida (relações claras entre as entidades), consultas complexas (podendo usar dados de diferentes tabelas), segurança, entre outros&#x20;
 
-Sendo assim, vantajoso em ser usado quando precisa de uma flexibilidade maior de dados e alta escalabilidade enquanto o relacional é usado quando exigem uma alta integridade dos dados.&#x20;
-
-Os mais usados de relacionais são Oracle, MySQL e Microsoft SQL Server. Já os não relacionais são NoSQL, Redis, MondoDB, Cassandra, etc.&#x20;
+O banco não relacional foi feito para [performance nas buscas](#user-content-fn-2)[^2]. Já o não relacional <mark style="color:blue;">pode possuir diferentes estruturas</mark> (grafos, chave-valor, documentos, etc) permitindo e <mark style="color:green;">focando em uma maior flexibilidade e alta escalabilidade</mark>.
 
 ## Conceitos práticos entre bancos relacionais e não relacionais
 
 Banco relacional não é repetição e sim orientado a organização. O não relacional desorganiza para ter desempenho. Isso quer dizer que você pode ter redundância de dados em um banco não relacional.&#x20;
 
-Mesmo os dados não tendo padrão de organização, existe uma semântica/ taxinomia necessária. Não colocar documento de tal assunto em uma coleção que não lhe compete, para otimizar as buscas e não acontecer certos problemas.&#x20;
+Mesmo os dados não tendo padrão de organização, existe uma semântica/taxinomia necessária. Não colocar documento de tal assunto em uma coleção que não lhe compete, para otimizar as buscas e não acontecer certos problemas.
 
 MongoDB é manter alta disponibilidade. Deve ser construído pelo design da solução/arquitetura que adotar. Para garantir, criar pelo menos mais uma cópia dos dados, chamado de Réplica Sets.&#x20;
 
@@ -36,15 +34,6 @@ Esses bancos de dados foram inicialmente criados em relacionais devido a tecnolo
 
 Portanto, deve-se saber como arquitetar, trabalhar com o banco antigo e usar projetos bons com mongo. A emissão de cupons fiscais eletrônicos (SAT), é um sistema padronizado no Brasil que só consegue ser lido usando banco de dados relacional. Portanto, em um sistema novo criado, as vezes vai ter a limitação de precisar de um banco de dados relacional, caso a empresa seja do ramo financeiro.&#x20;
 
-## Princípios de uso dos bancos de dados&#x20;
-
-1. Evitar comparar puramente relacional com não relacional;&#x20;
-2. NoSQL existe para performance nas buscas, enquanto o relacional foi criado para organizar o pensamento analítico do projetista (modelagem de acordo com a sua cabeça e não como o computador trabalha):&#x20;
-   1. Mongo vai repetir dados (próximo tópico). Isso garante a performance e, claramente, parece que bagunça todos os dados;&#x20;
-3. Banco de dados não relacionais devem ser projetados para ótima performance de busca desconsiderando repetição dos dados;&#x20;
-4. Evitar agregações ao máximo:&#x20;
-   1. Você pode usar o mongo para organização, contudo, ele não foi feito para isso e perderá performance.
-
 ## O que são e como funcionam clusters do tipo Réplica Set
 
 Os clusters (conjunto de servidores) do tipo Réplica Set tem como objetivo promover a alta disponibilidade dos serviços de um banco de dados não relacional. Eles são um conjunto de nodes (3 ou mais) contendo um nó primário e um secundário, onde o nó primário recebe as informações, grava e copia elas para os demais nós, no objetivo de ter os dados repetidos como se fosse um backup.&#x20;
@@ -60,3 +49,7 @@ Ao criar um projeto, você precisa fazer a instalação (deployment) de um banco
 Três dados básicos para o cluster é a velocidade de leitura, tamanho da memória de processamento e armazenamento. O M0 é o cluster básico onde essas características são mínimas, é utilizado para estudos e testes. Esse cluster é compartilhado entre vários usuários, portanto, ele vai possuir diversas variações nas buscas e no desempenho por causa desse compartilhamento e limitação de recursos.&#x20;
 
 Já o M200, é um cluster de alto desempenho. Ele é dedicado, ou seja, não compartilhado entre outros usuários. Isso torna-o extremamente poderoso, possui níveis de processamento e velocidade de leitura muito superior aos demais, o que o torna também mais caro. &#x20;
+
+[^1]: Modelagem de acordo com a sua cabeça de quem projetou e não como o computador trabalha.
+
+[^2]: Isso pode causar repetição de dados o que pode gerar um ar de bagunça.
