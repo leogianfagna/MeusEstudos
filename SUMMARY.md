@@ -152,6 +152,9 @@
 ## Semestre 4
 
 * [Banco de dados](semestre-4/banco-de-dados/README.md)
+  * [SQL](semestre-4/banco-de-dados/sql/README.md)
+    * [Introdução](semestre-4/banco-de-dados/sql/introducao.md)
+    * [Gerenciando tabelas](semestre-4/banco-de-dados/sql/gerenciando-tabelas.md)
   * [Estrutura e conceituação](semestre-4/banco-de-dados/estrutura-e-conceituacao/README.md)
     * [Conceitos](semestre-4/banco-de-dados/estrutura-e-conceituacao/conceitos.md)
     * [Fundamentos](semestre-4/banco-de-dados/estrutura-e-conceituacao/fundamentos.md)
