@@ -70,6 +70,8 @@
   * [Estilização](semestre-2/web/estilizacao.md)
   * [Bootstrap](semestre-2/web/bootstrap/README.md)
     * [Importação](semestre-2/web/bootstrap/importacao.md)
+    * [Uso de componentes](semestre-2/web/bootstrap/uso-de-componentes/README.md)
+      * [Modal](semestre-2/web/bootstrap/uso-de-componentes/modal.md)
     * [Layout](semestre-2/web/bootstrap/layout.md)
     * [Alterar estilos](semestre-2/web/bootstrap/alterar-estilos.md)
   * [Backend](semestre-2/web/backend.md)

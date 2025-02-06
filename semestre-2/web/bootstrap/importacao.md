@@ -4,6 +4,8 @@ description: https://getbootstrap.com/docs/5.3/getting-started/introduction/
 
 # Importação
 
+## HTML puro
+
 É necessário **importar** separadamente o CSS (no `<head>`) e o Javascript (no `<body>`). Então, adicionar as seguintes linhas para importar:
 
 ```html
@@ -21,4 +23,16 @@ description: https://getbootstrap.com/docs/5.3/getting-started/introduction/
   <!-- Adicionar essa linha para importar o javascript -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
+```
+
+## React
+
+```bash
+npm install react-bootstrap bootstrap
+```
+
+Depois basta importar os elementos que for usar em cada componente, como:
+
+```jsx
+import { Button } from 'react-bootstrap';
 ```
