@@ -160,6 +160,8 @@
   * [SQL](semestre-4/banco-de-dados/sql/README.md)
     * [Introdução](semestre-4/banco-de-dados/sql/introducao.md)
     * [Gerenciando tabelas](semestre-4/banco-de-dados/sql/gerenciando-tabelas.md)
+    * [Comandos de CRUD](semestre-4/banco-de-dados/sql/comandos-de-crud.md)
+    * [Select avançado](semestre-4/banco-de-dados/sql/select-avancado.md)
   * [Estrutura e conceituação](semestre-4/banco-de-dados/estrutura-e-conceituacao/README.md)
     * [Conceitos](semestre-4/banco-de-dados/estrutura-e-conceituacao/conceitos.md)
     * [Fundamentos](semestre-4/banco-de-dados/estrutura-e-conceituacao/fundamentos.md)
