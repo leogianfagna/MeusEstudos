@@ -106,7 +106,51 @@ SELECT COUNT(DISTINCT cargos) FROM funcionarios;
 
 <table><thead><tr><th width="206">Função</th><th>Descrição</th></tr></thead><tbody><tr><td>MIN</td><td>Valor mínimo de um filtro.</td></tr><tr><td>MAX</td><td>Valor máximo de um filtro.</td></tr><tr><td>AVG</td><td>Média de valores de um filtro</td></tr><tr><td>COUNT</td><td>Conta o número de registros da condição.</td></tr><tr><td>SUM</td><td>Soma todos os valores de um filtro.</td></tr></tbody></table>
 
+## LIKE
 
+(É um operador também?) Usado para buscar um padrão, podendo usar um "coringa" `%`. Ele é como se fosse um operador de condição:
+
+* `%valor`: O que estiver antes não importa.
+* `valor%`: O que estiver depois não importa.
+* `%valor%`: Contenha em qualquer lugar.
+
+```sql
+SELECT first_name FROM employees WHERE first_name LIKE "%Geo";
+```
+
+## IN
+
+(é um operador) para buscar um conjunto de valores, uma lista declarada por abertura e fechamento de parênteses.
+
+```sql
+SELECT * FROM employees WHERE first_name IN ("Parto", "Sumant")
+```
+
+## Faixa de valores BETWEEN
+
+Um operador que declara um intervalo para os registros utilizando também o operador `AND` como auxiliar:
+
+```sql
+SELECT * FROM salaries WHERE salary BETWEEN 60000 AND 65000;
+```
+
+## Alias - Renomeação de coluna
+
+A palavra `AS` é a abreviação de alias e é a palavra utilizada para isso. Renomear coluna com um nome não objetivo.&#x20;
+
+O AS vem acompanhado após o nome da coluna e o SELECT, com isso podendo renomear várias colunas dessa forma:
+
+```sql
+# Antes
+SELECT col1, col2 FROM tabela;
+
+# Depois
+SELECT col1 AS "Coluna 1", col2 AS "Coluna 2" FROM TABELA;
+```
+
+```sql
+SELECT SUM(salary) AS "Soma do Salário" FROM salaries;
+```
 
 ## Renomear coluna
 
