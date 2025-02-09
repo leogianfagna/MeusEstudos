@@ -36,17 +36,15 @@ VALUES ("Batedeira", 50);
 
 A palavra `AUTO_INCREMENT` permite omitir definir o ID na hora da inserção da tabela e faz o trabalho de sempre criar um ID único para cada registro.
 
-
-
 {% hint style="info" %}
 Colunas com chaves primárias ganham um índice automaticamente, uma característica padrão das tabelas com chave primária.
 {% endhint %}
 
 ## Chave estrangeira
 
-É sobre relacionamento entre tabelas que é referenciado pela chave primária. Um exemplo seria criar uma tabela de endereços que é [<mark style="color:purple;">**relacionada**</mark>](#user-content-fn-2)[^2] com usuários.
+É sobre relacionamento entre tabelas que é referenciado pela chave primária, que pode ser consultado usando [JOIN](unindo-tabelas.md). Um exemplo seria criar uma tabela de endereços que é [<mark style="color:purple;">**relacionada**</mark>](#user-content-fn-2)[^2] com usuários.
 
-```
+```sql
 FOREIGN KEY (nome_da_coluna_tabela_atual)
 REFERENCES nome_da_outra_tabela(nome_coluna_tabela_estrangeira)
 ```
@@ -107,7 +105,13 @@ ON employees(first_name);
 SELECT * FROM employees WHERE first_name = "Georgi";
 ```
 
-Existem [prós e contras de se usar índices](https://www.alura.com.br/artigos/indices-no-postgresql), portanto, sempre ver a melhor alternativa.
+Existem [prós e contras de se usar índices](https://www.alura.com.br/artigos/indices-no-postgresql), portanto, sempre ver a melhor alternativa. Ele precisa ser muito estudado para verificar onde deve existir um índice.
+
+### Remover um índice
+
+```sql
+DROP INDEX index_nome ON employees
+```
 
 [^1]: Especificamente, não pode ser mandado o dado `NULL` no insert, isso faz com que haja necessidade da aplicação back-end mandar o dado `NULL` ao invés de não mandar nada.
 
