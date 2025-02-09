@@ -77,3 +77,6 @@ mysqldump -u root nome_banco > nome_arquivo.sql
 
 É possível fazer na página "Server" no Mysql WorkBench.
 
+## Comentários no código
+
+Para linha única usar `--` ou `#`. Para múltiplas linhas igual JavaScript com `/* */`.
