@@ -27,7 +27,7 @@ Utilizado para <mark style="color:green;">descrever</mark> os **objetos** do mun
 
 * **UM PARA UM (1:1)**: Pessoa `Jonas` se associa unicamente a um `Endereço de Cobrança`.
 * **UM PARA MUITOS (1:N)**: Cliente `Jhow` se associa a vários `Pedidos`, porém, cada um desses pedidos só estão relacionados a ele.
-* **MUITOS PARA MUITOS (N:N)**: Um `Pedido` pode conter vários `Produtos`. Um `Produto` pode estar em vários `Pedidos`.
+* **MUITOS PARA MUITOS (N:N)**: Um `Pedido` pode conter vários `Produtos`. Um `Produto` pode estar em vários `Pedidos`. Só pode ser feitas através de uma tabela intermediária.
 
 </details>
 
@@ -123,5 +123,15 @@ JOIN pedido_produto ON pedidos.id = pedido_produto.pedido_id
 JOIN produtos ON pedido_produto.produto_id = produtos.id;
 
 ```
+
+## Modelagem no MySql Workbench
+
+É possível modelar usando o **SGDB** MySQ&#x4C;**.** Ao entrar, ele já tem a opção de modelagem (bem completa e com bastante recursos).
+
+Essa modelagem utiliza as seguintes setas para relacionamentos:
+
+<figure><img src="../../../.gitbook/assets/setas de relacionamento workbench.png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../../.gitbook/assets/ex relacionamento no mysql.png" alt=""><figcaption></figcaption></figure>
 
 [^1]: Pessoa X **trabalha** para a empresa Y.
