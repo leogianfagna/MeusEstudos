@@ -289,6 +289,11 @@
 
 ## Semestre 5
 
+* [Tópicos de tecnologia e programação](semestre-5/topicos-de-tecnologia-e-programacao/README.md)
+  * [Introdução](semestre-5/topicos-de-tecnologia-e-programacao/introducao.md)
+  * [Conceitos](semestre-5/topicos-de-tecnologia-e-programacao/conceitos.md)
+  * [Prolog (Programação Lógica)](semestre-5/topicos-de-tecnologia-e-programacao/prolog-programacao-logica/README.md)
+    * [Predicados e cláusulas](semestre-5/topicos-de-tecnologia-e-programacao/prolog-programacao-logica/predicados-e-clausulas.md)
 * [Ciência de dados](semestre-5/ciencia-de-dados/README.md)
   * [Conceitos](semestre-5/ciencia-de-dados/conceitos.md)
   * [Introdução](semestre-5/ciencia-de-dados/introducao.md)
