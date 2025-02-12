@@ -286,3 +286,9 @@
 * [GitHub](outros-estudos/github/README.md)
   * [Forks](outros-estudos/github/forks.md)
 * [Técnicas de programação](outros-estudos/tecnicas-de-programacao.md)
+
+## Semestre 5
+
+* [Ciência de dados](semestre-5/ciencia-de-dados/README.md)
+  * [Conceitos](semestre-5/ciencia-de-dados/conceitos.md)
+  * [Introdução](semestre-5/ciencia-de-dados/introducao.md)
