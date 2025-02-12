@@ -22,7 +22,7 @@ UNION ALL SELECT coluna_1 FROM outra_tabela
 
 Agrupamento de resultados, por exemplo: quantos pessoas por cargo existem no banco de dados? Resultando isso:
 
-<figure><img src="../../../.gitbook/assets/group by em sql.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/group by em sql.png" alt=""><figcaption></figcaption></figure>
 
 ```sql
 SELECT cargo, COUNT(*) AS "Quantidade no cargo"
@@ -34,7 +34,7 @@ GROUP BY cargo;
 
 Sempre que estamos usando funções de agregação, o `WHERE` não pode ser utilizado e teremos que usar o `HAVING`. Veja neste caso, onde a condição é feita com HAVING pois existe uma aggregate function `GROUP BY`.
 
-<figure><img src="../../../.gitbook/assets/sql having.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/sql having.png" alt=""><figcaption></figcaption></figure>
 
 ## Sub Query
 

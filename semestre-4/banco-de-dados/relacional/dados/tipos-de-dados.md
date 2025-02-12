@@ -1,22 +1,4 @@
-# Gerenciando tabelas
-
-A tabela é a entidade responsável por organizar os dados em colunas (são como categorias que possuem tipos de dados e atributos). Os atributos são não nulo, chave primária e outros.
-
-## Criação
-
-```sql
-CREATE TABLE nome_tabela (nome_coluna VARCHAR(200), ...)
-```
-
-## Deletar
-
-```sql
-DROP TABLE nome_tabela
-```
-
-> COMO FUNCIONA QUANDO SE TEM CHAVES ESTRANGEIRAS?
-
-## Tipos de dados
+# Tipos de dados
 
 A **regra básica para seleção do tipo** quando eles podem ser confundidos é para que vai usá-los. Números representam quantidades. CPF ou CNPJ são quantidades? Não, são identificadores que podem até mesmo mudar, que podem um dia ter letras. Por outro lado, um saldo bancário será usado para receber operações matemáticas, portanto, precisam ser números.
 
@@ -48,38 +30,6 @@ As datas são inseridas entre aspas, então `VALUES ("1999-01-25")`.
 
 </details>
 
-## Inserir dados
+## Uso de VARCHAR e CHAR&#x20;
 
-A inserção precisa seguir a ordem das colunas igual está no banco ou especificar cada coluna respectivamente depois do INSERT INTO.
-
-```sql
-INSERT INTO produtos (nome, sku, informacoes) # Especifica as colunas, redundante
-VALUES ("PlayStation", "PS5", "Video Game");
-
-INSERT INTO produtos # Não especifica as colunas, precisa inserir o ID
-VALUES (1001, "PlayStation", "PS5", "Video Game");
-```
-
-## Alterar tabelas
-
-Comandos de alteração usa o prefixo `ALTER TABLE`.
-
-### Adicionar coluna
-
-```sql
-ALTER TABLE nome_tabela ADD COLUMN nome_coluna VARCHAR(100);
-```
-
-### Remover coluna
-
-Por via das dúvidas, sempre se mantém os dados do sistema pois não se sabe se vai usar em um futuro. Então remover colunas não é algo feito com frequência.
-
-```sql
-ALTER TABLE nome_tabela DROP COLUMN nome_coluna
-```
-
-### Altera coluna
-
-```sql
-ALTER TABLE nome_tabela ALTER TABLE nome_coluna INT
-```
+O VARCHAR é um <mark style="color:purple;">variable char</mark>, isso significa que não se sabe do tamanho dele. Quando sabemos o exato tamanho (tipo sigla de país), podemos usar `CHAR(2)`, já que tem o tamanho que será inserido na tabela.&#x20;

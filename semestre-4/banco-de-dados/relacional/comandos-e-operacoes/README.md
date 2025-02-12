@@ -1,16 +1,6 @@
-# Comandos de CRUD
+# Comandos e operações
 
-São operações de dados: Create|read|update|delete
 
-## Select com colunas específicas
-
-Trocar o `*` (que simboliza todas as colunas) pelo nome das colunas que queremos (separada por vírgulas):
-
-```sql
-SELECT * FROM pessoas;
-
-SELECT nome, rg FROM pessoas;
-```
 
 ## Cláusula WHERE
 

@@ -11,3 +11,4 @@
 * Dataset: coleção de dados&#x20;
 * MER: Modelo Entidade-Relacionamento utilizado em modelagem de banco de dados.
 * DER: Diagrama Entidade-Relacionamento utilizado em modelagem de banco de dados.
+* **Comandos de CRUD**: São operações e comandos de manipulação de dados (create, read, update e delete) usado no banco de dados.

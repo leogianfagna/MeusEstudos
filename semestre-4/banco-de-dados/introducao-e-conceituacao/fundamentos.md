@@ -28,7 +28,7 @@ No MongoDB, o equivalente a tabela é coleção de documentos. Ao invés de linh
 
 ## Arquitetura e distribuição de dados “dbs”
 
-90% das empresas brasileiras usam banco de dados operacionais para as operações (aqueles para operar o negócio). Por que não mudar para bancos não relacionais? &#x20;
+90% das empresas brasileiras usam banco de dados relacionais para as operações (aqueles para operar o negócio). Por que não mudar para bancos não relacionais? &#x20;
 
 Esses bancos de dados foram inicialmente criados em relacionais devido a tecnologia que existia no momento. Por isso, existem milhares de processos já salvos no banco de dados. Se houver algum problema em algum processo, isso vai dar prejuízo. Além de que, uma transferência disso custo absurdamente caro.&#x20;
 

@@ -1,8 +1,4 @@
-# Introdução
-
-SQL é uma linguagem de banco de dados. Linguaguem estruturada de consulta.
-
-Elementos de um banco de dados: diagrama, banco de dados, tabelas, colunas e dados.
+# Gerenciamento de bancos
 
 <details>
 
@@ -28,10 +24,10 @@ Um banco de dados é a entidade, que fica as tabelas, views, triggers, etc.
 CREATE DATABASE teste;
 DROP DATABASE teste;
 
-# Usar o banco criado
+-- Usar o banco criado
 USE teste;
 
-# Visualizar todos os bancos
+-- Visualizar todos os bancos
 SHOW DATABASES;
 ```
 
@@ -39,13 +35,9 @@ SHOW DATABASES;
 
 ```sql
 SELECT * FROM empresa.funcionarios;
-# Empresa = Banco
-# Funcionarios = Tabela dentro desse banco
+-- Empresa = Banco
+-- Funcionarios = Tabela dentro desse banco
 ```
-
-## Convenção
-
-Todos comandos de SQL são maíusculos e nomes minúsculos. Nomes compostos são usados com underline, tipo `nome_tabela`. Usar ponto e vírgula.
 
 ## Importação de banco de dados
 
@@ -69,14 +61,10 @@ Arquivo pronto que será inserido no SGDB.&#x20;
 
 ## Exportação
 
-A exportação de um banco vira um arquivo `.sql`. ~~Esse comando são todos os scripts de um banco para criação e inserção de tabelas e os dados que havia lá~~ (melhorar). Para fazer isso com comando:
+A exportação de um banco de dados gera um arquivo `.sql`. Este arquivo contém todos os scripts necessários para criar e popular tabelas com os dados originais. Para fazer isso com comando:
 
 ```bash
 mysqldump -u root nome_banco > nome_arquivo.sql
 ```
 
 É possível fazer na página "Server" no Mysql WorkBench.
-
-## Comentários no código
-
-Para linha única usar `--` ou `#`. Para múltiplas linhas igual JavaScript com `/* */`.

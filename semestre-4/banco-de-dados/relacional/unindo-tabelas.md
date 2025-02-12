@@ -1,6 +1,6 @@
 # Unindo tabelas
 
-JOIN é a possibilidade de unir consultas com diferentes tabelas (pode ser mais de duas), não necessariamente se elas fazem relação entre si.
+`JOIN` é a possibilidade de unir consultas com diferentes tabelas (pode ser mais de duas), não necessariamente se elas fazem relação entre si.
 
 Por utilizar duas tabelas, usamos a notação de ponto para simbolizar qual tabelas vamos utilizar, desta forma:
 

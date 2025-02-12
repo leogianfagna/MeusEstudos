@@ -1,6 +1,4 @@
-# Planejamento
-
-## Normalização
+# Normalização
 
 Regras que o banco de dados precisa ter, dividida em vários níveis:
 
