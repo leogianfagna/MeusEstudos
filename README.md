@@ -4,6 +4,10 @@ Meus estudos e anotações sobre a área de Software durante os estudos da facul
 
 **Não contém** nenhuma propriedade de outro autor.
 
+## Acessar conteúdo
+
+Veja todo o conteúdo produzindo acessando o [sumário](SUMMARY.md).
+
 ## Ajuda ao criador
 
 Se você caiu na página do GitHub, deixe uma estrela no repositório para salvar e mais pessoas poderem ver esse conteúdo. O foco é ajudar outros estudantes mais novos e também somar conhecimento.

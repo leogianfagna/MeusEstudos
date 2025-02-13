@@ -256,6 +256,17 @@
     * [GFC](semestre-4/tecnicas-de-verificacao-e-validacao/ferramentas/gfc.md)
     * [Pairwise](semestre-4/tecnicas-de-verificacao-e-validacao/ferramentas/pairwise.md)
 
+## Semestre 5
+
+* [Tópicos de tecnologia e programação](semestre-5/topicos-de-tecnologia-e-programacao/README.md)
+  * [Introdução](semestre-5/topicos-de-tecnologia-e-programacao/introducao.md)
+  * [Conceitos](semestre-5/topicos-de-tecnologia-e-programacao/conceitos.md)
+  * [Prolog (Programação Lógica)](semestre-5/topicos-de-tecnologia-e-programacao/prolog-programacao-logica/README.md)
+    * [Predicados e cláusulas](semestre-5/topicos-de-tecnologia-e-programacao/prolog-programacao-logica/predicados-e-clausulas.md)
+* [Ciência de dados](semestre-5/ciencia-de-dados/README.md)
+  * [Conceitos](semestre-5/ciencia-de-dados/conceitos.md)
+  * [Introdução](semestre-5/ciencia-de-dados/introducao.md)
+
 ## Semestre 6
 
 * [Manutenção e evolução](semestre-6/manutencao-e-evolucao/README.md)
@@ -286,14 +297,3 @@
 * [GitHub](outros-estudos/github/README.md)
   * [Forks](outros-estudos/github/forks.md)
 * [Técnicas de programação](outros-estudos/tecnicas-de-programacao.md)
-
-## Semestre 5
-
-* [Tópicos de tecnologia e programação](semestre-5/topicos-de-tecnologia-e-programacao/README.md)
-  * [Introdução](semestre-5/topicos-de-tecnologia-e-programacao/introducao.md)
-  * [Conceitos](semestre-5/topicos-de-tecnologia-e-programacao/conceitos.md)
-  * [Prolog (Programação Lógica)](semestre-5/topicos-de-tecnologia-e-programacao/prolog-programacao-logica/README.md)
-    * [Predicados e cláusulas](semestre-5/topicos-de-tecnologia-e-programacao/prolog-programacao-logica/predicados-e-clausulas.md)
-* [Ciência de dados](semestre-5/ciencia-de-dados/README.md)
-  * [Conceitos](semestre-5/ciencia-de-dados/conceitos.md)
-  * [Introdução](semestre-5/ciencia-de-dados/introducao.md)
