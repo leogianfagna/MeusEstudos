@@ -266,6 +266,8 @@
 * [Ciência de dados](semestre-5/ciencia-de-dados/README.md)
   * [Conceitos](semestre-5/ciencia-de-dados/conceitos.md)
   * [Introdução](semestre-5/ciencia-de-dados/introducao.md)
+* [Padrões de arquitetura](semestre-5/padroes-de-arquitetura/README.md)
+  * [Introdução](semestre-5/padroes-de-arquitetura/introducao.md)
 
 ## Semestre 6
 
