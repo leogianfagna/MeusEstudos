@@ -26,7 +26,7 @@ Para lembrar, note que nenhum forma uma flecha.
 * `;` = OR
 * `:-` IMPLICA ou SE (depende da ordem que lê)
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/clausula prolog.png" alt=""><figcaption></figcaption></figure>
 
 Sentido :arrow\_right: (usar SE): Aluno passou `SE` nota for maior que 5 e frequência maior que 75.
 
