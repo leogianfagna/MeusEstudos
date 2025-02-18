@@ -35,6 +35,7 @@
     * [Elementos escondidos](semestre-2/web/html/elementos-escondidos.md)
     * [Alterar elementos pelo script](semestre-2/web/html/alterar-elementos-pelo-script.md)
   * [CSS](semestre-2/web/css/README.md)
+    * [Layout](semestre-2/web/css/layout.md)
     * [Alinhamento](semestre-2/web/css/alinhamento.md)
     * [Posicionamento de divs](semestre-2/web/css/posicionamento-de-divs.md)
     * [Ocupação de divs](semestre-2/web/css/ocupacao-de-divs.md)
