@@ -1,30 +1,4 @@
-# Predicados e cláusulas
-
-Linguaguem lógica é feita para fazer <mark style="color:purple;">banco de conhecimento</mark>, portanto, ele é feito para <mark style="color:green;">fatos e regras</mark>.
-
-## Predicados
-
-* Cara de funções/métodos.
-* Representam <mark style="color:green;">afirmações</mark> sobre os parâmetros.
-* Podem resultar em verdadeiras ou falsas. As falsas levam à <mark style="color:orange;">erro de lógica</mark>.
-* Combinações de predicados + expressões relacionais formam <mark style="color:purple;">cláusulas</mark> (também resultam em verdadeiro ou falso).
-
-### Operadores relacionais
-
-Para lembrar, note que nenhum forma uma flecha.
-
-* `@<`
-* `@=<`
-* `@>`
-* `@>=`
-* `\==`
-* `==`
-
-### Conectivos lógicos
-
-* `,` = AND
-* `;` = OR
-* `:-` IMPLICA ou SE (depende da ordem que lê)
+# Cláusulas
 
 <figure><img src="../../../.gitbook/assets/clausula prolog.png" alt=""><figcaption></figcaption></figure>
 

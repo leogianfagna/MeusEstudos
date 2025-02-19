@@ -61,4 +61,41 @@ String mensagem = plugin.getConfig().getString("mensagens.cura");
 NamespacedKey key = new NamespacedKey(plugin, "cajado_cura");
 ```
 
+## Carregar mudanças do config.yml
+
+Se esse arquivo teve mudanças em uma nova atualização, podemos criar um método que carregue essas novas mudanças, sem a necessidade de <mark style="color:orange;">recriar o config</mark>. Esse método deve ser chamado no `onEnable` do plugin.
+
+```java
+public void updateConfig() {
+    File configFile = new File(getDataFolder(), "config.yml");
+    if (!configFile.exists()) {
+        saveResource("config.yml", false);
+        return;
+    }
+
+    YamlConfiguration config = YamlConfiguration.loadConfiguration(configFile);
+    YamlConfiguration defaultConfig = YamlConfiguration
+            .loadConfiguration(new InputStreamReader(getResource("config.yml"), StandardCharsets.UTF_8));
+
+    boolean checkLineChanges = false;
+
+    for (String key : defaultConfig.getKeys(true)) {
+        if (!config.contains(key)) {
+            config.set(key, defaultConfig.get(key));
+            checkLineChanges = true;
+        }
+    }
+
+    if (checkLineChanges) {
+        try {
+            config.save(configFile);
+            getLogger().info("Config.yml atualizado com novas opções.");
+        } catch (IOException e) {
+            getLogger().severe("Erro ao salvar o config.yml!");
+            e.printStackTrace();
+        }
+    }
+}
+```
+
 [^1]: Por exemplo `Listener`, `CommandExecutor` ou qualquer funcionalidade que a classe faça.
