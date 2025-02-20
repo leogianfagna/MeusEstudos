@@ -272,6 +272,8 @@
   * [Introdução](semestre-5/ciencia-de-dados/introducao.md)
 * [Padrões de arquitetura](semestre-5/padroes-de-arquitetura/README.md)
   * [Introdução](semestre-5/padroes-de-arquitetura/introducao.md)
+* [Gerência de configuração](semestre-5/gerencia-de-configuracao/README.md)
+  * [Introdução](semestre-5/gerencia-de-configuracao/introducao.md)
 
 ## Semestre 6
 
