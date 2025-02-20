@@ -77,7 +77,7 @@ Quando substituídos, podemos ver se a cláusula é verdadeira. Quando temos o p
 
 ### Variável intermediária
 
-Para descobrir `avoPat(Avo,Neto)`, é necessário saber quem é o pai/mãe. Nisso, usamos uma **variável intermediária** com o objetivo de receber o nome do pai/mãe e poder usar em diferentes lugares, exemplo:
+Para descobrir `avoPat(Avo,Neto)`, é necessário saber quem é o pai/mãe. Nisso, usamos uma **variável intermediária** com o objetivo de <mark style="color:blue;">**receber automaticamente**</mark> o nome do pai/mãe e <mark style="color:green;">poder usar em diferentes lugares</mark>, exemplo:
 
 ```prolog
 % Fatos
@@ -92,13 +92,17 @@ avoPat(A,N) :- nasceu(Alguem,_,A,_),nasceu(N,_,Alguem,_).
 
 Veja que esse `Alguem` recebe o valor do Prolog automaticamente, preenche com esse valor nos predicados e retorna o resultado.
 
+{% hint style="info" %}
+Veja o exemplo completo na [lista de exercícios aqui](../../../exerc%C3%ADcios/prolog/intro-1.pl).
+{% endhint %}
+
 [^1]: Por exemplo, após substituir os parâmetros genéricos recebidos na query temos:
 
     `nasceu(joao,_,jose,_).`
 
 
 
-    O prolog vai procurar um fato que se assemele ao resultado acima, sendo joao na primeira posição e jose na terceira. O resto pode ser qualquer coisa.
+    O prolog vai procurar um fato que se assimela ao resultado acima, sendo joao na primeira posição e jose na terceira. O resto pode ser qualquer coisa.
 
 
 
