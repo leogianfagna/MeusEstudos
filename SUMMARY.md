@@ -122,6 +122,7 @@
   * [Fila](semestre-2/estrutura-de-dados/fila.md)
   * [Pilha](semestre-2/estrutura-de-dados/pilha.md)
   * [Árvores](semestre-2/estrutura-de-dados/arvores.md)
+  * [Grafos](semestre-2/estrutura-de-dados/grafos.md)
 
 ## Semestre 3
 
