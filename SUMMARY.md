@@ -261,6 +261,14 @@
 
 ## Semestre 5
 
+* [Ciência de dados](semestre-5/ciencia-de-dados/README.md)
+  * [Conceitos](semestre-5/ciencia-de-dados/conceitos.md)
+  * [Introdução](semestre-5/ciencia-de-dados/introducao.md)
+  * [Estruturas](semestre-5/ciencia-de-dados/estruturas.md)
+  * [Jupyter Notebook](semestre-5/ciencia-de-dados/jupyter-notebook.md)
+  * [Pandas](semestre-5/ciencia-de-dados/pandas.md)
+* [Inteligência artificial](semestre-5/inteligencia-artificial/README.md)
+  * [Busca](semestre-5/inteligencia-artificial/busca.md)
 * [Tópicos de tecnologia e programação](semestre-5/topicos-de-tecnologia-e-programacao/README.md)
   * [Introdução](semestre-5/topicos-de-tecnologia-e-programacao/introducao.md)
   * [Conceitos](semestre-5/topicos-de-tecnologia-e-programacao/conceitos.md)
@@ -268,18 +276,12 @@
     * [Paradigma](semestre-5/topicos-de-tecnologia-e-programacao/prolog-programacao-logica/paradigma.md)
     * [Predicados](semestre-5/topicos-de-tecnologia-e-programacao/prolog-programacao-logica/predicados.md)
     * [Cláusulas](semestre-5/topicos-de-tecnologia-e-programacao/prolog-programacao-logica/clausulas.md)
-* [Ciência de dados](semestre-5/ciencia-de-dados/README.md)
-  * [Conceitos](semestre-5/ciencia-de-dados/conceitos.md)
-  * [Introdução](semestre-5/ciencia-de-dados/introducao.md)
-  * [Estruturas](semestre-5/ciencia-de-dados/estruturas.md)
-  * [Jupyter Notebook](semestre-5/ciencia-de-dados/jupyter-notebook.md)
-  * [Pandas](semestre-5/ciencia-de-dados/pandas.md)
 * [Padrões de arquitetura](semestre-5/padroes-de-arquitetura/README.md)
   * [Introdução](semestre-5/padroes-de-arquitetura/introducao.md)
 * [Gerência de configuração](semestre-5/gerencia-de-configuracao/README.md)
   * [Introdução](semestre-5/gerencia-de-configuracao/introducao.md)
-* [Inteligência artificial](semestre-5/inteligencia-artificial/README.md)
-  * [Busca](semestre-5/inteligencia-artificial/busca.md)
+* [Estatística](semestre-5/estatistica/README.md)
+  * [Conceitos base](semestre-5/estatistica/conceitos-base.md)
 
 ## Semestre 6
 
