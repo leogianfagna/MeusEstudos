@@ -278,6 +278,8 @@
   * [Introdução](semestre-5/padroes-de-arquitetura/introducao.md)
 * [Gerência de configuração](semestre-5/gerencia-de-configuracao/README.md)
   * [Introdução](semestre-5/gerencia-de-configuracao/introducao.md)
+* [Inteligência artificial](semestre-5/inteligencia-artificial/README.md)
+  * [Busca](semestre-5/inteligencia-artificial/busca.md)
 
 ## Semestre 6
 
