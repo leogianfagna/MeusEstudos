@@ -18,7 +18,7 @@ A coluna `emp_no` está presente nas duas tabelas. Ela será a coluna que utiliz
 
 ### INNER JOIN
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Resulta nas colunas que <mark style="color:purple;">fazem relação</mark> entre as tabelas. Utilizamos a instrução `ON` para determinar as colunas que precisam ser iguais.
 
