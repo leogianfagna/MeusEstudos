@@ -96,6 +96,7 @@
       * [Props](semestre-2/web/react/avancando/props.md)
       * [State lift](semestre-2/web/react/avancando/state-lift.md)
       * [Formulários](semestre-2/web/react/avancando/formularios.md)
+      * [Context API](semestre-2/web/react/avancando/context-api.md)
       * [Criação de projetos](semestre-2/web/react/avancando/criacao-de-projetos/README.md)
         * [Projetos simples](semestre-2/web/react/avancando/criacao-de-projetos/projetos-simples.md)
     * [CSS](semestre-2/web/react/css.md)
