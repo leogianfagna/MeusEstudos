@@ -316,3 +316,4 @@
 * [GitHub](outros-estudos/github/README.md)
   * [Forks](outros-estudos/github/forks.md)
 * [Técnicas de programação](outros-estudos/tecnicas-de-programacao.md)
+* [Django com Mongo](outros-estudos/django-com-mongo.md)
