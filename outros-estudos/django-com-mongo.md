@@ -60,31 +60,17 @@ Essas lógicas são definidas em dois arquivos diferentes. Acaba se assimilando 
 Atualmente, o tutorial abaixo <mark style="color:red;">não está utilizando serializers</mark> que é útil para uma aplicação API RESTful, será atualizada em um futuro.
 
 * **Models**: Define a estrutura dos dados e interage diretamente com o banco de dados. Modelos definem a lógica de negócios relacionada aos dados, como <mark style="color:blue;">criação de objetos, validações de dados, consultas complexas</mark> e métodos personalizados que envolvem a manipulação dos dados.
-* **Views**: Responsáveis por <mark style="color:blue;">lidar com as requisições HTTP e retornar respostas</mark>, frequentemente usando templates ou APIs. Elas <mark style="color:orange;">utilizam os modelos</mark> para manipular os dados e apresentar as informações ao usuário.
+* **Views**: Responsáveis por <mark style="color:blue;">lidar com as requisições HTTP e retornar respostas</mark>, frequentemente usando templates ou APIs. Como ela é responsável pela resposta ao usuário, podemos incluir mais lógica aqui para retornar mais dados ainda se quisermos. Elas <mark style="color:orange;">utilizam os modelos</mark> para manipular os dados e apresentar as informações ao usuário.
 
-### Views
+{% hint style="info" %}
+Os métodos dos modelos e views necessitam ter a mesma lógica. Então, se um modelo implementa uma lógica de  checar se o usuário já existe, a view também precisa da mesma lógica.
 
-Declarado no arquivo `views.py`. Cada método representa uma operação no banco de dados.
-
-```python
-from django.http import JsonResponse
-from .models import User
-from backend.api.serializers import UserSerializer
-
-def add_user(request):
-    username = request.GET.get('username')
-    password = request.GET.get('password')
-    
-    if username and password:
-        return JsonResponse({"username": username, "tickers": tickers})
-        
-    else:
-        return JsonResponse({"message": "Invalid data"}, status=400)
-```
+Mas repare que a view pode conferir de outra maneira, usando o que foi resgatado de `result`.
+{% endhint %}
 
 ### Modelos
 
-Declarado no arquivo `models.py`. Cada método representa uma operação no banco de dados.
+Declarado no arquivo `models.py`. Cada método representa uma **operação no banco de dados**.
 
 ```python
 from django.db import models
@@ -101,9 +87,41 @@ class User(models.Model):
     tickers = models.JSONField(default=list)
 
     @staticmethod
-    def add_user(username, password):
-        user_data = {"username": username, "password": password}
-        collection.insert_one(user_data)
+    def add_user(full_name, username, password):
+        user_data = collection.find_one({"username": username})
+
+        if user_data:
+            return "Username already in use"
+        else:
+            user_data = {
+                "full_name": full_name,
+                "username": username,
+                "password": password
+            }
+            collection.insert_one(user_data)
+            return "User registred successfully"
+```
+
+### Views
+
+Declarado no arquivo `views.py`. Cada método **representa a resposta ao usuário**, repare que essa <mark style="color:blue;">resposta é recebida ao chamar o método modelo do outro arquivo</mark> `User.add_user`.
+
+```python
+def add_user(request):
+    full_name = request.GET.get('full_name')
+    username = request.GET.get('username')
+    password = request.GET.get('password')
+    
+    if username and password:
+        result = User.add_user(full_name, username, password)
+        
+        # Checa se já existe um username com esse nome
+        if result == "User registred successfully":
+            return JsonResponse({"message": "User registered successfully"})
+        else:
+            return JsonResponse({"message": result}, status=400)
+    else:
+        return JsonResponse({"message": "Missing username and password"}, status=400)
 ```
 
 ## Rotas (URLs)
