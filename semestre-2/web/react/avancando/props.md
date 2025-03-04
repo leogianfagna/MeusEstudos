@@ -57,7 +57,7 @@ Vimos que [destructuring ](../../javascript/destructuring.md)é uma forma em Jav
 
 Na imagem abaixo, seria como faríamos da forma acima. Com destructuring, o parâmetro `props` deixa de existir e já é recebido como um objeto, no formato do destructuring. Assim, podemos usar as variáveis como se elas tivessem declaradas no arquivo:
 
-<figure><img src="../../../../.gitbook/assets/props em react.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ```jsx
 // App.jsx
