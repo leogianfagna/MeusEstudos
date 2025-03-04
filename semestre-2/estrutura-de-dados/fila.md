@@ -23,7 +23,7 @@ Vemos que são menos operações já que não temos a possibilidade de escolher 
 
 Como dito acima, a fila utiliza duas structs. A struct cliente[^1] não será passada como parâmetro nas operações de remoção, etc. Isso porque o primeiro elemento pode ser acessada através da struct fila, que guarda o ponteiro para ela.
 
-<figure><img src="../../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/representacao de fila em estruturas.png" alt=""><figcaption></figcaption></figure>
 
 Então a struct cliente não será necessário já que o elemento importante dela pode ser acessada através da outra struct. A struct que guarda o dado seria passada como parâmetro em caso de editar os dados ali dentro (int, char, etc).
 
