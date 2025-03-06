@@ -123,7 +123,10 @@
   * [Fila](semestre-2/estrutura-de-dados/fila.md)
   * [Pilha](semestre-2/estrutura-de-dados/pilha.md)
   * [Árvores](semestre-2/estrutura-de-dados/arvores.md)
-  * [Grafos](semestre-2/estrutura-de-dados/grafos.md)
+  * [Grafos](semestre-2/estrutura-de-dados/grafos/README.md)
+    * [Definição](semestre-2/estrutura-de-dados/grafos/definicao.md)
+    * [Representação computacional](semestre-2/estrutura-de-dados/grafos/representacao-computacional.md)
+    * [Busca](semestre-2/estrutura-de-dados/grafos/busca.md)
 
 ## Semestre 3
 

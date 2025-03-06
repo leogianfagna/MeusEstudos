@@ -13,7 +13,7 @@ ancestral(X, Y) :- progenitor(X, Alguem), ancestral(Alguem, Y).
 
 #### Lógica recursiva
 
-<figure><img src="../../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/recursão em prolog.png" alt=""><figcaption></figcaption></figure>
 
 A recursão fica repetidamente procurando quem é o pai/mãe (progenitor) de `X` e usando esse argumento novamente no ancestral, até que encontre o progenitor direto.
 
