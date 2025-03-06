@@ -291,6 +291,7 @@
   * [Linha de referência](semestre-5/gerencia-de-configuracao/linha-de-referencia.md)
 * [Estatística](semestre-5/estatistica/README.md)
   * [Conceitos base](semestre-5/estatistica/conceitos-base.md)
+  * [Medidas de posição](semestre-5/estatistica/medidas-de-posicao.md)
   * [Distribuição de frequência](semestre-5/estatistica/distribuicao-de-frequencia.md)
 
 ## Semestre 6
