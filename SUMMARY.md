@@ -273,6 +273,7 @@
   * [Pandas](semestre-5/ciencia-de-dados/pandas.md)
 * [Inteligência artificial](semestre-5/inteligencia-artificial/README.md)
   * [Busca](semestre-5/inteligencia-artificial/busca.md)
+  * [Aprendizado de máquina](semestre-5/inteligencia-artificial/aprendizado-de-maquina.md)
 * [Tópicos de tecnologia e programação](semestre-5/topicos-de-tecnologia-e-programacao/README.md)
   * [Introdução](semestre-5/topicos-de-tecnologia-e-programacao/introducao.md)
   * [Conceitos](semestre-5/topicos-de-tecnologia-e-programacao/conceitos.md)
