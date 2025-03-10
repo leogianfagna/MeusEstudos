@@ -295,6 +295,7 @@
   * [Conceitos base](semestre-5/estatistica/conceitos-base.md)
   * [Medidas de posição](semestre-5/estatistica/medidas-de-posicao.md)
   * [Distribuição de frequência](semestre-5/estatistica/distribuicao-de-frequencia.md)
+  * [Variação e dispersão](semestre-5/estatistica/variacao-e-dispersao.md)
 
 ## Semestre 6
 
