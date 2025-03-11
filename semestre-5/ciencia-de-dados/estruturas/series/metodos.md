@@ -53,6 +53,15 @@ print(serie_um.lt(serie_dois).values)
 
 Manipular elementos ou até toda a serie usando métodos.
 
+{% hint style="success" %}
+A seleção de resultados pode ser combinado com o método `dropna()` (explicado na seleção de métodos ausentes). Basicamente, basta chamar o método depois de aplicar qualquer tipo de filtro ou seleção, que isso vai retornar um resultado mais limpo.
+
+```javascript
+// Cria o filtro com where, depois exibe apenas esses resultados
+serie.where(s > 50).dropna()
+```
+{% endhint %}
+
 ```javascript
 // Substitui todos os valores "zero" por "um"
 nova_serie = uma_serie.replace(0, 1)
