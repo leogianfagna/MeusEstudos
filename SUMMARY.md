@@ -272,6 +272,8 @@
     * [Series](semestre-5/ciencia-de-dados/estruturas/series/README.md)
       * [Atributos](semestre-5/ciencia-de-dados/estruturas/series/atributos.md)
       * [Métodos](semestre-5/ciencia-de-dados/estruturas/series/metodos.md)
+    * [Dataframes](semestre-5/ciencia-de-dados/estruturas/dataframes.md)
+  * [Manipulação de arquivos](semestre-5/ciencia-de-dados/manipulacao-de-arquivos.md)
 * [Inteligência artificial](semestre-5/inteligencia-artificial/README.md)
   * [Busca](semestre-5/inteligencia-artificial/busca.md)
   * [Aprendizado de máquina](semestre-5/inteligencia-artificial/aprendizado-de-maquina.md)
