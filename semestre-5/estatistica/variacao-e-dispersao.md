@@ -34,7 +34,7 @@ Simbolizado com `da`, segue a mesma lógica mas a <mark style="color:blue;">soma
 
 ### Desvio quadrático
 
-Simbolizado com dq, surge para corrigir o fato do desvio absoluto extrapolar o número quando se tem muitos dados.
+Simbolizado com `dq`, surge para corrigir o fato do desvio absoluto extrapolar o número quando se tem muitos dados. Ele não é feito em módulo e sim ao quadrado, para resultados negativos não anularem positivos.
 
 <figure><img src="../../.gitbook/assets/formula desvio quadratico.png" alt=""><figcaption></figcaption></figure>
 
@@ -60,7 +60,9 @@ Simbolizado com `S^2` (não significa que está ao quadrado), a fórmula pode mu
 
 ## Coeficiente de variação
 
-Simbolizado com `CV`, ele obtém um resultado em porcentagem e por isso facilita a visualziação da variação. É considerado algo adimencional.
+Simbolizado com `CV`, ele obtém um resultado em porcentagem e por isso facilita a visualização da variação. É considerado algo adimencional.
+
+Vai ter como resultado algo parecido com `0,04` por exemplo, e por isso multiplica por `100`, pois assim fica facilmente visualizado como `4%`.
 
 <figure><img src="../../.gitbook/assets/formula coeficiente de variação.png" alt="" width="266"><figcaption></figcaption></figure>
 
