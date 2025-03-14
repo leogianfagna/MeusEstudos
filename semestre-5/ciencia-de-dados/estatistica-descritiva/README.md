@@ -1,7 +1,7 @@
 # Estatística descritiva
 
 {% hint style="info" %}
-Essa seção utiliza conhecimentos obtidos em estatística, como as [medidas de posição](../estatistica/medidas-de-posicao.md) e [variação e dispersão de dados](../estatistica/variacao-e-dispersao.md).
+Essa seção utiliza conhecimentos obtidos em estatística, como as [medidas de posição](../../estatistica/medidas-de-posicao.md) e [variação e dispersão de dados](../../estatistica/variacao-e-dispersao.md).
 {% endhint %}
 
 Conhecer os dados (como sua distribuição numérica, como estão organizados, etc) é o primeiro passo para criar um modelo de IA. Uma análise dos dados pode ser:
@@ -17,21 +17,21 @@ A **distribuição de dados** gera gráficos que são usados para calcular a **s
 
 Colocar a distribuição de dados em um gráfico é possível verificar qual o tipo de simetria entre eles, pois vai formar algo desse tipo:
 
-<figure><img src="../../.gitbook/assets/simetria em distribuição de dados.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/simetria em distribuição de dados.png" alt=""><figcaption></figcaption></figure>
 
-Visualmente é fácil reconhecer. Contudo, para reconhecer isso matematicamente, utilizamos os valores de [média](../estatistica/medidas-de-posicao.md#media-aritmetica), [mediana](../estatistica/medidas-de-posicao.md#mediana) e [moda](../estatistica/medidas-de-posicao.md#moda) e verificamos a proximidade entre eles. Quando aparece como igual `=`, isso quer dizer valores próximos.
+Visualmente é fácil reconhecer. Contudo, para reconhecer isso matematicamente, utilizamos os valores de [média](../../estatistica/medidas-de-posicao.md#media-aritmetica), [mediana](../../estatistica/medidas-de-posicao.md#mediana) e [moda](../../estatistica/medidas-de-posicao.md#moda) e verificamos a proximidade entre eles. Quando aparece como igual `=`, isso quer dizer valores próximos.
 
 ### Interpretação para desvio padrão
 
-O cálculo do [desvio padrão](../estatistica/variacao-e-dispersao.md#desvio-padrao) nos ajuda a verificar <mark style="color:blue;">se a distribuição de dados é normal</mark>, mas isso é válido <mark style="color:orange;">apenas se a distribuição for simétrica</mark>, algo visto acima. Caso não seja, não utilizaremos essa técnica.
+O cálculo do [desvio padrão](../../estatistica/variacao-e-dispersao.md#desvio-padrao) nos ajuda a verificar <mark style="color:blue;">se a distribuição de dados é normal</mark>, mas isso é válido <mark style="color:orange;">apenas se a distribuição for simétrica</mark>, algo visto acima. Caso não seja, não utilizaremos essa técnica.
 
-<figure><img src="../../.gitbook/assets/interpretação para desvio padrao.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/interpretação para desvio padrao.png" alt="" width="563"><figcaption></figcaption></figure>
 
 Então o gráfico acima mostra como os dados devem estar distribuídos para considerar uma **distribuição normal**. Então por exemplo, se o desvio padrão é 2 e a média é 5, 68% dos dados devem estar entre `3` (que é `5-2`) e `7` (que é `5+2`).
 
 ### Interpretação para CV
 
-Lembrando que, se quisermos medir o quão grande é desvio padrão, usamos o [coeficiente de variação](../estatistica/variacao-e-dispersao.md), todos conceitos vistos em estatística.
+Lembrando que, se quisermos medir o quão grande é desvio padrão, usamos o [coeficiente de variação](../../estatistica/variacao-e-dispersao.md), todos conceitos vistos em estatística.
 
 Se o resultado desse coeficiente for menor que 20%, quer dizer que a mistura é homogênea/interface gráfica consistente (pouca variação).
 
@@ -39,7 +39,7 @@ Se o resultado desse coeficiente for menor que 20%, quer dizer que a mistura é 
 
 Quartis[^1], decis[^2] e percentis[^3] <mark style="color:blue;">dividem os dados</mark> (que devem estar em ordem crescente) em partes iguais e isso permite relacionar [quantidades de um com outro](#user-content-fn-4)[^4]. Se um se equivale com o outro, vamos optar por **usar percentis** nas métricas.
 
-<figure><img src="../../.gitbook/assets/l para medidas de posição relativa.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/l para medidas de posição relativa.png" alt="" width="375"><figcaption></figcaption></figure>
 
 Usando a fórmula acima, o percentil `Pk` será:
 
@@ -64,7 +64,7 @@ Uma métrica usada para um único valor para descobrir o quão raro ele é em re
 
 Seu resultado será um número e, se o valor resultar **menor que –2** ou **maior que 2**, ele é incomum.
 
-<figure><img src="../../.gitbook/assets/escore z.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/escore z.png" alt="" width="375"><figcaption></figcaption></figure>
 
 <details>
 
@@ -95,11 +95,11 @@ Por exemplo, venda de sorvete **tem correlação** com protetor solar, mas um **
 Site exemplo disto: [https://www.tylervigen.com/spurious-correlations](https://www.tylervigen.com/spurious-correlations)
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/coeficiente de associação ou correlação.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/coeficiente de associação ou correlação.png" alt=""><figcaption></figcaption></figure>
 
 | Valores de r (+ ou -) | O que significa        |
 | --------------------- | ---------------------- |
-| 0,00&#xD;             | Ausência de Correlaçã  |
+| 0,00&#xD;             | Ausência de Correlação |
 | 0,01 a 0,19 &#xD;     | Correlação muito fraca |
 | 0,20 a 0,39&#xD;      | Correlação fraca       |
 | 0,40 a 0,69           | Correlação moderada    |
@@ -108,6 +108,54 @@ Site exemplo disto: [https://www.tylervigen.com/spurious-correlations](https://w
 | 1,00                  | Correlação perfeita    |
 
 Quanto mais próximo de 1 o valor de R, mais visivelmente podemos ver a correlação de dados em um gráfico. O valor de R pode ser negativo, e assim, quer dizer que tem uma correlação negativa (o gráfico está decrescente).
+
+## Métodos estatística descritiva
+
+Leve como `df` sendo um dataframe com dados, mas que poderia também ser uma serie!
+
+```python
+media = df['Idade'].mean()
+mediana = df['Idade'].median()
+moda = df['Idade'].mode()
+variancia = df['Idade'].var()
+desvio_padrao = df['Idade'].std()
+amplitude = max(df['Idade']) - min(df['Idade'])
+coeficiente_variacao = df['Idade'].std() / df['Idade'].mean() # * 100 se quiser
+```
+
+#### Quartil
+
+A biblioteca Pandas fornece apenas quartil para cálculos e ele é usado para todos os casos (se deseja percentil ou decil).&#x20;
+
+Usa como parâmetro valores de 0 a 1, então calcular percentil 90 seria utilizar `quartil(0.9)`.
+
+```python
+df['Idade'].quantile(0.25)
+
+# Retorna vários em uma serie
+df['Idade'].quantile([0.25,0.5,0.75,0.90,1])
+```
+
+#### Escore Z
+
+```python
+import scipy.stats as stats
+
+data = np.array([2.20,2.28,2.23,2.20,2.35,2.28,2.25,2.30,2.37,2])
+escore_z = stats.zscore(data)
+```
+
+#### Correlação
+
+Agora aparecem dois dados para serem relacionados, chamaremos de x e y que serão duas series.
+
+```python
+x = pd.Series([6,8,6,10,8,14,12,14,12,16])
+y = pd.Series([8,8,12,12,16,16,20,20,24,24])
+
+correlacao_x = x.corr(y)
+correlacao_y = y.corr(x)
+```
 
 [^1]: São 3 quartis, que dividem os dados em 4 partes.
 
