@@ -39,6 +39,12 @@ Se o resultado desse coeficiente for menor que 20%, quer dizer que a mistura é 
 
 Quartis[^1], decis[^2] e percentis[^3] <mark style="color:blue;">dividem os dados</mark> (que devem estar em ordem crescente) em partes iguais e isso permite relacionar [quantidades de um com outro](#user-content-fn-4)[^4]. Se um se equivale com o outro, vamos optar por **usar percentis** nas métricas.
 
+Se os dados são divididos em partes, isso <mark style="color:green;">permite resgatar dados situados em uma determinada posição</mark>, a posição 90 de um percentil.
+
+Na programação, usar `pencentile` retorna o valor que está na casa. Esse valor normalmente <mark style="color:orange;">não é um valor válido no conjunto de dados</mark> (pois se tem mais de 100 dados, mais de um dado vai dividir a mesma casa). Então o dado que representa a casa é um <mark style="color:blue;">resultado de uma interpolação</mark>.
+
+Para conseguir um dado exato que está dentro dessa casa, existem argumentos dentro do método `percentile`, como `interpolation="lower"`.
+
 <figure><img src="../../.gitbook/assets/l para medidas de posição relativa.png" alt="" width="375"><figcaption></figcaption></figure>
 
 Usando a fórmula acima, o percentil `Pk` será:
@@ -50,7 +56,12 @@ Usando a fórmula acima, o percentil `Pk` será:
 
 <summary>Exemplo prático</summary>
 
+Encontrar o valor de venda das casas 10% mais caras (o valor que divide):
 
+```python
+percentil_90 = df["SalePrice"].quantile(0.90, interpolation="lower")
+print(percentil_90)
+```
 
 </details>
 
@@ -98,7 +109,7 @@ df_outlier = pd.concat([
 
 Uma métrica usada para um único valor para descobrir o quão raro ele é em relação à serie sendo estudada, ou seja, também é possível perceber se é um outlier.&#x20;
 
-Seu resultado será um número e, se o valor resultar **menor que –2** ou **maior que 2**, ele é incomum.
+Seu resultado será um número e, se o valor resultar **menor que `–2`** ou **maior que `2`**, ele é incomum.
 
 <figure><img src="../../.gitbook/assets/escore z.png" alt="" width="375"><figcaption></figcaption></figure>
 
@@ -152,7 +163,7 @@ Leve como `df` sendo um dataframe com dados, mas que poderia também ser uma ser
 ```python
 media = df['Idade'].mean()
 mediana = df['Idade'].median()
-moda = df['Idade'].mode()
+moda = df['Idade'].mode() # Retorna uma serie com todas as modas
 variancia = df['Idade'].var()
 desvio_padrao = df['Idade'].std()
 amplitude = max(df['Idade']) - min(df['Idade'])
