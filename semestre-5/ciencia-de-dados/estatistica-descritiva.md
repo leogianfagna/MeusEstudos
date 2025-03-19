@@ -54,9 +54,45 @@ Usando a fórmula acima, o percentil `Pk` será:
 
 </details>
 
-#### Por que é importante?
+#### Por que é importante? (Distância interquartílica)
 
-Quando não é uma distribuição normal, precisamos calcular a <mark style="color:purple;">DISTÂNCIA INTERQUARTÍLICA</mark>. Valores abaixo do `Q1-1,5 * IQR` e acima de `Q3 + 1.5 * IQR` são **outliers**. Essa métrica (DI) é resistente aos outliers, por isso é muito boa.
+Quando **não é** uma distribuição normal, precisamos calcular a <mark style="color:purple;">DISTÂNCIA INTERQUARTÍLICA</mark>. Valores abaixo de `Q1 - 1.5 * IQR` e acima de `Q3 + 1.5 * IQR` são **outliers**. Essa métrica (DI) é resistente aos outliers, por isso é muito boa.
+
+Mesmo dizendo que é utilizada apenas quando é assimétrica, é de costume utilizar essa fórmula mesmo assim, a qualquer momento.
+
+<details>
+
+<summary>Exemplo prático</summary>
+
+#### Calcular a distância interquartílica:
+
+```python
+q1 = pd.Series(df["SalePrice"]).quantile(0.75)
+q3 = pd.Series(df["SalePrice"]).quantile(0.25)
+
+iqr = q1 - q3
+```
+
+#### Calcular quem são os outliers
+
+```python
+df_sp = df["SalePrice"]
+
+outliers_low = pd.Series(df_sp).quantile(0.25) - 1.5 * iqr
+outliers_high = pd.Series(df_sp).quantile(0.75) + 1.5 * iqr
+
+# Transformando em series
+outliers_series_high = df_sp[df_sp > outliers_sale_price_high]
+outliers_series_low = df_sp[df_sp < outliers_sale_price_low]
+
+# Concatenar as duas series
+df_outlier = pd.concat([
+        outliers_sale_price_series_low,
+        outliers_sale_price_series_high]).to_frame()
+
+```
+
+</details>
 
 ### Escore Z
 
