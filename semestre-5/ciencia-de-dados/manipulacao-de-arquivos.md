@@ -152,6 +152,20 @@ print("Arquivo Excel salvo com sucesso.")
 
 ```
 
+## Criar estruturas a partir de arquivos
+
+Na prática esse é o ideal, normalmente vai ser através de arquivos.
+
+* Se tiver uma coluna apenas vai transformar em **serie**.
+* Se tiver mais transforma em **dataframe**.
+
+Substituímos o `Series` por `read_csv`, desta forma:
+
+```python
+# Usando a primeira coluna (zero) como índice
+pd.read_csv("idades.csv", index_col = 0).squeeze()
+```
+
 [^1]: Leitura com uma limitação em bytes definida no parâmetro.
 
 [^2]: Lê apenas a primeira linha.
