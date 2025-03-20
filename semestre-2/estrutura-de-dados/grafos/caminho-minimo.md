@@ -1,6 +1,6 @@
-# Algoritmo de Dijkstra
+# Caminho mínimo
 
-É um algoritmo de busca que tem como objetivo encontrar o menor custo (construindo uma árvore de caminho mínimo), similar à busca em largura mas com uma fila de prioridade.
+Um algoritmo de busca que tem como objetivo <mark style="color:blue;">encontrar o menor custo</mark> (construindo uma árvore de caminho mínimo), similar à busca em largura mas com uma fila de prioridade. Esse algoritmo é chamado de <mark style="color:purple;">**Algoritmo de Dijkstra**</mark>.
 
 Para isso, as arestas passam a ter pesos. Quem é o peso? Ele é relativo para o contexto, podendo ser a distância, tempo, preço, depende do que queremos economizar.
 

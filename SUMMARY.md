@@ -127,7 +127,8 @@
     * [Definição](semestre-2/estrutura-de-dados/grafos/definicao.md)
     * [Representação computacional](semestre-2/estrutura-de-dados/grafos/representacao-computacional.md)
     * [Busca](semestre-2/estrutura-de-dados/grafos/busca.md)
-    * [Algoritmo de Dijkstra](semestre-2/estrutura-de-dados/grafos/algoritmo-de-dijkstra.md)
+    * [Caminho mínimo](semestre-2/estrutura-de-dados/grafos/caminho-minimo.md)
+    * [Ordenação topológica](semestre-2/estrutura-de-dados/grafos/ordenacao-topologica.md)
 
 ## Semestre 3
 
