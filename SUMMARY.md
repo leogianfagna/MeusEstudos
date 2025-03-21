@@ -288,7 +288,7 @@
     * [Não supervisão](semestre-5/inteligencia-artificial/aprendizado-de-maquina/nao-supervisao/README.md)
       * [Definição](semestre-5/inteligencia-artificial/aprendizado-de-maquina/nao-supervisao/definicao.md)
       * [Agrupamento particional](semestre-5/inteligencia-artificial/aprendizado-de-maquina/nao-supervisao/agrupamento-particional.md)
-      * [Copy of Agrupamento particional](semestre-5/inteligencia-artificial/aprendizado-de-maquina/nao-supervisao/copy-of-agrupamento-particional.md)
+      * [Agrupamento hierárquico](semestre-5/inteligencia-artificial/aprendizado-de-maquina/nao-supervisao/agrupamento-hierarquico.md)
 * [Tópicos de tecnologia e programação](semestre-5/topicos-de-tecnologia-e-programacao/README.md)
   * [Introdução](semestre-5/topicos-de-tecnologia-e-programacao/introducao.md)
   * [Conceitos](semestre-5/topicos-de-tecnologia-e-programacao/conceitos.md)

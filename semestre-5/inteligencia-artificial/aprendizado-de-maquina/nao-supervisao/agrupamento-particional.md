@@ -2,7 +2,7 @@
 
 Esse agrupamento tem o objetivo de encontrar <mark style="color:blue;">grupos relacionados mas distintos</mark>, onde cada amostra precisa ser **obrigatoriamente atribuída a apenas um grupo**. Essa atribuição se chama <mark style="color:purple;">particionamento</mark>.
 
-Exemplo disso poderia ser divisão de estilos de música, onde um grupo chamado Rock possui vários subgrupos como Rock Clássico, Hard Rock, Punk, etc. Cada música pertence a apenas uma categoria dessas.
+Então, aqui as amostras não possuem hierarquias entre elas. Por exemplo, dividir estilos de músicas mas não usar sub grupos. O uso de sub grupos é sobre [agrupamento hierárquico](agrupamento-hierarquico.md).
 
 ## Formação de grupos
 
@@ -22,11 +22,13 @@ Ele inicia fazendo um posicionamento de `k` centroides de forma aleatória e dep
 
 #### Técnica do cotovelo
 
-Utilizado para saber quantos centroides terão, cria-se um gráfico sendo `X` o número de K e `Y` a variância. Conforme o número de K aumenta, o gráfico vai mudando (pois a variância diminui) podendo criar **uma** curva mais impactante. Essa curva é chamada da **cotovelo**.
+Utilizado para saber quantos centroides terão, cria-se um gráfico sendo `X` o número de K e `Y` a variância. Vamos simulando a variância para cada número de K.
+
+Conforme o número de K aumenta, o gráfico vai mudando (pois a variância diminui) podendo criar **uma** curva mais impactante. Essa curva é chamada da **cotovelo**.
 
 Como nem toda mudança de K cria um cotovelo, é possível ver que o gráfico não tem tanta variação assim a partir de um certo ponto, virando quase uma linha contínua. Precisamos analisar o gráfico e encontrar o <mark style="color:blue;">melhor ponto que simboliza o cotovelo</mark>. Veja o exemplo:
 
-<figure><img src="../../../../.gitbook/assets/image.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/metodo do cotovelo.png" alt="" width="563"><figcaption></figcaption></figure>
 
 <mark style="color:green;">A quantidade de centroides que a amostra terá será a posição do eixo x que se encontra o cotovelo</mark>. Nesse exemplo, a melhor opção foi circulada e ela se encontra no `eixo x = 3`. Portanto, nessa amostra de dados, devemos ter 3 centroides.
 
@@ -40,7 +42,11 @@ Como nem toda mudança de K cria um cotovelo, é possível ver que o gráfico n�
 
 </details>
 
+### Bisecting K-Means
 
+É uma abordagem alternativa do K-Means que começar com todos os dados juntos e usa um algoritmo que vai dividindo os clusters até chegar na quantidade ideal. Ele usa a soma dos erros quadráticos (<mark style="color:purple;">SSE</mark>) como critério para decidir quais clusters dividir.
+
+<figure><img src="../../../../.gitbook/assets/Bisecting K-Means.png" alt="" width="375"><figcaption></figcaption></figure>
 
 ### **Erro Quadrático**
 
@@ -48,34 +54,9 @@ O erro quadrático é uma forma de medir a <mark style="color:blue;">qualidade d
 
 Se o erro quadrático for zero, significa que todos os pontos do cluster estão exatamente no mesmo local (caso raro na prática). Quanto **menor** o erro quadrático, melhor o agrupamento.
 
-### **Entendendo o Funcionamento do K-Means**
+Veja abaixo na prática qual o agrupamento é o melhor (aquele com menor distância quadrática):
 
-O **K-Means** é um dos algoritmos mais populares para agrupamento particional e segue estes passos:
-
-1. Escolher um valor para `k` (quantidade de clusters).
-2. Selecionar aleatoriamente `k` centroides iniciais.
-3. Atribuir cada ponto ao centróide mais próximo.
-4. Atualizar os centroides recalculando a posição média dos pontos em cada grupo.
-5. Repetir os passos 3 e 4 até a convergência (quando os centroides não mudam mais significativamente).
-
-Este processo pode ser influenciado por diferentes inicializações, e algumas variações do algoritmo, como o **K-Means++**, ajudam a melhorar a escolha inicial dos centroides para evitar problemas.
-
-### Escolher quantidade de grupos
-
-Um dos desafios do <mark style="color:purple;">K-Means</mark> é escolher o número ideal de clusters `k`. Para isso, uma técnica comum é o **método do cotovelo (elbow method)**:
-
-1. Executamos o algoritmo para diferentes valores de `k` (por exemplo, de 1 a 10).
-2. Calculamos o erro quadrático para cada `k`.
-3. Plotamos um gráfico, onde o eixo X representa `k` e o eixo Y representa o <mark style="color:purple;">erro quadrático</mark>.
-4. O ponto onde a curva "dobra" como um **cotovelo** indica um valor adequado de `k`.
-
-Esse método ajuda a evitar escolher um número muito baixo (clusters grandes e genéricos) ou muito alto (clusters pequenos e muito específicos).
-
-### **Conclusão**
-
-O aprendizado supervisionado é essencial para modelos que aprendem a partir de **acertos e erros**, enquanto o aprendizado não supervisionado busca estruturar os dados sem rótulos pré-definidos. No contexto de agrupamento, o **K-Means** e suas variações são amplamente utilizados para **descobrir padrões ocultos** em conjuntos de dados de múltiplas dimensões.
-
-A escolha de **k clusters** e o cálculo do **erro quadrático** são fatores críticos para garantir que os grupos identificados sejam coerentes e úteis. Métodos como **o cotovelo (elbow method)** auxiliam nessa escolha, e a inicialização dos centroides pode impactar significativamente os resultados.
+<figure><img src="../../../../.gitbook/assets/agrupamento de centroides.png" alt="" width="563"><figcaption></figcaption></figure>
 
 [^1]: Cada aspecto deste dado é uma <mark style="color:purple;">dimensão</mark>, como nome, idade, salário, etc. Se temos mais de dois aspectos, isso quer dizer que é mais do que bidimensional, o que implica que não pode ser mais representado em um plano cartesiano.
 
