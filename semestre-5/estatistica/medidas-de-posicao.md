@@ -56,6 +56,10 @@ Assim como foi encontrado a classe mediana acima, para a moda precisamos encontr
 
 <figure><img src="../../.gitbook/assets/como achar classe modal.png" alt=""><figcaption></figcaption></figure>
 
+{% hint style="warning" %}
+Se existir duas classes modais (dois intervalos com a mesma frequência mais alta), então isso resultará em duas modas. Ou seja, fazer a fórmula abaixo **duas vezes**, uma **para cada classe modal**.
+{% endhint %}
+
 Como `23` é a maior frequência, `40 |- 60` passa a ser a classe modal. Depois disso, basta seguir a fórmula abaixo:
 
 <figure><img src="../../.gitbook/assets/moda de dados agrupados.png" alt=""><figcaption></figcaption></figure>
