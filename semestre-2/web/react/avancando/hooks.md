@@ -86,4 +86,22 @@ const EstadoAnterior = () => {
 export default EstadoAnterior;
 ```
 
+## Principais Hooks
+
+### useEffect
+
+Escuta qualquer efeito colateral que a página recebe (uma renderização, chamada de API, etc) e executa um código toda vez que isso acontece. Permite utilizar argumentos que fazem com que ele execute apenas se um determinado estado altera (por exemplo, o valor de alguma variável).
+
+```jsx
+const [nome, setNome] = useState('');
+
+useEffect(() => {
+    console.log("Executarei toda vez que nome mudar.");
+}, [nome]);
+```
+
+É bom pensar que os componentes do React estão sempre se renderizando, então as vezes é importante ter ações únicas. Por isso, o useEffect também é muito utilizado nas <mark style="color:orange;">requisições assíncronas</mark>, como <mark style="color:green;">renderizar a chamada da API apenas uma vez</mark>.
+
+
+
 [^1]: Como estado e ciclo de vida

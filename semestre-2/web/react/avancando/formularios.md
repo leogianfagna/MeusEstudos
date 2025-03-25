@@ -123,7 +123,7 @@ const MyForm = () => {
 
 ### Limpar o formulário
 
-Se necessidade limpar o formulário após o envio, basta apenas modificar `handleSubmit` para limpar os campos para strings vazias:
+Se necessidade limpar o formulário (dados que estavam preenchidos) após o envio, basta apenas modificar `handleSubmit` para limpar os campos para strings vazias:
 
 ```jsx
 const handleSubmit = (e) => {

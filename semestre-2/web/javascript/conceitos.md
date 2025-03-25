@@ -18,6 +18,16 @@ Neste caso, “console” é o objeto global da linguagem JavaScript que oferece
 
 <figure><img src="../../../.gitbook/assets/javascript associar propriedades.png" alt=""><figcaption></figcaption></figure>
 
+## Montagem de objetos
+
+Os objetos normalmente são declarados dessa seguinte forma:
+
+<figure><img src="../../../.gitbook/assets/objeto em js.png" alt="" width="365"><figcaption></figcaption></figure>
+
+Contudo, quando temos variáveis com o mesmo nome da chave do objeto, podemos não declarar o valor da chave que vai ser assumida automaticamente. Veja um exemplo com React:
+
+<figure><img src="../../../.gitbook/assets/objeto em js sem o valor.png" alt="" width="366"><figcaption></figcaption></figure>
+
 ## Spread Operator
 
 Usado com arrays e objetos, serve para constituir novos valores com base em outros existentes, em outras palavras, unir arrays ou objetos.
