@@ -48,6 +48,17 @@ Cuidado que precisamos tomar: Podemos criar series com índices duplicados. Perd
 
 Como dicionários já são compostos por chaves e valor, ao usar um dicionário para servir como serie, automaticamente as chaves já se transformarão em índices.
 
+## Acessar elementos
+
+O acesso em series é muito comum, utilizando apenas `serie[0]` ou `serie["indice"]` caso o índice seja customizado. Vemos que em dataframes o acesso utiliza o método `loc`, que pode ser utilizado aqui também. Mas como uma serie é uma estrutura unidimensional, <mark style="color:green;">esse método não é necessário</mark>.
+
+## Inserir elementos
+
+```python
+s[len(s)] = 40
+s["indice"] = 40
+```
+
 ## Squeeze
 
 A função `squeeze` transforma o dataframe em uma série. Esse método é uma pergunta, só transforma se for possível. Se há duas colunas e quiser transformar em serie, o método precisa ser melhor implementado:

@@ -100,6 +100,33 @@ df.loc[df['Idade'] < 18, 'Cidade'] = 'Desconhecido'
 print(df)
 ```
 
+### Querys
+
+Existe um método do Pandas `query`, que permite **filtrar** um DataFrame de forma mais compacta e legível, usando expressões dentro de uma **string**. Ele substitui `loc[]` ou outros operadores booleanos.
+
+#### Exemplo de filtro
+
+Filtrar todos os registros cujo o valor é `1` na coluna "nomeColuna", como se fosse um `WHERE` em SQL.
+
+```python
+meu_dataframe.query("nomeColuna==1")
+```
+
+#### Fazer algo com esse filtro
+
+Calcular a média dos registros da coluna "outraColuna" dos resultados filtrados.
+
+```python
+meu_dataframe.query("nomeColuna==1").outraColuna.mean()
+```
+
+#### Outros exemplos
+
+```python
+medias_por_filme = notas.groupby("filmeId").mean().nota
+type(medias_por_filme) # Isso é uma serie
+```
+
 ## Gerar novo dataframe
 
 Os [métodos do Pandas de merging](https://pandas.pydata.org/docs/user_guide/merging.html) permite <mark style="color:green;">criar novo dataframe com novos dados</mark>. Vamos supor em incluir uma nova coluna (podemos usar o `groupby` que retorna uma serie).
