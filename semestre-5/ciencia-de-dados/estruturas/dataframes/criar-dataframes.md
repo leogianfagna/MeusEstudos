@@ -31,7 +31,7 @@ df = pd.read_json("json_file.json")
 
 ## Inserção de dados
 
-Quando já temos um **dataframe criado** e vamos inserir novos dados, que sejam compatíveis com a estrutura atual, podemos usar de forma simples a atribuição:
+Quando já temos um **dataframe criado** e vamos inserir novos dados, que sejam compatíveis com a estrutura atual, podemos usar de forma simples a atribuição com vetor:
 
 ```python
 dados_em_um_vetor = ["Nome", 34, 1.78]
@@ -43,6 +43,25 @@ df.loc[indice_custom] = dados_em_um_vetor   # Se índices são customizados
 ```
 
 Um índice de um dataframe/serie pode ser um número sequencial ou pode ser um valor customizado, como um ID ou data. A inserção precisa respeitar essa ordem e cada uma das alternativas acima deve ser usada baseada no contexto.
+
+### Método concat
+
+Esse [método ](https://pandas.pydata.org/docs/reference/api/pandas.concat.html)serve para combinar series ou dataframes em um dataframe, chamando de forma estática e não através de uma instância, isso quer dizer que usa-se `pd.concat()`.
+
+```python
+varias_series = User.get_user_tickers(username)
+df_dividend_history = pd.DataFrame(columns=["date", "value", "ticker"])
+
+for serie in varias_series:
+    # Transformar a serie em um df com um dataframe com um elemento a mais
+    df = serie.reset_index()
+    df.columns = ["date", "value"]
+    df["ticker"] = "Novo Elemento em texto"
+    
+    df_dividend_history = pd.concat([df_dividend_history, df], ignore_index=True)
+
+df_dividend_history = df_dividend_history.sort_values(by="date")
+```
 
 ## Acessar elementos
 
