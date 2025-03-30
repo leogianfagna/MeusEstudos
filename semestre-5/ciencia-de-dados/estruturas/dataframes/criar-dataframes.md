@@ -82,3 +82,11 @@ dados_desse_index = df.loc[index]
 coluna_ticker = dados_desse_index.ticker
 coluna_dividend = dados_desse_index.dividend_date
 ```
+
+## Manipulação direta
+
+Tentar alterar elementos por atribuíção pode falhar pelo fato da estrutura retornar uma cópia. Para mudar um dado, precisamos fazer desta forma:
+
+```python
+df.loc[index, "nome_coluna"] = "valor"
+```
