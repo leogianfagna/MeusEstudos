@@ -59,8 +59,8 @@ Essas lógicas são definidas em dois arquivos diferentes. Acaba se assimilando 
 
 Atualmente, o tutorial abaixo <mark style="color:red;">não está utilizando serializers</mark> que é útil para uma aplicação API RESTful, será atualizada em um futuro.
 
-* **Models**: Define a estrutura dos dados e interage diretamente com o banco de dados. Modelos definem a lógica de negócios relacionada aos dados, como <mark style="color:blue;">criação de objetos, validações de dados, consultas complexas</mark> e métodos personalizados que envolvem a manipulação dos dados.
-* **Views**: Responsáveis por <mark style="color:blue;">lidar com as requisições HTTP e retornar respostas</mark>, frequentemente usando templates ou APIs. Como ela é responsável pela resposta ao usuário, podemos incluir mais lógica aqui para retornar mais dados ainda se quisermos. Elas <mark style="color:orange;">utilizam os modelos</mark> para manipular os dados e apresentar as informações ao usuário.
+* **Models**: Define a estrutura dos dados e interage [**diretamente**](#user-content-fn-1)[^1] com o banco de dados. Modelos definem a lógica de negócios relacionada aos dados, como <mark style="color:blue;">criação de objetos, validações de dados, consultas complexas</mark> e métodos personalizados que envolvem a manipulação dos dados.
+* **Views**: Responsáveis por <mark style="color:blue;">lidar com as requisições HTTP e retornar respostas</mark>, frequentemente usando templates ou APIs. Como ela é responsável pela resposta ao usuário, podemos incluir mais lógica aqui para retornar mais dados ainda se quisermos. Elas <mark style="color:orange;">utilizam os modelos</mark> ([não obrigatoriamente](#user-content-fn-2)[^2]) para manipular os dados e apresentar as informações ao usuário.
 
 {% hint style="info" %}
 Os métodos dos modelos e views necessitam ter a mesma lógica. Então, se um modelo implementa uma lógica de  checar se o usuário já existe, a view também precisa da mesma lógica.
@@ -104,16 +104,17 @@ class User(models.Model):
 
 ### Views
 
-Declarado no arquivo `views.py`. Cada método **representa a resposta ao usuário**, repare que essa <mark style="color:blue;">resposta é recebida ao chamar o método modelo do outro arquivo</mark> `User.add_user`.
+Declarado no arquivo `views.py`. Cada método **representa a resposta ao usuário**, repare que essa <mark style="color:blue;">resposta é recebida ao chamar o método modelo do outro arquivo</mark> `User.add_user`. No segundo exemplo, não utilizamos nenhum modelo, pois ainda sim podemos criar retornos ao usuário sem nenhuma necessidade de uma CRUD.
 
 ```python
+# Exemplo que utiliza modelo declarado no User
 def add_user(request):
     full_name = request.GET.get('full_name')
     username = request.GET.get('username')
     password = request.GET.get('password')
     
     if username and password:
-        result = User.add_user(full_name, username, password)
+        result = User.add_user(full_name, username, password) # Utilização do modelo
         
         # Checa se já existe um username com esse nome
         if result == "User registred successfully":
@@ -122,6 +123,26 @@ def add_user(request):
             return JsonResponse({"message": result}, status=400)
     else:
         return JsonResponse({"message": "Missing username and password"}, status=400)
+```
+
+```python
+# Exemplo que não utiliza um modelo
+# Usa uma função externa chamada fetch_dividend_history()
+from finance_api.dividends_history import fetch_dividend_history
+
+def get_dividend_history(request):
+    ticker_name = request.GET.get('ticker')
+    
+    if ticker_name:
+        ticker_data = fetch_dividend_history(ticker_name)
+        return JsonResponse(
+            {
+                "message": "Data retrieved successfully",
+                "dividends": ticker_data
+            }
+        )
+    else:
+        return JsonResponse({"message": "Ticker name is required"}, status=400)
 ```
 
 ## Rotas (URLs)
@@ -214,3 +235,7 @@ pip install mongoengine
 "orém, o **Django** não suporta nativamente o MongoDB. Para usar o MongoDB com o Django, é necessário usar bibliotecas externas como o **`mongoengine`** (ou **`djongo`** para uma integração mais transparente com o Django ORM). Essas bibliotecas não utilizam a configuração `DATABASES` no Django, porque o MongoDB não é um banco de dados relacional, e o Django não sabe como conectá-lo diretamente através dessa configuração."
 
 </details>
+
+[^1]: Isso quer dizer que, se queremos alguma coisa no backend que não intereja diretamente com o banco de dados, sua função <mark style="color:red;">não deve</mark> estar presente nos modelos.
+
+[^2]: Se é uma resposta a um usuário, pode ser qualquer coisa e não necessariamente uma CRUD no banco de dados.
