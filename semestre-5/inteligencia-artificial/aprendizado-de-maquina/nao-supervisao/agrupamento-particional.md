@@ -42,12 +42,6 @@ Como nem toda mudança de K cria um cotovelo, é possível ver que o gráfico n�
 
 </details>
 
-### Bisecting K-Means
-
-É uma abordagem alternativa do K-Means que começar com todos os dados juntos e usa um algoritmo que vai dividindo os clusters até chegar na quantidade ideal. Ele usa a soma dos erros quadráticos (<mark style="color:purple;">SSE</mark>) como critério para decidir quais clusters dividir.
-
-<figure><img src="../../../../.gitbook/assets/Bisecting K-Means.png" alt="" width="375"><figcaption></figcaption></figure>
-
 ### **Erro Quadrático**
 
 O erro quadrático é uma forma de medir a <mark style="color:blue;">qualidade do agrupamento</mark>. Ele é calculado somando **a distância de cada ponto ao seu centróide** e elevando esse valor [ao quadrado](#user-content-fn-2)[^2].

@@ -4,17 +4,14 @@ Enquanto o agrupamento particional quebra os dados em grupos diretamente, o hier
 
 Exemplo disso poderia ser divisão de estilos de música, onde um grupo chamado Rock possui vários subgrupos como Rock Clássico, Hard Rock, Punk, etc. Cada música pertence a apenas uma categoria dessas.
 
+Tem como <mark style="color:green;">vantagem</mark> não precisar conhecer a quantidade de grupos e também detectar facilmente outliers.
 
+#### Aglomerativo versus decisivo
 
+São duas maneiras de fazer o agrupamento:
 
-
-
-
-
-
-
-
-ORGANIZAR BASEADO NOS SLIDES
+* Aglomerativo: ou bottom-up, onde começamos com um grupo para cada amostra  &#x20;e vamos juntando grupos até termos um único grupo.
+* Divisivo: ou top-down, onde começamos com um único grupo com todas as  &#x20;amostras e vamos dividindo esse grupo até termos grupos unitários (ou  &#x20;singletons).
 
 ## Matriz distância
 
@@ -61,12 +58,20 @@ Nesse último caso, onde é a distância de um grupo para outro, o raciocínio s
 
 ## Métodos de Linkage
 
-Será o método escolhido para fazer o agrupamento de dados na abordagem hierarquica.&#x20;
+Será o método escolhido para fazer o agrupamento de dados na abordagem hierarquica, é uma família de algoritmos.&#x20;
+
+Essa família de algoritmos <mark style="color:green;">não precisa da informação da distribuição&#x20;dos pontos</mark> (como o k-means precisava), mas opera apenas com as distâncias relativas entre as amostras.
 
 <table><thead><tr><th width="167">Método</th><th width="155">Premissa</th><th width="182">Resultado</th><th>Desvantagem</th></tr></thead><tbody><tr><td>Single Linkage (usado no exemplo)</td><td>Une com base na <strong>menor distância.</strong></td><td><strong>Clusters mais alongados</strong> e pode formar "cadeias" de pontos.</td><td>Sensível a outliers.</td></tr><tr><td>Complete Linkage</td><td>Une com base na <strong>maior distância.</strong></td><td>Produz <strong>clusters mais compactos e arredondados</strong>.</td><td>Menos sensível a outliers, mas pode quebrar clusters naturais se houver muita variação interna.</td></tr><tr><td>Average Linkage</td><td>Une com base no cálculo da média da distância.</td><td>Agrupamentos geralmente mais naturais.</td><td></td></tr></tbody></table>
 
 <figure><img src="../../../../.gitbook/assets/resultado de linkages.png" alt=""><figcaption></figcaption></figure>
 
-## Medir abordagem de particionamento
+### Bisecting K-Means
 
-Falta comparar com os novos slides.
+O K-Means possui algumas limitações significativas que devem ser consideradas ao aplicá-lo. Um dos principais problemas é a maneira como os centroides são inicialmente selecionados, o que pode impactar consideravelmente o resultado final da análise. Além disso, o algoritmo requer as posições específicas das amostras, o que pode não ser viável em todos os casos. Outra limitação é a tendência do K-Means em formar grupos em formato de globo, o que pode não representar adequadamente a distribuição real dos dados.
+
+Por outro lado, o Bisecting K-Means é uma variação que busca resolver alguns dos problemas associados ao K-Means tradicional. Ele não sofre do "chainning effect", uma situação em que dados que formam uma cadeia ou sequência podem resultar em clusters inadequados.
+
+O metodo bisecting K-Means funciona iterativamente, iniciando com todos os dados agrupados e <mark style="color:blue;">divide o conjunto de dados em partes menores até que o número desejado de clusters seja alcançado</mark>. Isso pode levar a melhores resultados em termos de qualidade dos clusters e pode ser uma abordagem mais robusta em muitos cenários.
+
+<figure><img src="../../../../.gitbook/assets/Bisecting K-Means.png" alt="" width="375"><figcaption></figcaption></figure>
