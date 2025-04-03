@@ -6,7 +6,7 @@ O heap é uma estrutura de dados baseadas em **árvores binárias**. A ideia é 
 
 <figure><img src="../../.gitbook/assets/inserção na árvore de fila de prioridade.png" alt="" width="563"><figcaption></figcaption></figure>
 
-> (Tem o max e min heap, mas a diferença entre eles é basicamente um compara com o menor e o outro com maior, não é necessário ficar definindo tanto)
+Neste exemplo acima (e em toda essa explicação), é definido no topo aquele com <mark style="color:green;">maior prioridade</mark>. Essa forma de fazer é o tipo <mark style="color:purple;">**Max-Heap**</mark>. Também é possível ser feito usando <mark style="color:purple;">**Min-Heap**</mark>, que é comparado com a menor prioridade. Isso são dois tipos de heap que temos.
 
 ## Algoritmo do Heap
 
