@@ -1,6 +1,6 @@
 # Lista ligada
 
-Um [vetor](vetores-e-matrizes.md), toda vez que insere ou remove posições tem que copiar todos os demais elementos para uma posição acima ou abaixo, tornando-o muito custoso. Por isso, surgiu as listas ligadas que são uma [struct](struct.md). Suas vantagens são:
+Um [vetor](linguagem-c/vetores-e-matrizes.md), toda vez que insere ou remove posições tem que copiar todos os demais elementos para uma posição acima ou abaixo, tornando-o muito custoso. Por isso, surgiu as listas ligadas que são uma [struct](linguagem-c/struct.md). Suas vantagens são:
 
 * Memória usada equivale ao que usa de fato, não precisa declarar tamanho antecipadamente assim como vetor.
 * Não sequenciado: não precisa mexer em todos elementos ao adicionar ou remover um novo nó.
@@ -31,7 +31,7 @@ A lista ligada pode ser feito inserindo os elementos no **final** da lista ou no
 
 * Final: Usar um ponteiro extra, chamado "pri" que tem a primeira posição da lista e consegue percorrer todo o restante.
 
-Essa escolha vai influenciar se o próximo elemento vai apontar para a cabeça ou se a cabeça vai apontar para o próximo elemento. <mark style="color:blue;">Ambos os casos</mark>, sempre vai ser necessário <mark style="color:blue;">possuir um ponteiro que indica a primeira posição da lista</mark>. No caso de estudos a seguir, utilizamos a técnica de inserir no início, onde a forma estrutural pode ser vista [visualmente aqui](resumo.md#formas-estruturais).
+Essa escolha vai influenciar se o próximo elemento vai apontar para a cabeça ou se a cabeça vai apontar para o próximo elemento. <mark style="color:blue;">Ambos os casos</mark>, sempre vai ser necessário <mark style="color:blue;">possuir um ponteiro que indica a primeira posição da lista</mark>. No caso de estudos a seguir, utilizamos a técnica de inserir no início, onde a forma estrutural pode ser vista [visualmente aqui](broken-reference).
 
 O caso de inserir em uma posição específica vai precisar ter um if/else dentro da função para garantir que vai retornar o endereço certo. Se inserir na posição zero, retorna o novo elemento. Se inserir em qualquer outra posição, retorna o que já tinha (o que foi passado pelo parâmetro).
 
@@ -45,7 +45,7 @@ Cada elemento da lista se chama nó e possui a estrutura comentada acima:
 * Ponteiro para o próximo nó:
   * Ponteiros possuem o tipo do elemento que eles apontam.
   * O tipo de um elemento de uma struct é sempre `struct` + `o nome da Struct`.
-  * Por isso, em caso de dúvidas ler [esse tópico](struct.md).
+  * Por isso, em caso de dúvidas ler [esse tópico](linguagem-c/struct.md).
 
 ```c
 struct No {
@@ -56,7 +56,7 @@ struct No {
 
 ### 2 - Cabeça da lista
 
-Também conhecido como head, é o primeiro elemento da lista ligada que vai fazer nossa lista nascer. A partir deste ponto, estaremos acessando dados de uma struct através de ponteiros, o que começa a ser necessário usar o operador `->` que é explicado em [ponteiros em struct](struct.md#ponteiros-em-struct).
+Também conhecido como head, é o primeiro elemento da lista ligada que vai fazer nossa lista nascer. A partir deste ponto, estaremos acessando dados de uma struct através de ponteiros, o que começa a ser necessário usar o operador `->` que é explicado em [ponteiros em struct](linguagem-c/struct.md#ponteiros-em-struct).
 
 * Acessar membros da struct pode ser feito usando o ponto, por exemplo minhaStruct.data.
 * Agora, quando a variável é um ponteiro que aponta para uma struct, acessar **os mesmos dados** passa a ser o operador de seta.

@@ -10,11 +10,11 @@ Para não confundir, um ponteiro também <mark style="color:orange;">tem o seu e
 
 Em outras palavras, `*c = *b` significa a mesma coisa que `*c = 4`, ou seja, esse número quatro não significa nada, nenhum endereço de memória e apenas um valor para ser apontado. Por conta disso, isto acontece:
 
-<figure><img src="../../.gitbook/assets/valor de ponteiro recebe valor de ponteiro.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/valor de ponteiro recebe valor de ponteiro.png" alt=""><figcaption></figcaption></figure>
 
 Agora, se falarmos que o ponteiro c recebe o ponteiro b, ele terá as suas mesmas características, portanto, vão apontar para o mesmo endereço de memória. Ainda sim, cada ponteiro terá o seu próprio endereço de memória pois é assim que variáveis funcionam (repare que o conteúdo que estava abaixo foi liberado).
 
-<figure><img src="../../.gitbook/assets/ponteiro recebe ponteiro.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/ponteiro recebe ponteiro.png" alt=""><figcaption></figcaption></figure>
 
 ### Motivos de usar ponteiros
 

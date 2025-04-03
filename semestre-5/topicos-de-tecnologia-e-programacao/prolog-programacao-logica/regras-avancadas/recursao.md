@@ -1,6 +1,6 @@
 # Recursão
 
-Em um exemplo que queremos encontrar todos os ancestrais de uma tal pessoa, é necessário usar recursão para ficar percorrendo gerações até que não encontre mais resultados, assim como de fato funciona uma [recursão](../../../../semestre-2/estrutura-de-dados/recursao.md).
+Em um exemplo que queremos encontrar todos os ancestrais de uma tal pessoa, é necessário usar recursão para ficar percorrendo gerações até que não encontre mais resultados, assim como de fato funciona uma [recursão](../../../../semestre-2/estrutura-de-dados/linguagem-c/recursao.md).
 
 #### Exemplo completo do uso de recursão
 

@@ -8,7 +8,7 @@ Chamar a própria função novamente geralmente é mais lento do que implementar
 
 A **filosofia** da recursão consiste em, toda vez que chama a própria função novamente, <mark style="color:blue;">todo o código anterior entra em espera</mark>. Ao terminar todas as recursões, o código vai retrocedendo resultado por resultado até chegar na atribuição.
 
-<figure><img src="../../.gitbook/assets/caminhos e filosofia da recursão.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/caminhos e filosofia da recursão.png" alt=""><figcaption></figcaption></figure>
 
 Vemos aqui que em todas as chamadas exceto a última, temos um `fat = n * fatorial(...)`. Isto é, a variável recebe um valor que é o retorno da função, então temos que esperar o resultado dessa função para atribuir.
 
