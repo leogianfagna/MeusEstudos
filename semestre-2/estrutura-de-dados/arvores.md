@@ -60,7 +60,7 @@ struct arvore {
 
 As operações a seguir serão consideradas que um <mark style="color:orange;">ponteiro na main</mark> guarda o endereço de memória da raíz, sem a utilização da `struct arvore`.
 
-As operações usam [recursividade](linguagem-c/recursao.md). Seu objetivo é ficar repetindo a mesma operação até chegar no destino.
+As operações usam [recursividade](recursao.md). Seu objetivo é ficar repetindo a mesma operação até chegar no destino.
 
 ### Inserir
 

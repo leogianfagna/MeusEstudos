@@ -1,4 +1,4 @@
-# Introdução linguagem C
+# Introdução
 
 Todo programa em C começa com uma função chamada `main()`, que é o ponto de entrada do programa. Os códigos começam com inclusão/importação de bibliotecas, como é muito comum vermos a biblioteca `#include <stdio.h>`, responsável por imprimir dados na tela e outras coisas básicas.
 

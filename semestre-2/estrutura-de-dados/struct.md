@@ -112,7 +112,7 @@ Portando vimos as diferenças entre elas, onde se ela passa referência, a funç
 
 Funciona como uma espécie de um apelido para não haver necessidade de ficar declarando struct toda linha de codificação em declarações. Basicamente, mudamos a sintaxe para que "Pessoa" já seja o apelido, fazendo com que:
 
-<figure><img src="../../../.gitbook/assets/diferenças do uso typedef struct em c.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/diferenças do uso typedef struct em c.png" alt=""><figcaption></figcaption></figure>
 
 ## Structs alinhadas
 
