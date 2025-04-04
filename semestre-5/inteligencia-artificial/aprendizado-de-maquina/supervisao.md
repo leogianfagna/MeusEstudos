@@ -31,7 +31,7 @@ Os dados que passaram a ser rotulados não servem como base para rotular novos. 
 
 Através de tentativa e erro até encontrar o melhor valor. Dados rotulados permitem encontrar métricas do tipo acurácia, precisão, etc. Portanto, ao chutar um número de `k`, podemos calcular a acurácia e ver a porcentagem resultante.&#x20;
 
-Se `k = 4` a precisão é de 40%, isso significa que é muito ruim e vamos tentar outro valor até atingir a maior porcentagem possível. O gráfico de k e precisão normalmente faz esse formato, sendo assim, possível encontrar o maior ponto:
+Se `k = 4` a precisão é de 40%, isso significa que é muito ruim e vamos tentar outro valor até atingir a maior porcentagem possível. O gráfico de k e precisão normalmente faz esse formato, então veja que a partir de um certo ponto, ao aumentar o k a precisão começa a cair, existindo um ponto certo.
 
 <figure><img src="../../../.gitbook/assets/grafico gaussiano.png" alt=""><figcaption></figcaption></figure>
 
