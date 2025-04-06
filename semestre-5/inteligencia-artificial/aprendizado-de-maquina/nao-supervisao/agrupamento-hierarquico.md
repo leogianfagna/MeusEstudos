@@ -1,5 +1,9 @@
 # Agrupamento hierárquico
 
+{% hint style="success" %}
+Veja na prática como é feito [aqui](https://github.com/leogianfagna/MachineLearning/tree/main/Machine%20Learning/Agrupamento%20Hier%C3%A1rquico).
+{% endhint %}
+
 Enquanto o agrupamento particional quebra os dados em grupos diretamente, o hierárquico cria uma estrutura em árvore para visualizar agrupamento em vários níveis.
 
 Exemplo disso poderia ser divisão de estilos de música, onde um grupo chamado Rock possui vários subgrupos como Rock Clássico, Hard Rock, Punk, etc. Cada música pertence a apenas uma categoria dessas.
@@ -64,7 +68,38 @@ Essa família de algoritmos <mark style="color:green;">não precisa da informaç
 
 <table><thead><tr><th width="167">Método</th><th width="155">Premissa</th><th width="182">Resultado</th><th>Desvantagem</th></tr></thead><tbody><tr><td>Single Linkage (usado no exemplo)</td><td>Une com base na <strong>menor distância.</strong></td><td><strong>Clusters mais alongados</strong> e pode formar "cadeias" de pontos.</td><td>Sensível a outliers.</td></tr><tr><td>Complete Linkage</td><td>Une com base na <strong>maior distância.</strong></td><td>Produz <strong>clusters mais compactos e arredondados</strong>.</td><td>Menos sensível a outliers, mas pode quebrar clusters naturais se houver muita variação interna.</td></tr><tr><td>Average Linkage</td><td>Une com base no cálculo da média da distância.</td><td>Agrupamentos geralmente mais naturais.</td><td></td></tr></tbody></table>
 
+A analise de um agrupamento hierárquico depende de plotar o gráfico, desta forma:
+
+```python
+# Base de dados
+iris = load_iris()
+X = iris.data
+
+linkage_data = linkage(X, method='average', metric='euclidean')
+plt.figure(figsize=(10, 7))
+plt.title("Dendrograma da Iris")
+dendrogram(linkage_data, truncate_mode='level', p=5)
+plt.xlabel("Índice das amostras")
+plt.ylabel("Distância entre clusters")
+plt.show()
+```
+
 <figure><img src="../../../../.gitbook/assets/resultado de linkages.png" alt=""><figcaption></figcaption></figure>
+
+{% hint style="info" %}
+Métrica usada foi distância **euclidiana**, muito comentado ao longo do aprendizado e usada como **padrão**. Mas poderia ser diferente, como `manhattan`.
+{% endhint %}
+
+#### Divisão dos grupos
+
+Então veja no gráfico acima a formação de 3 grupos (amarelo, vermelho e laranja), parecido com a clusterização do KMeans. O <mark style="color:orange;">algoritmo mostrado acima não dividiu os grupos</mark> e apenas representou o agrupamento.
+
+Para de fato rotulá-los, definimos em quantos grupos queremos dividir. Nossa escolha pode ser cortar mais embaixo e conseguir mais grupos, ou dividir apenas em 3 como mostra nas cores. Utilizamos o método `fcluster` que recebe o `linkage_data` gerado acima:
+
+```python
+rótulos_hierarquicos = fcluster(linkage_data, t=3, criterion='maxclust')
+df_iris['Cluster'] = rótulos_hierarquicos
+```
 
 ### Bisecting K-Means
 
