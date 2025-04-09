@@ -6,6 +6,10 @@ Arquivos podem se tornar estruturas (Series ou Dataframes) e neste caso são lid
 
 Se temos uma estrutura em uma variável, isso quer dizer que podemos usar os [métodos](estruturas/series/metodos.md) nela para fazer o que quisermos.
 
+{% hint style="info" %}
+Os arquivos podem ser **estruturados**, aqueles com uma organização definida como tabelas, colunas e linhas (excel, csv) ou **não estruturados**, que é sem organização fixa (vídeos, imagens, textos simples).
+{% endhint %}
+
 ## Arquivo de texto (TXT)
 
 ### Abrir arquivo
@@ -47,6 +51,8 @@ arq.close()
 
 ## JSON
 
+É classificado como uma estrutura que guarda dados de forma <mark style="color:blue;">hierarquica</mark> com chave valor.
+
 ### Abrir arquivo
 
 JSON é um arquivo de chave valor então podemos ler como um dicionário. Contudo, pode ser vantajoso abrí-lo como um Dataframe para trabalhar com estruturas de dados. São duas abordagens válidas.
@@ -66,6 +72,8 @@ df = pd.read_json('https://mdn.github.io/learning-area/javascript/oojs/json/supe
 
 ## CSV/Excel
 
+CSV são estruturas de arquivos que os dados são separados por <mark style="color:blue;">vírgulas</mark>.
+
 A partir do momento da abertura, notas passa a ser um Dataframe e podemos usar atributos e métodos para sua manipulação.
 
 ```python
@@ -82,6 +90,8 @@ notas.columns = ["usuarioId", "filmeId", "nota", "momento"]
 # Exemplo de usar métodos
 notas.describe()
 notas.nota.tail()
+
+notas.to_csv("ratings.csv", index=False) # Salvar
 ```
 
 ### Escrevendo
@@ -166,7 +176,7 @@ Substituímos o `Series` por `read_csv`, desta forma:
 pd.read_csv("idades.csv", index_col = 0).squeeze()
 ```
 
-[^1]: Leitura com uma limitação em bytes definida no parâmetro.
+[^1]: Leitura com uma limitação em bytes definida no parâmetro. Passa todo o arquivo para uma string (e as quebras de linhas representadas com \n).
 
 [^2]: Lê apenas a primeira linha.
 
