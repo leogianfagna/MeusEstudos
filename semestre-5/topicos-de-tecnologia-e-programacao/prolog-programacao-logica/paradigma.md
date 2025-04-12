@@ -62,3 +62,31 @@ Em um caso prático, ao perguntar de `genitor` ele pode ser substituído para `m
 É quase a <mark style="color:green;">mesma coisa</mark>. Mas quando há duas variáveis genéricas, a variável `Quem` (aquela usada na pergunta) **prevalece**:
 
 <figure><img src="../../../.gitbook/assets/assumir valores de variáveis em man prolog.png" alt="" width="288"><figcaption></figcaption></figure>
+
+### Com recursão
+
+Como funcionaria o algoritmo da resolução quando se tem uma recursão? Não muda nada na lógica, apenas que, quando "puxa" uma regra do banco de conhecimento para tentar uma equivalência, o mesmo predicado volta para a sentença de novo.
+
+Então, fica repetindo diversas vezes a "mesma manipulação" mas com variáveis diferentes. Veja esse exemplo prático:
+
+<figure><img src="../../../.gitbook/assets/AR-banco-query.png" alt="" width="525"><figcaption></figcaption></figure>
+
+Repare que nesse banco de conhecimento, a regra 2 tem uma recursão. Então ela será envolvida no algoritmo de resolução até que entre a regra 1, que não tem uma recursão.
+
+#### Explicando essa query
+
+O objetivo é conferir se duas listas são iguais. A forma de resolver isso é uma recursão para conferir <mark style="color:green;">elemento por elemento</mark>. Mas como?
+
+Utiliza o primeiro elemento de cada lista (`P1` e `P2`) e confere se são iguais com `P1==P2`. Se retorna false, a regra falha e recebemos que as listas não são idênticas.
+
+Se são iguais, recursivamente confere o restante da lista (R1 e R2). Ao conferir o restante, consequentemente, a lista fica menor (pois agora não inclui mais o primeiro elemento), até que a lista fique vazia (isso só é possível se cada primeiro elemento for igual).
+
+Quando a lista fica vazia, compara com a primeira regra do banco de conhecimentos `identicas([], [])`, encerrando a recursão e retornando true.
+
+#### Algoritmo da resolução
+
+<figure><img src="../../../.gitbook/assets/AR-recursao-1.png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../../.gitbook/assets/AR-recursao-2.png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../../.gitbook/assets/AR-recursao-3.png" alt=""><figcaption></figcaption></figure>
