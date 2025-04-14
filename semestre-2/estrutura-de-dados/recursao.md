@@ -6,7 +6,7 @@ Chamar a própria função novamente geralmente é mais lento do que implementar
 
 ## Como uma recursão funciona
 
-A **filosofia** da recursão consiste em, toda vez que chama a própria função novamente, <mark style="color:blue;">todo o código anterior entra em espera</mark>. Ao terminar todas as recursões, o código vai retrocedendo resultado por resultado até chegar na atribuição.
+A **filosofia** da recursão consiste em, toda vez que chama a própria função novamente, <mark style="color:blue;">todo o código anterior entra em</mark> <mark style="color:blue;"></mark><mark style="color:blue;">**espera**</mark>. Ao terminar todas as recursões, o código vai retrocedendo resultado por resultado até chegar na atribuição.
 
 <figure><img src="../../.gitbook/assets/caminhos e filosofia da recursão.png" alt=""><figcaption></figcaption></figure>
 
@@ -20,7 +20,6 @@ O código por inteiro fica:
 
 ```c
 int fatorial(int n) {
-
     if (n == 1) {
         return 1;
     } else {
@@ -39,3 +38,7 @@ int main() {
     return 0;
 }
 ```
+
+{% hint style="info" %}
+Um passo a passo de uma recursão foi explicado em um exemplo de Prolog, seguindo estes mesmos fundamentos, [aqui nesta página](../../semestre-5/topicos-de-tecnologia-e-programacao/prolog-programacao-logica/operacoes-matematicas.md#recursividade-para-contas).
+{% endhint %}
