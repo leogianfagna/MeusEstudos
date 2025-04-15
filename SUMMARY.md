@@ -309,6 +309,7 @@
     * [Listas](semestre-5/topicos-de-tecnologia-e-programacao/prolog-programacao-logica/listas.md)
     * [Operações matemáticas](semestre-5/topicos-de-tecnologia-e-programacao/prolog-programacao-logica/operacoes-matematicas.md)
     * [Functors](semestre-5/topicos-de-tecnologia-e-programacao/prolog-programacao-logica/functors.md)
+    * [Exercícios](semestre-5/topicos-de-tecnologia-e-programacao/prolog-programacao-logica/exercicios.md)
 * [Padrões de arquitetura](semestre-5/padroes-de-arquitetura/README.md)
   * [Introdução](semestre-5/padroes-de-arquitetura/introducao.md)
   * [Clean Code](semestre-5/padroes-de-arquitetura/clean-code.md)
