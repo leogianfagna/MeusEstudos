@@ -31,7 +31,7 @@ A lista ligada pode ser feito inserindo os elementos no **final** da lista ou no
 
 * Final: Usar um ponteiro extra, chamado "pri" que tem a primeira posição da lista e consegue percorrer todo o restante.
 
-Essa escolha vai influenciar se o próximo elemento vai apontar para a cabeça ou se a cabeça vai apontar para o próximo elemento. <mark style="color:blue;">Ambos os casos</mark>, sempre vai ser necessário <mark style="color:blue;">possuir um ponteiro que indica a primeira posição da lista</mark>. No caso de estudos a seguir, utilizamos a técnica de inserir no início, onde a forma estrutural pode ser vista [visualmente aqui](broken-reference).
+Essa escolha vai influenciar se o próximo elemento vai apontar para a cabeça ou se a cabeça vai apontar para o próximo elemento. <mark style="color:blue;">Ambos os casos</mark>, sempre vai ser necessário <mark style="color:blue;">possuir um ponteiro que indica a primeira posição da lista</mark>. No caso de estudos a seguir, utilizamos a técnica de inserir no **início**.
 
 O caso de inserir em uma posição específica vai precisar ter um if/else dentro da função para garantir que vai retornar o endereço certo. Se inserir na posição zero, retorna o novo elemento. Se inserir em qualquer outra posição, retorna o que já tinha (o que foi passado pelo parâmetro).
 

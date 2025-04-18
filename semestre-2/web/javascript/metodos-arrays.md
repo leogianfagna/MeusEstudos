@@ -2,6 +2,29 @@
 
 Métodos de arrays podem ser chamados através dele mesmo, então `nomeArray.metodo()`. Existe uma [documentação para todos os métodos](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/at). Mostrada abaixo os métodos mais importantes para o uso de React.
 
+O método utiliza uma <mark style="color:blue;">função lambda iterando todo o array e cada elemento iterado é recebido como um parâmetro desta função</mark>. Ao receber ele com parâmetros, podemos manipular a função da forma que queremos.
+
+## Usar para objetos
+
+Métodos array não podem ser chamados diretamente em objetos. Contudo, o que é <mark style="color:green;">comum</mark> ser feito no formato de um [array de objetos](#user-content-fn-1)[^1]. Portanto, por ser um array, esses métodos servem para ele.
+
+```javascript
+const array = [
+  { id: 2, item: "Reservatório" },
+  { id: 5, item: "Válcula" },
+  { id: 7, item: "Poço" },
+  { id: 8, item: "Parafuso" },
+  { id: 11, item: "Engrenagem" },
+  { id: 14, item: "Escape" }
+];
+```
+
+#### O que muda na prática
+
+Basicamente nada. A diferença é que o parâmetro recebido na função lambda agora é um objeto e não uma variável simples e então podemos acessar seus atributos.
+
+<figure><img src="../../../.gitbook/assets/metodos array para objetos.png" alt=""><figcaption></figcaption></figure>
+
 ## Filter
 
 Serve para filtrar um array existente baseado em uma condição booleana, que resulta em um novo array.
@@ -95,3 +118,5 @@ itens.forEach((item) => {
     }
 });
 ```
+
+[^1]: Observamos que é um array de uma única posição `[0]`, que dentro dele temos vários objetos.
