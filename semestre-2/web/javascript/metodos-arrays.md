@@ -9,7 +9,8 @@ O método utiliza uma <mark style="color:blue;">função lambda iterando todo o 
 Métodos array não podem ser chamados diretamente em objetos. Contudo, o que é <mark style="color:green;">comum</mark> ser feito no formato de um [array de objetos](#user-content-fn-1)[^1]. Portanto, por ser um array, esses métodos servem para ele.
 
 ```javascript
-const array = [
+const arraySimples = [2, 3, 5, 6, 8, 9];
+const arrayObjeto = [
   { id: 2, item: "Reservatório" },
   { id: 5, item: "Válcula" },
   { id: 7, item: "Poço" },
@@ -21,7 +22,7 @@ const array = [
 
 #### O que muda na prática
 
-Basicamente nada. A diferença é que o parâmetro recebido na função lambda agora é um objeto e não uma variável simples e então podemos acessar seus atributos.
+Basicamente nada. A diferença é que o parâmetro recebido na função lambda agora é um objeto e não uma variável simples e então podemos acessar seus atributos. O exemplo abaixo utiliza os arrays definidos acima.
 
 <figure><img src="../../../.gitbook/assets/metodos array para objetos.png" alt=""><figcaption></figcaption></figure>
 
