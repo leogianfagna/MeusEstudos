@@ -69,9 +69,34 @@ const Form = () => {
 {% hint style="info" %}
 Possivelmente, precisaremos saber posteriormente:
 
-1. Como enviar JSON no body em uma requisição HTTP.
-2. Como encontrar chaves dentro de um objeto de objetos em Javascript.
+1. [Como enviar JSON no body em uma requisição HTTP](requisicoes-http.md#post).
+2. [Como encontrar chaves dentro de um objeto de objetos em Javascript.](../../javascript/metodos-arrays.md#usar-para-objetos)
 3. Como fazer download de arquivos.
+
+```jsx
+function downloadJsonFile() {
+  // Sendo apiData um arquivo JSON ou objeto
+  if (!apiData) return;
+
+  // Prepara o objeto (mantém como JSON)
+  const jsonString = JSON.stringify(apiData);
+  const blob = new Blob([jsonString], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+
+  // Cria o link para o download
+  const tempLink = document.createElement("a");
+  tempLink.href = url;
+  tempLink.download = "meuArquivo.json";
+  document.body.appendChild(tempLink);
+  tempLink.click();
+  document.body.removeChild(tempLink);
+  URL.revokeObjectURL(url);
+}
+
+<button onClick={downloadJsonFile} disabled={!apiData}>
+  Baixar JSON
+</button>
+```
 {% endhint %}
 
 ## Envio
