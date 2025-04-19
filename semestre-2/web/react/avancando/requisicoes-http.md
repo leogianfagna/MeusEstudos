@@ -42,14 +42,30 @@ Ligue com `npm run server` e agora seus dados estarão disponíveis como se foss
 
 </details>
 
+## Rotas
+
+Precisamos conhecer as rotas que vamos utilizar para as requisições. Convencionalmente, definimos uma variável chamada url que recebe a rota, exemplo:
+
 ```javascript
 // Definir a URL que vamos utilizar
 const url = "http://localhost:3000/products";
+const url = "http://www.dominio.com.br/rotaroot/";
+```
+
+Jogar essas rotas no navegador já é possível ver a saída em formato JSON. Normalmente, temos sub-rotas para utilizar, que podem expressar diferentes resultados, como por exemplo `/root/calcular`. Então podemos definir a url base e depois <mark style="color:green;">concatenar posteriormente</mark> de acordo com a rota que queremos, por exemplo:
+
+```jsx
+// Isso fica dentro do método FETCH
+const res = await fetch(`${url}calcular/`, { // Concatenação
+    method: "POST",
+    // ...
 ```
 
 ## GET
 
 As requisições HTTP guardam os dados no código com useState. Para a API não ser chamada diversas vezes durante a execução do código (por conta do comportamento do React de renderizar), podemos utilizar o hook de useEffect e chamam a API uma única vez de forma assíncrona.
+
+O métogo GET não precisa ser identificado, como `method: "GET"` pelo fato dele ser o método HTTP padrão.
 
 ```javascript
 // Dados são salvos com estado
@@ -68,6 +84,39 @@ useEffect(() => {
 ```
 
 ## POST
+
+Esse método exige um body (enviar algo na requisição), normalmente sendo um JSON (ou objeto). Veja abaixo, sendo `jsonData` um arquivo JSON importado externamente.
+
+```jsx
+const [apiData, setApiData] = useState([]);
+
+async function fetchData(jsonData) {
+  try {
+    const res = await fetch(`${url}calculate/`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(jsonData),
+    });
+
+    const data = await res.json();
+    setApiData(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+```
+
+## Carregamento de dados dinâmicos
+
+Se estamos usando um `GET` para resgatar dados (e apenas uma vez como visto acima), ao usar um `POST`, teoricamente não veremos esse novo dado ao menos que a tela seja recarregada ou que use um `GET` novamente. Ambos os casos são mal perfomáticos.
+
+Se podemos ter a variável com todos os dados resgatados através do [estado anterior](hooks.md#estado-anterior) de `products`, ao fazer um `POST` podemos simplesmente <mark style="color:green;">adicionar o novo dado de forma manual</mark> nessa lista usando [spread operator](../../javascript/conceitos.md#spread-operator). Isso vai fazer com que o dado já apareça e de forma otimizada.
+
+No código acima, não temos nenhum carregamento de dados dinâmico pois ele apenas implica em enviar um JSON e receber uma resposta.
+
+Em um novo exemplo, vamos supor que queremos enviar algo para adicionar no banco e já visualizar na tela, podemos fazer utilizando o resultado `res` do `POST`, que será justamente o dado adicionado. Depois definir um novo valor para products, concatenando o estado antigo com o novo dado.
 
 Criamos um objeto que representa o que será inserido no banco, no caso `product`. Ele recebe as variáveis que estamos lidando ao longo da vida do código, recebendo seus valores [através de formulários](formularios.md).
 
@@ -96,14 +145,6 @@ const handleSubmit = async (e) => {
   setProducts((prevProducts) => [...prevProducts, addedProducts]);
 };
 ```
-
-## Carregamento de dados dinâmicos
-
-Se estamos usando um `GET` para resgatar dados (e apenas uma vez como visto acima), ao usar um `POST`, teoricamente não veremos esse novo dado ao menos que a tela seja recarregada ou que use um `GET` novamente. Ambos os casos são mal perfomáticos.
-
-Se podemos ter a variável com todos os dados resgatados através do [estado anterior](hooks.md#estado-anterior) de `products`, ao fazer um `POST` podemos simplesmente <mark style="color:green;">adicionar o novo dado de forma manual</mark> nessa lista usando [spread operator](../../javascript/conceitos.md#spread-operator). Isso vai fazer com que o dado já apareça e de forma otimizada.
-
-No código acima, veja que isso é feito utilizando o resultado `res` do `POST`, que será justamente o dado adicionado. Depois ele seta um novo valor para products, concatenando o estado antigo com o novo dado.
 
 ## Custom Hook
 
