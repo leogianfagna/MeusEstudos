@@ -306,6 +306,7 @@
       * [Previnir pleonasmo](semestre-5/topicos-de-tecnologia-e-programacao/prolog-programacao-logica/regras-avancadas/previnir-pleonasmo.md)
       * [Repetir predicado](semestre-5/topicos-de-tecnologia-e-programacao/prolog-programacao-logica/regras-avancadas/repetir-predicado.md)
       * [Recursão](semestre-5/topicos-de-tecnologia-e-programacao/prolog-programacao-logica/regras-avancadas/recursao.md)
+      * [If-then](semestre-5/topicos-de-tecnologia-e-programacao/prolog-programacao-logica/regras-avancadas/if-then.md)
     * [Listas](semestre-5/topicos-de-tecnologia-e-programacao/prolog-programacao-logica/listas.md)
     * [Operações matemáticas](semestre-5/topicos-de-tecnologia-e-programacao/prolog-programacao-logica/operacoes-matematicas.md)
     * [Functors](semestre-5/topicos-de-tecnologia-e-programacao/prolog-programacao-logica/functors.md)

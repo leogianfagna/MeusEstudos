@@ -1,5 +1,7 @@
 # Trabalho final
 
+O exercício consiste em implementar predicados que usam todo o conhecimento visto nas seções de Prolog, que possibilite encontrar dados de ocupação total e reservas em hotéis.
+
 ## Banco de conhecimentos
 
 <figure><img src="../../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
@@ -53,19 +55,9 @@ ocupacao(CodHotel, Data, Total) :-
 
 > Aqui se repete o mesmo esquema da regra acima, onde parâmetros genéricos são usados em outros predicados e toda a lista de ocupações é passada como parâmetro para `conta_hospedes`.
 
-
-
-
-
-
-
-
-
-
-
 ## Regras de controle
 
-### Buscar ocupação correta
+### Buscar ocupação correta (para comquem)
 
 Esse predicado vai ter todas as ocupações (aqueles functors de ocupa) de um determinado hotel <mark style="color:orange;">em uma lista</mark> pois quem chama `busca_ocupacao` é `comquem` e ele <mark style="color:green;">já passa como parâmetro a lista de todas as ocupações</mark> encontradas no functor `ocupa`, dentro de `hospedagem`.
 
@@ -94,7 +86,7 @@ Perceba que a recursão vai apenas repetir a checagem do caso base, mas com o pr
 
 <figure><img src="../../../../.gitbook/assets/recursão que leva ao caso base.png" alt=""><figcaption></figcaption></figure>
 
-### Converter nomes
+### Converter nomes (para comquem)
 
 Esse predicado recebe uma lista de códigos e seu segundo parâmetro são os nomes respectivos a esses códigos. Portanto, o segundo parâmetro deve ser genérico para poder resgatar o que queremos.
 
@@ -114,10 +106,56 @@ Os nomes encontrados vão sendo concatenados na volta da recursão, quando ela e
 
 <figure><img src="../../../../.gitbook/assets/conversao para nomes prolog.png" alt=""><figcaption></figcaption></figure>
 
-### Intervalo de data
+### Intervalo de data (ambas)
 
 Predicado usado para descobrir se uma determinada data está entre outras duas datas fornecidas. Essa regra fica fácil de entender pois utiliza um outro predicado auxiliar, que recebe uma data e converte para um número.
 
 Tendo um número, usamos ele para fazer a comparação das datas. O predicado é usado para retornar true ou false, caso todas as condições se satisfaçam.
 
 <figure><img src="../../../../.gitbook/assets/data está no intervalo prolog.png" alt=""><figcaption></figcaption></figure>
+
+### Somar ocupação (para ocupacao)
+
+A ideia é contar os hóspedes presentes em uma data específica. A ideia é usar recursão para percorrer cada ocupação, conferir se esta ocupação está no intervalo desta data e, caso esteja, somar a quantidade de hóspedes e acompanhantes.
+
+Baseado na ideia acima, podemos usar uma [estrutura de condição](../regras-avancadas/if-then.md) (tipo operador ternário) no qual se a data for válida (está no intervalo) faz a somatória, mas caso contrário, segue a recursão normalmente.&#x20;
+
+```prolog
+somar_ocupacao([], _, _, 0).
+somar_ocupacao([ocupa(_, _, DataEntrada, DataSaida, Acompanhantes)|OcupacoesRestantes], CodHotel, Data, Total) :-
+
+    (intervalo_data(Data, DataEntrada, DataSaida) % Condição if-then
+     ->
+    	% Data válida (condição true): Fazer contagem (hóspede principal é apenas +1)
+        somar_acompanhantes(Acompanhantes, TotalAcompanhantes),
+        TotalDestaOcupacao is 1 + TotalAcompanhantes,
+        somar_ocupacao(OcupacoesRestantes, CodHotel, Data, SomaResto),
+        Total is TotalDestaOcupacao + SomaResto
+     ;
+    	% Data inválida (condição false): Fora do intervalo, apenas seguir recursão
+        somar_ocupacao(OcupacoesRestantes, CodHotel, Data, Total)
+    ).
+```
+
+A ideia na condição verdadeira (aquela que precisamos fazer a somatória) é somar o hóspede mais os acompanhantes de cada ocupação (com `somar_acompanhantes`) e depois seguir recursivamente o resto da lista <mark style="color:blue;">acumulando a contagem total</mark>.
+
+<figure><img src="../../../../.gitbook/assets/prolog somar com dois predicados.png" alt=""><figcaption></figcaption></figure>
+
+### Somar acompanhantes (para ocupacao)
+
+Tem como objetivo resgatar um número, o total de acompanhantes em uma determinada ocupação. Esse predicado recebe no primeiro parâmetro uma lista com os códigos dos acompanhantes, então basta <mark style="color:green;">apenas contar quantos são</mark>.
+
+{% hint style="warning" %}
+`somar_acompanhantes` recebe de fato apenas a lista dos acompanhantes como `[2, 15, 56]`, pois o predicado `somar_ocupacao` <mark style="color:blue;">**desestrutura**</mark> todo o functor de ocupação, passando apenas a lista de acompanhantes para cá.
+{% endhint %}
+
+Para apenas uma contagem, simplesmente fazer uma recursão com um critério de parada quando a lista for vazia equivalendo a zero. A cada iteração somar 1 no total, desta forma:
+
+```prolog
+somar_acompanhantes([], 0).
+somar_acompanhantes([_|OutrosAcompanhantes], Total) :-
+    somar_acompanhantes(OutrosAcompanhantes, ContagemParcial),
+    Total is ContagemParcial + 1.
+```
+
+Veja que o código do acompanhante não importa para nós, apenas quantas iterações tiveram. Por isso foi marcado como `_`. Além disso, o que importa na lista é apenas `OutrosAcompanhantes` que é passado como parâmetro da recursão para que ela possa continuar contando, até que o resto da lista seja vazio.
