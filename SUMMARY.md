@@ -286,6 +286,7 @@
   * [Manipulação de arquivos](semestre-5/ciencia-de-dados/manipulacao-de-arquivos.md)
   * [Estatística descritiva](semestre-5/ciencia-de-dados/estatistica-descritiva.md)
   * [Visualização de dados](semestre-5/ciencia-de-dados/visualizacao-de-dados.md)
+  * [Imputação de valores](semestre-5/ciencia-de-dados/imputacao-de-valores.md)
 * [Inteligência artificial](semestre-5/inteligencia-artificial/README.md)
   * [Busca](semestre-5/inteligencia-artificial/busca.md)
   * [Aprendizado de máquina](semestre-5/inteligencia-artificial/aprendizado-de-maquina/README.md)

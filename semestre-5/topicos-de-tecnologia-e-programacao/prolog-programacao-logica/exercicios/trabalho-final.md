@@ -4,11 +4,11 @@ O exercício consiste em implementar predicados que usam todo o conhecimento vis
 
 ## Banco de conhecimentos
 
-<figure><img src="../../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/ex base de conhecimentos.png" alt=""><figcaption></figcaption></figure>
 
 ## Consultas desejadas
 
-<figure><img src="../../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/ex consultas esperadas.png" alt=""><figcaption></figcaption></figure>
 
 ## Principais regras
 
