@@ -64,7 +64,7 @@ hospedagem(1, [
     ocupa(2,202,[8,4,2025],[13,4,2025],[6]),
     ocupa(3,104,[2,4,2025],[10,4,2025],[7,8,9]),
     ocupa(1,203,[1,3,2025],[8,6,2025],[2,4]),
-	ocupa(21,201,[1,3,2025],[8,6,2025],[]),
+    ocupa(21,201,[1,3,2025],[8,6,2025],[]),
     ocupa(10,103,[2,6,2025],[8,6,2025],[11,12])
 ]).
 
@@ -97,14 +97,15 @@ codigo_para_nome([PrimeiroCodigo|OutrosCods], [Nome|OutrosNomes]) :-
     codigo_para_nome(OutrosCods, OutrosNomes).
 
 
-% O predicado "comquem" chama esse predicado passando como parâmetro a lista completa de ocupações
-% que é resgatado do fato "hospedagem".
-% O caso base da recursão é se a ocupação iterada CONDIZ com o CodHospede e a data no intervalo.
-% Se não, repete a recursão até que encontre a ocupação desejada (caso base)
+% Tem como objetivo resgatar uma lista de "Acompanhantes" de uma certa ocupação. Filtra entre todas as
+% ocupações recebidas ("comquem" chama ele passando elas) até condizer com o CASO BASE: CodHospede e
+% intervalo_data condizem. Repete recursão até encontrar ocupação desejada.
+% Desestrutura apenas o primeiro elemento da lista e ignora o resto _.
 busca_ocupacao(CodHospede, [ocupa(CodHospede, _, DataEntrada, DataSaida, Acompanhantes)|_], Data, Acompanhantes) :-
     intervalo_data(Data, DataEntrada, DataSaida).
 busca_ocupacao(CodHospede, [_|OutrasOcupacoes], Data, Acompanhantes) :-
     busca_ocupacao(CodHospede, OutrasOcupacoes, Data, Acompanhantes).
+
 
 % ---------------------
 % Exercício 2) Predicado ocupacao
@@ -154,11 +155,11 @@ data_para_num([D, M, A], DataEmNumero) :-
 % o predicado "data_para_num". Usa "DataInt", "IntEntrada" e "IntSaida" como variáveis genéricas
 % para receber o valor da conversão e comparar com os operadores.
 intervalo_data(Data, DataEntrada, DataSaida) :-
-    data_para_num(Data, DataInt),
-    data_para_num(DataEntrada, IntEntrada),
-    data_para_num(DataSaida, IntSaida),
-    DataInt >= IntEntrada,
-    DataInt =< IntSaida.
+    data_para_num(Data, DataEmNumero),
+    data_para_num(DataEntrada, DataEntradaNum),
+    data_para_num(DataSaida, DataSaidaNum),
+    DataEmNumero >= DataEntradaNum,
+    DataEmNumero =< DataSaidaNum.
 
 % ---------------------
 % Testes
