@@ -88,6 +88,7 @@
         * [Fragments](semestre-2/web/react/fundamentos/componentes/fragments.md)
         * [Children prop](semestre-2/web/react/fundamentos/componentes/children-prop.md)
       * [Eventos](semestre-2/web/react/fundamentos/eventos.md)
+      * [Renderização](semestre-2/web/react/fundamentos/renderizacao.md)
     * [Avançando](semestre-2/web/react/avancando/README.md)
       * [Imagens](semestre-2/web/react/avancando/imagens.md)
       * [Hooks](semestre-2/web/react/avancando/hooks.md)
