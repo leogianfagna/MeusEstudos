@@ -1,6 +1,6 @@
 # Context API
 
-Ajuda a compartilhar variáveis/estados entre <mark style="color:orange;">vários componentes</mark>. Quando estamos falando em níveis hierarquicos simples, utilizamos o [State Lift](state-lift.md), mas o **Context API** serve para resolver o problema quando temos diversos níveis de componentes e compartilhamento entre todos eles.
+Ajuda a compartilhar variáveis/estados entre <mark style="color:orange;">vários componentes</mark>. Quando estamos falando em níveis hierarquicos simples, utilizamos o [State Lift](state-lift.md), mas o **Context API** serve para resolver o problema quando temos **diversos níveis** de componentes e compartilhamento entre todos eles.
 
 **Normalmente**, o Context acaba encapsulando e englobando todos os componentes, criando portanto <mark style="color:green;">variáveis globais</mark>.
 
@@ -16,42 +16,70 @@ Convenção: Deixar na pasta chamada `/context` dentro de `/src`.
 
 ### Componente provedor do contexto
 
-Utiliza o hook `createContext` e precisa **exportar** tanto o contexto e o provider, visto acima.
+É necessário <mark style="color:blue;">criar um componente a parte</mark>, que sua única funcionalidade será envolver os demais componentes dentro de um contexto. Utiliza o hook `createContext` e precisa **exportar** tanto o contexto e o provider, visto acima. Vamos chamar de `MapContext`.
 
 ```jsx
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from 'react'
 
-const MapContext = createContext();
+export const MapContext = createContext()
 
-const MapContextProvider = ({ children }) => {
-    const [map, setMap] = useState("null");
+export function useMapContext() {
+  return useContext(MapContext)
+}
+```
 
-    return (
-        <MapContext.Provider value={{ map, setMap }}>
-            {children}
-        </MapContext.Provider>
-    );
+### Componente que irá envolvê-lo
+
+Nós poderíamos já dentro desse componente inserir nossos componentes filhos. Contudo, vamos deixar esse componente com a única responsabilidade de ser o "provedor".
+
+Então, vamos criar um componente que será o pai de todos e nele seguimos com a vida normalmente, criamos elementos, funções, etc.
+
+```jsx
+import { MapContext } from "./MapContext";
+
+const Form = () => {
+  const [formData, setFormData] = useState([]);
+  
+  const handleChangeForm = (event) => {
+    ...
+  };
+
+  return (
+    <FormContext.Provider value={{ formData, setFormData, handleChangeForm }}>
+      <h1>Formulário</h1>
+      <PaginaUm />
+      <PaginaDois />
+    </FormContext.Provider>
+  );
 };
 
-export { MapContext, MapContextProvider };
+export default Form;
 ```
+
+Veja então que esse componente tem suas funcionalidades e também exporta o contexto para seus filhos, que no caso são `PaginaUm` e `PaginaDois`. Os contextos exportados são esses passados em `value`: formData, setFormData e handleChangeForm (duas funções e uma variável). Se nós quisermos passar mais contextos para serem utilizados, é só incluir mais!
+
+É muito importante saber que, os <mark style="color:green;">filhos dos filhos também podem usar esse contexto</mark>. Isto é, se `PaginaUm` chama um componente dentro dele (supondo `FilhoPaginaUm`), esse componente também pode importar e usar esse contexto livremente.
+
+Não é necessário nenhum código adicional para isso acontecer. Então se quisermos usar o contexto apenas em `FilhoPaginaUm` mas não em seu pai, o `PaginaUm`, é só importar os contextos apenas no `FilhoPaginaUm` e tudo funcionará tranquilamente. O seu <mark style="color:blue;">pai não tem a responsabilidade de passar nada para o filho</mark>.
 
 ### Componentes que consomem/alteram
 
-Utiliza o hook `useContext` e precisa importar também o contexto criado por nós.
+Esse são os componentes (quaisquer componentes) que querem usar os contextos exportados. Para isso, utiliza o hook `useContext` e precisa importar também o contexto criado por nós (precisamos especificar qual importar).
 
 ```javascript
 import { useContext } from "react"
-import { MapContext } from "../context/MapContext"
+import { useMapContext } from "../FormContext"; // Nome da função que criamos e exportamos no primeiro exemplo
 ```
 
-Trazer o contexto para o componente. Os dados trazidos chegam em um objeto, portanto utilizamos:
+Depois trazer o contexto para o componente. Os dados trazidos chegam em um objeto, portanto utilizamos:
 
 ```jsx
-const { map, setMap } = useContext(MapContext);
+const { formData, handleChangeForm } = useFormContext();
 ```
 
-E pronto, já pode estar sendo utilizado ao longo desse componente. Veja o exemplo completo:
+E pronto, já pode estar sendo utilizado ao longo desse componente, como por exemplo, chamar as funções ou imprimir variáveis. Os valores são dinamicamente compartilhados em todos os componentes.
+
+Existem <mark style="color:orange;">várias formas de criar o context</mark>, por conta disso, pode haver algumas diferenças de exemplo para exemplo. Veja o exemplo completo:
 
 <figure><img src="../../../../.gitbook/assets/context api componente que recebe.png" alt=""><figcaption></figcaption></figure>
 
