@@ -79,12 +79,161 @@ A imputação de valores pode ser tanto para corrigir valores anômalos ou ausen
 
 Intuitivamente, podemos definir valores nulos como o valor da média geral, pois isso não afetaria estatísticas como média e mediana, mas afetaria desvios e quartis. Isso porque vai criar grandes anomalias.
 
-Vamos supor uma base de pessoas que incluem crianças. Uma criança de 1.05m está sem pesagem e a média de peso da base de dados está valendo 75kg. Fazendo uma imputação desta forma, temos uma criança com um peso absurdo. Por conta disso, é necessário usar métodos mais eficazes, como a imputação por vizinhança.
+Vamos supor uma base de pessoas que incluem crianças. Uma criança de 1.05m está sem pesagem e a média de peso da base de dados está valendo 75kg. Fazendo uma imputação desta forma, temos uma criança com um peso absurdo.&#x20;
 
-:warning: parei aqui
+Por conta disso, existem diversos métodos que podem ser utilizados para essa situação com [mais eficácia](#user-content-fn-2)[^2].
 
-## Dúvidas que ficaram
+### Imputação por vizinhança (método de aprendizagem)
 
-1. Devemos imputar os outliers?
+Quando imputamos por vizinhança, nossa suposição é que amostras similares têm características similares. Vamos entender como fazer, usando como exemplo uma base de dados de pessoa com pesos e alturas.
+
+Vamos primeiro colocar os dados em pontos dispersos em um gráfico. Vamos supor que no nosso dado nulo não temos a altura, consequentemente, não é possível imprirmir o ponto em um gráfico altura x peso. Por conta disso, dispersamos os pontos em um gráfico peso x peso.
+
+<figure><img src="../../.gitbook/assets/image.png" alt="" width="539"><figcaption></figcaption></figure>
+
+Vamos ver quem é o nosso ponto que possui um dado nulo que precisa de imputação e vamos encontrar `x` vizinhos através da <mark style="color:purple;">distância euclidiana</mark>. (No nosso exemplo, o ponto nulo é o 7).
+
+```python
+from scipy.spatial.distance import pdist
+from scipy.spatial.distance import squareform
+
+# Encontrar a distância euclidiana do ponto nulo (o 7) dos demais
+# Isso vai criar um dataframe que armazena cada distância de um ponto ao outro
+# Portanto, usar dm[7] é a distância do ponto 7 até um determinado ponto (para todos)
+Y = pdist([[x] for x in pessoas2['peso'].values], 'euclidean')
+dist_matrix = squareform(Y)
+dm = pd.DataFrame(dist_matrix)
+dm[7].sort_values()
+
+# Calcular a média da ALTURA dos vizinhos de 7 e imputaremos como a altura dele
+qtd_vizinhos = 3
+altura_somada = 0
+vizinhos = []
+
+# Resgatar a altura de cada vizinho mais próximo:
+# Usar dm[7].sort_values().index[i] vai pegar a distância do ponto 7 até o ponto "i"
+# que está sendo iterado. Esse ponto começará do mais próximo até o mais distânte.
+# Como a range só vai até 3, vai pegar os 3 mais próximos. Inicia em 1 para ignorar
+# ele mesmo
+for i in range(1, qtd_vizinhos + 1):
+    idxVizinho = dm[7].sort_values().index[i]
+    vizinhos.append(idxVizinho)
+    altura_vizinho = pessoas2.iloc[idxVizinho]['altura']
+    altura_somada = altura_somada + altura_vizinho
+
+# Finaliza o cálculo da média com os dados dos vizinhos e imputa esse valor
+# no índice 7, coluna da altura
+altura_media_calculada = altura_somada / qtd_vizinhos
+pessoas2.loc[7, 'altura'] = altura_media_calculada
+```
+
+Agora que nosso novo dataframe contém valores em ambas as colunas, podemos fazer plotar o gráfico com os dados da forma correta (altura x peso) e ver como ficou a distribuição:
+
+```python
+# Definir as cores para cada ponto em um vetor para ser usado no scatter()
+cores = []
+for idx in pessoas2.index:
+    if idx == 7:
+        cores.append('r')
+    elif vizinhos.__contains__(idx):
+        cores.append('k')
+    else:
+        cores.append('b') 
+    
+# Plotar o gráfico com as cores de cada ponto    
+pessoas2.plot.scatter('alt', 'peso', color=cores)
+plt.show()
+```
+
+<figure><img src="../../.gitbook/assets/imputação por vizinhança completo.png" alt=""><figcaption></figcaption></figure>
+
+Deu para ver que o ponto está muito próximo de onde "deveria estar", ou seja, este ponto foi muito <mark style="color:green;">bem colocado</mark> na dispersão dos dados.
+
+É possível perceber que os existe um ponto ainda mais próximo que os vizinhos (pontos pretos). Isso é só uma questão de escala e a forma como a distância euclidiana trabalha. Pode ser assunto para uma aula futura.
+
+### Imputação para grande escala de dados
+
+```python
+import pandas as pd
+import numpy as np
+from sklearn.impute import SimpleImputer, KNNImputer, IterativeImputer
+from sklearn.metrics import mean_absolute_error
+```
+
+Agora vamos pensar em grandes dados. Como dito, existem os métodos que utilizaremos para calcular os dados faltantes, tais como:
+
+<table><thead><tr><th width="189">Nome do método</th><th>Como funciona</th></tr></thead><tbody><tr><td><code>SimpleImputer</code></td><td>Substitui o valor faltante usando uma medida simples (média, mediana ou moda) da coluna.</td></tr><tr><td><code>IterativeImputer</code></td><td>Faz imputação <strong>multivariada</strong>, modelando a coluna faltante como uma função das outras colunas (ex: regressão iterativa).</td></tr><tr><td><code>KNNImputer</code></td><td>Usa os valores dos k vizinhos mais próximos (baseado na distância) para preencher o valor faltante (<strong>exemplo da vizinhança</strong>).</td></tr></tbody></table>
+
+#### Ideia de uso
+
+Definir o imputador `imp` com `fit`, que recebe uma função que <mark style="color:blue;">aprende e descobre</mark> quais serão os valores dos dados imputados. Depois, gerar os resultados preenchidos `out` com `transform`, que guarda os valores encontrados (ainda não atualiza o dataframe antigo).
+
+```python
+# Exemplo de imp com 3 métodos de imputação
+imp = SimpleImputer(strategy='mean')
+imp = IterativeImputer(max_iter=10)
+imp = KNNImputer(n_neighbors=5)
+```
+
+```python
+# Exemplo de out desses métodos. Dataframe de dados chamado "dados"
+out = imp.transform(dados)
+
+# Inserindo os dados nulos de volta nesse dataframe original, levando em conta que
+# idx_alc e idx_pro são os índices das posições nulas
+dados[['coluna_com_nan_1', 'coluna_com_nan_2']] = out[:, [idx_alc, idx_pro]]
+```
+
+### KNNImputer
+
+```python
+for k in [2, 5, 10]:
+    imp = KNNImputer(n_neighbors=k)
+    imp.fit(df_wine)
+    
+    out = imp.transform(sample_missing)
+    
+    mae_alc = mean_absolute_error(y_true_alc, out[:, sample_missing.columns.get_loc('alcohol')])
+    mae_pro = mean_absolute_error(y_true_prol, out[:, sample_missing.columns.get_loc('proline')])
+    
+    results.append(('KNNImputer', f'n_neighbors={k}', mae_alc, mae_pro))
+
+```
+
+### SimpleImputer
+
+```python
+results = []
+
+for strategy in ['mean', 'median', 'most_frequent']:
+    imp = SimpleImputer(strategy=strategy)
+    imp.fit(df_wine[['alcohol', 'proline']])
+    
+    out = sample_missing.copy()
+    out[['alcohol', 'proline']] = imp.transform(out[['alcohol', 'proline']])
+    
+    mae_alc = mean_absolute_error(y_true_alc, out['alcohol'].values)
+    mae_pro = mean_absolute_error(y_true_prol, out['proline'].values)
+    
+    results.append(('SimpleImputer', f'strategy={strategy}', mae_alc, mae_pro))
+```
+
+### IterativeImputer
+
+```python
+for it in [5, 10]:
+    imp = IterativeImputer(max_iter=it, random_state=0)
+    imp.fit(df_wine)
+    
+    out = imp.transform(sample_missing)
+    
+    mae_alc = mean_absolute_error(y_true_alc, out[:, sample_missing.columns.get_loc('alcohol')])
+    mae_pro = mean_absolute_error(y_true_prol, out[:, sample_missing.columns.get_loc('proline')])
+    
+    results.append(('IterativeImputer', f'max_iter={it}', mae_alc, mae_pro))
+
+```
 
 [^1]: Todas elas, como média, mediana, percentil, desvio, etc.
+
+[^2]: Não quer dizer que o método acima seja ruim, ele pode ser muito útil quando a distribuição de dados é simétrica.
