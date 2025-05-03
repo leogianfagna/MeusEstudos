@@ -300,6 +300,7 @@
       * [Definição](semestre-5/inteligencia-artificial/aprendizado-de-maquina/supervisao/definicao.md)
       * [KNN](semestre-5/inteligencia-artificial/aprendizado-de-maquina/supervisao/knn.md)
       * [Naive Bayes](semestre-5/inteligencia-artificial/aprendizado-de-maquina/supervisao/naive-bayes.md)
+      * [Perceptron](semestre-5/inteligencia-artificial/aprendizado-de-maquina/supervisao/perceptron.md)
 * [Tópicos de tecnologia e programação](semestre-5/topicos-de-tecnologia-e-programacao/README.md)
   * [Introdução](semestre-5/topicos-de-tecnologia-e-programacao/introducao.md)
   * [Conceitos](semestre-5/topicos-de-tecnologia-e-programacao/conceitos.md)

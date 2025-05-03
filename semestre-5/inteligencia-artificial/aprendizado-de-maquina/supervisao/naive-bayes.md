@@ -23,3 +23,13 @@ Nosso rótulo é o **Play**, que pode ser `Yes` ou `No`. Agora, queremos saber q
 <figure><img src="../../../../.gitbook/assets/tabela a priori 3.png" alt=""><figcaption></figcaption></figure>
 
 Então, dada as condições, conseguimos a <mark style="color:blue;">probabilidade do retorno de cada rótulo</mark>. Por fim, rotulamos esse resultado final baseado no maior número que no exemplo é `0,02`. Então, nessas condições, o rótulo será `NO`.
+
+## Suavização de laplace
+
+Vamos supor que algum desses números de ocorrências a cima seja zero. Por se tratar de multiplicação, um simples zero iria zerar a conta toda:
+
+<figure><img src="../../../../.gitbook/assets/problema com ocorrências zero.png" alt=""><figcaption></figcaption></figure>
+
+Veja que pode ocorrer em todas ocasiões, retornando zero em tudo e não sabendo o que devemos rotular. Essa suavização previne resultados zerados mudando um pouco a fórmula.
+
+<figure><img src="../../../../.gitbook/assets/suavização de laplace.png" alt="" width="563"><figcaption></figcaption></figure>
