@@ -53,6 +53,7 @@
       * [Div sobreposta](semestre-2/web/css/como-e-feito/div-sobreposta.md)
   * [JavaScript](semestre-2/web/javascript/README.md)
     * [Conceitos](semestre-2/web/javascript/conceitos.md)
+    * [Filtragem de objetos](semestre-2/web/javascript/filtragem-de-objetos.md)
     * [Template Literals](semestre-2/web/javascript/template-literals.md)
     * [Destructuring](semestre-2/web/javascript/destructuring.md)
     * [Truthy e Falsy values](semestre-2/web/javascript/truthy-e-falsy-values.md)
