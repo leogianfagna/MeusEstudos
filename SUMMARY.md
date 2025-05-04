@@ -327,6 +327,7 @@
 * [Padrões de arquitetura](semestre-5/padroes-de-arquitetura/README.md)
   * [Introdução](semestre-5/padroes-de-arquitetura/introducao.md)
   * [Clean Code](semestre-5/padroes-de-arquitetura/clean-code.md)
+  * [SOLID](semestre-5/padroes-de-arquitetura/solid.md)
 * [Gerência de configuração](semestre-5/gerencia-de-configuracao/README.md)
   * [Introdução](semestre-5/gerencia-de-configuracao/introducao.md)
   * [Linha de referência](semestre-5/gerencia-de-configuracao/linha-de-referencia.md)
