@@ -25,11 +25,11 @@ Essa linha é usada para separar os grupos em seus cortes. Alteraramos o peso ou
 
 Muitas vezes não é possível dividir os grupos com apenas uma linha, então podemos inserir mais linhas para criar novas divisões. Curiosidade: não pensar em usar duas linhas foi o que travou o desenvolvimento da IA a muitos anos atrás.
 
-<figure><img src="../../../../.gitbook/assets/image (1).png" alt="" width="263"><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (1).png" alt="" width="263"><figcaption></figcaption></figure>
 
 Os pesos são iniciados com valores aleatórios e sendo ajustados gradualmente. Esse é um exemplo final de perceptron fazendo uma divisão de grupos.
 
-<figure><img src="../../../../.gitbook/assets/image (2).png" alt="" width="309"><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (2).png" alt="" width="309"><figcaption></figcaption></figure>
 
 Os Perceptrons são usados para classificar, enquanto [regressão linear](regressao-linear.md) é usada para prever.
 
