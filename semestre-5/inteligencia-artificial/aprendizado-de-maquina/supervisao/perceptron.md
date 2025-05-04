@@ -31,4 +31,6 @@ Os pesos são iniciados com valores aleatórios e sendo ajustados gradualmente. 
 
 <figure><img src="../../../../.gitbook/assets/image (2).png" alt="" width="309"><figcaption></figcaption></figure>
 
+Os Perceptrons são usados para classificar, enquanto [regressão linear](regressao-linear.md) é usada para prever.
+
 [^1]: Sinal/dendrito do neurônio, que é constantemente igual a 1 e estará associado a um    &#x20;peso 𝑊b.
