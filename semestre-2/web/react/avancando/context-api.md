@@ -30,9 +30,9 @@ export function useMapContext() {
 
 ### Componente que irá envolvê-lo
 
-Nós poderíamos já dentro desse componente inserir nossos componentes filhos. Contudo, vamos deixar esse componente com a única responsabilidade de ser o "provedor".
+A ideia é, um componente que tem vários filhos, compartilhar contextos entre todos eles. Então, neste caso é interessante fazer com que esse componente pai já seja o provedor do contexto.
 
-Então, vamos criar um componente que será o pai de todos e nele seguimos com a vida normalmente, criamos elementos, funções, etc.
+Para isso, basta envolver tudo o que está sendo renderizado (os componentes filhos e afins) dentro do objeto `Provider` criado naquele componente a parte no exemplo acima. Isso quer dizer que nosso pai terá a responsabilidade de ser o provedor.
 
 ```jsx
 import { MapContext } from "./MapContext";
