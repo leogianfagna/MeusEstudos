@@ -5,7 +5,7 @@ Precisamos saber os conceitos de renderização do React para que possamos criar
 ```jsx
 const MyForm = () => {
   // Variáveis
-  const [selectedUnit, setSelectedUnit] = useState(unit);
+  const [state, setState] = useState(unit);
   const result = myFunction();
 
   // Funções
@@ -41,44 +41,33 @@ Chamadas de fetch data ou setState <mark style="color:red;">não devem estar dir
 Esse exemplo mostra códigos dentro de um corpo de um componente. Veja abaixo uma função que é chamada no corpo e dentro dela usa um useState:
 
 ```jsx
-const [metricCategory, setMetricCategory] = useState(null);
-const metricsListFiltered = getMetricsFromCategory(metrics, unit); // Chamar função
+const keyList = [...]
+const [key, setKey] = useState(null);
+const keysFiltered = getKeyFromCategory(); // A função é chamada na render
 
-function getMetricsFromCategory(allMetrics, metricUnit) {
-  for (let key in allMetrics) {
-    let metricsList = allMetrics[key];
-
-    if (metricsList.find((m) => m === metricUnit)) {
-      setMetricCategory(key); // useState dentro da função
-      return metricsList;
-    }
+function getKeyFromCategory(findKey) {
+  if (keyList.find((k) => k === findKey)) {
+    setKey(k.name); // useState dentro da função
+    return k.name;
   }
 }
 ```
 
 Esse exemplo não roda pois cria um loop infinito. Para corrigir tal problema, fazemos:
 
-* metricsListFiltered não precisa ficar se atualizando a cada renderização e precisa assumir apenas um resultado somente. Portanto, movemos essa chamada para um useEffect. Para isso funcionar, deixamos ele declarado como um useState.
-* Para remover a necessidade do setMetricCategory dentro de uma função, fizemos que essa função retorne um objeto e assim resgatamos qual parte do objeto queremos no código.
+* A variável `keysFiltered` não precisa ficar se atualizando a cada renderização e precisa assumir apenas um resultado somente. Portanto, movemos essa chamada para um useEffect. Para isso funcionar, deixamos ele declarado como um useState.
+* Para remover a necessidade do `setKey` dentro de uma função, fizemos que essa função retorne um objeto e assim resgatamos qual parte do objeto queremos no código.
 
 ```jsx
-const [selectedUnit, setSelectedUnit] = useState(unit);
-const [metricsFiltered, setMetrics] = useState(null);
+const keyList = [...]
+const [key, setKey] = useState(null);
+const [keysFiltered , setkeysFiltered] = useState(null);
 
-function getMetricsAndCategory(allMetrics, metricUnit) {
-  for (let key in allMetrics) {
-    let metricsList = allMetrics[key];
-
-    if (metricsList.find((m) => m === metricUnit)) {
-      return {
-        list: metricsList,
-        category: key,
-      };
-    }
-  }
+function getKeyFromCategory(findKey) {
+  return keyList.find((k) => k === findKey));
 }
 
 useEffect(() => {
-  setMetrics(getMetricsAndCategory(metrics, unit));
+  setkeysFiltered(getKeyFromCategory(myKey));
 }, []);
 ```
