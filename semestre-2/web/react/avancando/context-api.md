@@ -14,6 +14,8 @@ Convenção: Deixar na pasta chamada `/context` dentro de `/src`.
 * **Provider**: Quem providencia esse contexto.
 * **Encapsular**: Apenas componentes filhos podem usar o contexto.
 
+<figure><img src="../../../../.gitbook/assets/antes e depois do contextapi.png" alt=""><figcaption></figcaption></figure>
+
 ### Componente provedor do contexto
 
 É necessário <mark style="color:blue;">criar um componente a parte</mark>, que sua única funcionalidade será envolver os demais componentes dentro de um contexto. Utiliza o hook `createContext` e precisa **exportar** tanto o contexto e o provider, visto acima. Vamos chamar de `MapContext`.
@@ -38,18 +40,17 @@ Para isso, basta envolver tudo o que está sendo renderizado (os componentes fil
 import { MapContext } from "./MapContext";
 
 const Form = () => {
-  const [formData, setFormData] = useState([]);
-  
+  const [team, setTeam] = useState(null);
   const handleChangeForm = (event) => {
     ...
   };
 
   return (
-    <FormContext.Provider value={{ formData, setFormData, handleChangeForm }}>
-      <h1>Formulário</h1>
+    <MapContext.Provider value={{ team, setTeam, handleChangeForm }}>
+      <p>Elemento global</p>
       <PaginaUm />
       <PaginaDois />
-    </FormContext.Provider>
+    </MapContext.Provider>
   );
 };
 
