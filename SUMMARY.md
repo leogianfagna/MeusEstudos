@@ -134,6 +134,7 @@
     * [Busca](semestre-2/estrutura-de-dados/grafos/busca.md)
     * [Caminho mínimo](semestre-2/estrutura-de-dados/grafos/caminho-minimo.md)
     * [Ordenação topológica](semestre-2/estrutura-de-dados/grafos/ordenacao-topologica.md)
+  * [Hashing](semestre-2/estrutura-de-dados/hashing.md)
 
 ## Semestre 3
 
