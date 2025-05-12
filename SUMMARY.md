@@ -307,6 +307,7 @@
         * [Naive Bayes](semestre-5/inteligencia-artificial/aprendizado-de-maquina/supervisao/algoritmos/naive-bayes.md)
         * [Perceptron](semestre-5/inteligencia-artificial/aprendizado-de-maquina/supervisao/algoritmos/perceptron.md)
         * [Regressão linear](semestre-5/inteligencia-artificial/aprendizado-de-maquina/supervisao/algoritmos/regressao-linear.md)
+      * [Avaliação](semestre-5/inteligencia-artificial/aprendizado-de-maquina/supervisao/avaliacao.md)
 * [Tópicos de tecnologia e programação](semestre-5/topicos-de-tecnologia-e-programacao/README.md)
   * [Introdução](semestre-5/topicos-de-tecnologia-e-programacao/introducao.md)
   * [Conceitos](semestre-5/topicos-de-tecnologia-e-programacao/conceitos.md)

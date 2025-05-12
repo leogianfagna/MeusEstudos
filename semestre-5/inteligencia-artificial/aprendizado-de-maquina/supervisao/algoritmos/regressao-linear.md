@@ -40,6 +40,8 @@ Pois a reta ondulada ela apenas <mark style="color:orange;">decorou</mark> por o
 
 Metaforicamente, esse é o conceito de estudar para uma prova. Quem decorou respostas do gabarito, não consegue desenvolver uma questão se ela for diferente e quem aprendeu consegue.
 
+<figure><img src="../../../../../.gitbook/assets/overfiting em regressão linear.png" alt=""><figcaption></figcaption></figure>
+
 ### Modelo viciado
 
 Esse conceito de decorar os pontos com overfitting cria um modelo viciado.&#x20;
@@ -47,5 +49,21 @@ Esse conceito de decorar os pontos com overfitting cria um modelo viciado.&#x20;
 * Esse conceito é interessante para testar o “Treino-teste”, para saber se ele está viciado.
 * Validação cruzada.
 * Leave one out.
+
+## Gradiente descendente
+
+É um algoritmo de otimização usado para encontrar os **valores ideais dos coeficientes** (ou pesos) do modelo de regressão linear, minimizando o **erro** entre as previsões do modelo e os valores reais. O erro faz um formato de parábola e consequentemente existe o menor ponto dessa curva:
+
+<figure><img src="../../../../../.gitbook/assets/image (3).png" alt="" width="353"><figcaption></figcaption></figure>
+
+Para encontrar o ponto com o menor erro, podemos usar o conceito de <mark style="color:purple;">derivada</mark>. A derivada de uma função pode indicar se a função é crescente ou decrescente (em pontos altos da curva) , então, se o resultado da derivada for zero, isso indica que estamos no ponto mínimo e a derivada forma uma reta. Portanto:
+
+* Se o resultado da derivada for negativo: precisamos andar para frente.
+* Se o resultado da derivada for positivo: precisamos voltar.
+* Se o resultado for zero: estamos no ponto ideal.
+
+<figure><img src="../../../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+
+
 
 [^1]: É sobre aquele assunto de que, o preço da casa está fortemente correlacionado a área da casa.
