@@ -86,6 +86,68 @@ const EstadoAnterior = () => {
 export default EstadoAnterior;
 ```
 
+### Atualização imediata do estado
+
+O React não atualiza o estado imediatamente após o uso do `setState`. Vemos isso quando usamos um log após essa função, vemos que a variável ainda não foi definida. Isso pode criar alguns problemas que devemos controlar.
+
+{% hint style="warning" %}
+Isso explica o motivo de algumas renderizações falharem, dizendo que a variável não está declarada. É porque o React ainda não atualizou o estado dela, e por isso é necessário uma condicional para exibir apenas se ela existe:
+
+```jsx
+{myVar && // As vezes necessário para não falhar
+    myVar.map((item) => (
+        ...
+    ))
+}
+```
+{% endhint %}
+
+Vamos supor que temos um componente que manipula um JSON definido globalmente, com várias funções ao longo dele, por exemplo:
+
+```jsx
+const [formData, setFormData] = useState(importedJson);
+
+function adjustFormData() {
+    ...
+    setFormData(adjusted);
+}
+function convertFormData() {
+    ...
+    setFormData(converted);
+}
+
+function downloadJsonFile() {
+    adjustFormData();
+    convertFormData();
+    download();
+}
+```
+
+Veja que nenhuma função retorna o json e sim fica alterando ele com `setFormData`. Como uma função é chamada logo após a outra, não dá tempo do React atualizar o estado de uma função para outra, fazendo com que haja campos vazios ou até falha em leitura.
+
+Como recomendação, é interessante não usar alterações de estado nesse tipo de exemplo e controlar a variável com cópias em seus retornos. A implementação de uma solução nesse exemplo seria:
+
+```jsx
+const [formData, setFormData] = useState(importedJson);
+
+async function adjustFormData(form) {
+    ...
+    return adjusted;
+}
+async function convertFormData(form) {
+    ...
+    return converted;
+}
+
+async function downloadJsonFile() {
+    const adjusted = await adjustFormData(formData);
+    const converted = await convertFormData(adjusted);
+    download(converted);
+}
+```
+
+As funções passam a ser `async` para esperar o processo de ajustes e conversão, recebem os resultados da função de forma segura e não ficam manipulando no estado.
+
 ## Principais Hooks
 
 ### useEffect
