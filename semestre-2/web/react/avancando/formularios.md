@@ -215,6 +215,16 @@ return (
 );
 ```
 
+## Checkbox
+
+#### Valor inicialmente preenchido
+
+Caso não haja necessidade de armazenar e atualizar estados, podemos usar a tag `defaultChecked` para um input do tipo checkbox iniciar marcado. Caso seja necessário os estados, usar `checked={condição}`.
+
+```jsx
+<input type="checkbox" name="check" onChange={handleCheckbox} defaultChecked />
+```
+
 [^1]: Dica: ele já pode conter dados definidos ali dentro, vários campos dentro de campos. Assim, na hora de manipular com o formulário, se o campo for repetido ele irá substituir aquele valor.
 
 [^2]: Normalmente chamada de `handleSubmit`.
