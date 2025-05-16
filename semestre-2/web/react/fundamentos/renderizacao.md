@@ -30,6 +30,22 @@ Todo esse código acima é o que está dentro do corpo. Veja que a função `myF
 
 Enfim, só depois de renderizar todo o corpo que o React atualiza o DOM e dispara useEffect, useLayoutEffect, etc.
 
+## Quando é renderizado
+
+A renderização ocorre na primeira vez que o componente aparece e <mark style="color:blue;">toda vez que um estado se altera</mark>. Ou seja, se durante a execução do código nenhum estado se alterar, não há uma nova renderização.
+
+Por isso existe a <mark style="color:green;">recomendação de salvar variáveis dentro de estados</mark> do **useState**. Se salvar variáveis comuns e alterá-las, isso não vai afetar a renderização. Por exemplo:
+
+```jsx
+const [number, setNumber] = useState(10);
+const numberStateless = 10;
+
+setNumber(15); // Renderiza o componente todo novamente
+numberStateless = 15; // Não renderiza novamente
+```
+
+Isso pode afetar em casos de que você precisa do valor dos estados para imprimir no componente (ou usar em gráficos, por exemplo). Se você não precisa disso, talvez não seja necessário o uso de estados.
+
 ## Otimização e prevenção de loop
 
 Chamadas de fetch data ou setState <mark style="color:red;">não devem estar diretamente chamadas no corpo</mark> porque geram **loop infinito**.&#x20;Podemos criar quantas funções queremos, mas é recomendado que elas não sejam chamadas durante a renderização, como é feito com o `myFunction`.
