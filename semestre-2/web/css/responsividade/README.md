@@ -15,7 +15,7 @@ Pixels podem ser muito rígidos, enquanto unidades como **`rem`** ou **`em`** se
 
 Se precisamos espaçar uma div da outra verticalmente, podemos usar as próprias classes do Bootstrap para fazer isso que vão garantir responsividade. Basicamente, queremos espaçar isso:
 
-<figure><img src="../../../.gitbook/assets/espaçar divs com classes.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/espaçar divs com classes.png" alt=""><figcaption></figcaption></figure>
 
 Em vez de usar um margin-top diretamente, usamos a classe `mt-x` ou `mb-x` (depende se queremos para cima ou para baixo) do Boostrap, substituindo o X pelo tamanho desejado.
 
@@ -31,8 +31,8 @@ Em vez de usar um margin-top diretamente, usamos a classe `mt-x` ou `mb-x` (depe
 
 Uma imagem colocada na página vai sempre ser exibida por inteira independente da dimensão, podendo criar barras de rolagens em diferentes dispositivos. Em casos que usamos `width="100%"` para preencher toda a horizontal, uma imagem vai ser esticada dessa forma:
 
-<figure><img src="../../../.gitbook/assets/imagem sem responsividade.png" alt="" width="340"><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/imagem sem responsividade.png" alt="" width="340"><figcaption></figcaption></figure>
 
 Usando a classe `"img-fluid"` do Bootstrap, conseguimos deixar a imagem responsiva e fluída. Existem vários tipos de classes na documentação do Bootstrap que vão criar diferentes resultados, todas elas podem ser [vistas aqui](https://getbootstrap.com/docs/5.3/content/images/). Com essa classe, o resultado em telas pequenas fica:
 
-<figure><img src="../../../.gitbook/assets/imagem com responsividade.png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/imagem com responsividade.png" alt="" width="375"><figcaption></figcaption></figure>
