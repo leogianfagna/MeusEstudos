@@ -43,6 +43,7 @@
     * [Espaçamento](semestre-2/web/css/espacamento.md)
     * [Responsividade](semestre-2/web/css/responsividade/README.md)
       * [Mudanças de lugar](semestre-2/web/css/responsividade/mudancas-de-lugar.md)
+      * [Divisão de tela](semestre-2/web/css/responsividade/divisao-de-tela.md)
       * [Textos](semestre-2/web/css/responsividade/textos.md)
     * [Abordagem de estilos](semestre-2/web/css/abordagem-de-estilos.md)
     * [Fontes](semestre-2/web/css/fontes.md)
