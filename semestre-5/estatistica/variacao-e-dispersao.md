@@ -54,7 +54,9 @@ Esse desvio utiliza muitas variáveis. O número `S` isolado não tem muito sign
 
 ## Variância
 
-Simbolizado com `S^2` (não significa que está ao quadrado), a fórmula pode mudar se estamos trabalhando com [amostra ou população](conceitos-base.md).
+Simbolizado com `S²` (não significa que está ao quadrado), é a média dos desvios quadráticos, ou seja, somar todos os desvios elevados ao quadrado e depois dividir por um número, ao qual pode mudar se estamos trabalhando com [amostra ou população](conceitos-base.md). Na maioria dos casos, iremos dividir sempre por `n`.
+
+Iremos usar `n-1` apenas se for selecionado uma amostra de elementos de toda a nossa coluna de dados. Esse valor -1 serve para corrigir o viés amostral, pois estamos estimando a dispersão da população inteira por apenas um conjunto de amostras.
 
 <figure><img src="../../.gitbook/assets/como calcular variancia.png" alt="" width="563"><figcaption></figcaption></figure>
 
