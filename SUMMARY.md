@@ -342,6 +342,7 @@
   * [Medidas de posição](semestre-5/estatistica/medidas-de-posicao.md)
   * [Distribuição de frequência](semestre-5/estatistica/distribuicao-de-frequencia.md)
   * [Variação e dispersão](semestre-5/estatistica/variacao-e-dispersao.md)
+  * [Análise bivariada](semestre-5/estatistica/analise-bivariada.md)
 
 ## Semestre 6
 
