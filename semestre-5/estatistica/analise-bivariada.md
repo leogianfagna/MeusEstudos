@@ -22,6 +22,12 @@ Os símbolos do somatório quer dizer o valor resultante do somatório de toda a
 
 Depois de substituído, apenas continuar com as contas (multiplicações, subtrações, raíz e divisão).&#x20;
 
+### Interpretação
+
+Para interpretar de forma qualitativa, seguimos a seguinte tabela:
+
+<table><thead><tr><th width="209">Coeficiente de correlação</th><th>Grau de correlação</th></tr></thead><tbody><tr><td>0</td><td>Inexistente</td></tr><tr><td>0,0 - 0,3</td><td>Fraca</td></tr><tr><td>0,3 - 0,6</td><td>Regular</td></tr><tr><td>0,6 - 0,9</td><td>Forte</td></tr><tr><td>0,9 - 1,0</td><td>Muito forte</td></tr><tr><td>1</td><td>Perfeita</td></tr></tbody></table>
+
 ## Reta de regressão linear
 
 Calcula a reta que atravessa o gráfico de dispersão <mark style="color:blue;">melhor representando os dados</mark> (com menos erro). Com ela, podemos fazer previsões:
