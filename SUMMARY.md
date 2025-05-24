@@ -293,6 +293,7 @@
   * [Manipulação de arquivos](semestre-5/ciencia-de-dados/manipulacao-de-arquivos.md)
   * [Estatística descritiva](semestre-5/ciencia-de-dados/estatistica-descritiva.md)
   * [Visualização de dados](semestre-5/ciencia-de-dados/visualizacao-de-dados.md)
+  * [Normalização e padronização](semestre-5/ciencia-de-dados/normalizacao-e-padronizacao.md)
   * [Imputação de valores](semestre-5/ciencia-de-dados/imputacao-de-valores.md)
   * [PCA](semestre-5/ciencia-de-dados/pca.md)
 * [Inteligência artificial](semestre-5/inteligencia-artificial/README.md)

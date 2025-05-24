@@ -33,7 +33,7 @@ Então o gráfico acima mostra como os dados devem estar distribuídos para cons
 
 Lembrando que, se quisermos medir o quão grande é desvio padrão, usamos o [coeficiente de variação](../estatistica/variacao-e-dispersao.md), todos conceitos vistos em estatística.
 
-Se o resultado desse coeficiente for menor que 20%, quer dizer que a mistura é homogênea/interface gráfica consistente (pouca variação).
+Se o resultado desse coeficiente for menor que 20%, quer dizer que a mistura é homogênea e tem interface gráfica consistente (pouca variação).
 
 ### Medidas de Posição Relativa
 
