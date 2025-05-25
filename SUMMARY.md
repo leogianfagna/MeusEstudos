@@ -289,6 +289,7 @@
       * [Criar Dataframes](semestre-5/ciencia-de-dados/estruturas/dataframes/criar-dataframes.md)
       * [Percorrer elementos](semestre-5/ciencia-de-dados/estruturas/dataframes/percorrer-elementos.md)
       * [Métodos](semestre-5/ciencia-de-dados/estruturas/dataframes/metodos.md)
+  * [Distância entre pontos](semestre-5/ciencia-de-dados/distancia-entre-pontos.md)
   * [Manipulação de arquivos](semestre-5/ciencia-de-dados/manipulacao-de-arquivos.md)
   * [Estatística descritiva](semestre-5/ciencia-de-dados/estatistica-descritiva.md)
   * [Visualização de dados](semestre-5/ciencia-de-dados/visualizacao-de-dados.md)
