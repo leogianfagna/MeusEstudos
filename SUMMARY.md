@@ -279,7 +279,6 @@
 
 * [Ciência de dados](semestre-5/ciencia-de-dados/README.md)
   * [Conceitos](semestre-5/ciencia-de-dados/conceitos.md)
-  * [Introdução](semestre-5/ciencia-de-dados/introducao.md)
   * [Estruturas](semestre-5/ciencia-de-dados/estruturas/README.md)
     * [Como funcionam](semestre-5/ciencia-de-dados/estruturas/como-funcionam.md)
     * [Series](semestre-5/ciencia-de-dados/estruturas/series/README.md)
@@ -298,6 +297,7 @@
   * [Transformação de variáveis categóricas](semestre-5/ciencia-de-dados/transformacao-de-variaveis-categoricas/README.md)
     * [Codificação](semestre-5/ciencia-de-dados/transformacao-de-variaveis-categoricas/codificacao.md)
     * [Discretização](semestre-5/ciencia-de-dados/transformacao-de-variaveis-categoricas/discretizacao.md)
+  * [Desbalanceamento de classes](semestre-5/ciencia-de-dados/desbalanceamento-de-classes.md)
   * [PCA](semestre-5/ciencia-de-dados/pca.md)
 * [Inteligência artificial](semestre-5/inteligencia-artificial/README.md)
   * [Busca](semestre-5/inteligencia-artificial/busca.md)
