@@ -6,6 +6,14 @@ Médias não descrevem variabilidade[^1], portanto, existem medidas para calcula
 Quando trabalhamos com dados agrupados, aparecem novos dados nas fórmulas como **PM** (ponto médio da classe).
 {% endhint %}
 
+## Dispersão
+
+A dispersão de dados refere-se a uma medida de variabilidade ou a extensão em que os pontos de dados se espalham em torno de uma medida central, como a média. Em uma representação gráfica de um gráfico de dispersão, os dados são visualizados como pontos individuais em um eixo cartesiano.
+
+Tomando como base um registro de dados com a coluna X e coluna Y, plotar um ponto em um gráfico é apenas colocá-lo em sua devida posição em caixa eixo cartesiano.
+
+<figure><img src="../../.gitbook/assets/grafico de dispersão.png" alt=""><figcaption></figcaption></figure>
+
 ## Amplitude
 
 Simbolizado com `A`, é a <mark style="color:blue;">Diferença entre o valor máximo e mínimo</mark>, ou seja, são apenas dois dados e o restante é descartado. Por conta disso, falta sensibilidade, o que é um fator ruim considerar apenas amplitude.
