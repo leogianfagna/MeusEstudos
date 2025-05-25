@@ -312,6 +312,7 @@
     * [Supervisão](semestre-5/inteligencia-artificial/aprendizado-de-maquina/supervisao/README.md)
       * [Definição](semestre-5/inteligencia-artificial/aprendizado-de-maquina/supervisao/definicao.md)
       * [Treino teste](semestre-5/inteligencia-artificial/aprendizado-de-maquina/supervisao/treino-teste.md)
+      * [Métricas avaliativas](semestre-5/inteligencia-artificial/aprendizado-de-maquina/supervisao/metricas-avaliativas.md)
       * [Algoritmos](semestre-5/inteligencia-artificial/aprendizado-de-maquina/supervisao/algoritmos/README.md)
         * [KNN](semestre-5/inteligencia-artificial/aprendizado-de-maquina/supervisao/algoritmos/knn.md)
         * [Naive Bayes](semestre-5/inteligencia-artificial/aprendizado-de-maquina/supervisao/algoritmos/naive-bayes.md)

@@ -39,16 +39,6 @@ Como visto acima, ele sempre <mark style="color:green;">retorna os resultados es
 y_pred = [72.1, 73.5, 74.0, ...]
 ```
 
-### RMSE
-
-É uma das métricas usadas para avaliar esses resultados encontrados com os que estavam sendo esperados, sendo ela a <mark style="color:purple;">raíz do erro quadrático médio</mark>. Sendo assim, mede o quão distantes estão as previsões do esperado.
-
-```python
-# Resultados obtidos através de algum modelo (neste caso, KNN)
-y_pred_knn = knn.predict(X_test)
-
-# Retorna uma métrica agregada, um valor único do comparativo dos dois parâmetros
-rmse = np.sqrt(mean_squared_error(y_test, y_pred_knn))
-```
+Depois de previsto, esses resultados salvos são usados também para fazer a avaliação do modelo. Esses valores previstos serão comparados com os valores reais, usando qualquer [métrica avaliativa](metricas-avaliativas.md) que seja coerente. Veja nessa página, pois ela é o passo seguinte à predição.
 
 [^1]: Como KNN, regressão linear, etc.
