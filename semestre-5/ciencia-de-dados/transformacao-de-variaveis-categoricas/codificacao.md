@@ -1,4 +1,4 @@
-# Codificação de variáveis categóricas
+# Codificação
 
 A codificação é sobre transformar variáveis de texto para números, o que é essencial para alguns algoritmos que usam medidas de distância como o KNN. O dado textual é substituído por um número que o vai representar, podendo usar algumas metodologias para isso.
 
@@ -27,7 +27,7 @@ result = encoder.fit_transform(data) # [2 0 1]
 
 É ideal para algoritmos de distância e evita a imposição de uma ordem. Ele funciona criando uma coluna para cada tipo de categoria[^1] encontrada e o valor dessa coluna sendo um binário, para definir se é ou não é.
 
-<figure><img src="../../.gitbook/assets/one hot encoding.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/one hot encoding.png" alt=""><figcaption></figcaption></figure>
 
 <details>
 

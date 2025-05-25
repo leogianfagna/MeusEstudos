@@ -1,0 +1,2 @@
+# Transformação de variáveis categóricas
+
