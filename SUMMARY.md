@@ -39,6 +39,7 @@
     * [Layout](semestre-2/web/css/layout.md)
     * [Alinhamento](semestre-2/web/css/alinhamento.md)
     * [Posicionamento de divs](semestre-2/web/css/posicionamento-de-divs.md)
+    * [Posicionamento](semestre-2/web/css/posicionamento.md)
     * [Ocupação de divs](semestre-2/web/css/ocupacao-de-divs.md)
     * [Espaçamento](semestre-2/web/css/espacamento.md)
     * [Responsividade](semestre-2/web/css/responsividade/README.md)
