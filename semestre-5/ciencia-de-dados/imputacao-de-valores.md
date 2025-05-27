@@ -108,7 +108,7 @@ vizinhos = []
 
 # Resgatar a altura de cada vizinho mais próximo:
 # Usar dm[7].sort_values().index[i] vai pegar a distância do ponto 7 até o ponto "i"
-# que está sendo iterado. Esse ponto começará do mais próximo até o mais distânte.
+# que está sendo iterado. Esse ponto começará do mais próximo até o mais distante.
 # Como a range só vai até 3, vai pegar os 3 mais próximos. Inicia em 1 para ignorar
 # ele mesmo
 for i in range(1, qtd_vizinhos + 1):
@@ -123,7 +123,7 @@ altura_media_calculada = altura_somada / qtd_vizinhos
 pessoas2.loc[7, 'altura'] = altura_media_calculada
 ```
 
-Agora que nosso novo dataframe contém valores em ambas as colunas, podemos fazer plotar o gráfico com os dados da forma correta (altura x peso) e ver como ficou a distribuição:
+Agora que nosso novo dataframe contém valores em ambas as colunas, podemos plotar o gráfico com os dados da forma correta (altura x peso) e ver como ficou a distribuição:
 
 ```python
 # Definir as cores para cada ponto em um vetor para ser usado no scatter()
@@ -145,7 +145,7 @@ plt.show()
 
 Deu para ver que o ponto está muito próximo de onde "deveria estar", ou seja, este ponto foi muito <mark style="color:green;">bem colocado</mark> na dispersão dos dados.
 
-É possível perceber que os existe um ponto ainda mais próximo que os vizinhos (pontos pretos). Isso é só uma questão de escala e a forma como a distância euclidiana trabalha. Pode ser assunto para uma aula futura.
+É possível perceber que existe um ponto azul ainda mais próximo que os vizinhos (pontos pretos). Isso é só uma questão de escala e a forma como a distância euclidiana trabalha, que não será aprofundado aqui.
 
 ### Imputação para grande escala de dados
 
