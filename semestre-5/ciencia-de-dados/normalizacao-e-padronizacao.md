@@ -1,6 +1,6 @@
 # Normalização e padronização
 
-A normalização dos dados podem ser usadas em diversos contextos. Em treinamento de modelos de aprendizagem de máquina, é muito importante normalizar dados antes de aplicar quaiquer técnicas para uma melhor eficiencia.
+A normalização e padronização dos dados podem ser usadas em diversos contextos. Em treinamento de modelos de aprendizagem de máquina, é muito importante normalizar dados antes de aplicar quaiquer técnicas para uma melhor eficiencia.
 
 A normalização é recomendada <mark style="color:blue;">quando os dados não seguem a mesma magnitude</mark> e amplitude. Se uma coluna for um valor em porcentagem e a outra em número inteiro, isso pode pesar muito no algoritmo de distância. Manter os dados na mesma escala vai deixar cálculos mais precisos e não fazer com que uma coluna pese mais que a outra.
 
@@ -24,11 +24,13 @@ A segunda imagem mostra eles depois de normalizados. Esse problema afeta muito o
 
 ## Solução
 
-Se todos os nossos <mark style="color:blue;">dados estiverem em uma mesma escala</mark>, o impacto causado na avaliação dos dados seria proporcional a diferença entre eles. Portanto, consiste em padronizar todos os dados para uma escalar equivalente e assim eliminamos o problema apresentado acima.
+Se todos os nossos <mark style="color:blue;">dados estiverem em uma mesma escala</mark>, o impacto causado na avaliação dos dados seria proporcional a diferença entre eles. Portanto, consiste em normalizar ou padronizar todos os dados para uma escalar equivalente e assim eliminamos o problema apresentado acima.
+
+Normalização e padronização possuem uma diferença: a **normalização só rescala** os dados para uma escala diferente, enquanto a **padronização transforma**. É uma sutíl diferença, mas diz como os dados são manipulados. O MinMax é normalização pois só mexe com escala e o StandardScaler é uma padronização, pois transforma eles para alcançar médias e desvios desejados.
 
 ### MinMax
 
-Esse algoritmo coloca o <mark style="color:blue;">maior valor em 1 e o menor valor em zero</mark>, deixando todos os dados dentro desse intervalo. O problema dele é que <mark style="color:red;">outliers vão entrar nessa escala</mark> e achatar os dados, então é bom fazer a remoção de outliers antes de usar essa escala.
+Esse algoritmo rescala o <mark style="color:blue;">maior valor em 1 e o menor valor em zero</mark>, deixando todos os dados dentro desse intervalo. O problema dele é que <mark style="color:red;">outliers vão entrar nessa escala</mark> e achatar os dados, então é bom fazer a remoção de outliers antes de usar essa escala.
 
 Esse método segue uma fórmula, então podemos facilmente fazer de forma bruta a normalização dos dados:
 
@@ -39,11 +41,13 @@ X_std = (X - X.min(axis=0)) / (X.max(axis=0) - X.min(axis=0))
 X_scaled = X_std * (max - min) + min
 ```
 
-### StandartScaler
+### StandardScaler
 
-Transforma os valores deixando a <mark style="color:blue;">média em zero e o desvio padrão em 1</mark>, o que chamamos de distribuição padronizada [z-score](estatistica-descritiva.md#escore-z-1). Essa forma resulta em <mark style="color:green;">outliers não impactarem na normalização</mark> dos dados.
+Transforma cada valor na métrica [z-score](estatistica-descritiva.md#escore-z-1) deixando a <mark style="color:blue;">média em zero e o desvio padrão em 1</mark>, o que chamamos de distribuição padronizada. Então, cada valor será padronizado de acordo com a fórmula proposta nessa métrica.
 
-Essa escala vai permitir que encontremos quem são os outliers, devido a [interpretação para o desvio padrão](estatistica-descritiva.md#interpretacao-para-desvio-padrao) visto em estatística descritiva. Aqueles dados fora do intervalo de -3 a 3 são considerados outliers.
+Essa técnica é <mark style="color:green;">resistente à outliers</mark>, mas não imune pois eles ainda afetam o desvio padrão e média. Dizemos que é resistente pois valores outliers depois de padronizados vão ficar muito altos e vão poder ser detectados.
+
+Portanto, essa escala vai permitir que encontremos quem são os outliers com a [interpretação para o desvio padrão](estatistica-descritiva.md#interpretacao-para-desvio-padrao) visto em estatística descritiva. Aqueles dados fora do intervalo de -3 a 3 são considerados outliers.
 
 Para normalizar, usamos os métodos do **NumPy**, passando como parâmetro um dataframe `df` com as nossas variáveis:
 
@@ -83,3 +87,9 @@ X_vol_scaled = scaler_vol.fit_transform(X_volume)
 Novos valores podem entrar no conjunto de dados depois da normalização, desde que sigam a mesma escala. Se esse valor for menor ou maior, ele fica fora do intervalo de zero e um mas isso não vai afetar, desde que siga a escala.
 
 Isso também quer dizer que podemos ter nossos dados de volta, já que temos os valores mínimos e máximos guardados, podemos recuperar a escala.
+
+## Normalizar variáveis categóricas e rótulos
+
+Isso não é recomendado pois o algoritmo vai assumir uma ordem e relação entre elas, que nem sempre é verdadeira, afetando a distância. Por conta disso, as variáveis categóricas devem passar por outro [processo de transformação ensinados aqui](transformacao-de-variaveis-categoricas/).
+
+Já os rótulos, se forem categóricos temos o mesmo problema acima e isso não funcionaria. Já se for contínuo, isso pode ajudar o modelo a convergir mais rápido em casos de redes neurais, mas devem ser  voltados ao valor normal depois. Portanto, seria <mark style="color:blue;">apenas uma questão de desempenho</mark> e em casos bem específicos.
