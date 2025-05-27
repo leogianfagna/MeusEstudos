@@ -21,15 +21,11 @@ vendas.columns = ['hora','prod1','prod2']
 
 <figure><img src="../../.gitbook/assets/bd - base de dados de vendas ex.png" alt=""><figcaption></figcaption></figure>
 
-### Distância interquartílica
+### Pela distância interquartílica
 
-Vemos que para o produto 1, temos entre 10 (min) e 80 (max) vendas por hora; mas em 50% das horas amostradas (de 25% até 75%), temos entre 22 e 28 vendas. É intuitivo pensar que, se na metade das horas as vendas oscilam em 6 pontos (nosso IQR), valores que se distanciem em 6 pontos do Q1 e do Q3 sejam bem mais raros.
+Quando temos uma distribuição **assimétrica**, podemos usar os [métodos de distância interquartílica](estatistica-descritiva.md#distancia-interquartilica) para descobrir quem são os dados fora de padrão. Esses dados encontrados podem ser dropados da nossa base.
 
-Em aplicações reais tendemos a ser ainda mais permissivos na nossa margem, **multiplicamos o IQR por 1.5** e adicionamos ou subtraímos de Q3 e Q1 (respectivamente) para definir a nossa região de dados 'comuns'. Esse valor é tão usado que é pradrão em um plot estatístico, o **boxplot.**
-
-> \> (Q3 + IQR\*1.5) - Outlier
->
-> < (Q1 - IQR\*1.5) - Outlier
+Nesse exemplo, esse dataframe `vendas` agora possui todas as linhas que tem alguma coluna que seja outlier, ou seja, não são todos os dados mas sim alguma variável da linha.
 
 ```python
 # Calculando IQR e margem 'válida'
@@ -47,11 +43,11 @@ for col in ['prod1','prod2']:
 vendas.iloc[idx]
 ```
 
-Esse dataframe `vendas` agora possui todas as linhas que tem alguma coluna que seja outlier, ou seja, não são todos os dados mas sim alguma variável da linha.
+### Pelo desvio padrão
 
-### Desvio padrão
+Quando temos uma distribuição **simétrica**, ainda sob essa perspectiva de usar alguma medida de amplitude para medir valores anormais, podemos utilizar o desvio padrão. Vimos nos [métodos de desvio padrão](estatistica-descritiva.md#interpretacao-para-desvio-padrao) que 3 desvios simbolizam nossos dados anormais.
 
-Ainda sob essa perspectiva de usar alguma medida de amplitude para medir valores anormais, podemos utilizar o desvio padrão. Sabemos que em amostras simétricas temos 68% das amostras dentro de 1 desvio padrão da média, e quando aumentamos essa margem para 3 desvios padrões temos cerca de 99.7%. Iremos filtrar fora todas as amostras que estão a 3 desvios padrões da média, para mais ou para menos.
+Iremos filtrar fora todas as amostras que estão a 3 desvios padrões da média, para mais ou para menos.
 
 ```python
 # Calculando IQR e margem 'válida'
