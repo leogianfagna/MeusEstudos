@@ -87,6 +87,14 @@ Vamos primeiro colocar os dados em pontos dispersos em um gráfico. Vamos supor 
 
 <figure><img src="../../.gitbook/assets/image.png" alt="" width="539"><figcaption></figcaption></figure>
 
+{% hint style="warning" %}
+## Necessidade de normalização e redução de dimensionalidade antes da dispersão
+
+Na imputação por vizinhança, é necessário [normalizar a base de dados](normalizacao-e-padronizacao.md) quando temos mais de duas colunas na dispersão. Isso porque, a distância fica afetada quando não normalizamos por conta da diferença de magnitude dos dados, causando **problemas no algoritmo de distância**.
+
+Quando temos **grandes dimensionalidades**, isso gera problemas do tipo: pontos muito próximos entre si causando dificuldade para descobrir os vizinhos e variáveis irrelevantes causando ruído. Nesse caso, é também importante [aplicar o PCA](pca.md).
+{% endhint %}
+
 Vamos ver quem é o nosso ponto que possui um dado nulo que precisa de imputação e vamos encontrar `x` vizinhos através da <mark style="color:purple;">distância euclidiana</mark>. (No nosso exemplo, o ponto nulo é o 7).
 
 ```python
@@ -143,7 +151,7 @@ plt.show()
 
 <figure><img src="../../.gitbook/assets/imputação por vizinhança completo.png" alt=""><figcaption></figcaption></figure>
 
-Deu para ver que o ponto está muito próximo de onde "deveria estar", ou seja, este ponto foi muito <mark style="color:green;">bem colocado</mark> na dispersão dos dados.
+Deu para ver que o ponto está muito próximo de onde "deveria estar", ou seja, este ponto foi muito <mark style="color:green;">bem colocado</mark> na dispersão dos dados. No caso foi escolhido 3 vizinhos que gerou uma ótima escolha. Contudo, menos vizinhos deixa mais sensível à outliers e menos robusto. É uma boa prática testar diferentes parâmetros de vizinhos em bases grandes.
 
 É possível perceber que existe um ponto azul ainda mais próximo que os vizinhos (pontos pretos). Isso é só uma questão de escala e a forma como a distância euclidiana trabalha, que não será aprofundado aqui.
 
