@@ -37,7 +37,7 @@ Se o resultado desse coeficiente for menor que 20%, quer dizer que a mistura é 
 
 ### Medidas de Posição Relativa
 
-Quartis[^1], decis[^2] e percentis[^3] <mark style="color:blue;">dividem os dados</mark> (que devem estar em ordem crescente) em partes iguais e isso permite relacionar [quantidades de um com outro](#user-content-fn-4)[^4]. Se um se equivale com o outro, vamos optar por **usar percentis** nas métricas.
+Quartis[^1], decis[^2] e percentis[^3] <mark style="color:blue;">dividem os dados</mark> (que devem estar em ordem crescente) em partes iguais e isso permite relacionar [quantidades de um com outro](#user-content-fn-4)[^4]. Se um equivale ao outro, vamos optar por **usar percentis** nas métricas.
 
 Se os dados são divididos em partes, isso <mark style="color:green;">permite resgatar dados situados em uma determinada posição</mark>, a posição 90 de um percentil.
 
@@ -65,11 +65,15 @@ print(percentil_90)
 
 </details>
 
-#### Por que é importante? (Distância interquartílica)
+### Distância interquartílica
 
-Quando **não é** uma distribuição normal, precisamos calcular a <mark style="color:purple;">DISTÂNCIA INTERQUARTÍLICA</mark>. Valores abaixo de `Q1 - 1.5 * IQR` e acima de `Q3 + 1.5 * IQR` são **outliers**. Essa métrica (DI) é resistente aos outliers, por isso é muito boa.
+É uma métrica de **dispersão**, calculada pela diferença `Q3 - Q1` dos quartis ditos acima. Essa métrica vai <mark style="color:blue;">mostrar onde estão 50%</mark> dos dados e pode ser usada para detectar outliers. Enquanto o desvio padrão é usado para distribuições simétricas, a <mark style="color:blue;">distância interquartílica é usada em distribuições não normais</mark> (assimétricas).
 
+Para detectar outliers, procuramos valores fora do intervalo. Valores abaixo de `Q1 - 1.5 * IQR` e acima de `Q3 + 1.5 * IQR` são **outliers**, sendo Q1 e Q3 as medidas de posição relativa dos dados que estamos explorando. Essa métrica (DI) é resistente aos outliers, por isso é muito boa.
+
+{% hint style="success" %}
 Mesmo dizendo que é utilizada apenas quando é assimétrica, é de costume utilizar essa fórmula mesmo assim, a qualquer momento.
+{% endhint %}
 
 <details>
 
