@@ -67,9 +67,29 @@ print(percentil_90)
 
 ### Distância interquartílica
 
-É uma métrica de **dispersão**, calculada pela diferença `Q3 - Q1` dos quartis ditos acima. Essa métrica vai <mark style="color:blue;">mostrar onde estão 50%</mark> dos dados e pode ser usada para detectar outliers. Enquanto o desvio padrão é usado para distribuições simétricas, a <mark style="color:blue;">distância interquartílica é usada em distribuições não normais</mark> (assimétricas).
+É uma métrica de **dispersão**, calculada pela diferença `Q3 - Q1` dos quartis ditos acima usada para <mark style="color:blue;">mostrar onde estão 50%</mark> dos dados e pode ser usada para **detectar outliers**. Enquanto o desvio padrão é usado para distribuições simétricas, a <mark style="color:blue;">distância interquartílica é usada em distribuições não normais</mark> (assimétricas).
 
-Para detectar outliers, procuramos valores fora do intervalo. Valores abaixo de `Q1 - 1.5 * IQR` e acima de `Q3 + 1.5 * IQR` são **outliers**, sendo Q1 e Q3 as medidas de posição relativa dos dados que estamos explorando. Essa métrica (DI) é resistente aos outliers, por isso é muito boa.
+Para detectar outliers, procuramos valores fora do intervalo. Valores abaixo de `Q1 - 1.5 * IQR` e acima de `Q3 + 1.5 * IQR` são outliers, sendo Q1 e Q3 as medidas de posição relativa dos dados que estamos explorando. Essa métrica (DI) é resistente aos outliers, por isso é muito boa.
+
+<table><thead><tr><th width="125">Métrica</th><th width="99">Valor</th></tr></thead><tbody><tr><td>min</td><td>10</td></tr><tr><td>25%</td><td>22</td></tr><tr><td>50%</td><td>25</td></tr><tr><td>75%</td><td>28</td></tr><tr><td>max</td><td>80</td></tr></tbody></table>
+
+Esses valores em porcentagem são os nossos quartis. Para IQR explicar metade da nossa base, usamos:
+
+$$
+IQR = Q3(75) - Q1(25) = 28-22=6
+$$
+
+Então metade da nossa base oscila entre 6 pontos de diferença. Esse valor pode ser usada na detecção de outliers usandos as fórmulas mostradas acima:
+
+$$
+OutlierInferior = Q1-1.5*IQR=22-1.5*6=13
+$$
+
+$$
+OutlierSuperior = Q3+1.5*IQR=28-1.5*6=37
+$$
+
+Portanto, valos acima de 13 e abaixo de 37 são os outliers da nossa base, já que os dados que ficam entre esse intervalo são considerados nossa região de dados comuns. Esse valor é tão usado que é padrão em um plot estatístico, o **boxplot.**
 
 {% hint style="success" %}
 Mesmo dizendo que é utilizada apenas quando é assimétrica, é de costume utilizar essa fórmula mesmo assim, a qualquer momento.
