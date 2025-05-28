@@ -53,3 +53,5 @@ Independente do método, é importante garantir que o significado dos dados se m
 {% endhint %}
 
 {% hint style="success" %}
+Histogramas que mostram frequências e boxplot são excelente gráficos para mostrar a distribuição de dados nos bins gerados.
+{% endhint %}

@@ -23,6 +23,12 @@ sns.heatmap(
 ```
 {% endhint %}
 
+## Maldição da dimensionalidade
+
+O grande objetivo do PCA é corrigir esse termo. Quanto mais dimensões, mais nossos pontos ficam dispersos no gráfico, ou seja, mais difícil é para fazer cálculos de distância e então afetando os algoritmos.
+
+Não apenas isso mas também o peso computacional de guardar e processar várias dimensões.
+
 ## Olhar matemático
 
 O PCA vai resultar em uma matriz de coeficientes e cada linha é um componente. Na matemática, podemos ver esses componentes como vetores, onde o componente define a direção e a variância explicada define o comprimento quadrático, desta forma:
@@ -92,6 +98,18 @@ X_test_pca = pca.transform(X_test)
 
 Com o PCA treinado, podemos usá-lo em modelos de IA como [KNN](../inteligencia-artificial/aprendizado-de-maquina/supervisao/algoritmos/knn.md) ou [Regressão linear](../inteligencia-artificial/aprendizado-de-maquina/supervisao/algoritmos/regressao-linear.md).
 
-## Normalização
+## Padronização
 
-> To-do
+O PCA é sensível à escala das variáveis, aquele assunto tratado em normalização onde temos colunas com diferentes magnitudes. Aquela variável com a maior escala vai dominar a análise e influenciar no treino do PCA.
+
+Por isso, é recomendado fazer a padronização dos dados de entrada antes com [StandardScaler](normalizacao-e-padronizacao.md#standardscaler).
+
+## Tópicos para abordar
+
+* Como o PCA transforma as variáveis originais em componentes principais?
+* O que é a variância explicada em PCA?
+* Por que é recomendável padronizar os dados antes de aplicar o PCA?
+* O que acontece com a interpretabilidade dos dados após a aplicação do PCA?
+* Quais outras estratégias, além do PCA, podem ser utilizadas para reduzir a  \
+  dimensionalidade de um conjunto de dados?
+* O que fazer antes do PCA (drop de colunas, etc)

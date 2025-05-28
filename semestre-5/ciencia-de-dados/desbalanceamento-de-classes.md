@@ -4,7 +4,7 @@ Quando falamos em desbalanceamento das classes, é quando **um rótulo aparece m
 
 A acurácia sozinha dá uma falsa sensação. Vamos supor um exemplo de checagem de email, para concluir se o email recebido é verdadeiro ou spam. Em um caso de email profissional, mais de 95% dos casos se tratam de um email verdadeiro, isso quer dizer, se nosso algoritmo sempre dizer que o email é verdadeiro, ele estará com 95% de acerto no mínimo.
 
-Isso parece bom pela acurácia, mas tem um grande problema: nunca vamos acertar quando for um spam. Isso quer dizer que temos um <mark style="color:blue;">desequilíbrio de dados</mark> entre as classes, onde uma tem **muito mais amostras** que a outra e a nossa <mark style="color:blue;">modelagem tende a favorecer essa classe majoritária</mark>.
+Isso parece bom pela acurácia, mas tem um grande problema: nunca vamos acertar quando for um spam. Isso quer dizer que temos um <mark style="color:blue;">desequilíbrio de dados</mark> entre as classes, onde uma tem **muito mais amostras** que a outra e a nossa <mark style="color:blue;">modelagem tende a favorecer essa classe majoritária</mark>. Isso é gerado um <mark style="color:purple;">**modelo enviesado**</mark>, aquele que aprende com padrões distorcidos por causa disso.
 
 Para resolver isso, existem as técnicas oversampling e undersampling que lidam com o desequilíbrio de dados. A ideia em resumo é <mark style="color:blue;">"aumentar" a classe que tem menos ou "diminuir" a classe que tem mais buscando equilibrá-las</mark>, podendo até gerar dados sintéticos para isso.
 
@@ -37,6 +37,25 @@ Visa diminuir a quantidade de dados da classe majoritária para equilibrar em n�
 ## Oversampling
 
 Visa aumentar o número de exemplos da classe minoritária com amostras sintéticas, pois fica mais fácil fazer treinamento com mais amostras. O problema desse método é que pode aumentar o risco de [overfitting](../inteligencia-artificial/aprendizado-de-maquina/supervisao/algoritmos/regressao-linear.md#overfitting), onde o modelo se adapta em excesso aos dados de treinamento, resultando em um desempenho pior em dados não vistos. Imagine que a maior parte dos seus dados são sintéticos, isso é uma base muito ruim.
+
+A técnica `RandomOverSampler` faz exatamente isso, criando cópias de amostras aleatórias da classe minoritária. O `Smote` também serve para criar dados sintéticos, contudo, ele é baseado em algoritmos de distância para definir os dados da classe sintetizada, mostrado abaixo.
+
+### Problemas com treino e teste
+
+O Oversampling é recomendado ser realizado após a divisão entre treino e teste. Criar cópias antes da divisão pode causar, além do overfitting, um vazamento de dados que os dados sintéticos vão parar no teste. Isso vai comparar dados idênticos fazendo inflar métricas de avaliação.
+
+```python
+from imblearn.over_sampling import RandomOverSampler
+from sklearn.model_selection import train_test_split
+
+# Dividir os dados antes de fazer o balanceamento
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, stratify=y)
+
+# Aplique oversampling APENAS nos dados de treino
+ros = RandomOverSampler()
+X_train_res, y_train_res = ros.fit_resample(X_train, y_train)
+modelo.fit(X_train_res, y_train_res)
+```
 
 ## Solução híbrida
 
