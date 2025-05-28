@@ -93,3 +93,19 @@ Isso também quer dizer que podemos ter nossos dados de volta, já que temos os 
 Isso não é recomendado pois o algoritmo vai assumir uma ordem e relação entre elas, que nem sempre é verdadeira, afetando a distância. Por conta disso, as variáveis categóricas devem passar por outro [processo de transformação ensinados aqui](transformacao-de-variaveis-categoricas/).
 
 Já os rótulos, se forem categóricos temos o mesmo problema acima e isso não funcionaria. Já se for contínuo, isso pode ajudar o modelo a convergir mais rápido em casos de redes neurais, mas devem ser  voltados ao valor normal depois. Portanto, seria <mark style="color:blue;">apenas uma questão de desempenho</mark> e em casos bem específicos.
+
+## Padronização semântica
+
+É importante mencionar nessa padronização, apesar de simples. Consite em padronizar variáveis categóricas que estão "declaradas de forma equivocada". Esse não é o processo de transformá-las em diferentes valores, mas sim corrigir.
+
+Imagine em um formulário, onde foi recebido esses possíveis valores em estado:
+
+```
+"SP", "sp", "São Paulo", "são paulo"
+```
+
+Vamos ter então 4 grupos diferentes, o que afeta completamente o algoritmo. A padronização semântica consiste em transformar em algo padronizado como:
+
+```
+"SP"
+```
