@@ -6,6 +6,14 @@ Trata-se de <mark style="color:blue;">arrumar os dados de uma base</mark>, seja 
 
 Uma boa imputação de valores <mark style="color:green;">não mudam as métricas estatísticas</mark>. Então, é preciso calcular [métricas estatísticas](#user-content-fn-1)[^1] antes e depois da imputação para fazer comparativos. Isso pode ser feito de forma simples com `describe` e comparar os valores de saída.
 
+## Encontrar valores
+
+Para encontrar todos os registros que possuam algum dado nulo em alguma coluna, podemos usar:
+
+```python
+df_null = df[df.isnull().any(axis=1)]
+```
+
 ## Remoção de valores
 
 Cabe aqui para casos específicos ou **apenas como exemplo**, pois a solução <mark style="color:red;">não pode estar limitada em apenas remover os dados</mark> em que possuem ausências ou discrepâncias, pois esses dados podem fazer falta tornando a amostra artificial. Imagine que 15% dos dados estão com informações ausentes.
