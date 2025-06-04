@@ -106,6 +106,8 @@
       * [Context API](semestre-2/web/react/avancando/context-api.md)
       * [Requisições HTTP](semestre-2/web/react/avancando/requisicoes-http.md)
       * [Router](semestre-2/web/react/avancando/router.md)
+      * [Virtualização](semestre-2/web/react/avancando/virtualizacao/README.md)
+        * [Tabela](semestre-2/web/react/avancando/virtualizacao/tabela.md)
       * [Criação de projetos](semestre-2/web/react/avancando/criacao-de-projetos/README.md)
         * [Projetos simples](semestre-2/web/react/avancando/criacao-de-projetos/projetos-simples.md)
     * [CSS](semestre-2/web/react/css.md)
