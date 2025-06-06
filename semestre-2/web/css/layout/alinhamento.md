@@ -4,13 +4,13 @@ _Tutorial Try It de Nav bar:_ [_https://www.w3schools.com/howto/tryit.asp?filena
 
 ## Alinhar elementos na vertical
 
-<figure><img src="../../../.gitbook/assets/alinhamento correto pela tag p.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/alinhamento correto pela tag p.png" alt=""><figcaption></figcaption></figure>
 
 Usar `align-items: center` para centralizar os itens verticalmente dentro do [contêiner flexível](#user-content-fn-1)[^1]. Se necessário cálculos mais avançados, podemos utilizar a página de documentação sobre [alinhamento vertical](https://getbootstrap.com/docs/5.3/utilities/vertical-align/) do Bootstrap.
 
 ### Erro: Alguns elementos tortos
 
-<figure><img src="../../../.gitbook/assets/alinhamento errado pela tag p.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/alinhamento errado pela tag p.png" alt=""><figcaption></figcaption></figure>
 
 Veja como está torto, isso porque elementos de escrita como \<p> possuem margens e espaçamentos extras, basta removê-las:
 
@@ -27,7 +27,7 @@ Veja como está torto, isso porque elementos de escrita como \<p> possuem margen
 
 Na criação raíz, a tag body possui um atributo chamado <mark style="color:blue;">`margin`</mark> que define alguns pixels como uma margem até a borda (extremo) do site. Criando uma div para servidor como nav-bar, podemos ver esse atributo que não deixa ela encostrar em suas extremidades:
 
-<figure><img src="../../../.gitbook/assets/criação nav bar css.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/criação nav bar css.png" alt=""><figcaption></figcaption></figure>
 
 Definindo o margin como zero em uma classe da nav-bar não irá funcionar, pois esse é um atributo raíz do body. Portanto, devemos criar um estilo para o próprio body, onde definimos a margin como zero manualmente:
 
@@ -45,7 +45,7 @@ body {
 
 Zerando a margem, não teremos mais espaçamento entre as bordas do site, ficando desta forma:
 
-<figure><img src="../../../.gitbook/assets/nav bar com css.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/nav bar com css.png" alt=""><figcaption></figcaption></figure>
 
 ## Tamanho da div
 
@@ -67,7 +67,7 @@ Em qual estilo devemos colocar o padding: em <mark style="color:green;">`.elemen
 
 Usar dessa forma indica que o `padding` será aplicado ao redor de todo o conteúdo dentro desta `<div>`, mas não diretamente aos elementos `<a>` dentro dela, como se todos os `<a>` dentro dela seriam apenas um único só elemento e o preenchimento inicia-se ao redor desse "único elemento". Ficando da seguinte forma:
 
-<figure><img src="../../../.gitbook/assets/margin e padding css.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/margin e padding css.png" alt=""><figcaption></figcaption></figure>
 
 ```css
 .elementosNav {
@@ -83,7 +83,7 @@ Podemos reparar que o espaçamento inicia-se a partir da junção dos elementos 
 
 Isso vai aplicar o espaçamento apenas entre os elementos do texto, especificamente \<a>, não colocando nenhum espaçamento com base na div ou outros elementos.
 
-<figure><img src="../../../.gitbook/assets/padding css.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/padding css.png" alt=""><figcaption></figcaption></figure>
 
 ```css
 .elementosNav a { /* Especificado apenas para <a> */
@@ -137,7 +137,7 @@ Em um exemplo, temos uma div apenas para centralizar os elementos dentro de uma 
 </div>
 ```
 
-<figure><img src="../../../.gitbook/assets/alinhamento css 2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/alinhamento css 2.png" alt=""><figcaption></figcaption></figure>
 
 Em amarelo, a div nova e em preto a div pai. Podemos ver que ela está dentro, mas queremos duas coisas para conseguir jogar no canto:
 
@@ -154,6 +154,6 @@ Além de **none**, **right** e **left**, ele também poderá ser **inherit**, qu
 }
 ```
 
-<figure><img src="../../../.gitbook/assets/alinhamento css 1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/alinhamento css 1.png" alt=""><figcaption></figcaption></figure>
 
 [^1]: Ou seja, precisa usar flex box.

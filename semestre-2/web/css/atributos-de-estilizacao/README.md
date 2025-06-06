@@ -1,2 +1,0 @@
-# Atributos de estilização
-

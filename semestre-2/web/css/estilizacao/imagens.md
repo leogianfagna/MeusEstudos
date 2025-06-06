@@ -4,7 +4,7 @@
 
 Definida com `width` e `heigth`, o tamanho pode ser:
 
-<figure><img src="../../../.gitbook/assets/tamanho da imagem em css.png" alt="" width="469"><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/tamanho da imagem em css.png" alt="" width="469"><figcaption></figcaption></figure>
 
 ## Centralizar a imagem
 

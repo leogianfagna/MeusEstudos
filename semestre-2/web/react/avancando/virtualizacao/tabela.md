@@ -1,37 +1,16 @@
 # Tabela
 
-### ✅ 1️⃣ O que temos aqui
+O objetivo é construir uma tabela virtualizada para **performance**, baseado em aplicações reais de produção, com:
 
-Estamos construindo uma **tabela virtualizada** em React, com:
+* Cabeçalho fixo durante a [rolagem das linhas](#user-content-fn-1)[^1], que estarão virtualizadas.
+* Colunas dinâmicas que se [adaptam com o tamanho da tela](#user-content-fn-2)[^2] e não desalinham com o cabeçalho.
+* Scroll vertical sem mostrar a barra de rolagem, pois como a barra fica apenas nas linhas, isso iria desalinhar com o cabeçalho.
 
-* Um **cabeçalho fixo** (header)
-* Um **corpo de tabela virtualizado**, que permite navegar entre milhares de linhas sem travar
-* **4 colunas** dinâmicas que se adaptam ao tamanho da tela
-* **Scroll vertical ativo**, mas com a **barra de rolagem visualmente oculta**, mantendo o alinhamento perfeito entre header e grid
-* **Layout 100% responsivo**, se a tela for redimensionada, a tabela e as colunas se adaptam automaticamente
+Para chegar a esse resultado, é necessário usar os componentes do `react-window` que foca na virtualização e exibição dos elementos e `auto-sizer`, que vai ajudar nos problemas dos componentes exigirem tamanhos em números fixos, resgatando as medidas ideais e passando para esses componentes.
 
-O resultado é uma tabela **rápida, leve, sem desalinhamento**, que se comporta bem em qualquer resolução — ideal para aplicações modernas.
+## Dimensões de uma tabela virtualizada
 
-***
 
-### ⚙️ 2️⃣ Tecnologias usadas
-
-#### 📦 **react-window**
-
-* Biblioteca para **virtualização de listas e grids** em React.
-* Extremamente leve (\~2 kB), muito mais simples que alternativas maiores como react-virtualized.
-* Oferece componentes como:
-  * `FixedSizeList`
-  * `FixedSizeGrid` (que usamos aqui)
-
-Permite renderizar **apenas as células visíveis na tela**, reduzindo drasticamente o custo de renderização no React.
-
-***
-
-#### 📦 **react-virtualized-auto-sizer**
-
-* Pequeno utilitário que mede automaticamente o tamanho disponível do container (altura e largura).
-* Passa esses valores para o `Grid`, permitindo que ele se ajuste **responsivamente**.
 
 ***
 
@@ -47,18 +26,7 @@ Assim conseguimos manter o comportamento de scroll sem exibir barras que causari
 
 ***
 
-### 🚀 3️⃣ Técnicas e práticas comuns em produção
 
-👉 **1️⃣ Virtualização com Grid**
-
-Em aplicações profissionais (ERPs, dashboards, fintechs, sistemas SaaS), quando há tabelas com:
-
-* Muitas linhas
-* Muitas colunas
-* Dados dinâmicos (paginação, filtragem)
-
-... a **virtualização** é fundamental para garantir performance.\
-`react-window` é uma escolha muito comum por ser leve e eficiente.
 
 ***
 
@@ -214,3 +182,7 @@ export default Test;
 ```
 
 </details>
+
+[^1]: As linhas rolam mas o cabeçalho não. A dificuldade está em não envolver o cabeçalho na virtualização.
+
+[^2]: Emite uma grande dificuldade pois os componentes prontos não aceitam como estilos números físicos ou porcentagens, então vai obrigar a criar funções para resgatar o tamanho atual da tela e fazer conversões.

@@ -1,6 +1,6 @@
 # Imagem de fundo com conteúdo sobreposto
 
-<figure><img src="../../../../.gitbook/assets/css imagem de fundo.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/css imagem de fundo.png" alt=""><figcaption></figcaption></figure>
 
 Conteúdo sobreposto estamos falando de colocar a imagem como background do elemento. O posicionamento do texto text-box é feito de forma estática, que acaba funcionando mesmo assim para qualquer dimensão.
 

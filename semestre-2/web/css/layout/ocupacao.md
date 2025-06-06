@@ -1,6 +1,6 @@
-# Ocupação de divs
+# Ocupação
 
-Aqui estaremos falando de ocupação da div sem nos preocupar com o [posicionamento](posicionamento-de-divs.md) dela, seja a posição dela na tela, a orientação ou coisas do tipo. Esse tópico foi bem detalhado na página anterior. A ocupação é sobre a <mark style="color:blue;">área que ela vai ocupar</mark>, sendo ela fixa, estática, etc.
+Aqui estaremos falando de ocupação da div sem nos preocupar com o [posicionamento](direcao.md) dela, seja a posição dela na tela, a orientação ou coisas do tipo. Esse tópico foi bem detalhado na página anterior. A ocupação é sobre a <mark style="color:blue;">área que ela vai ocupar</mark>, sendo ela fixa, estática, etc.
 
 ## Tamanho das divs
 
@@ -31,7 +31,7 @@ Vamos supor que queremos que uma div ocupe um <mark style="color:purple;">espaç
 
 Veja abaixo o resultado disso, onde a parte cinza é a div com os estilos marcados e a parte roxa é todo o body, que no caso, não tem mais nada:
 
-<figure><img src="../../../.gitbook/assets/ocupação de div pré definida.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/ocupação de div pré definida.png" alt=""><figcaption></figcaption></figure>
 
 ## Ocupação relativa
 
@@ -69,4 +69,4 @@ Assim, nosso resultado final, temos:
 }
 ```
 
-<figure><img src="../../../.gitbook/assets/ocupação relativa de divs vertical.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/ocupação relativa de divs vertical.png" alt=""><figcaption></figcaption></figure>

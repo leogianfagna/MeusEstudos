@@ -1,8 +1,8 @@
-# Adicionando fontes
+# Fontes
 
 Para adicionar as fontes manualmente no projeto, precisa instalá-las. Usei o Dafont para instalar fontes e adicionei em uma pasta no diretório raíz, chamado **fonts**:
 
-<figure><img src="../../../.gitbook/assets/estrutura projeto html.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/estrutura projeto html.png" alt=""><figcaption></figcaption></figure>
 
 Depois, no arquivo de css, definimos a fonte em uma tag chamada @font-face. Vamos definir o nome que queremos para a fonte e importá-la com o caminho que ela está guardada, dessa forma:
 

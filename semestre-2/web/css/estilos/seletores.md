@@ -1,4 +1,4 @@
-# Abordagem de estilos
+# Seletores
 
 ## Seletores
 
@@ -11,7 +11,7 @@ Vamos supor que tenhamos um elemento body estilizado, mas uma outra página prec
 
 Servem para especificar em que situação aquele elemento será aplicado àquela tag. Veja abaixo um exemplo onde cria o estilo body e assim um seletor `page-home` ou `page-about`, e eles são aplicados de acordo com a classe colocada na tag body.
 
-<figure><img src="../../../.gitbook/assets/seletores em css.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/seletores em css.png" alt=""><figcaption></figcaption></figure>
 
 Isso também serviria se nós declararmos um body sem seletor e abaixo outros bodys com diferentes seletores. Eles vão usar a base que há no body global e depois aplicar os seletores separadamente, dessa forma:
 

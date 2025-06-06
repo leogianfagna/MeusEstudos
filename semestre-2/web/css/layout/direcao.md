@@ -1,4 +1,4 @@
-# Posicionamento de divs
+# Direção
 
 Como colocar uma div ou elemento ao lado do outro, sendo na horizontal ou na vertical? Esses aspectos são definidos através do atributo `flex-direction`.
 
@@ -10,13 +10,13 @@ O `display: flex` é uma propriedade CSS que ativa o **Flexbox**, um modelo de l
 
 Essa imagem vai esboçar como as divs se encontram usando cada um dos elementos de direcionamento:
 
-<figure><img src="../../../.gitbook/assets/exemplos de direcionamento css.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/exemplos de direcionamento css.png" alt=""><figcaption></figcaption></figure>
 
 Portando, o body (ou um container que contém tudo) está direcionado para cada item ficar em baixo do outro com `column`, assim como o título principal (queremos que a descrição do título fique abaixo dele). Já os cards abaixo, queremos que fiquem um do lado do outro então usamos `row`.
 
 Para ver a diferença, se trocarmos o atributo no <mark style="color:red;">body</mark> para `row`, teremos esse resultado:
 
-<figure><img src="../../../.gitbook/assets/direcionamento com row css.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/direcionamento com row css.png" alt=""><figcaption></figcaption></figure>
 
 Por definição, o estilo row é o padrão utilizado. Então, não indicar essa característica vai aplicar esse padrão para tudo, podendo criar essa dúvida de <mark style="color:purple;">como deixar uma div/elemento de baixo da outra</mark>.
 

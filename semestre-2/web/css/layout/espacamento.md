@@ -8,7 +8,7 @@ Portanto, vamos ver três tipos de espaçamentos, responsivos e não, para saber
 
 Vamos supor a seguinte situação em que queremos fazer um espaçamento vertical entre os elementos `button` deste site:
 
-<figure><img src="../../../.gitbook/assets/espaçamento zero.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/espaçamento zero.png" alt=""><figcaption></figcaption></figure>
 
 O código atual dele é este:
 
@@ -73,6 +73,6 @@ A classe é `mb-x`, sendo x o tamanho do espaçamento. Existem inúmeras formas 
 </div>
 ```
 
-<figure><img src="../../../.gitbook/assets/resultado espaçamento.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/resultado espaçamento.png" alt=""><figcaption></figcaption></figure>
 
 Vendo essa documentação, podemos ver que tem muitos tipos. Inclusive, podemos substituir todos os `mb-3` por `row-gap-3` na div e não em cada elemento que teria o mesmo efeito. Há de pesquisar nessa wiki e ver qual é o mais ideal para a situação.

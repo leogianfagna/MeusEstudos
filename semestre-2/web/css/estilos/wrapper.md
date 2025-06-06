@@ -17,11 +17,11 @@ Esse é um estilo que é do Bootstrap e foi declarado no nosso css para poder fa
 
 Para isso, usamos um estilo ou id wrapper. Ele consiste em declarar um estilo primeiro, que vai ser a condição para que o segundo estilo seja aplicado, por exemplo:
 
-<figure><img src="../../../.gitbook/assets/explicação de wrapper em css.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/explicação de wrapper em css.png" alt=""><figcaption></figcaption></figure>
 
 Então o estilo `card` <mark style="color:orange;">só vai funcionar caso ele também esteja herdando</mark> o estilo `kart-info`. Então, para resolver o problema acima, podemos fazer isso para que esse estilo só seja aplicado em uma determinada condição e não em todos os HTML. Podemos fazer isso também com ID, ficando assim o resultado final:
 
-<figure><img src="../../../.gitbook/assets/wrapper css com id.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/wrapper css com id.png" alt=""><figcaption></figcaption></figure>
 
 ## Uso moderno
 

@@ -1,8 +1,4 @@
-# Estilização
-
-Diversos recursos podem ser usados no HTML, como ícones externo.
-
-## Adicionar ícones
+# Ícones
 
 Existem sites externos que disponibilizam ícones já criados para podermos usar e ainda customizá-los da forma que queremos. Um exemplo é o Google Icons: [https://fonts.google.com/icons](https://fonts.google.com/icons). Ao abrir a página, verá diversos ícones prontos para escolher, junto com <mark style="color:green;">opções</mark>: tamanho, preenchimento, cor, etc.
 
@@ -13,7 +9,7 @@ Para importar, mostrará duas opções: a opção estática e opção estilizada
 
 Cada uma dessas opções vai dar uma opção de href diferente para ser importada. Podemos ver ela ao <mark style="color:purple;">lado direito</mark> logo após escolher um ícone:
 
-<figure><img src="../../.gitbook/assets/instruções de importação do google icons.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/instruções de importação do google icons.png" alt=""><figcaption></figcaption></figure>
 
 Assim, pegamos o que desejamos e importamos no `<head>` e depois usamos o ícone com o atributo `<span>`, igual mostra na aba lateral:
 
