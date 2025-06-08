@@ -1,35 +1,24 @@
-# Page 1
+# Métodos e funções
 
-Se baseia nos conceitos matemáticos de função.
+No Lisp puro, existem apenas 7 funções base: `car`, `cdr`, `cons`, `atom`, `eq`, `+1` e `-1`. Isso não quer dizer que para usar outros métodos precise importar algo, pois não precisa. Mas essas são as funções que podemos usar sem ter algo já pronto, como outras operações matemáticas ou conferir números por exemplo.
 
-## Características
+## CONS
 
-* Símbolos ao invés de strings que simbolizam algo do mundo real. Não possui partes. Monolítico.
-* Estrutura <mark style="color:purple;">par pontuado</mark>, que lembra duas posições de um vetor: `[0,1]` ou `(_ . _)`.
+Método para se criar um par pontuado. Ele não é necessário para sua declaração, podemos simplesmente usar `(a . b)` sem a chamada de método. A mesma coisa funciona para criações de listas encadeadas: `(a . (b . nil))`.
 
-## Lista
+## ATOM
 
-Não existem tipos de listas, as "listas" são um conjunto de par pontuados, onde o segundo elemento do par, é um outro par e assim sucessivamente.
+Verifica se o valor é um átomo, ótimo para comparar listas ou árvores (pois essas duas estruturas <mark style="color:orange;">não são átomos</mark> e usando recursão, vamos tirando elemento por elemento e se ambas são átomos fica mais fácil comparar).&#x20;
 
-A lista complicada é a forma como o Lisp trabalha na prática. Contudo, sempre responde com lista simplificada e até aceita usá-las em qualquer ocasião. O último elemento de uma lista sempre será o nil, mesmo que na lista simples esse elemento seja omitido visualmente (ele existe).
+```lisp
+(atom 42) ;; → T
+(atom 'hello) ;; → T
+(atom '(1 2 3)) ;; → nil
+```
 
-* Lista complicada: `(1ºe . (2ºe . (nºe . nil )))`
-  * Exemplo: `(1 . (2 . (3 . nil )))`
-  * Se for vazia será `'nil`
-* Lista simples: `(1ºe 2ºe 3ºe nºe)`
-  * Se for vazia será `'()`
+## CDR e CAR
 
-O conjunto das listas possuem uma intersecção no conjunto dos átomos, que são as listas vazias `'nil` ou `'()`.
-
-## Árvores
-
-O nil da extrema direita não é considerado um elemento. Não existem árvores vazias, mas existem aqueles com um átomo apenas.
-
-<figure><img src="../../../.gitbook/assets/lisp arvores.png" alt=""><figcaption></figcaption></figure>
-
-### Métodos
-
-Assim como em Prolog, podemos resgatar o primeiro elemento e o resto de uma lista:
+São métodos para recuperar um elemento da posição do par pontuado, o esquerdo ou o direito. Como pares pontuados são feitos para formar strings e árvores, consequentemente, essa função pode servir para recuperar uma sub árvore inteira.
 
 * CDR: Também lido como coulder, retorna o lado direito da árvore, o que seria a lista sem o primeiro elemento.
 * CAR: Retorna a sub árvore da esquerda, o que seria o primeiro elemento da lista.
@@ -41,7 +30,7 @@ Em `cdr` ou `car`, podemos acrescentar mais "a" ou "d" até 4 vezes. Essas são 
 
 <figure><img src="../../../.gitbook/assets/lisp caar com dois a.png" alt=""><figcaption></figcaption></figure>
 
-## Eq
+## EQ
 
 Serve para comparar átomos:
 
@@ -49,7 +38,7 @@ Serve para comparar átomos:
 * (eq 'puc 10) nil
 * (eq '(2 3) '(2 3)) nil
 
-## Soma e subtração simples
+## Operações matemáticas
 
 Existem os métodos +1 e -1. Não existem outros números ou outras operações matemáticas no Lisp puro, mas existe extensões podendo executar operações matemáticas.
 
