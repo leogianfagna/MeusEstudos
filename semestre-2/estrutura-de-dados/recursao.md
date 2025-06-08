@@ -40,5 +40,5 @@ int main() {
 ```
 
 {% hint style="info" %}
-Um passo a passo de uma recursão foi explicado em um exemplo de Prolog, seguindo estes mesmos fundamentos, [aqui nesta página](../../semestre-5/topicos-de-tecnologia-e-programacao/prolog-programacao-logica/operacoes-matematicas.md#recursividade-para-contas).
+Um passo a passo de uma recursão foi explicado em um exemplo de Prolog, seguindo estes mesmos fundamentos, [aqui nesta página](../../semestre-5/topicos-de-tecnologia-e-programacao/prolog-paradigma-logico/operacoes-matematicas.md#recursividade-para-contas).
 {% endhint %}
