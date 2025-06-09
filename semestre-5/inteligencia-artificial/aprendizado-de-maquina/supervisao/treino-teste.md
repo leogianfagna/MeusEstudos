@@ -62,7 +62,7 @@ for metric in ['euclidean', 'manhattan']:
             acc = accuracy_score(y_test, y_pred)
 ```
 
-Utilizar toda essa base pode dar uma falsa acurácia. Talvez, toda essa base com essa combinação[^3] gere uma boa acuácia mas ela pode não se desenvolver legal com dados reais. O K-Fold vai deixar isso mais robusto, dando certeza a escolha dos parâmetros.
+Utilizar toda essa base pode dar uma falsa acurácia. Talvez, toda essa base com essa combinação[^3] gere uma boa acurácia mas ela pode não se desenvolver legal com dados reais. O K-Fold vai deixar isso mais robusto, dando certeza a escolha dos parâmetros.
 
 {% hint style="success" %}
 Mudar os dados para o treinamento vai consequentemente mudar o aprendizado. O K-Fold vai mudar os dados para conseguir diferentes treinamentos.
