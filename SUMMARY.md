@@ -320,7 +320,7 @@
       * [Algoritmos](semestre-5/inteligencia-artificial/aprendizado-de-maquina/supervisao/algoritmos/README.md)
         * [KNN](semestre-5/inteligencia-artificial/aprendizado-de-maquina/supervisao/algoritmos/knn.md)
         * [Naive Bayes](semestre-5/inteligencia-artificial/aprendizado-de-maquina/supervisao/algoritmos/naive-bayes.md)
-        * [Perceptron](semestre-5/inteligencia-artificial/aprendizado-de-maquina/supervisao/algoritmos/perceptron.md)
+        * [Redes neurais](semestre-5/inteligencia-artificial/aprendizado-de-maquina/supervisao/algoritmos/redes-neurais.md)
         * [Regressão linear](semestre-5/inteligencia-artificial/aprendizado-de-maquina/supervisao/algoritmos/regressao-linear.md)
       * [Avaliação](semestre-5/inteligencia-artificial/aprendizado-de-maquina/supervisao/avaliacao.md)
     * [Critérios de validação](semestre-5/inteligencia-artificial/aprendizado-de-maquina/criterios-de-validacao/README.md)
