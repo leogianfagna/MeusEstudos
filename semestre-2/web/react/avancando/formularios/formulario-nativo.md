@@ -1,6 +1,6 @@
-# Formulários
+# Formulário nativo
 
-O principal [hook ](hooks.md)utilizado durante os formulários será `useState` com o evento `onChange`, que permite identificar os dados coletados no formulário, assim como validá-los.
+O principal [hook ](../hooks.md)utilizado durante os formulários será `useState` com o evento `onChange`, que permite identificar os dados coletados no formulário, assim como validá-los.
 
 ## Estrutura de um formulário
 
@@ -39,11 +39,11 @@ const [email, setMail] = useState();
 
 Se temos uma grande entrada de dados, podemos salvar todos eles em um **objeto** (chamaremos de formData). Criamos uma função `handleChangeForm` que consegue resgatar o campo e o valor preenchido nele.
 
-<figure><img src="../../../../.gitbook/assets/react form spread object.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/react form spread object.png" alt=""><figcaption></figcaption></figure>
 
 O objeto gerado será desta forma:
 
-<figure><img src="../../../../.gitbook/assets/objeto gerado.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/objeto gerado.png" alt=""><figcaption></figcaption></figure>
 
 ### Objetos dentro de objetos (exemplo complexo)
 
@@ -51,9 +51,9 @@ Em um projeto real, vamos supor que temos que preencher um grande formulário pa
 
 A mudança disto para o exemplo acima é que precisamos especificar qual é o campo que vamos salvar, então em vez de apenas usar `...prevData`, fazemos isso concatenado com o nome do campo em um vetor, como `...prevData, ["nomeCampo"]`.
 
-<figure><img src="../../../../.gitbook/assets/form objeto dentro de objeto react.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/form objeto dentro de objeto react.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../../.gitbook/assets/resultado form objeto em objeto.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/resultado form objeto em objeto.png" alt=""><figcaption></figcaption></figure>
 
 Se a estrutura do objeto não estiver declarada previamente, o programa vai causar erro ao tentar <mark style="color:red;">atribuir em um campo inexistente</mark>. Em problemas mais reais, podemos utilizar um JSON [já montado](#user-content-fn-1)[^1] como estrutura.&#x20;
 
@@ -69,8 +69,8 @@ const Form = () => {
 {% hint style="info" %}
 Possivelmente, precisaremos saber posteriormente:
 
-1. [Como enviar JSON no body em uma requisição HTTP](requisicoes-http.md#post).
-2. [Como encontrar chaves dentro de um objeto de objetos em Javascript.](../../javascript/metodos-arrays.md#usar-para-objetos)
+1. [Como enviar JSON no body em uma requisição HTTP](../requisicoes-http.md#post).
+2. [Como encontrar chaves dentro de um objeto de objetos em Javascript.](../../../javascript/metodos-arrays.md#usar-para-objetos)
 3. Como fazer download de arquivos.
 
 ```jsx
@@ -169,9 +169,9 @@ const handleSubmit = (e) => {
 
 ## Controlled inputs (labels preenchidos)
 
-Serve para <mark style="color:purple;">formulários de edição</mark>, onde dados já vem prontos (de [props](props.md)). Apenas é modificado o componente acima:
+Serve para <mark style="color:purple;">formulários de edição</mark>, onde dados já vem prontos (de [props](../props.md)). Apenas é modificado o componente acima:
 
-<figure><img src="../../../../.gitbook/assets/controlled inputs.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/controlled inputs.png" alt=""><figcaption></figcaption></figure>
 
 ```jsx
 // App.jsx

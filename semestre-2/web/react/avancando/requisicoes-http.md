@@ -118,7 +118,7 @@ No código acima, não temos nenhum carregamento de dados dinâmico pois ele ape
 
 Em um novo exemplo, vamos supor que queremos enviar algo para adicionar no banco e já visualizar na tela, podemos fazer utilizando o resultado `res` do `POST`, que será justamente o dado adicionado. Depois definir um novo valor para products, concatenando o estado antigo com o novo dado.
 
-Criamos um objeto que representa o que será inserido no banco, no caso `product`. Ele recebe as variáveis que estamos lidando ao longo da vida do código, recebendo seus valores [através de formulários](formularios.md).
+Criamos um objeto que representa o que será inserido no banco, no caso `product`. Ele recebe as variáveis que estamos lidando ao longo da vida do código, recebendo seus valores [através de formulários](formularios/formulario-nativo.md).
 
 ```jsx
 const [name, setName] = useState("");
