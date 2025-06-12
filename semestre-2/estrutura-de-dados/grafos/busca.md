@@ -8,7 +8,7 @@ Existem dois tipos de busca. Ambos se iniciam através de um **vértice qualquer
 
 Consiste em visitar um [vértice adjacente](#user-content-fn-1)[^1] que não tenha sido visitado ainda, criando um caminho e visitando todos. Quando há mais de um vértice adjacente, é visitado [aquele que veio primeiro](#user-content-fn-2)[^2].
 
-Percorrendo o grafo, quando não existem vértices adjacentes novos para visitar, usa como método o <mark style="color:purple;">**backtracinkg**</mark>, que consistem em retroceder pelo mesmo caminho até que encontre um vértice não adjancente e seguir para ele. Repete o processo até que todos os vértices sejam visitados.
+Percorrendo o grafo, quando não existem vértices adjacentes novos para visitar, usa como método o <mark style="color:purple;">**backtracinkg**</mark>, que consistem em retroceder pelo mesmo caminho até que encontre um vértice não adjacente e seguir para ele. Repete o processo até que todos os vértices sejam visitados.
 
 <figure><img src="../../../.gitbook/assets/primeiro passo - busca profundidade.png" alt="" width="526"><figcaption></figcaption></figure>
 
@@ -16,7 +16,7 @@ Percorrendo o grafo, quando não existem vértices adjacentes novos para visitar
 
 <figure><img src="../../../.gitbook/assets/terceiro passo - busca profundidade.png" alt="" width="497"><figcaption></figcaption></figure>
 
-A mesma lógica se aplica quando temos inúmeros vértices. Caso abaixo de `2` tivesse muitos outros vértices, o backtracking ia ser longo até voltar ao `1` novamente e visitar o `3`.
+A mesma lógica se aplica na existência de inúmeros vértices. Se, abaixo do vértice número `2` houvessem muitos outros vértices, o backtracking ia percorrer um longo caminho até voltar ao `1` novamente e visitar o `3`.
 
 Nessa representação, também foi visto a ordem de prioridade, visitando o `2` antes do `3`. Se tivéssemos 10 vértices adjacentes, a lógica é a mesma, visitando um por um na ordem de prioridade.
 
@@ -36,7 +36,7 @@ Depois disso, a primeira posição é liberada e a fila anda. E assim, repete ex
 
 <figure><img src="../../../.gitbook/assets/busca em largura.png" alt=""><figcaption></figcaption></figure>
 
-Então perceba que sempre é usado a fila como base para saber quem percorrer e o grafo é apenas utilizado para saber quem é adjancente à quem, para saber quem incluir na fila.
+Então perceba que sempre é usado a fila como base para saber quem percorrer e o grafo é apenas utilizado para saber quem é adjacente à quem, para saber quem incluir na fila.
 
 ## Grafos desconexo
 
