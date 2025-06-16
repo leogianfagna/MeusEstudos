@@ -39,7 +39,7 @@ Muitas vezes não é possível dividir os grupos com apenas uma linha como em pr
 
 ## Perceptron Multi Camadas (MLP)
 
-Usa mais de um perceptron para conseguir fazer divisões precisas, onde <mark style="color:blue;">cada perceptron é responsável por uma região específica</mark>. O conceito de ter entrada de dados processadas em camadas gera o conceito de redes neurais. A MLP é definida quando todos os perceptrons e entradas estão conectados com todos os outros da camada anterior e posterior.
+Usa mais de um perceptron (ou chamamos de neurônio artificial) para conseguir fazer divisões precisas, onde <mark style="color:blue;">cada perceptron é responsável por uma região específica</mark>. O conceito de ter entrada de dados processadas em camadas gera o conceito de redes neurais. A MLP é definida quando todos os perceptrons e entradas estão conectados com todos os outros da camada anterior e posterior.
 
 A rede será formada por três camadas, cada camada representada por uma cor, e os círculos são os neurônios. Significa que podemos ter infinitos neurônios por camada, mas as camadas podem ter suas limitações:
 
@@ -51,11 +51,81 @@ A rede será formada por três camadas, cada camada representada por uma cor, e 
 
 ### Função dos neurônios
 
-Cada neurônio é como se fosse um aluno em um projeto: tem a sua respectiva função. Um neurônio fica responsável por detectar círculos e outro por retas. Esses neurônios precisam da ajuda do neurônio de saída para detectar que essas formas são na verdade um rosto, pois a camada de saída ajusta os pesos com <mark style="color:purple;">backpropagation</mark>.
+Cada neurônio é como se fosse um aluno em um projeto: tem a sua respectiva função. Um neurônio fica responsável por detectar círculos e outro por retas.&#x20;
 
-Então a camada de saída agora faz a predição e compara com o resultado final, calculando um erro. Esse erro é propagado no caminho de volta, fazendo com que o gradiente descendente ajuste seus devidos pesos (baseado no erro de toda a rede).&#x20;
+Os neurônios fazem transformação linear na entrada (a fórmula mostrada no perceptron), que é a combinação ponderada das entradas somado com o viés. Recapitulando, uma transformação linear resulta em uma reta, não podendo separar grupos complexos. Para conseguir uma transformação não linear, esse resultado é passado para uma função de ativação.
 
-### Variação de parâmetros
+### Função de ativação
+
+A função de ativação pega o resultado da transformação linear (chamamos de `z`) e joga em sua própria fórmula. Essa transformação não linear é capaz de criar retas e curvas. Ela <mark style="color:blue;">resulta em um dado matemático, usado para passar informação adiante</mark> e que seu significado [depende do tipo de função ativação utilizado](#user-content-fn-4)[^4].
+
+Se esse neurônio estiver na camada de saída, esse resultado matemático é a saída da rede (a predição). Esse valor de saída será comparado com o valor real, calculando um erro, seguindo para o passo de <mark style="color:purple;">backpropagation</mark>.
+
+#### Função de etapa binária
+
+Essa função é apenas para aprender teoria, que é a função usada no modelo do Perceptron no surgimento dele. É uma função que resulta em zero ou um, criando uma função degrau. Por isso que elas não conseguem resolver problemas não linearmente separáveis, pois são retas.
+
+A derivada de uma função degrau é zero, pois não há inclinação. Por conta disso, a função degrau não fornece gradiente útil, e como o gradiente é a base matemática para o ajuste dos pesos durante o treinamento, redes modernas usam gradiente contínuo e útil.
+
+#### Função linear
+
+É raramente usada em camadas ocultas, pois a derivada de uma função linear é uma constante. Isso quer dizer que o gradiente seria o mesmo em todo o backpropagation. Se o gradiente é o mesmo, não teremos melhora no erro.
+
+Então a saída com essa função é uma transformação linear da entrada, o que pode ser útil para algoritmos simples de separação linear.
+
+#### Sigmóide
+
+
+
+### Backpropagation
+
+durante o backpropagation, as atualizações dos pesos são influenciadas pelo gradiente da função de ativação.
+
+
+
+### Gradiente descendente
+
+É um valor calculado que indica qual direção e quanto deve-se mudar os pesos para reduzir o erro gerado. Com isso, ele pode indicar quanto a saída da rede muda em relação a uma pequena mudança nos pesos, pois ele é uma derivada de um monte de funções.
+
+{% hint style="info" %}
+## Matematicamente falando
+
+Matematicamente, o gradiente envolve a derivada da função de perda, derivada da ativação, e derivada da transformação linear (pelo peso).
+{% endhint %}
+
+O gradiente responde depois do backpropagation: Se eu mudar um pouco este peso, o erro da rede vai aumentar ou diminuir? E quanto?
+
+Como dito, os pesos começam com valores aleatórios então devem ser ajustados usando gradiente descendente, um mecanismo que ajuda o perceptron a aprender que faz as seguintes ações:
+
+1. Calcula a saída.
+2. Compara com o valor real.
+3. Calcula o erro.
+4. **Atualiza os pesos para reduzir o erro**.
+
+Após fazer uma previsão, pode-se medir o erro comparando a saída prevista com o valor real (rótulo). Toda vez que o modelo erra, o gradiente descendente entra em ação para corrigir/minizar o erro. Com aplicação tipo `batch`, ele é aplicado após todos os dados de treino (mais estável porém mais lento).
+
+#### Erro em função do peso
+
+O erro é uma curva que parece uma parábola em um gráfico, onde consequentemente o menor erro fica no ponto mais em baixo que é a descida (por isso chamado de descendente).
+
+<figure><img src="../../../../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+
+A derivada da função do erro consegue resgatar a inclinação da reta naquele ponto e nisso podemos concluir para onde temos que andar, pois a derivada é zero no ponto mínimo e derivadas zero formam uma reta totalmente horizontal. Portanto, se a reta tem alguma inclinação:
+
+* Baixo: quer dizer que precisamos avançar o ponto.
+* Cima: quer dizer que precisamos recuar o ponto.
+
+<figure><img src="../../../../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+
+#### Fator de aprendizado
+
+Vendo que precisamos mover o peso para atingir o menor erro, o fator de aprendizado é o tamanho do passo dado até a descida. Passos muito largos vai fazer com que sempre passe o menor ponto e passos curtos vai custar na otimização do algoritmo.
+
+Esse é um exemplo final de perceptron fazendo divisão de grupos:
+
+<figure><img src="../../../../../.gitbook/assets/image (2).png" alt="" width="309"><figcaption></figcaption></figure>
+
+### Aplicação prática e variação de parâmetros
 
 A variação da camada escondida ajuda na detecção de padrões, mas tem que tomar cuidado com o overfitting. Esses números representam quantos neurônios em cada camada escondida, então números agregados quer dizer mais de uma camada.
 
@@ -93,13 +163,13 @@ Podemos definir a cada quantas amostras de treino o algoritmo vai fazer a atuali
 'batch_size': [8, 16, 32, 64]
 ```
 
-Por fim, algo já visto em validação, o embaralhamento de dados a [cada época](#user-content-fn-4)[^4] para evitar decorar ordem de dados com shuffle. Não embaralhar pode ser bom para dados que podem ser afetados por sequências temporais.
+Por fim, algo já visto em validação, o embaralhamento de dados a [cada época](#user-content-fn-5)[^5] para evitar decorar ordem de dados com shuffle. Não embaralhar pode ser bom para dados que podem ser afetados por sequências temporais.
 
 ```python
 'shuffle': [True, False]
 ```
 
-### Aplicação do resto do algoritmo
+#### Aplicação do resto do algoritmo
 
 Define o máximo de épocas. 1000 significa que o modelo pode passar até mil vezes pelos dados de treino, mas se convergir antes, o modelo vai parar. Convergir significa que em X iterações (podendo ser definido no parâmetro n\_iter\_no\_change) não ter melhora significativa no F1-score, o modelo é interrompido automaticamente.&#x20;
 
@@ -121,42 +191,12 @@ grid_search_mlp = GridSearchCV(
 grid_search_mlp.fit(X_train, y_train)
 ```
 
-### Gradiente descendente
-
-Como dito, os pesos começam com valores aleatórios então devem ser ajustados usando gradiente descendente, um mecanismo que ajuda o perceptron a aprender que faz as seguintes ações:
-
-1. Calcula a saída.
-2. Compara com o valor real.
-3. Calcula o erro.
-4. **Atualiza os pesos para reduzir o erro**.
-
-Após fazer uma previsão, pode-se medir o erro comparando a saída prevista com o valor real (rótulo). Toda vez que o modelo erra, o gradiente descendente entra em ação para corrigir/minizar o erro. Com aplicação tipo `batch`, ele é aplicado após todos os dados de treino (mais estável porém mais lento).
-
-#### Erro em função do peso
-
-O erro é uma curva que parece uma parábola em um gráfico, onde consequentemente o menor erro fica no ponto mais em baixo que é a descida (por isso chamado de descendente).
-
-<figure><img src="../../../../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
-
-A derivada da função do erro consegue resgatar a inclinação da reta naquele ponto e nisso podemos concluir para onde temos que andar, pois a derivada é zero no ponto mínimo e derivadas zero formam uma reta totalmente horizontal. Portanto, se a reta tem alguma inclinação:
-
-* Baixo: quer dizer que precisamos avançar o ponto.
-* Cima: quer dizer que precisamos recuar o ponto.
-
-<figure><img src="../../../../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
-
-#### Fator de aprendizado
-
-Vendo que precisamos mover o peso para atingir o menor erro, o fator de aprendizado é o tamanho do passo dado até a descida. Passos muito largos vai fazer com que sempre passe o menor ponto e passos curtos vai custar na otimização do algoritmo.
-
-Esse é um exemplo final de perceptron fazendo divisão de grupos:
-
-<figure><img src="../../../../../.gitbook/assets/image (2).png" alt="" width="309"><figcaption></figcaption></figure>
-
 [^1]: Retorna zero ou um.
 
 [^2]: Sinal/dendrito do neurônio, que é constantemente igual a 1 e estará associado a um    &#x20;peso 𝑊b.
 
 [^3]: Colunas da base de dados sem contar o rótulo.
 
-[^4]: Ciclo completo de treino.
+[^4]: Os tipos de ativação são especificados adiante. Cada um deles é usado com um propósito diferente, por isso fica difícil definir certamente.
+
+[^5]: Ciclo completo de treino.
