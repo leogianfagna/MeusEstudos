@@ -93,7 +93,7 @@ Quando imputamos por vizinhança, nossa suposição é que amostras similares t�
 
 Vamos primeiro colocar os dados em pontos dispersos em um gráfico. Vamos supor que no nosso dado nulo não temos a altura, consequentemente, não é possível imprirmir o ponto em um gráfico altura x peso. Por conta disso, dispersamos os pontos em um gráfico peso x peso.
 
-<figure><img src="../../.gitbook/assets/image.png" alt="" width="539"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2).png" alt="" width="539"><figcaption></figcaption></figure>
 
 {% hint style="warning" %}
 ## Necessidade de normalização e redução de dimensionalidade antes da dispersão

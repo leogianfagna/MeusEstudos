@@ -31,7 +31,7 @@ Essa fórmula gera <mark style="color:blue;">**uma reta**</mark> no plano cartes
 * Ao alterar o peso Wb, a angulatura desta reta se altera.
 * Ao alterar o viés[^2], mudamos por onde a reta passa. Caso contrário, ela passa pela origem (0,0).
 
-<figure><img src="../../../../../.gitbook/assets/image (1).png" alt="" width="263"><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (1) (2).png" alt="" width="263"><figcaption></figcaption></figure>
 
 Essa linha é usada para separar os grupos em seus cortes. Alteraramos o peso ou o viés para ir ajustando as linhas e fazer cortes precisos na separação dos grupos. Em resumo, <mark style="color:blue;">cada linha é um neurônio/perceptron</mark>.
 
@@ -41,7 +41,7 @@ Muitas vezes não é possível dividir os grupos com apenas uma linha como em pr
 
 Usa mais de um perceptron (ou chamamos de neurônio artificial) para conseguir fazer divisões precisas, onde <mark style="color:blue;">cada perceptron é responsável por uma região específica</mark>. O conceito de ter entrada de dados processadas em camadas gera o conceito de redes neurais. A MLP é definida quando todos os perceptrons e entradas estão conectados com todos os outros da camada anterior e posterior.
 
-A rede será formada por três camadas, cada camada representada por uma cor, e os círculos são os neurônios. Significa que podemos ter infinitos neurônios por camada, mas as camadas podem ter suas limitações:
+A rede será formada por três camadas, cada camada representada por uma cor, e os círculos são os neurônios:
 
 * Camada de entrada: Não há neurônios, apenas as entradas de dados e o total é o número de features[^3]. Eles só repassam o dado e só pode haver uma única camada de entrada.
 * Camada de saída: O número de neurônios é o número de classes que podem haver nos rótulos. Também apenas uma camada.
@@ -53,7 +53,7 @@ A rede será formada por três camadas, cada camada representada por uma cor, e 
 
 Cada neurônio é como se fosse um aluno em um projeto: tem a sua respectiva função. Um neurônio fica responsável por detectar círculos e outro por retas.&#x20;
 
-Os neurônios fazem transformação linear na entrada (a fórmula mostrada no perceptron), que é a combinação ponderada das entradas somado com o viés. Recapitulando, uma transformação linear resulta em uma reta, não podendo separar grupos complexos. Para conseguir uma transformação não linear, esse resultado é passado para uma função de ativação.
+Os neurônios fazem transformação linear na entrada (a fórmula mostrada no perceptron), que é a combinação ponderada das entradas somado com o viés. Recapitulando, uma transformação linear resulta em uma reta, não podendo separar grupos complexos. Para conseguir uma transformação não linear, esse resultado é passado para uma <mark style="color:purple;">função de ativação</mark>.
 
 ### Função de ativação
 
@@ -61,21 +61,49 @@ A função de ativação pega o resultado da transformação linear (chamamos de
 
 Se esse neurônio estiver na camada de saída, esse resultado matemático é a saída da rede (a predição). Esse valor de saída será comparado com o valor real, calculando um erro, seguindo para o passo de <mark style="color:purple;">backpropagation</mark>.
 
+<figure><img src="../../../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
 #### Função de etapa binária
 
 Essa função é apenas para aprender teoria, que é a função usada no modelo do Perceptron no surgimento dele. É uma função que resulta em zero ou um, criando uma função degrau. Por isso que elas não conseguem resolver problemas não linearmente separáveis, pois são retas.
 
 A derivada de uma função degrau é zero, pois não há inclinação. Por conta disso, a função degrau não fornece gradiente útil, e como o gradiente é a base matemática para o ajuste dos pesos durante o treinamento, redes modernas usam gradiente contínuo e útil.
 
-#### Função linear
+#### Função linear `identity`
 
 É raramente usada em camadas ocultas, pois a derivada de uma função linear é uma constante. Isso quer dizer que o gradiente seria o mesmo em todo o backpropagation. Se o gradiente é o mesmo, não teremos melhora no erro.
 
 Então a saída com essa função é uma transformação linear da entrada, o que pode ser útil para algoritmos simples de separação linear.
 
-#### Sigmóide
+#### Sigmóide `logistic`
 
+Essa função amplamente utilizada varia dos valores de zero a um e faz um formato de S, que pode ser entendida como o fato de tentar empurrar os valores resultantes para a extremidade, o que facilita a identificação de classes. Portanto, lembra a função binária mas não é linear e existe sim seu gradiente.
 
+O problema dessa função é que ela pode tornar o gradiente muito pequeno quando o valor está muito próximo de zero ou um (pois é um S e quase não tem inclinações). O gradiente que é um fator de 3 valores incluindo a função ativação, se multiplicado a uma função ativação muito baixa, consequentemente se torna pequeno.
+
+O problema do gradiente baixo é que ele não é capaz de ajustar pesos (gradiente baixo ≠ erro baixo). Com o gradiente baixo, o erro não muda muito mesmo ajustando os pesos. Veja matematicamente:
+
+> Erro = 12
+>
+> Wnovo = (w - n) \* gradiente
+>
+> Deltaw = (0.1) \* 0.00001 = 0.000001 -> Veja que o peso não mudou quase nada.
+
+#### Tanh `tanh`
+
+Funciona de forma igual à sigmóide mas deixa simétrico em relação à origem, então varia de -1 até 1, resolvendo o problema dos valores não podendo ser negativos.
+
+Não ter negativos pode ser um problema. A possibilidade de poder ter resultados negativos permite que os pesos possam se ajustar de forma livre, para cima ou para baixo dependendo da direção do erro. Além disso, ter um intervalo menor ajuda no problema de gradientes pequenos, o que também são chamados de vanishing gradients.
+
+#### ReLu `relu`
+
+É a função mais popular atualmente, pois o fluxo matemático dela favorece os gradientes e é bem simples: se o resultado dessa função ativação for negativo, a derivada da relu será `0` e caso contrário será exatamente igual a `1`.
+
+O valor de zero vai inibir que neurônios irrelevantes participem do aprendizado, evitando perda de tempo ajustando peso de neurônios mortos. E quando está na parte positiva, não atrapalha o gradiente pois ele é igual a 1 e qualquer coisa multiplicada a 1 dá ele mesmo.&#x20;
+
+<figure><img src="../../../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+O gradiente sendo igual a 1 indica ser muito mais forte e permite um fluxo mais saudável no backpropagation.
 
 ### Backpropagation
 
@@ -85,7 +113,7 @@ durante o backpropagation, as atualizações dos pesos são influenciadas pelo g
 
 ### Gradiente descendente
 
-É um valor calculado que indica qual direção e quanto deve-se mudar os pesos para reduzir o erro gerado. Com isso, ele pode indicar quanto a saída da rede muda em relação a uma pequena mudança nos pesos, pois ele é uma derivada de um monte de funções.
+É o método para <mark style="color:blue;">ajustar os pesos de entrada para minimizar o erro</mark> (erro gerado pela rede, a função de perda). É um valor calculado que indica qual direção e quanto deve-se mudar os pesos para reduzir o erro gerado. Com isso, ele pode indicar quanto a saída da rede muda em relação a uma pequena mudança nos pesos, pois ele é uma derivada de um monte de funções.
 
 {% hint style="info" %}
 ## Matematicamente falando
@@ -123,7 +151,7 @@ Vendo que precisamos mover o peso para atingir o menor erro, o fator de aprendiz
 
 Esse é um exemplo final de perceptron fazendo divisão de grupos:
 
-<figure><img src="../../../../../.gitbook/assets/image (2).png" alt="" width="309"><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (2) (2).png" alt="" width="309"><figcaption></figcaption></figure>
 
 ### Aplicação prática e variação de parâmetros
 
