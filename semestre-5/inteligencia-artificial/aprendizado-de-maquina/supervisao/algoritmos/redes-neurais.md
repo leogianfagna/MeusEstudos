@@ -113,7 +113,32 @@ durante o backpropagation, as atualizações dos pesos são influenciadas pelo g
 
 ### Gradiente descendente
 
-É o método para <mark style="color:blue;">ajustar os pesos de entrada para minimizar o erro</mark> (erro gerado pela rede, a função de perda). É um valor calculado que indica qual direção e quanto deve-se mudar os pesos para reduzir o erro gerado. Com isso, ele pode indicar quanto a saída da rede muda em relação a uma pequena mudança nos pesos, pois ele é uma derivada de um monte de funções.
+Cada neurônio tem a sua entrada de pesos e a modificação de pesos vai alterar o erro da rede (a tal função de perda). Ou seja, alterar os pesos corretamente vão fazer com que o erro melhore e o modelo aprenda.
+
+Agora que temos o valor desse erro, calculado nos neurônios de saída, o gradiente descendente é o método para <mark style="color:blue;">ajustar os pesos da entrada para minimizar esse erro</mark>. Ele é executado dentro de cada neurônio, pois o gradiente é a <mark style="color:blue;">derivada da função de perda em relação ao peso respectivo daquele neurônio</mark>. Mas o que esse valor quer dizer?
+
+!!! IMAGEM DO aL/aW (se mudar isso, vai afetar isso)
+
+A função de perda (erro total da rede) é um gráfico de uma curva que remete a uma parábola, onde consequentemente o menor erro fica no ponto mais em baixo que é a descida (por isso chamado de descendente). Podemos achar esse erro pois a derivada no menor ponto é igual a zero.
+
+<figure><img src="../../../../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+
+O resultado de gradiente descendente é um número que <mark style="color:blue;">indica a inclinação do ponto atual do peso</mark> em relação a essa curva. Sabendo dessa inclinação, sabemos qual a direção que o ponto precisa caminhar para alcançar a derivada zero, que é o ponto mínimo. A derivada é zero pois no ponto mínimo ela forma uma reta. Portanto, se a reta tem alguma inclinação:
+
+* Baixo: quer dizer que precisamos avançar o ponto.
+* Cima: quer dizer que precisamos recuar o ponto.
+
+<figure><img src="../../../../../.gitbook/assets/image (8).png" alt="" width="563"><figcaption></figcaption></figure>
+
+Sabendo dessa direção, o ponto vai caminhar. O modelo vai resgatar o learning rate, que é o tamanho do passo, e andar um montante em direção ao ponto de inflexão, o que também significa ajustar o peso.
+
+<figure><img src="../../../../../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
+
+!!! IMAGEM ANDANDO NO GRÁFICO
+
+Então esse peso foi ajustado. Se o peso mudou, segue em frente com a rede neural (o mesmo ciclo inicial), até chegar nas camadas de saída, gerar um novo erro e repetir esse processo novamente. Basicamente, o gradiente responde depois do backpropagation: se eu mudar um pouco este peso, o erro da rede vai aumentar ou diminuir? E quanto?
+
+!!! IMAGEM DO GRÁFICO DO MEU PAPEL, aL/aW = 0
 
 {% hint style="info" %}
 ## Matematicamente falando
@@ -121,29 +146,18 @@ durante o backpropagation, as atualizações dos pesos são influenciadas pelo g
 Matematicamente, o gradiente envolve a derivada da função de perda, derivada da ativação, e derivada da transformação linear (pelo peso).
 {% endhint %}
 
-O gradiente responde depois do backpropagation: Se eu mudar um pouco este peso, o erro da rede vai aumentar ou diminuir? E quanto?
+#### Solver
 
-Como dito, os pesos começam com valores aleatórios então devem ser ajustados usando gradiente descendente, um mecanismo que ajuda o perceptron a aprender que faz as seguintes ações:
+Decide como aplicar o gradiente descendente, mas independente das formas, usam o valor resultado pelo cálculo do gradiente, o que muda é o depois.
 
-1. Calcula a saída.
-2. Compara com o valor real.
-3. Calcula o erro.
-4. **Atualiza os pesos para reduzir o erro**.
+* SGD (Stochastic Gradient Descent) é o método clássico e tradicional, visto acima.
+* ADAM é um modelo que ajusta o learning rate.
 
-Após fazer uma previsão, pode-se medir o erro comparando a saída prevista com o valor real (rótulo). Toda vez que o modelo erra, o gradiente descendente entra em ação para corrigir/minizar o erro. Com aplicação tipo `batch`, ele é aplicado após todos os dados de treino (mais estável porém mais lento).
+O método ADAM é menos sensível à escolha do learning rate. Seu principal trabalho é ajustar o fator de aprendizagem baseado no contexto. Ele é um dos modelos mais usados por ser muito mais rápido, já que ajusta, fica mais rápido de convergir.
 
-#### Erro em função do peso
+O learning rate base não é alterado, ele inicia naquele valor e modula automaticamente os tamanhos do passo. Esse ajuste é para cada peso individualmente. Com uma lógica básica, se o gradiente for estável vai aumentando o passo e ser for instável diminui.
 
-O erro é uma curva que parece uma parábola em um gráfico, onde consequentemente o menor erro fica no ponto mais em baixo que é a descida (por isso chamado de descendente).
-
-<figure><img src="../../../../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
-
-A derivada da função do erro consegue resgatar a inclinação da reta naquele ponto e nisso podemos concluir para onde temos que andar, pois a derivada é zero no ponto mínimo e derivadas zero formam uma reta totalmente horizontal. Portanto, se a reta tem alguma inclinação:
-
-* Baixo: quer dizer que precisamos avançar o ponto.
-* Cima: quer dizer que precisamos recuar o ponto.
-
-<figure><img src="../../../../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+Basicamente, ajusta baseado no passo que deveria dar. E ele faz isso usando médias: histórico da média dos gradientes e a variância desse histórico.
 
 #### Fator de aprendizado
 
@@ -152,6 +166,23 @@ Vendo que precisamos mover o peso para atingir o menor erro, o fator de aprendiz
 Esse é um exemplo final de perceptron fazendo divisão de grupos:
 
 <figure><img src="../../../../../.gitbook/assets/image (2) (2).png" alt="" width="309"><figcaption></figcaption></figure>
+
+### Batch size
+
+O **batch size** define a quantidade de amostras que a rede neural processa antes de realizar uma atualização dos pesos durante o treinamento. Em vez de calcular o gradiente e ajustar os pesos após cada exemplo individual, o modelo agrupa um número específico de exemplos (o batch), calcula a média da perda e dos gradientes sobre esse grupo, e só então atualiza os pesos.
+
+Isso ajuda a equilibrar o custo computacional e a estabilidade do treinamento, permitindo que o modelo faça atualizações mais frequentes (se o batch for pequeno) ou gradientes mais estáveis (se o batch for maior), controlando a velocidade e a qualidade do aprendizado.
+
+O segundo batch inicia com os pesos calculados para o primeiro batch. Então o segundo batch vai para as camadas de entrada com os pesos calculados para o batch 1 e assim sucessivamente. Um batch não se junta com o outro.
+
+O `max_iter` são os ciclos/épocas. Significa quantas vezes o processo **completo** irá se repetir até ser encerrado, ou se convergir primeiro com `early_stopping`. Se temos 100 `batchs` e 1000 `max_iter`:
+
+* Isso quer dizer que vamos mandar o batch 1 até o 100, isso será o max\_iter 1 ou primeiro ciclo.
+* Repetir esse MESMO processo, iniciando do batch, mais 999 vezes.
+
+### Regularização
+
+Representado pelo parâmetro alpha α é uma técnica para combater overfitting.&#x20;
 
 ### Aplicação prática e variação de parâmetros
 

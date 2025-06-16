@@ -311,6 +311,7 @@
   * [Aprendizado de máquina](semestre-5/inteligencia-artificial/aprendizado-de-maquina/README.md)
     * [Dados rotulados](semestre-5/inteligencia-artificial/aprendizado-de-maquina/dados-rotulados.md)
     * [Pré processamento dos dados](semestre-5/inteligencia-artificial/aprendizado-de-maquina/pre-processamento-dos-dados.md)
+    * [Overfitting](semestre-5/inteligencia-artificial/aprendizado-de-maquina/overfitting.md)
     * [Não supervisão](semestre-5/inteligencia-artificial/aprendizado-de-maquina/nao-supervisao/README.md)
       * [Definição](semestre-5/inteligencia-artificial/aprendizado-de-maquina/nao-supervisao/definicao.md)
       * [Agrupamento particional](semestre-5/inteligencia-artificial/aprendizado-de-maquina/nao-supervisao/agrupamento-particional.md)
