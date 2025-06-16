@@ -1,5 +1,7 @@
 # Redes neurais
 
+Uma rede neural é um mecanismo de aprendizado que imita como um cérebro humano aprende. O cérebro recebe o estímulo do mundo exterior, faz o processamento e gera o resultado. À medida que a tarefa se torna complicada, vários neurônios formam uma rede complexa, transmitindo informações entre si. Portanto, a rede neural artificial imita um comportamento semelhante.
+
 ## Perceptron
 
 As redes neurais usam um modelo computacional de neurônio chamado&#x20;Perceptron. Ele é uma estrutura inspirada em um neurônio (entrada de sinal e ativação), que resulta em **zero ou um**, que tenta <mark style="color:blue;">decidir se uma entrada pertence a uma classe ou não</mark>.
@@ -34,38 +36,6 @@ Essa fórmula gera <mark style="color:blue;">**uma reta**</mark> no plano cartes
 Essa linha é usada para separar os grupos em seus cortes. Alteraramos o peso ou o viés para ir ajustando as linhas e fazer cortes precisos na separação dos grupos. Em resumo, <mark style="color:blue;">cada linha é um neurônio/perceptron</mark>.
 
 Muitas vezes não é possível dividir os grupos com apenas uma linha como em problemas do tipo XOR, então podemos usar o modelo MLP de redes neurais, que utiliza mais linhas para criar novas divisões. Curiosidade: não pensar em usar duas linhas foi o que travou o desenvolvimento da IA a muitos anos atrás.
-
-### Gradiente descendente
-
-Como dito, os pesos começam com valores aleatórios então devem ser ajustados usando gradiente descendente, um mecanismo que ajuda o perceptron a aprender que faz as seguintes ações:
-
-1. Calcula a saída.
-2. Compara com o valor real.
-3. Calcula o erro.
-4. **Atualiza os pesos para reduzir o erro**.
-
-Após fazer uma previsão, pode-se medir o erro comparando a saída prevista com o valor real (rótulo). Toda vez que o modelo erra, o gradiente descendente entra em ação para corrigir/minizar o erro. Com aplicação tipo `batch`, ele é aplicado após todos os dados de treino (mais estável porém mais lento).
-
-#### Erro em função do peso
-
-O erro é uma curva que parece uma parábola em um gráfico, onde consequentemente o menor erro fica no ponto mais em baixo que é a descida (por isso chamado de descendente).
-
-<figure><img src="../../../../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
-
-A derivada da função do erro consegue resgatar a inclinação da reta naquele ponto e nisso podemos concluir para onde temos que andar, pois a derivada é zero no ponto mínimo e derivadas zero formam uma reta totalmente horizontal. Portanto, se a reta tem alguma inclinação:
-
-* Baixo: quer dizer que precisamos avançar o ponto.
-* Cima: quer dizer que precisamos recuar o ponto.
-
-<figure><img src="../../../../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
-
-#### Fator de aprendizado
-
-Vendo que precisamos mover o peso para atingir o menor erro, o fator de aprendizado é o tamanho do passo dado até a descida. Passos muito largos vai fazer com que sempre passe o menor ponto e passos curtos vai custar na otimização do algoritmo.
-
-Esse é um exemplo final de perceptron fazendo divisão de grupos:
-
-<figure><img src="../../../../../.gitbook/assets/image (2).png" alt="" width="309"><figcaption></figcaption></figure>
 
 ## Perceptron Multi Camadas (MLP)
 
@@ -150,6 +120,38 @@ grid_search_mlp = GridSearchCV(
 )
 grid_search_mlp.fit(X_train, y_train)
 ```
+
+### Gradiente descendente
+
+Como dito, os pesos começam com valores aleatórios então devem ser ajustados usando gradiente descendente, um mecanismo que ajuda o perceptron a aprender que faz as seguintes ações:
+
+1. Calcula a saída.
+2. Compara com o valor real.
+3. Calcula o erro.
+4. **Atualiza os pesos para reduzir o erro**.
+
+Após fazer uma previsão, pode-se medir o erro comparando a saída prevista com o valor real (rótulo). Toda vez que o modelo erra, o gradiente descendente entra em ação para corrigir/minizar o erro. Com aplicação tipo `batch`, ele é aplicado após todos os dados de treino (mais estável porém mais lento).
+
+#### Erro em função do peso
+
+O erro é uma curva que parece uma parábola em um gráfico, onde consequentemente o menor erro fica no ponto mais em baixo que é a descida (por isso chamado de descendente).
+
+<figure><img src="../../../../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+
+A derivada da função do erro consegue resgatar a inclinação da reta naquele ponto e nisso podemos concluir para onde temos que andar, pois a derivada é zero no ponto mínimo e derivadas zero formam uma reta totalmente horizontal. Portanto, se a reta tem alguma inclinação:
+
+* Baixo: quer dizer que precisamos avançar o ponto.
+* Cima: quer dizer que precisamos recuar o ponto.
+
+<figure><img src="../../../../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+
+#### Fator de aprendizado
+
+Vendo que precisamos mover o peso para atingir o menor erro, o fator de aprendizado é o tamanho do passo dado até a descida. Passos muito largos vai fazer com que sempre passe o menor ponto e passos curtos vai custar na otimização do algoritmo.
+
+Esse é um exemplo final de perceptron fazendo divisão de grupos:
+
+<figure><img src="../../../../../.gitbook/assets/image (2).png" alt="" width="309"><figcaption></figcaption></figure>
 
 [^1]: Retorna zero ou um.
 
