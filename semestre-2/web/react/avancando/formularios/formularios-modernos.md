@@ -110,4 +110,155 @@ const formData = getValues();
 const currentValue = getValues("user.age");
 ```
 
+## Tabelas
+
+Para a criação de tabelas dinâmicas, acrescenta o contexto `useFieldArray` dessa mesma biblioteca. Ela acrescenta funções de tabela necessárias para controlar basicamente tudo.
+
+{% hint style="info" %}
+## Entendendo o Controller
+
+O Controller é um componente utilitário fornecido pelo react-hook-form para registrar campos de formulário que <mark style="color:orange;">não podem ser controlados diretamente</mark> com o `register`, que são eles elementos controlados por outro elemento que não pertence ao react ou react-hook-form, por exemplo uma tabela virtualizada[^2] ou o próprio useFieldArray[^3].
+
+O control vai servir como comunicador para manter a ligação dos elementos quando exigido.&#x20;
+{% endhint %}
+
+### Ligação entre os fields e o formulário principal
+
+Precisa resgatar o control do useForm para fazer a ligação com o useFieldArray. Neste caso, usa valores default para iniciar a tabela. Caso não existisse, os elementos da tabela iriam exigir a tab `defaultValue`.
+
+No useFiledArray, o campo name condiz com qual campo estamos trabalhando do nosso formulário. Ele precisa ser o mesmo para conseguir fazer as alterações de forma automática.
+
+```jsx
+const { control, register, getValues, setFocus } = useForm({
+  defaultValues: {
+    AdvancedTable: {
+      rows: [emptyLine] // Linhas inseridas aqui
+    },
+  },
+});
+
+const { fields, append, prepend, remove, swap, move, insert } = useFieldArray(
+  {
+    control,
+    name: "Advanced.Correlatos.rows",
+  }
+);
+```
+
+### Inserção do formulário
+
+O elemento `field` que temos no fieldArray consegue resgatar todas as linhas registradas. Por isso, iteramos elas para mostrar todas as existentes. O register precisa receber o local exato de onde o dado se encontra (mesmo esquema com o formulário normal), mas aqui, ele será identificado com um index para saber de qual linha se trata.
+
+```jsx
+<form>
+  <ul>
+    {fields.map((item, index) => (
+      <li key={item.id}>
+        <input {...register(`AdvancedTable.rows.${index}.coluna1`)}/>
+        <input {...register(`AdvancedTable.rows.${index}.coluna2`)}/>
+        <input {...register(`AdvancedTable.rows.${index}.coluna3`)}/>
+      </li>
+    ))}
+  </ul>
+</form>
+```
+
+### Inserção e remoção de linhas
+
+Ver a [documentação do useFieldArray](https://react-hook-form.com/docs/usefieldarray) para saber todos os métodos, eles são poderosos. Mas para fazer a inserção com ENTER ou a remoção com BACKSPACE, basta incluir um evento dentro do input para ficar escutando.
+
+Basicamente, vai usar as funções remove e insert que são <mark style="color:blue;">baseada em posições</mark>. As posições podem ser obtidas pois estão sendo iteradas com map (elas são o index). Usa o evento para descobrir qual tecla usou.
+
+{% hint style="warning" %}
+A inserção de linhas precisa conter o conteúdo da nova linha e obviamente precisa ser a mesma estrutura da tabela (não exige id, que é controlado pelo próprio hook). Foi usado uma variável `emptyLine`, que é um objeto com cada campo vazio `""`.
+{% endhint %}
+
+```jsx
+// Index veio do map, então sabemos qual é a posição da linha em questão no
+// vetor de linhas do formulário
+const handleKeyDown = (e, index) => {
+  if (e.key === "Backspace") {
+    if (!e.target.value && fields.length > 1) {
+      remove(index);
+      
+      // Usar setFocus para focar na linha acima e melhorar a experiência
+      // Como o índice acabou de mudar com remove, o setTimeout "ludibria" e
+      // passa a conseguir acessar a linha correta
+      setTimeout(() => {
+        setFocus(`Advanced.Correlatos.rows.${index - 1}.well`);
+      }, 0);
+    }
+  }
+
+  if (e.key === "Enter") {
+    e.preventDefault();
+    insert(index + 1, emptyLine);
+  }
+};
+
+{fields.map((item, index) => (
+  <input
+      onKeyDown={(e) => handleKeyDown(e, index)}
+      {...register(`Advanced.Correlatos.rows.${index}.${key}`)}
+  />
+))}
+```
+
+### Tabela virtualizada
+
+Quando temos uma tabela virtualizada as coisas mudam, pois as referências são perdidas toda vez que a tabela rodar. Por conta disso, o input puro não pode ser mais usado pois o register não pode ser mais controlado e assim entra o `Controller` (explicado no começo da seção).
+
+Ele já tem a função register puramente dentro dele, por isso não vemos esse método dentro. Dentro do controle, teremos:
+
+* render: Especificamos o que será renderizado, podemos colocar um componente ou inserir os elementos direto. Esse exemplo é com um input direto e algumas classes.
+* name: Campo em que essa linha pertence. Usa rowIndex (número) e columnKey (string) para identificar qual a linha e qual é o campo dentro do objeto.
+* control: Passa o objeto control para fazer a ligação.
+
+{% hint style="info" %}
+## Linha de uma tabela
+
+A linha de uma tabela é representada com um objeto:
+
+![](../../../../../.gitbook/assets/image.png)
+
+Por isso, no name é  necessário especificar o objeto a ser modificado (usamos columnKey, que resgata o nome correto através de um objeto de tradução):
+
+
+
+```jsx
+// Variável global
+const colIndexTranslater = {
+  0: "well",
+  1: "skin",
+  2: "perm",
+  3: "year",
+};
+
+// E na renderização do componente
+{({ columnIndex, rowIndex, style }) => {
+  const columnKey = colIndexTranslater[columnIndex];
+```
+{% endhint %}
+
+```jsx
+<Controller
+  render={({ field }) => (
+    <input
+      {...field}
+      onKeyDown={(e) =>
+        handleKeyDown(e, rowIndex, columnKey)
+      }
+      className="table-value-input"
+      type="text"
+    />
+  )}
+  name={`Advanced.Correlatos.rows.${rowIndex}.${columnKey}`}
+  control={control}
+/>
+```
+
 [^1]: Apenas nos casos de componentes separados, como dito acima.
+
+[^2]: É controlado pelo virtualize. O grid (criador da tabela virtual), quebra a conexão direta do register pois fica recriando, exigindo um controle mais complexo.
+
+[^3]: Salva objetos internamente, em um estado chamado de oculto.

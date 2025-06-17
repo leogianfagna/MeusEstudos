@@ -61,7 +61,7 @@ A função de ativação pega o resultado da transformação linear (chamamos de
 
 Se esse neurônio estiver na camada de saída, esse resultado matemático é a saída da rede (a predição). Esse valor de saída será comparado com o valor real, calculando um erro, seguindo para o passo de <mark style="color:purple;">backpropagation</mark>.
 
-<figure><img src="../../../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### Função de etapa binária
 
@@ -101,7 +101,7 @@ Não ter negativos pode ser um problema. A possibilidade de poder ter resultados
 
 O valor de zero vai inibir que neurônios irrelevantes participem do aprendizado, evitando perda de tempo ajustando peso de neurônios mortos. E quando está na parte positiva, não atrapalha o gradiente pois ele é igual a 1 e qualquer coisa multiplicada a 1 dá ele mesmo.&#x20;
 
-<figure><img src="../../../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 O gradiente sendo igual a 1 indica ser muito mais forte e permite um fluxo mais saudável no backpropagation.
 
